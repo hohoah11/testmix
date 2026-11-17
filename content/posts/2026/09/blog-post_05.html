@@ -1,0 +1,3175 @@
+<!-- =========================================================
+레노먼드타로 무료 점괘
+Google Blogger 안전 최종본
+특수문자 엔티티 깨짐 제거
+36장 / 효과음 / 결과 카드 확대 / SEO / FAQ
+========================================================= -->
+
+<style>
+#lenormand-app,
+#lenormand-app *,
+#lenormand-seo,
+#lenormand-seo * {
+  box-sizing: border-box;
+}
+
+#lenormand-app,
+#lenormand-seo {
+  font-family:
+    Arial,
+    "Malgun Gothic",
+    "맑은 고딕",
+    "Apple SD Gothic Neo",
+    sans-serif;
+}
+
+#lenormand-app {
+  --ln-green: #294f3f;
+  --ln-deep: #17372e;
+  --ln-gold: #b98a32;
+  --ln-text: #29261f;
+
+  position: relative;
+  width: 100%;
+  max-width: 860px;
+  margin: 24px auto;
+  overflow: hidden;
+
+  border: 1px solid #d9caa8;
+  border-radius: 24px;
+
+  background:
+    radial-gradient(circle at 10% 0%, rgba(255,255,255,.92), transparent 28%),
+    radial-gradient(circle at 90% 15%, rgba(232,211,160,.34), transparent 32%),
+    linear-gradient(180deg, #fffaf0 0%, #f4e6c8 100%);
+
+  box-shadow: 0 18px 50px rgba(71,49,20,.14);
+
+  color: #29261f !important;
+  -webkit-text-fill-color: #29261f !important;
+}
+
+#lenormand-app h1,
+#lenormand-app h2,
+#lenormand-app h3,
+#lenormand-app h4,
+#lenormand-app p,
+#lenormand-app span,
+#lenormand-app div,
+#lenormand-app button {
+  font-family:
+    Arial,
+    "Malgun Gothic",
+    "맑은 고딕",
+    "Apple SD Gothic Neo",
+    sans-serif;
+}
+
+
+/* =========================================================
+화면
+========================================================= */
+
+.ln-screen {
+  display: none;
+  min-height: 620px;
+  padding: 34px 24px 40px;
+}
+
+.ln-screen.active {
+  display: block;
+  animation: lnFade .38s ease both;
+}
+
+@keyframes lnFade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================================================
+첫 화면
+========================================================= */
+
+.ln-eyebrow {
+  margin-bottom: 10px;
+  text-align: center;
+
+  color: #9b7430 !important;
+  -webkit-text-fill-color: #9b7430 !important;
+
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .17em;
+}
+
+#lenormand-app .ln-title {
+  margin: 0;
+
+  text-align: center;
+
+  color: #24483b !important;
+  -webkit-text-fill-color: #24483b !important;
+
+  font-size: 34px;
+  line-height: 1.3;
+  font-weight: 900;
+}
+
+.ln-title-small {
+  display: block;
+  margin-top: 8px;
+
+  color: #a07831 !important;
+  -webkit-text-fill-color: #a07831 !important;
+
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.ln-subtitle {
+  max-width: 600px;
+  margin: 13px auto 0;
+
+  text-align: center;
+
+  color: #665f53 !important;
+  -webkit-text-fill-color: #665f53 !important;
+
+  font-size: 14px;
+  line-height: 1.85;
+  word-break: keep-all;
+}
+
+
+/* =========================================================
+첫 화면 카드 장식
+문자 기호를 사용하지 않고 CSS만 사용
+========================================================= */
+
+.ln-symbol-orbit {
+  position: relative;
+
+  width: 220px;
+  height: 220px;
+
+  margin: 28px auto 22px;
+
+  border: 1px solid rgba(185,138,50,.38);
+  border-radius: 50%;
+}
+
+.ln-symbol-orbit:before,
+.ln-symbol-orbit:after {
+  content: "";
+
+  position: absolute;
+
+  border: 1px solid rgba(185,138,50,.20);
+  border-radius: 50%;
+}
+
+.ln-symbol-orbit:before {
+  inset: 17px;
+}
+
+.ln-symbol-orbit:after {
+  inset: 38px;
+}
+
+.ln-symbol-center {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  width: 110px;
+  height: 160px;
+
+  transform: translate(-50%, -50%) rotate(-3deg);
+
+  border: 3px double #c49742;
+  border-radius: 11px;
+
+  background:
+    repeating-linear-gradient(
+      45deg,
+      rgba(211,177,86,.20) 0 3px,
+      transparent 3px 10px
+    ),
+    linear-gradient(145deg, #254c40, #17362f);
+
+  box-shadow:
+    0 12px 27px rgba(38,31,18,.25),
+    inset 0 0 0 5px rgba(255,255,255,.08);
+}
+
+.ln-symbol-center:before {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  width: 30px;
+  height: 30px;
+
+  transform: translate(-50%, -50%) rotate(45deg);
+
+  border: 2px solid #e6c46d;
+}
+
+.ln-symbol-center:after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  width: 9px;
+  height: 9px;
+
+  transform: translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  background: #e6c46d;
+}
+
+.ln-intro-note {
+  max-width: 580px;
+  margin: 0 auto;
+  padding: 17px 18px;
+
+  border: 1px solid rgba(185,138,50,.26);
+  border-radius: 15px;
+
+  background: rgba(255,255,255,.44);
+
+  text-align: center;
+
+  color: #5e584c !important;
+  -webkit-text-fill-color: #5e584c !important;
+
+  font-size: 14px;
+  line-height: 1.85;
+  word-break: keep-all;
+}
+
+
+/* =========================================================
+버튼
+========================================================= */
+
+.ln-main-btn {
+  display: block;
+
+  width: min(390px, 92%);
+
+  margin: 26px auto 0;
+  padding: 16px 20px;
+
+  border: 1px solid #a7782e;
+  border-radius: 999px;
+
+  background:
+    linear-gradient(180deg, #e3c778 0%, #bd8a35 100%);
+
+  color: #2a2010 !important;
+  -webkit-text-fill-color: #2a2010 !important;
+
+  font-size: 16px;
+  font-weight: 900;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 7px 16px rgba(91,63,21,.16);
+}
+
+.ln-main-btn:active {
+  transform: translateY(1px);
+}
+
+.ln-second-btn {
+  display: block;
+
+  width: min(390px, 92%);
+
+  margin: 12px auto 0;
+  padding: 14px 20px;
+
+  border: 1px solid #bda46c;
+  border-radius: 999px;
+
+  background: rgba(255,255,255,.42);
+
+  color: #4e493e !important;
+  -webkit-text-fill-color: #4e493e !important;
+
+  font-size: 14px;
+  font-weight: 800;
+
+  cursor: pointer;
+}
+
+
+/* =========================================================
+사운드 버튼
+특수문자 및 이모지 사용 안 함
+========================================================= */
+
+.ln-sound {
+  position: absolute;
+  z-index: 20;
+
+  right: 15px;
+  top: 15px;
+
+  min-width: 76px;
+  height: 36px;
+
+  padding: 0 10px;
+
+  border: 1px solid rgba(150,111,43,.35);
+  border-radius: 999px;
+
+  background: rgba(255,252,242,.92);
+
+  color: #625333 !important;
+  -webkit-text-fill-color: #625333 !important;
+
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .04em;
+
+  cursor: pointer;
+}
+
+
+/* =========================================================
+선택 화면
+========================================================= */
+
+.ln-draw-head {
+  margin-bottom: 22px;
+  text-align: center;
+}
+
+#lenormand-app .ln-draw-head h2 {
+  margin: 0 0 10px;
+
+  color: #284c3e !important;
+  -webkit-text-fill-color: #284c3e !important;
+
+  font-size: 27px;
+  font-weight: 900;
+}
+
+.ln-draw-head p {
+  margin: 0;
+
+  color: #716a5d !important;
+  -webkit-text-fill-color: #716a5d !important;
+
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.ln-counter {
+  display: inline-block;
+
+  margin-top: 13px;
+  padding: 7px 14px;
+
+  border: 1px solid rgba(185,138,50,.3);
+  border-radius: 999px;
+
+  background: rgba(255,255,255,.48);
+
+  color: #675632 !important;
+  -webkit-text-fill-color: #675632 !important;
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.ln-counter strong {
+  color: #a26e1b !important;
+  -webkit-text-fill-color: #a26e1b !important;
+}
+
+
+/* =========================================================
+36장 카드
+========================================================= */
+
+#lnDeck {
+  display: grid;
+
+  grid-template-columns: repeat(6, 1fr);
+
+  gap: 12px 10px;
+
+  max-width: 730px;
+  margin: 0 auto;
+}
+
+.ln-card {
+  position: relative;
+
+  width: 100%;
+  min-width: 0;
+
+  padding: 0;
+
+  border: 0;
+  background: transparent;
+
+  perspective: 900px;
+
+  cursor: pointer;
+
+  -webkit-tap-highlight-color: transparent;
+}
+
+.ln-card-inner {
+  position: relative;
+
+  width: 100%;
+  aspect-ratio: 2 / 3;
+
+  transform-style: preserve-3d;
+
+  transition:
+    transform .62s cubic-bezier(.22,.7,.2,1),
+    filter .25s ease;
+}
+
+.ln-card.flipped .ln-card-inner {
+  transform: rotateY(180deg);
+}
+
+.ln-card-side {
+  position: absolute;
+  inset: 0;
+
+  overflow: hidden;
+
+  border-radius: 8px;
+
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+
+  border: 1px solid rgba(166,121,48,.58);
+
+  box-shadow:
+    0 5px 12px rgba(55,42,22,.18);
+}
+
+
+/* =========================================================
+카드 뒷면
+문자 content 사용 안 함
+========================================================= */
+
+.ln-card-back {
+  background:
+    radial-gradient(
+      circle at 50% 50%,
+      #e2bd63 0 5%,
+      transparent 5.5% 17%,
+      rgba(223,189,94,.48) 17.5% 18.5%,
+      transparent 19% 31%,
+      rgba(223,189,94,.36) 31.5% 32.5%,
+      transparent 33%
+    ),
+    repeating-conic-gradient(
+      from 0deg,
+      rgba(231,197,110,.18) 0deg 8deg,
+      transparent 8deg 20deg
+    ),
+    linear-gradient(145deg, #315947, #183a31);
+
+  box-shadow:
+    inset 0 0 0 3px #cfaa5d,
+    inset 0 0 0 7px #214638,
+    inset 0 0 0 9px rgba(227,194,108,.8),
+    0 6px 13px rgba(55,42,22,.2);
+}
+
+.ln-card-back:before {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  width: 24px;
+  height: 24px;
+
+  transform: translate(-50%, -50%) rotate(45deg);
+
+  border: 1px solid rgba(240,215,142,.95);
+}
+
+.ln-card-back:after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  width: 7px;
+  height: 7px;
+
+  transform: translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  background: #f0d78e;
+}
+
+.ln-card-front {
+  transform: rotateY(180deg);
+
+  background-repeat: no-repeat;
+  background-size: 306% 204%;
+
+  background-color: #efe1bf;
+}
+
+.ln-pick-number {
+  display: none;
+
+  position: absolute;
+  z-index: 20;
+
+  left: 50%;
+  bottom: -8px;
+
+  width: 26px;
+  height: 26px;
+
+  align-items: center;
+  justify-content: center;
+
+  transform: translateX(-50%);
+
+  border: 2px solid #fff1c4;
+  border-radius: 50%;
+
+  background: #a9782d;
+
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+
+  font-size: 12px;
+  font-weight: 900;
+
+  box-shadow: 0 3px 9px rgba(0,0,0,.19);
+}
+
+.ln-card.picked .ln-pick-number {
+  display: flex;
+}
+
+.ln-card:not(.flipped):hover .ln-card-inner {
+  transform: translateY(-4px);
+}
+
+.ln-card.disabled {
+  cursor: default;
+}
+
+.ln-card.disabled:not(.picked) {
+  opacity: .62;
+}
+
+
+/* =========================================================
+선택 안내
+========================================================= */
+
+#lnGuide {
+  min-height: 28px;
+
+  margin: 19px auto 0;
+
+  text-align: center;
+
+  color: #695d44 !important;
+  -webkit-text-fill-color: #695d44 !important;
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+#lnResultButton {
+  display: none;
+}
+
+#lnResultButton.show {
+  display: block;
+}
+
+
+/* =========================================================
+결과
+========================================================= */
+
+.ln-result-head {
+  margin-bottom: 22px;
+  text-align: center;
+}
+
+#lenormand-app .ln-result-head h2 {
+  margin: 5px 0 9px;
+
+  color: #284b3e !important;
+  -webkit-text-fill-color: #284b3e !important;
+
+  font-size: 29px;
+  font-weight: 900;
+}
+
+.ln-result-head p {
+  margin: 0;
+
+  color: #72695b !important;
+  -webkit-text-fill-color: #72695b !important;
+
+  line-height: 1.7;
+  font-size: 14px;
+}
+
+#lnResultCards {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 12px;
+
+  max-width: 620px;
+  margin: 0 auto 25px;
+}
+
+.ln-result-card-wrap {
+  text-align: center;
+}
+
+.ln-position-label {
+  min-height: 31px;
+  margin-bottom: 7px;
+
+  color: #866728 !important;
+  -webkit-text-fill-color: #866728 !important;
+
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.ln-result-card {
+  position: relative;
+
+  width: 100%;
+  aspect-ratio: 2 / 3;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(161,118,45,.62);
+  border-radius: 11px;
+
+  background-repeat: no-repeat;
+  background-size: 306% 204%;
+  background-color: #f2e5c7;
+
+  box-shadow:
+    0 10px 23px rgba(61,45,21,.17);
+
+  cursor: zoom-in;
+
+  transition:
+    transform .22s ease,
+    box-shadow .22s ease;
+}
+
+.ln-result-card:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 14px 30px rgba(61,45,21,.23);
+}
+
+.ln-result-card:focus {
+  outline: 3px solid rgba(185,138,50,.36);
+  outline-offset: 3px;
+}
+
+.ln-result-name {
+  margin-top: 8px;
+
+  color: #3d4638 !important;
+  -webkit-text-fill-color: #3d4638 !important;
+
+  font-size: 12px;
+  font-weight: 900;
+}
+
+
+/* =========================================================
+개별 해석
+========================================================= */
+
+#lnReadings {
+  display: grid;
+
+  gap: 11px;
+
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.ln-reading {
+  padding: 17px 18px;
+
+  border: 1px solid #dfd0ad;
+  border-radius: 15px;
+
+  background: rgba(255,255,255,.50);
+}
+
+.ln-reading-position {
+  margin-bottom: 5px;
+
+  color: #9c7430 !important;
+  -webkit-text-fill-color: #9c7430 !important;
+
+  font-size: 11px;
+  font-weight: 900;
+}
+
+#lenormand-app .ln-reading h3 {
+  margin: 0 0 7px;
+
+  color: #2f483d !important;
+  -webkit-text-fill-color: #2f483d !important;
+
+  font-size: 19px;
+}
+
+.ln-reading p {
+  margin: 0;
+
+  color: #565045 !important;
+  -webkit-text-fill-color: #565045 !important;
+
+  font-size: 14px;
+  line-height: 1.8;
+  word-break: keep-all;
+}
+
+
+/* =========================================================
+종합 결과
+========================================================= */
+
+.ln-overall {
+  max-width: 700px;
+
+  margin: 16px auto 0;
+  padding: 21px 20px;
+
+  border: 1px solid rgba(174,130,51,.40);
+  border-radius: 17px;
+
+  background:
+    radial-gradient(circle at 100% 0%, rgba(213,176,95,.18), transparent 36%),
+    rgba(255,252,243,.76);
+}
+
+.ln-overall-label {
+  color: #9b752f !important;
+  -webkit-text-fill-color: #9b752f !important;
+
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .12em;
+}
+
+#lenormand-app .ln-overall h3 {
+  margin: 8px 0 10px;
+
+  color: #294b3e !important;
+  -webkit-text-fill-color: #294b3e !important;
+
+  font-size: 21px;
+}
+
+#lnOverallText,
+#lnComboText {
+  margin: 0;
+
+  color: #554f43 !important;
+  -webkit-text-fill-color: #554f43 !important;
+
+  line-height: 1.85;
+  font-size: 14px;
+  word-break: keep-all;
+}
+
+#lnComboText {
+  margin-top: 13px;
+  padding-top: 13px;
+
+  border-top: 1px solid rgba(162,123,54,.22);
+
+  color: #705724 !important;
+  -webkit-text-fill-color: #705724 !important;
+
+  font-weight: 800;
+}
+
+.ln-disclaimer {
+  max-width: 650px;
+
+  margin: 19px auto 0;
+
+  text-align: center;
+
+  color: #8d8374 !important;
+  -webkit-text-fill-color: #8d8374 !important;
+
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+카드 확대 모달
+========================================================= */
+
+.ln-card-modal {
+  display: none;
+
+  position: fixed;
+  z-index: 999999;
+
+  inset: 0;
+
+  padding: 22px;
+
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(16,18,16,.84);
+
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.ln-card-modal.show {
+  display: flex;
+}
+
+.ln-card-modal-box {
+  position: relative;
+
+  width: min(430px, 90vw);
+
+  padding: 17px;
+
+  border: 1px solid rgba(223,189,108,.66);
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #fffaf0 0%,
+      #efe0be 100%
+    );
+
+  box-shadow:
+    0 28px 70px rgba(0,0,0,.44);
+
+  animation: lnModalIn .22s ease both;
+}
+
+@keyframes lnModalIn {
+  from {
+    opacity: 0;
+    transform: scale(.94);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.ln-card-modal-image {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+
+  border: 1px solid rgba(161,118,45,.64);
+  border-radius: 13px;
+
+  background-repeat: no-repeat;
+  background-size: 306% 204%;
+  background-color: #f2e5c7;
+
+  box-shadow:
+    0 14px 31px rgba(44,32,15,.22);
+}
+
+.ln-card-modal-close {
+  position: absolute;
+  z-index: 3;
+
+  right: -11px;
+  top: -11px;
+
+  min-width: 54px;
+  height: 38px;
+
+  padding: 0 9px;
+
+  border: 2px solid #f6e7ba;
+  border-radius: 999px;
+
+  background: #2a493d;
+
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+
+  font-size: 11px;
+  font-weight: 900;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 5px 15px rgba(0,0,0,.23);
+}
+
+.ln-card-modal-name {
+  margin-top: 13px;
+
+  text-align: center;
+
+  color: #294b3e !important;
+  -webkit-text-fill-color: #294b3e !important;
+
+  font-size: 17px;
+  font-weight: 900;
+}
+
+.ln-card-modal-guide {
+  margin-top: 6px;
+
+  text-align: center;
+
+  color: #8b806e !important;
+  -webkit-text-fill-color: #8b806e !important;
+
+  font-size: 11px;
+}
+
+body.ln-modal-open {
+  overflow: hidden;
+}
+
+
+/* =========================================================
+SEO 본문
+========================================================= */
+
+#lenormand-seo {
+  width: 100%;
+  max-width: 860px;
+
+  margin: 30px auto;
+  padding: 30px 26px;
+
+  border: 1px solid #e1d8c7;
+  border-radius: 20px;
+
+  background: #ffffff;
+
+  color: #333333 !important;
+  -webkit-text-fill-color: #333333 !important;
+
+  line-height: 1.85;
+}
+
+#lenormand-seo h2 {
+  margin: 37px 0 15px;
+
+  color: #213d34 !important;
+  -webkit-text-fill-color: #213d34 !important;
+
+  font-size: 25px;
+  line-height: 1.45;
+  font-weight: 900;
+}
+
+#lenormand-seo h2:first-child {
+  margin-top: 0;
+}
+
+#lenormand-seo p {
+  margin: 0 0 17px;
+
+  color: #444444 !important;
+  -webkit-text-fill-color: #444444 !important;
+
+  font-size: 15px;
+  line-height: 1.9;
+  word-break: keep-all;
+}
+
+.ln-seo-box {
+  margin: 22px 0;
+  padding: 18px 19px;
+
+  border-left: 4px solid #b58436;
+  border-radius: 9px;
+
+  background: #faf5e8;
+
+  color: #4d463a !important;
+  -webkit-text-fill-color: #4d463a !important;
+
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+본문 이미지
+========================================================= */
+
+.ln-sheet {
+  margin: 25px 0 34px;
+}
+
+.ln-sheet img {
+  display: block;
+
+  width: 100%;
+  max-width: 720px;
+  height: auto;
+
+  margin: 0 auto;
+
+  border-radius: 12px;
+
+  box-shadow:
+    0 7px 22px rgba(0,0,0,.10);
+}
+
+.ln-sheet figcaption {
+  max-width: 720px;
+
+  margin: 9px auto 0;
+
+  color: #777064 !important;
+  -webkit-text-fill-color: #777064 !important;
+
+  font-size: 12px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+
+/* =========================================================
+FAQ
+========================================================= */
+
+.ln-faq details {
+  margin-bottom: 10px;
+
+  border: 1px solid #e2ddd3;
+  border-radius: 11px;
+
+  background: #fafafa;
+}
+
+.ln-faq summary {
+  padding: 15px;
+
+  color: #333333 !important;
+  -webkit-text-fill-color: #333333 !important;
+
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.ln-faq details p {
+  padding: 0 15px 15px;
+  margin: 0 !important;
+}
+
+
+/* =========================================================
+반응형
+========================================================= */
+
+@media (max-width: 720px) {
+
+  .ln-screen {
+    padding: 28px 14px 35px;
+  }
+
+  #lenormand-app .ln-title {
+    font-size: 29px;
+  }
+
+  #lnDeck {
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 13px 9px;
+
+    max-width: 420px;
+  }
+
+  #lnResultCards {
+    gap: 8px;
+  }
+
+  #lenormand-seo {
+    padding: 25px 17px;
+  }
+
+  #lenormand-seo h2 {
+    font-size: 22px;
+  }
+
+}
+
+@media (max-width: 500px) {
+
+  .ln-card-modal {
+    padding: 15px;
+  }
+
+  .ln-card-modal-box {
+    width: min(350px, 88vw);
+    padding: 13px;
+  }
+
+}
+
+@media (max-width: 390px) {
+
+  #lnDeck {
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 11px 7px;
+  }
+
+  .ln-screen {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+}
+</style>
+
+
+<!-- =========================================================
+게임
+========================================================= -->
+
+<div id="lenormand-app">
+
+  <button
+    id="lnSoundButton"
+    class="ln-sound"
+    type="button"
+    aria-label="효과음 켜기 끄기"
+  >
+    SOUND ON
+  </button>
+
+
+  <section
+    id="lnIntro"
+    class="ln-screen active"
+  >
+
+    <div class="ln-eyebrow">
+      36 CARD FORTUNE READING
+    </div>
+
+    <h2 class="ln-title">
+      레노먼드타로 무료 점괘
+
+      <span class="ln-title-small">
+        3장의 카드로 보는 오늘의 운세
+      </span>
+    </h2>
+
+    <p class="ln-subtitle">
+      지금 가장 궁금한 한 가지를 마음속으로 떠올려보세요.
+      36장의 예언 카드 가운데 마음이 가는 세 장을 선택하면
+      현재 상황과 핵심 변수, 가까운 미래의 흐름을 확인할 수 있습니다.
+    </p>
+
+    <div class="ln-symbol-orbit">
+      <div class="ln-symbol-center"></div>
+    </div>
+
+    <div class="ln-intro-note">
+      레노먼드타로는 한 장의 카드만 따로 읽기보다
+      여러 상징이 어떤 순서로 이어졌는지를 함께 살펴보는 것이 특징입니다.
+      너무 오래 고민하지 말고 처음 눈에 들어오는 카드를 골라보세요.
+    </div>
+
+    <button
+      id="lnStartButton"
+      class="ln-main-btn"
+      type="button"
+    >
+      36장의 예언 카드 섞기
+    </button>
+
+    <div class="ln-disclaimer">
+      오늘의 운세와 카드 점괘를 가볍게 즐기기 위한 콘텐츠입니다.
+    </div>
+
+  </section>
+
+
+  <section
+    id="lnDraw"
+    class="ln-screen"
+  >
+
+    <div class="ln-draw-head">
+
+      <h2>
+        마음이 끌리는 세 장을 골라보세요
+      </h2>
+
+      <p>
+        첫 번째는 현재,
+        두 번째는 중요한 변수,
+        세 번째는 가까운 앞으로의 흐름입니다.
+      </p>
+
+      <div class="ln-counter">
+        선택한 카드
+        <strong id="lnCount">0</strong>
+        / 3
+      </div>
+
+    </div>
+
+    <div id="lnDeck"></div>
+
+    <div id="lnGuide">
+      첫 번째 카드를 골라보세요.
+    </div>
+
+    <button
+      id="lnResultButton"
+      class="ln-main-btn"
+      type="button"
+    >
+      나의 예언 타로 점괘 확인하기
+    </button>
+
+  </section>
+
+
+  <section
+    id="lnResult"
+    class="ln-screen"
+  >
+
+    <div class="ln-result-head">
+
+      <div class="ln-eyebrow">
+        YOUR THREE CARDS
+      </div>
+
+      <h2>
+        오늘 당신이 선택한 세 장
+      </h2>
+
+      <p>
+        세 장을 각각 읽은 뒤 왼쪽에서 오른쪽으로 이어지는
+        하나의 이야기처럼 살펴보세요.
+        카드를 누르면 크게 볼 수 있습니다.
+      </p>
+
+    </div>
+
+    <div id="lnResultCards"></div>
+
+    <div id="lnReadings"></div>
+
+    <div class="ln-overall">
+
+      <div class="ln-overall-label">
+        OVERALL READING
+      </div>
+
+      <h3>
+        오늘의 점괘
+      </h3>
+
+      <p id="lnOverallText"></p>
+
+      <p id="lnComboText"></p>
+
+    </div>
+
+    <button
+      id="lnRestartButton"
+      class="ln-main-btn"
+      type="button"
+    >
+      다시 카드 뽑기
+    </button>
+
+    <button
+      id="lnBackButton"
+      class="ln-second-btn"
+      type="button"
+    >
+      처음 화면으로
+    </button>
+
+    <div class="ln-disclaimer">
+      카드 운세는 미래를 확정하는 예언이 아니라
+      현재의 상황과 선택을 돌아보기 위한 참고 콘텐츠입니다.
+    </div>
+
+  </section>
+
+</div>
+
+
+<!-- =========================================================
+카드 확대
+========================================================= -->
+
+<div
+  id="lnCardModal"
+  class="ln-card-modal"
+  aria-hidden="true"
+>
+
+  <div class="ln-card-modal-box">
+
+    <button
+      id="lnCardModalClose"
+      class="ln-card-modal-close"
+      type="button"
+    >
+      CLOSE
+    </button>
+
+    <div
+      id="lnCardModalImage"
+      class="ln-card-modal-image"
+    ></div>
+
+    <div
+      id="lnCardModalName"
+      class="ln-card-modal-name"
+    ></div>
+
+    <div class="ln-card-modal-guide">
+      카드 밖의 어두운 화면을 누르면 닫힙니다.
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- =========================================================
+검색용 본문
+========================================================= -->
+
+<article id="lenormand-seo">
+
+  <h2>
+    레노먼드타로란 어떤 카드일까?
+  </h2>
+
+  <p>
+    레노먼드타로는 36장의 상징 카드를 이용해 현재 상황과
+    가까운 미래의 흐름을 읽는 카드 점술 방식입니다.
+    일반적인 타로카드처럼 한 장의 그림에 복잡한 상징을 많이 담기보다
+    기수, 편지, 하트, 반지, 태양, 열쇠, 물고기처럼
+    일상에서 바로 알아볼 수 있는 그림을 사용하는 것이 특징입니다.
+  </p>
+
+  <p>
+    편지는 연락이나 문서, 하트는 감정과 사랑,
+    반지는 약속이나 관계, 태양은 성공과 밝아지는 상황처럼
+    상징이 비교적 직접적입니다.
+    한 장만 읽기보다 두 장이나 세 장을 이어서
+    하나의 문장처럼 해석하는 재미가 있습니다.
+  </p>
+
+  <div class="ln-seo-box">
+    이 페이지에서는 36장 전체 가운데 세 장을 선택해
+    현재의 상황 - 핵심 변수 - 가까운 흐름 순서로 읽습니다.
+    오늘의 운세, 연애운, 인간관계, 일과 돈처럼
+    지금 궁금한 한 가지를 떠올리고 카드를 선택하면 됩니다.
+  </div>
+
+
+  <h2>
+    카드 이름의 주인공은 실제 사람이었다
+  </h2>
+
+  <p>
+    레노먼드라는 이름의 주인공은 프랑스에서 활동했던 실제 점술가
+    마리 앤 아델라이드 레노르망입니다.
+    18세기 후반에 태어나 19세기 파리에서 활동한 그녀는
+    당대에 이름난 카드 점술가로 알려졌고,
+    나폴레옹 시대의 유명 인물들과 관련된 여러 일화가 더해지면서
+    전설적인 점술가처럼 이름을 남겼습니다.
+  </p>
+
+  <p>
+    다만 지금 사용하는 36장의 레노먼드 카드를
+    그녀가 직접 디자인했다는 확실한 기록이 있는 것은 아닙니다.
+    현재의 36장 체계는 독일에서 만들어졌던
+    희망의 게임이라는 카드 게임 계통과 연결되는 것으로 알려져 있습니다.
+    원래 놀이용 카드였던 그림 체계가 점술과 결합하고,
+    유명했던 레노르망의 이름까지 붙으면서
+    오늘날의 독특한 카드 점술 체계로 발전했습니다.
+  </p>
+
+  <p>
+    국내에서는 표기에 따라
+    <strong>레노르망</strong>이라고 부르기도 하고,
+    검색에서는 <strong>르노르망 타로</strong>라는 이름도 볼 수 있습니다.
+    이 페이지에서는 레노먼드타로라는 표현을 중심으로 사용했습니다.
+  </p>
+
+
+  <h2>
+    레노먼드타로 36장의 카드
+  </h2>
+
+  <p>
+    아래 이미지는 이번 무료 예언 타로 점괘에 사용되는 36장의 카드입니다.
+    여섯 장씩 한 이미지로 구성되어 있으며,
+    실제 게임에서는 여섯 개의 원본 이미지를 나누어
+    각각 독립된 카드처럼 보여줍니다.
+  </p>
+
+
+  <figure class="ln-sheet">
+    <img
+      src="https://blogger.googleusercontent.com/img/a/AVvXsEh1CVlG32tg2ttuL6glvLbIT-zbf-2DMcA2UdqkCCHt5akP3P3b2WHniVQmokXUVATII5zSxTOWXJUEOEkgSx4GtTDOsqQBT1tKAyQ-jo3cL9cjDwbGJJvlwTHNJJJVkUwWstv1R4z_D8_1q-qX7eWWEaatBR5QpJB2Y3lIwv9HBq5kh-SZ0AGzgGcXkoJX"
+      alt="레노먼드타로 기수 클로버 배 집 나무 구름 카드"
+      width="1254"
+      height="1254"
+      loading="lazy"
+    />
+    <figcaption>
+      1 기수 - 2 클로버 - 3 배 - 4 집 - 5 나무 - 6 구름
+    </figcaption>
+  </figure>
+
+
+  <figure class="ln-sheet">
+    <img
+      src="https://blogger.googleusercontent.com/img/a/AVvXsEgQ0gKpX09fOswEddZbmTxlKR9MDG5bn3iq0bReRycKErebCKJ5gdFmE6GvlTLWqhiskILwpzW40yV7LiRhFyW-72RQD_boQth-Gw65_hxO51ds_F3h4bA1UK0T33dTvOEc6MMsd7neSyqczwq7rpAo036qyKZ_2nat-bm63pLMYn1hDwSjCFBxWTe5dWQk"
+      alt="레노먼드타로 뱀 관 꽃다발 낫 채찍 새 카드"
+      width="1254"
+      height="1254"
+      loading="lazy"
+    />
+    <figcaption>
+      7 뱀 - 8 관 - 9 꽃다발 - 10 낫 - 11 채찍 - 12 새
+    </figcaption>
+  </figure>
+
+
+  <figure class="ln-sheet">
+    <img
+      src="https://blogger.googleusercontent.com/img/a/AVvXsEiVqryBKsbGo4w_jdwrGnEIMRXhaFae6BIWop0rvjH-TqEsLJYXLkeMhR4YQi5cgA5CS4Bh9ccTC3sch8c7cm-jgM-9H6mXHouZwcX8FHGnrq9_EXgr5slDjqbbBcdbdetSPHnJoGKoUABTtam5qkGX9aNjRUa2qRiFUWUnyqgSz-raxyeiFyxo4Go-Fbgb"
+      alt="레노먼드타로 아이 여우 곰 별 황새 개 카드"
+      width="1254"
+      height="1254"
+      loading="lazy"
+    />
+    <figcaption>
+      13 아이 - 14 여우 - 15 곰 - 16 별 - 17 황새 - 18 개
+    </figcaption>
+  </figure>
+
+
+  <figure class="ln-sheet">
+    <img
+      src="https://blogger.googleusercontent.com/img/a/AVvXsEjbDILGj7QEMUjHeoztygZLeHPTbs358VeCzhS8HcXqCgNx2DafbdaY8ygxCaroN2d_O_45e-UkANen4KHkj7och19gmVW8kZMMOihjX07g5R9R9WdNOv8hT1bKsHZz1GDdb0tloW53_A6sRzOwuEl4NaIGCoMepHGSQ59yyPpyHUDkEcuyZOO7ar2yQbC0"
+      alt="레노먼드타로 탑 정원 산 갈림길 쥐 하트 카드"
+      width="1254"
+      height="1254"
+      loading="lazy"
+    />
+    <figcaption>
+      19 탑 - 20 정원 - 21 산 - 22 갈림길 - 23 쥐 - 24 하트
+    </figcaption>
+  </figure>
+
+
+  <figure class="ln-sheet">
+    <img
+      src="https://blogger.googleusercontent.com/img/a/AVvXsEjZzR5RmrDspGt2MuwY1teP5LIzm3vpfDwyZQTf6of1oofGAJS2afQl7tDBaJiWDPTp7QhodkfT6OaSnx62WMxoV2gn2S-XqiV0JjIa-DPuyCIHB3lJz9Y0whjrWFW6_o4DbUQ4m5-clxJr8bo8twKOWi0Xkt_658Ct7cBR2gdvIfrPFyJH2tRpqjWRqoog"
+      alt="레노먼드타로 반지 책 편지 남자 여자 백합 카드"
+      width="1254"
+      height="1254"
+      loading="lazy"
+    />
+    <figcaption>
+      25 반지 - 26 책 - 27 편지 - 28 남자 - 29 여자 - 30 백합
+    </figcaption>
+  </figure>
+
+
+  <figure class="ln-sheet">
+    <img
+      src="https://blogger.googleusercontent.com/img/a/AVvXsEgzMG5LnGFLYSm3vK1V6D6lZbjMjnMV0PbYvBUixs7bLGva67SU6LrPZCgxDBohzkjURW6aEIbluU1-h-zP0lYKuld6xFv_GfXML7vzOn2fCzjh3WgJ6Q4FMg74jV_9IMxDS23_Ah2G_zYpckFBPLTc4v6RsSSLUrgxQFeF1U4fLNJhgFP30d01FtJLWkJH"
+      alt="레노먼드타로 태양 달 열쇠 물고기 닻 십자가 카드"
+      width="1254"
+      height="1254"
+      loading="lazy"
+    />
+    <figcaption>
+      31 태양 - 32 달 - 33 열쇠 - 34 물고기 - 35 닻 - 36 십자가
+    </figcaption>
+  </figure>
+
+
+  <h2>
+    왜 세 장의 카드를 함께 읽을까?
+  </h2>
+
+  <p>
+    레노먼드타로의 재미는 카드 조합에 있습니다.
+    편지와 하트가 함께 나오면 감정이나 관계와 관련된 연락,
+    하트 다음에 반지가 이어지면 관계가 약속이나 확정으로 발전하는 흐름처럼
+    여러 장을 연결해서 읽을 수 있습니다.
+  </p>
+
+  <p>
+    태양과 열쇠가 함께 나오면 상황이 밝아지면서
+    중요한 해결책을 찾는 긍정적인 조합으로 볼 수 있고,
+    여우와 쥐가 나란히 나오면 계산적인 상황이나
+    작은 손실이 반복되지 않는지 주의해서 살펴볼 수 있습니다.
+  </p>
+
+
+  <h2>
+    오늘의 운세는 어떻게 보면 좋을까?
+  </h2>
+
+  <p>
+    카드를 고르기 전에는 질문을 너무 많이 만들지 않는 것이 좋습니다.
+    오늘 하루의 전체 운세가 궁금하다면
+    오늘 나에게 가장 중요한 흐름은 무엇일까 정도로 한 가지 질문만 떠올려보세요.
+  </p>
+
+  <p>
+    돈이나 일에 대한 점괘를 보고 싶다면
+    재물운, 계약, 직장, 새로운 제안처럼 한 가지 주제로 좁히면 됩니다.
+    첫 번째 카드는 현재 상황,
+    두 번째는 상황에 영향을 주는 변수,
+    세 번째는 가까운 방향으로 구성했습니다.
+  </p>
+
+
+  <h2>
+    일반 타로와 무엇이 다를까?
+  </h2>
+
+  <p>
+    일반적인 타로는 78장의 카드와 메이저 아르카나,
+    마이너 아르카나를 이용하며 한 카드 안에서도
+    심리와 상징을 여러 층으로 해석하는 경우가 많습니다.
+    반면 레노먼드타로는 36장의 비교적 단순한 그림을 사용하고,
+    카드들이 서로 어떤 순서로 연결됐는지를 중요하게 봅니다.
+  </p>
+
+  <p>
+    연락 - 감정 - 약속,
+    장애물 - 선택 - 해결,
+    이동 - 돈 - 안정처럼
+    현재 상황을 하나의 짧은 이야기로 만들어보는 카드 점괘에 가깝습니다.
+  </p>
+
+
+  <h2>
+    레노먼드타로 FAQ
+  </h2>
+
+  <div class="ln-faq">
+
+    <details>
+      <summary>
+        레노먼드타로는 몇 장인가요?
+      </summary>
+      <p>
+        일반적으로 사용하는 쁘띠 레노먼드 계열은 총 36장의 카드로 구성됩니다.
+        기수부터 십자가까지 각각 고유한 번호와 상징을 가지고 있습니다.
+      </p>
+    </details>
+
+
+    <details>
+      <summary>
+        일반 타로처럼 정방향과 역방향을 보나요?
+      </summary>
+      <p>
+        일반적인 레노먼드 해석에서는 타로처럼 모든 카드에
+        정방향과 역방향을 필수로 적용하기보다
+        어떤 카드가 옆에 놓였는지와 카드 순서를 중요하게 봅니다.
+      </p>
+    </details>
+
+
+    <details>
+      <summary>
+        같은 질문으로 다시 뽑아도 되나요?
+      </summary>
+      <p>
+        다시 뽑을 수는 있지만 같은 질문으로 결과를 계속 바꾸기보다
+        처음 나온 세 장의 카드와 조합을 먼저 살펴보는 편이 좋습니다.
+      </p>
+    </details>
+
+
+    <details>
+      <summary>
+        연애운이나 재물운도 볼 수 있나요?
+      </summary>
+      <p>
+        가능합니다.
+        하트와 반지는 관계와 사랑,
+        물고기와 곰은 돈과 자원,
+        닻은 일과 안정처럼 질문에 맞춰 카드 의미를 연결해볼 수 있습니다.
+      </p>
+    </details>
+
+  </div>
+
+</article>
+
+
+<!-- =========================================================
+구조화 데이터
+========================================================= -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "레노먼드타로 무료 점괘",
+      "applicationCategory": "EntertainmentApplication",
+      "operatingSystem": "Any",
+      "description": "36장의 레노먼드 카드 가운데 세 장을 선택해 현재 상황과 핵심 변수, 가까운 흐름을 확인하는 무료 카드 운세입니다."
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "레노먼드타로는 몇 장인가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "일반적인 쁘띠 레노먼드 계열은 총 36장의 카드로 구성됩니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "일반 타로처럼 정방향과 역방향을 보나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "일반적인 레노먼드 해석에서는 모든 카드에 정방향과 역방향을 필수로 적용하기보다 카드의 순서와 조합을 중요하게 봅니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "연애운이나 재물운도 볼 수 있나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "연애, 재물, 일 등 한 가지 주제를 떠올리고 세 장의 카드가 만드는 흐름을 함께 살펴볼 수 있습니다."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+
+<!-- =========================================================
+게임 스크립트
+========================================================= -->
+
+<script>
+(function () {
+
+  var SHEETS = [
+
+    "https://blogger.googleusercontent.com/img/a/AVvXsEh1CVlG32tg2ttuL6glvLbIT-zbf-2DMcA2UdqkCCHt5akP3P3b2WHniVQmokXUVATII5zSxTOWXJUEOEkgSx4GtTDOsqQBT1tKAyQ-jo3cL9cjDwbGJJvlwTHNJJJVkUwWstv1R4z_D8_1q-qX7eWWEaatBR5QpJB2Y3lIwv9HBq5kh-SZ0AGzgGcXkoJX",
+
+    "https://blogger.googleusercontent.com/img/a/AVvXsEgQ0gKpX09fOswEddZbmTxlKR9MDG5bn3iq0bReRycKErebCKJ5gdFmE6GvlTLWqhiskILwpzW40yV7LiRhFyW-72RQD_boQth-Gw65_hxO51ds_F3h4bA1UK0T33dTvOEc6MMsd7neSyqczwq7rpAo036qyKZ_2nat-bm63pLMYn1hDwSjCFBxWTe5dWQk",
+
+    "https://blogger.googleusercontent.com/img/a/AVvXsEiVqryBKsbGo4w_jdwrGnEIMRXhaFae6BIWop0rvjH-TqEsLJYXLkeMhR4YQi5cgA5CS4Bh9ccTC3sch8c7cm-jgM-9H6mXHouZwcX8FHGnrq9_EXgr5slDjqbbBcdbdetSPHnJoGKoUABTtam5qkGX9aNjRUa2qRiFUWUnyqgSz-raxyeiFyxo4Go-Fbgb",
+
+    "https://blogger.googleusercontent.com/img/a/AVvXsEjbDILGj7QEMUjHeoztygZLeHPTbs358VeCzhS8HcXqCgNx2DafbdaY8ygxCaroN2d_O_45e-UkANen4KHkj7och19gmVW8kZMMOihjX07g5R9R9WdNOv8hT1bKsHZz1GDdb0tloW53_A6sRzOwuEl4NaIGCoMepHGSQ59yyPpyHUDkEcuyZOO7ar2yQbC0",
+
+    "https://blogger.googleusercontent.com/img/a/AVvXsEjZzR5RmrDspGt2MuwY1teP5LIzm3vpfDwyZQTf6of1oofGAJS2afQl7tDBaJiWDPTp7QhodkfT6OaSnx62WMxoV2gn2S-XqiV0JjIa-DPuyCIHB3lJz9Y0whjrWFW6_o4DbUQ4m5-clxJr8bo8twKOWi0Xkt_658Ct7cBR2gdvIfrPFyJH2tRpqjWRqoog",
+
+    "https://blogger.googleusercontent.com/img/a/AVvXsEgzMG5LnGFLYSm3vK1V6D6lZbjMjnMV0PbYvBUixs7bLGva67SU6LrPZCgxDBohzkjURW6aEIbluU1-h-zP0lYKuld6xFv_GfXML7vzOn2fCzjh3WgJ6Q4FMg74jV_9IMxDS23_Ah2G_zYpckFBPLTc4v6RsSSLUrgxQFeF1U4fLNJhgFP30d01FtJLWkJH"
+
+  ];
+
+
+  var CARDS = [
+
+    {n:1,ko:"기수",en:"RIDER",score:1,meaning:"새로운 소식과 움직임을 뜻합니다. 기다리던 연락이나 변화가 예상보다 빠르게 들어올 수 있습니다."},
+
+    {n:2,ko:"클로버",en:"CLOVER",score:2,meaning:"작지만 기분 좋은 행운과 기회를 의미합니다. 우연처럼 보이는 기회를 가볍게 지나치지 않는 것이 좋습니다."},
+
+    {n:3,ko:"배",en:"SHIP",score:1,meaning:"이동과 변화, 새로운 영역을 뜻합니다. 익숙한 자리에서 조금 벗어나는 흐름이 생길 수 있습니다."},
+
+    {n:4,ko:"집",en:"HOUSE",score:1,meaning:"가정과 생활 기반, 안정성을 의미합니다. 지금은 흔들리지 않는 기반을 지키는 것이 중요합니다."},
+
+    {n:5,ko:"나무",en:"TREE",score:1,meaning:"성장과 지속성을 뜻합니다. 빠른 결과보다는 시간이 지나면서 단단해지는 흐름입니다."},
+
+    {n:6,ko:"구름",en:"CLOUDS",score:-1,meaning:"불확실성과 혼란을 의미합니다. 지금 보이는 상황만으로 성급하게 결론을 내리지 않는 편이 좋습니다."},
+
+    {n:7,ko:"뱀",en:"SNAKE",score:-2,meaning:"복잡한 관계와 우회적인 상황을 뜻합니다. 겉으로 보이는 말과 실제 의도가 다른지 살펴볼 필요가 있습니다."},
+
+    {n:8,ko:"관",en:"COFFIN",score:-2,meaning:"하나의 과정이 끝나고 있음을 의미합니다. 끝낼 것을 정리해야 새로운 흐름이 시작될 수 있습니다."},
+
+    {n:9,ko:"꽃다발",en:"BOUQUET",score:2,meaning:"기쁨과 호의, 좋은 평가를 의미합니다. 반가운 제안이나 예상하지 못한 좋은 일이 들어올 수 있습니다."},
+
+    {n:10,ko:"낫",en:"SCYTHE",score:-1,meaning:"갑작스러운 결정과 정리를 뜻합니다. 오래 끌어온 문제를 빠르게 정리해야 할 수 있습니다."},
+
+    {n:11,ko:"채찍",en:"WHIP",score:-1,meaning:"반복되는 갈등과 스트레스를 의미합니다. 같은 문제가 계속 반복된다면 접근 방식을 바꿔보세요."},
+
+    {n:12,ko:"새",en:"BIRDS",score:0,meaning:"대화와 소문, 긴장된 교류를 뜻합니다. 말이 많아지는 만큼 오해가 생기지 않도록 주의하는 것이 좋습니다."},
+
+    {n:13,ko:"아이",en:"CHILD",score:1,meaning:"새로운 시작과 가능성을 의미합니다. 아직 작지만 앞으로 커질 수 있는 흐름입니다."},
+
+    {n:14,ko:"여우",en:"FOX",score:-1,meaning:"계산과 경계가 필요한 상황입니다. 지나치게 좋은 조건이나 애매한 설명은 한 번 더 확인해보세요."},
+
+    {n:15,ko:"곰",en:"BEAR",score:1,meaning:"힘과 영향력, 보호를 뜻합니다. 강한 사람이나 경제적인 영향이 상황에 작용할 수 있습니다."},
+
+    {n:16,ko:"별",en:"STARS",score:2,meaning:"방향성과 희망을 의미합니다. 계획을 선명하게 잡으면 앞으로 갈 길도 조금씩 분명해집니다."},
+
+    {n:17,ko:"황새",en:"STORK",score:1,meaning:"변화와 이동을 의미합니다. 현재 상황이 기존 방식에서 새로운 방향으로 넘어가기 시작합니다."},
+
+    {n:18,ko:"개",en:"DOG",score:1,meaning:"신뢰와 우정, 든든한 지원을 뜻합니다. 믿을 수 있는 사람이 중요한 역할을 할 수 있습니다."},
+
+    {n:19,ko:"탑",en:"TOWER",score:0,meaning:"거리와 독립, 제도적인 문제를 의미합니다. 감정보다 객관적인 판단이 필요한 상황일 수 있습니다."},
+
+    {n:20,ko:"정원",en:"GARDEN",score:1,meaning:"사회적인 만남과 공개된 공간을 뜻합니다. 사람들과의 교류에서 새로운 기회가 만들어질 수 있습니다."},
+
+    {n:21,ko:"산",en:"MOUNTAIN",score:-2,meaning:"장벽과 지연을 의미합니다. 원하는 결과까지 생각보다 더 많은 시간이나 노력이 필요할 수 있습니다."},
+
+    {n:22,ko:"갈림길",en:"CROSSROADS",score:0,meaning:"선택의 순간을 의미합니다. 어느 길이 완벽한지 찾기보다 어떤 방향을 선택할지 결정해야 할 때입니다."},
+
+    {n:23,ko:"쥐",en:"MICE",score:-2,meaning:"조금씩 새어나가는 손실과 걱정을 뜻합니다. 작아 보이는 문제도 오래 방치하지 않는 것이 좋습니다."},
+
+    {n:24,ko:"하트",en:"HEART",score:2,meaning:"사랑과 감정, 진심을 의미합니다. 마음이 움직이는 방향을 무시하기 어려운 시기입니다."},
+
+    {n:25,ko:"반지",en:"RING",score:2,meaning:"약속과 관계, 계약을 의미합니다. 어떤 관계나 결정이 더 구체적인 형태로 이어질 수 있습니다."},
+
+    {n:26,ko:"책",en:"BOOK",score:0,meaning:"아직 공개되지 않은 정보와 배움을 의미합니다. 지금 모르는 사실이 이후 판단에 영향을 줄 수 있습니다."},
+
+    {n:27,ko:"편지",en:"LETTER",score:1,meaning:"메시지와 문서, 연락을 뜻합니다. 말보다 문자나 공식적인 형태의 소식이 중요할 수 있습니다."},
+
+    {n:28,ko:"남자",en:"MAN",score:0,meaning:"현재 질문과 관련된 남성 인물 또는 능동적으로 상황에 영향을 주는 사람을 의미할 수 있습니다."},
+
+    {n:29,ko:"여자",en:"WOMAN",score:0,meaning:"현재 질문과 관련된 여성 인물 또는 감정적으로 중요한 사람을 의미할 수 있습니다."},
+
+    {n:30,ko:"백합",en:"LILY",score:1,meaning:"평온과 성숙, 오래 이어지는 안정성을 의미합니다. 서두르지 않는 태도가 도움이 됩니다."},
+
+    {n:31,ko:"태양",en:"SUN",score:3,meaning:"성공과 명확함을 뜻하는 강한 긍정 카드입니다. 답답했던 상황이 밝아질 가능성이 높습니다."},
+
+    {n:32,ko:"달",en:"MOON",score:1,meaning:"감정과 직감, 인정과 평가를 의미합니다. 논리뿐 아니라 현재 느껴지는 분위기도 중요합니다."},
+
+    {n:33,ko:"열쇠",en:"KEY",score:3,meaning:"해결과 확신을 의미합니다. 막혀 있던 문제에서 중요한 답이나 결정적인 단서를 발견할 가능성이 있습니다."},
+
+    {n:34,ko:"물고기",en:"FISH",score:2,meaning:"돈과 거래, 흐름을 의미합니다. 재정이나 사업적인 움직임이 커질 가능성을 보여줍니다."},
+
+    {n:35,ko:"닻",en:"ANCHOR",score:2,meaning:"안정과 지속, 직업적인 기반을 의미합니다. 흔들리던 일이 조금씩 자리를 잡을 수 있습니다."},
+
+    {n:36,ko:"십자가",en:"CROSS",score:-1,meaning:"책임과 부담, 피하기 어려운 과제를 뜻합니다. 힘들더라도 마무리해야 하는 문제가 있을 수 있습니다."}
+
+  ];
+
+
+  var POSITIONS = [
+    "현재의 상황",
+    "핵심 변수",
+    "가까운 흐름"
+  ];
+
+
+  var COMBOS = {
+
+    "1-27":"기수와 편지가 함께 나왔습니다. 기다리던 연락이나 새로운 소식이 비교적 빠르게 들어오는 흐름입니다.",
+
+    "24-25":"하트와 반지가 함께 나왔습니다. 감정이나 관계가 약속이나 확정으로 이어질 가능성이 강조됩니다.",
+
+    "27-33":"편지와 열쇠의 조합입니다. 중요한 연락이나 문서가 문제 해결의 단서가 될 수 있습니다.",
+
+    "3-34":"배와 물고기의 조합입니다. 이동이나 변화가 돈, 사업, 거래와 연결될 가능성이 있습니다.",
+
+    "14-23":"여우와 쥐가 함께 나왔습니다. 신뢰 문제나 작은 손실이 반복되지 않도록 조건을 확인하는 것이 좋습니다.",
+
+    "31-33":"태양과 열쇠는 매우 밝은 조합입니다. 해결책이 분명해지고 결과가 좋은 방향으로 정리될 가능성을 보여줍니다.",
+
+    "8-17":"관과 황새의 조합입니다. 오래된 흐름이 끝난 뒤 새로운 변화가 시작될 수 있습니다.",
+
+    "6-32":"구름과 달이 함께 나왔습니다. 감정적인 혼란이 판단을 흐릴 수 있으므로 확인되지 않은 추측은 잠시 내려두는 것이 좋습니다.",
+
+    "4-5":"집과 나무의 조합입니다. 생활 기반이나 가정과 관련된 흐름이 장기적으로 안정되는 모습입니다.",
+
+    "21-22":"산과 갈림길의 조합입니다. 선택이 필요하지만 외부적인 장애물이나 지연이 결정을 어렵게 만들 수 있습니다.",
+
+    "12-27":"새와 편지의 조합입니다. 대화, 메시지, 연락이 이번 상황의 중요한 열쇠가 될 가능성이 있습니다.",
+
+    "18-24":"개와 하트의 조합입니다. 신뢰와 진심이 함께 작용하는 좋은 관계의 흐름입니다.",
+
+    "7-24":"뱀과 하트의 조합입니다. 감정 관계에 복잡한 변수나 오해가 끼어들 가능성을 살펴볼 필요가 있습니다.",
+
+    "25-26":"반지와 책의 조합입니다. 아직 공개되지 않은 약속이나 관계의 숨겨진 부분이 있을 수 있습니다.",
+
+    "20-27":"정원과 편지의 조합입니다. 초대, 모임, 공개적인 연락이나 사회적인 소식이 들어올 수 있습니다.",
+
+    "15-34":"곰과 물고기의 조합입니다. 돈과 자원, 영향력이 크게 작용하는 재정적인 흐름입니다.",
+
+    "34-35":"물고기와 닻의 조합입니다. 수입이나 사업의 흐름이 안정적인 기반으로 연결될 가능성이 있습니다.",
+
+    "10-25":"낫과 반지의 조합입니다. 관계나 계약에서 갑작스러운 결정이나 방향 전환이 있을 수 있습니다.",
+
+    "24-36":"하트와 십자가의 조합입니다. 감정적으로 중요하지만 책임이나 부담도 함께 따르는 관계일 수 있습니다.",
+
+    "1-9":"기수와 꽃다발의 조합입니다. 반가운 연락이나 기분 좋은 제안이 들어오는 흐름입니다.",
+
+    "3-16":"배와 별의 조합입니다. 새로운 목표를 향한 이동이나 계획이 좋은 방향으로 이어질 수 있습니다.",
+
+    "23-34":"쥐와 물고기의 조합입니다. 돈이 조금씩 새어나가는 부분이나 불필요한 지출을 확인해보는 것이 좋습니다.",
+
+    "4-33":"집과 열쇠의 조합입니다. 가정이나 생활 기반과 관련된 문제가 해결되거나 중요한 결정을 내릴 수 있습니다.",
+
+    "13-27":"아이와 편지의 조합입니다. 새로운 제안이나 처음 접하는 소식이 들어올 가능성이 있습니다.",
+
+    "24-32":"하트와 달의 조합입니다. 감정과 직감이 강하게 움직이며 관계에 대한 마음이 더욱 선명해질 수 있습니다."
+
+  };
+
+
+  var deck = [];
+  var selected = [];
+  var locked = false;
+
+  var soundEnabled = true;
+  var audioContext = null;
+
+
+  var introScreen =
+    document.getElementById("lnIntro");
+
+  var drawScreen =
+    document.getElementById("lnDraw");
+
+  var resultScreen =
+    document.getElementById("lnResult");
+
+  var deckElement =
+    document.getElementById("lnDeck");
+
+  var countElement =
+    document.getElementById("lnCount");
+
+  var guideElement =
+    document.getElementById("lnGuide");
+
+  var resultButton =
+    document.getElementById("lnResultButton");
+
+
+  var cardModal =
+    document.getElementById("lnCardModal");
+
+  var cardModalImage =
+    document.getElementById("lnCardModalImage");
+
+  var cardModalName =
+    document.getElementById("lnCardModalName");
+
+  var cardModalClose =
+    document.getElementById("lnCardModalClose");
+
+
+  /* =========================================================
+  효과음
+  ========================================================= */
+
+  function getAudioContext() {
+
+    if (!soundEnabled) {
+      return null;
+    }
+
+    if (!audioContext) {
+
+      var AC =
+        window.AudioContext ||
+        window.webkitAudioContext;
+
+      if (!AC) {
+        return null;
+      }
+
+      audioContext =
+        new AC();
+
+    }
+
+    if (audioContext.state === "suspended") {
+      audioContext.resume();
+    }
+
+    return audioContext;
+
+  }
+
+
+  function tone(
+    frequency,
+    duration,
+    type,
+    volume,
+    delay
+  ) {
+
+    if (!soundEnabled) {
+      return;
+    }
+
+    var ctx =
+      getAudioContext();
+
+    if (!ctx) {
+      return;
+    }
+
+    var oscillator =
+      ctx.createOscillator();
+
+    var gain =
+      ctx.createGain();
+
+    var start =
+      ctx.currentTime +
+      (delay || 0);
+
+
+    oscillator.type =
+      type || "sine";
+
+
+    oscillator.frequency.setValueAtTime(
+      frequency,
+      start
+    );
+
+
+    gain.gain.setValueAtTime(
+      0.0001,
+      start
+    );
+
+
+    gain.gain.exponentialRampToValueAtTime(
+      volume || 0.05,
+      start + 0.015
+    );
+
+
+    gain.gain.exponentialRampToValueAtTime(
+      0.0001,
+      start + duration
+    );
+
+
+    oscillator.connect(gain);
+    gain.connect(ctx.destination);
+
+    oscillator.start(start);
+
+    oscillator.stop(
+      start +
+      duration +
+      0.03
+    );
+
+  }
+
+
+  function soundShuffle() {
+
+    tone(320,.07,"triangle",.035,0);
+    tone(400,.07,"triangle",.035,.07);
+    tone(355,.07,"triangle",.035,.14);
+    tone(450,.08,"triangle",.04,.21);
+    tone(520,.10,"triangle",.04,.29);
+
+  }
+
+
+  function soundFlip() {
+
+    tone(520,.08,"sine",.045,0);
+    tone(700,.12,"triangle",.035,.045);
+
+  }
+
+
+  function soundResult() {
+
+    tone(440,.30,"sine",.035,0);
+    tone(554,.32,"sine",.032,.08);
+    tone(659,.42,"sine",.032,.16);
+    tone(880,.55,"triangle",.025,.27);
+
+  }
+
+
+  function soundClick() {
+
+    tone(380,.08,"triangle",.025,0);
+
+  }
+
+
+  document
+    .getElementById("lnSoundButton")
+    .addEventListener(
+      "click",
+      function () {
+
+        soundEnabled =
+          !soundEnabled;
+
+        this.textContent =
+          soundEnabled
+          ? "SOUND ON"
+          : "SOUND OFF";
+
+        if (soundEnabled) {
+          soundClick();
+        }
+
+      }
+    );
+
+
+  /* =========================================================
+  이미지 사전 로딩
+  ========================================================= */
+
+  SHEETS.forEach(
+    function (url) {
+
+      var img =
+        new Image();
+
+      img.src =
+        url;
+
+    }
+  );
+
+
+  /* =========================================================
+  6개 시트를 36장으로 분할 표시
+  ========================================================= */
+
+  function setCardImage(
+    element,
+    number
+  ) {
+
+    var zero =
+      number - 1;
+
+    var sheetIndex =
+      Math.floor(
+        zero / 6
+      );
+
+    var local =
+      zero % 6;
+
+    var col =
+      local % 3;
+
+    var row =
+      Math.floor(
+        local / 3
+      );
+
+
+    var xPositions = [
+      "0%",
+      "50%",
+      "100%"
+    ];
+
+
+    var yPositions = [
+      "0%",
+      "100%"
+    ];
+
+
+    element.style.backgroundImage =
+      'url("' +
+      SHEETS[sheetIndex] +
+      '")';
+
+
+    element.style.backgroundPosition =
+      xPositions[col] +
+      " " +
+      yPositions[row];
+
+  }
+
+
+  /* =========================================================
+  셔플
+  ========================================================= */
+
+  function shuffle(array) {
+
+    var result =
+      array.slice();
+
+
+    for (
+      var i =
+        result.length - 1;
+      i > 0;
+      i--
+    ) {
+
+      var j =
+        Math.floor(
+          Math.random() *
+          (i + 1)
+        );
+
+
+      var temp =
+        result[i];
+
+      result[i] =
+        result[j];
+
+      result[j] =
+        temp;
+
+    }
+
+
+    return result;
+
+  }
+
+
+  /* =========================================================
+  화면 전환
+  ========================================================= */
+
+  function showScreen(screen) {
+
+    introScreen.classList.remove("active");
+    drawScreen.classList.remove("active");
+    resultScreen.classList.remove("active");
+
+    screen.classList.add("active");
+
+
+    setTimeout(
+      function () {
+
+        var top =
+          document
+            .getElementById("lenormand-app")
+            .getBoundingClientRect()
+            .top
+          +
+          window.pageYOffset
+          -
+          18;
+
+
+        window.scrollTo({
+          top: top,
+          behavior: "smooth"
+        });
+
+      },
+      80
+    );
+
+  }
+
+
+  /* =========================================================
+  덱 생성
+  ========================================================= */
+
+  function buildDeck() {
+
+    deckElement.innerHTML =
+      "";
+
+
+    deck.forEach(
+      function (card) {
+
+        var button =
+          document.createElement("button");
+
+        button.type =
+          "button";
+
+        button.className =
+          "ln-card";
+
+
+        var inner =
+          document.createElement("div");
+
+        inner.className =
+          "ln-card-inner";
+
+
+        var back =
+          document.createElement("div");
+
+        back.className =
+          "ln-card-side ln-card-back";
+
+
+        var front =
+          document.createElement("div");
+
+        front.className =
+          "ln-card-side ln-card-front";
+
+
+        setCardImage(
+          front,
+          card.n
+        );
+
+
+        var badge =
+          document.createElement("span");
+
+        badge.className =
+          "ln-pick-number";
+
+
+        inner.appendChild(back);
+        inner.appendChild(front);
+
+        button.appendChild(inner);
+        button.appendChild(badge);
+
+
+        button.addEventListener(
+          "click",
+          function () {
+
+            selectCard(
+              button,
+              card,
+              badge
+            );
+
+          }
+        );
+
+
+        deckElement.appendChild(button);
+
+      }
+    );
+
+  }
+
+
+  /* =========================================================
+  카드 선택
+  ========================================================= */
+
+  function selectCard(
+    button,
+    card,
+    badge
+  ) {
+
+    if (
+      locked ||
+      selected.length >= 3 ||
+      button.classList.contains("flipped")
+    ) {
+      return;
+    }
+
+
+    soundFlip();
+
+    selected.push(card);
+
+
+    button.classList.add(
+      "flipped",
+      "picked"
+    );
+
+
+    badge.textContent =
+      selected.length;
+
+
+    countElement.textContent =
+      selected.length;
+
+
+    if (selected.length === 1) {
+
+      guideElement.textContent =
+        "두 번째 카드는 현재 상황에 영향을 주는 중요한 변수를 나타냅니다.";
+
+    }
+
+
+    if (selected.length === 2) {
+
+      guideElement.textContent =
+        "마지막 카드는 가까운 앞으로의 흐름을 나타냅니다.";
+
+    }
+
+
+    if (selected.length === 3) {
+
+      locked =
+        true;
+
+
+      guideElement.textContent =
+        "세 장의 카드가 모두 선택되었습니다.";
+
+
+      resultButton.classList.add(
+        "show"
+      );
+
+
+      var cards =
+        deckElement.querySelectorAll(
+          ".ln-card"
+        );
+
+
+      for (
+        var i = 0;
+        i < cards.length;
+        i++
+      ) {
+
+        cards[i].classList.add(
+          "disabled"
+        );
+
+      }
+
+    }
+
+  }
+
+
+  /* =========================================================
+  카드 확대
+  ========================================================= */
+
+  function openCardModal(card) {
+
+    setCardImage(
+      cardModalImage,
+      card.n
+    );
+
+
+    cardModalName.textContent =
+      card.n +
+      ". " +
+      card.ko +
+      " - " +
+      card.en;
+
+
+    cardModal.classList.add(
+      "show"
+    );
+
+
+    cardModal.setAttribute(
+      "aria-hidden",
+      "false"
+    );
+
+
+    document.body.classList.add(
+      "ln-modal-open"
+    );
+
+
+    soundClick();
+
+  }
+
+
+  function closeCardModal() {
+
+    cardModal.classList.remove(
+      "show"
+    );
+
+
+    cardModal.setAttribute(
+      "aria-hidden",
+      "true"
+    );
+
+
+    document.body.classList.remove(
+      "ln-modal-open"
+    );
+
+  }
+
+
+  cardModalClose.addEventListener(
+    "click",
+    function () {
+
+      closeCardModal();
+
+    }
+  );
+
+
+  cardModal.addEventListener(
+    "click",
+    function (event) {
+
+      if (
+        event.target === cardModal
+      ) {
+
+        closeCardModal();
+
+      }
+
+    }
+  );
+
+
+  document.addEventListener(
+    "keydown",
+    function (event) {
+
+      if (
+        event.key === "Escape" &&
+        cardModal.classList.contains("show")
+      ) {
+
+        closeCardModal();
+
+      }
+
+    }
+  );
+
+
+  /* =========================================================
+  결과 카드
+  ========================================================= */
+
+  function createResultCard(
+    card,
+    index
+  ) {
+
+    var wrap =
+      document.createElement("div");
+
+    wrap.className =
+      "ln-result-card-wrap";
+
+
+    var label =
+      document.createElement("div");
+
+    label.className =
+      "ln-position-label";
+
+    label.textContent =
+      POSITIONS[index];
+
+
+    var image =
+      document.createElement("div");
+
+    image.className =
+      "ln-result-card";
+
+
+    image.setAttribute(
+      "role",
+      "button"
+    );
+
+
+    image.setAttribute(
+      "tabindex",
+      "0"
+    );
+
+
+    image.setAttribute(
+      "aria-label",
+      card.ko +
+      " 카드 크게 보기"
+    );
+
+
+    setCardImage(
+      image,
+      card.n
+    );
+
+
+    image.addEventListener(
+      "click",
+      function () {
+
+        openCardModal(card);
+
+      }
+    );
+
+
+    image.addEventListener(
+      "keydown",
+      function (event) {
+
+        if (
+          event.key === "Enter" ||
+          event.key === " "
+        ) {
+
+          event.preventDefault();
+
+          openCardModal(card);
+
+        }
+
+      }
+    );
+
+
+    var name =
+      document.createElement("div");
+
+    name.className =
+      "ln-result-name";
+
+
+    name.textContent =
+      card.n +
+      ". " +
+      card.ko +
+      " - " +
+      card.en;
+
+
+    wrap.appendChild(label);
+    wrap.appendChild(image);
+    wrap.appendChild(name);
+
+
+    return wrap;
+
+  }
+
+
+  /* =========================================================
+  조합
+  ========================================================= */
+
+  function getComboText(
+    first,
+    second
+  ) {
+
+    var key1 =
+      first.n +
+      "-" +
+      second.n;
+
+    var key2 =
+      second.n +
+      "-" +
+      first.n;
+
+
+    return (
+      COMBOS[key1] ||
+      COMBOS[key2] ||
+      ""
+    );
+
+  }
+
+
+  /* =========================================================
+  결과
+  ========================================================= */
+
+  function buildResult() {
+
+    var resultCards =
+      document.getElementById(
+        "lnResultCards"
+      );
+
+    var readings =
+      document.getElementById(
+        "lnReadings"
+      );
+
+
+    resultCards.innerHTML =
+      "";
+
+    readings.innerHTML =
+      "";
+
+
+    selected.forEach(
+      function (
+        card,
+        index
+      ) {
+
+        resultCards.appendChild(
+          createResultCard(
+            card,
+            index
+          )
+        );
+
+
+        var box =
+          document.createElement("div");
+
+        box.className =
+          "ln-reading";
+
+
+        var pos =
+          document.createElement("div");
+
+        pos.className =
+          "ln-reading-position";
+
+        pos.textContent =
+          POSITIONS[index];
+
+
+        var title =
+          document.createElement("h3");
+
+
+        title.textContent =
+          card.ko +
+          " - " +
+          card.en;
+
+
+        var text =
+          document.createElement("p");
+
+        text.textContent =
+          card.meaning;
+
+
+        box.appendChild(pos);
+        box.appendChild(title);
+        box.appendChild(text);
+
+        readings.appendChild(box);
+
+      }
+    );
+
+
+    var total =
+      selected[0].score +
+      selected[1].score +
+      selected[2].score;
+
+
+    var overall =
+      "";
+
+
+    if (total >= 6) {
+
+      overall =
+        "세 장의 카드가 전체적으로 매우 밝은 방향을 가리키고 있습니다. 지금의 선택이나 변화가 비교적 좋은 결과로 연결될 가능성이 높으며, 기회가 들어왔을 때 지나치게 망설이기보다 현실적으로 움직여보는 편이 좋습니다.";
+
+    }
+
+    else if (total >= 3) {
+
+      overall =
+        "전체적으로 긍정적인 흐름이 조금 더 강합니다. 모든 일이 자동으로 풀린다는 의미라기보다 현재 들어오는 기회와 사람을 잘 활용할수록 좋은 결과에 가까워지는 모습입니다.";
+
+    }
+
+    else if (total >= 0) {
+
+      overall =
+        "좋고 나쁨이 한쪽으로 크게 기울기보다 현재의 선택에 따라 결과가 달라질 수 있는 흐름입니다. 특히 가운데 카드가 이번 점괘의 중요한 변수로 작용할 가능성이 높습니다.";
+
+    }
+
+    else if (total >= -3) {
+
+      overall =
+        "지금은 조금 신중하게 움직이는 편이 좋습니다. 문제를 피하려고 서두르기보다 상황을 정확히 확인하고 작은 위험이나 불편을 먼저 정리하는 것이 도움이 됩니다.";
+
+    }
+
+    else {
+
+      overall =
+        "현재는 빠른 결과를 기대하기보다 정리와 점검이 필요한 흐름입니다. 무엇이 반복해서 문제를 만들고 있는지 확인한 뒤 방향을 다시 잡는 편이 좋습니다.";
+
+    }
+
+
+    var names =
+      selected[0].ko +
+      " - " +
+      selected[1].ko +
+      " - " +
+      selected[2].ko;
+
+
+    document
+      .getElementById(
+        "lnOverallText"
+      )
+      .textContent =
+        names +
+        "의 순서로 카드가 이어졌습니다. " +
+        overall;
+
+
+    var combo1 =
+      getComboText(
+        selected[0],
+        selected[1]
+      );
+
+
+    var combo2 =
+      getComboText(
+        selected[1],
+        selected[2]
+      );
+
+
+    var comboText =
+      "";
+
+
+    if (
+      combo1 &&
+      combo2
+    ) {
+
+      comboText =
+        "카드 조합 해석 - " +
+        combo1 +
+        " 이어서 " +
+        combo2;
+
+    }
+
+    else if (combo1) {
+
+      comboText =
+        "카드 조합 해석 - " +
+        combo1;
+
+    }
+
+    else if (combo2) {
+
+      comboText =
+        "카드 조합 해석 - " +
+        combo2;
+
+    }
+
+    else {
+
+      comboText =
+        "카드 조합 해석 - " +
+        selected[0].ko +
+        "에서 시작된 상황이 " +
+        selected[1].ko +
+        "의 영향을 지나 " +
+        selected[2].ko +
+        "의 방향으로 이어지고 있습니다. 마지막 카드의 의미가 가까운 흐름을 판단하는 중요한 단서가 됩니다.";
+
+    }
+
+
+    document
+      .getElementById(
+        "lnComboText"
+      )
+      .textContent =
+        comboText;
+
+  }
+
+
+  /* =========================================================
+  새 점괘
+  ========================================================= */
+
+  function startReading() {
+
+    selected =
+      [];
+
+    locked =
+      false;
+
+
+    countElement.textContent =
+      "0";
+
+
+    guideElement.textContent =
+      "첫 번째 카드를 골라보세요.";
+
+
+    resultButton.classList.remove(
+      "show"
+    );
+
+
+    closeCardModal();
+
+
+    deck =
+      shuffle(CARDS);
+
+
+    buildDeck();
+
+    soundShuffle();
+
+    showScreen(
+      drawScreen
+    );
+
+  }
+
+
+  /* =========================================================
+  버튼
+  ========================================================= */
+
+  document
+    .getElementById(
+      "lnStartButton"
+    )
+    .addEventListener(
+      "click",
+      function () {
+
+        getAudioContext();
+
+        startReading();
+
+      }
+    );
+
+
+  resultButton.addEventListener(
+    "click",
+    function () {
+
+      if (
+        selected.length !== 3
+      ) {
+        return;
+      }
+
+
+      soundResult();
+
+      buildResult();
+
+      showScreen(
+        resultScreen
+      );
+
+    }
+  );
+
+
+  document
+    .getElementById(
+      "lnRestartButton"
+    )
+    .addEventListener(
+      "click",
+      function () {
+
+        soundClick();
+
+        startReading();
+
+      }
+    );
+
+
+  document
+    .getElementById(
+      "lnBackButton"
+    )
+    .addEventListener(
+      "click",
+      function () {
+
+        soundClick();
+
+        closeCardModal();
+
+        showScreen(
+          introScreen
+        );
+
+      }
+    );
+
+})();
+</script>
+
+<!-- ===== 카카오톡 결과 공유 (testmix v2.2) ===== -->
+<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.4/kakao.min.js" crossorigin="anonymous"></script>
+<script>
+//<![CDATA[
+(function () {
+  var Q = function (s) { return document.querySelector(s); };
+  var T = function (s) {
+    var e = Q(s); if (!e) return '';
+    var c = e.cloneNode(true);
+    [].forEach.call(c.querySelectorAll('[class*="google-anno"],ins,script,style'), function (x) { x.remove(); });
+    return c.textContent.replace(/\s+/g, ' ').trim();
+  };
+  var DOT = '\u00b7';
+  var CFG = {test:'레노먼드 카드 오늘의 운세', fmt:'오늘의 점괘: {name}', add:{sel:'#lnRestartButton'}, read:function(){var n=[].map.call(document.querySelectorAll('#lnResultCards .ln-result-name'),function(e){return e.textContent.replace(/^\s*\d+\.\s*/,'').replace(/\s*-\s*[A-Za-z ]+\s*$/,'').trim();}).join(' '+DOT+' ');return {name:n, nick:T('#lnOverallText'), img:'#lnResultCards .ln-result-card'};}};
+  var KEY = '7ddee789fac314a1a3a712d361c76c21', LABEL = '결과 공유하기';
+  var SHARE_RE = /친구|공유|함께|보내기|찾아주기/;
+  if (window.Kakao && !Kakao.isInitialized()) Kakao.init(KEY);
+
+  function base() { return location.origin + location.pathname; }
+  function og() { var m = Q('meta[property="og:image"]'); return m ? m.content : ''; }
+  function cut(s, n) { s = s || ''; return s.length > n ? s.slice(0, n - 1) + '\u2026' : s; }
+
+  async function upload(blob) {
+    var res = await Kakao.Share.uploadImage({ file: [new File([blob], 'result.png', { type: blob.type || 'image/png' })] });
+    return res.infos.original.url.replace(/^http:/, 'https:');
+  }
+  function toBlob(cv) { return new Promise(function (r) { cv.toBlob(r, 'image/png'); }); }
+
+  async function cropSprite(url, el, cs) {
+    var sz = cs.backgroundSize.split(' '), ps = cs.backgroundPosition.split(' ');
+    if (sz[0].indexOf('%') < 0) return url;
+    var W = parseFloat(sz[0]), H = parseFloat(sz[1] || sz[0]);
+    if (W <= 100 && H <= 100) return url;
+    var bmp = await createImageBitmap(await (await fetch(url + (url.indexOf('?') < 0 ? '?' : '&') + 'ks=1', { mode: 'cors' })).blob());
+    var nw = bmp.width, nh = bmp.height;
+    function frac(p, S, elLen) {
+      if (/%$/.test(p)) return (1 - 100 / S) * parseFloat(p) / 100;
+      var bg = S / 100 * elLen; return bg ? -parseFloat(p) / bg : 0;
+    }
+    var sw = nw * Math.min(1, 100 / W), sh = nh * Math.min(1, 100 / H);
+    var sx = nw * frac(ps[0] || '0%', W, el.offsetWidth), sy = nh * frac(ps[1] || ps[0] || '0%', H, el.offsetHeight);
+    var k = Math.min(1, 800 / Math.max(sw, sh));
+    var cv = document.createElement('canvas'); cv.width = Math.round(sw * k); cv.height = Math.round(sh * k);
+    cv.getContext('2d').drawImage(bmp, sx, sy, sw, sh, 0, 0, cv.width, cv.height);
+    return upload(await toBlob(cv));
+  }
+
+  async function svgShot(svg) {
+    var r = svg.getBoundingClientRect(), c = svg.cloneNode(true);
+    var src = [svg].concat([].slice.call(svg.querySelectorAll('*'))), dst = [c].concat([].slice.call(c.querySelectorAll('*')));
+    var props = ['fill', 'stroke', 'stroke-width', 'stroke-dasharray', 'opacity', 'fill-opacity', 'stroke-opacity', 'font-size', 'font-weight', 'font-family', 'text-anchor', 'dominant-baseline'];
+    src.forEach(function (s, i) { var st = getComputedStyle(s); dst[i].setAttribute('style', props.map(function (p) { return p + ':' + st.getPropertyValue(p); }).join(';')); });
+    c.setAttribute('xmlns', 'http://www.w3.org/2000/svg'); c.setAttribute('width', r.width); c.setAttribute('height', r.height);
+    var u = URL.createObjectURL(new Blob([new XMLSerializer().serializeToString(c)], { type: 'image/svg+xml' }));
+    var img = new Image(); await new Promise(function (ok, no) { img.onload = ok; img.onerror = no; img.src = u; });
+    var pad = 40, s = 2, cv = document.createElement('canvas');
+    cv.width = (r.width + pad * 2) * s; cv.height = (r.height + pad * 2) * s;
+    var x = cv.getContext('2d'); x.fillStyle = '#fff'; x.fillRect(0, 0, cv.width, cv.height);
+    x.drawImage(img, pad * s, pad * s, r.width * s, r.height * s); URL.revokeObjectURL(u);
+    return upload(await toBlob(cv));
+  }
+
+  async function getImage(sel) {
+    var el = sel ? Q(sel) : null;
+    if (!el) return og();
+    var src = '';
+    if (el.tagName === 'IMG') src = el.currentSrc || el.src;
+    else if (el.tagName.toLowerCase() === 'svg') return svgShot(el);
+    else {
+      var im = el.querySelector('img');
+      if (im) src = im.currentSrc || im.src;
+      else {
+        var nodes = [el].concat([].slice.call(el.querySelectorAll('*')));
+        for (var i = 0; i < nodes.length; i++) {
+          var cs = getComputedStyle(nodes[i]), m = /url\(["']?([^"')]+)/.exec(cs.backgroundImage);
+          if (m) {
+            if (/^https?:/.test(m[1])) return cropSprite(m[1], nodes[i], cs);
+            src = m[1]; break;
+          }
+        }
+        if (!src) { var sv = el.querySelector('svg'); if (sv) return svgShot(sv); }
+      }
+    }
+    if (/^https:\/\//.test(src)) return src;
+    if (/^(data|blob):/.test(src)) return upload(await (await fetch(src)).blob());
+    return og();
+  }
+
+  async function share() {
+    var r = null;
+    try { r = CFG.read(); } catch (e) {}
+    if (!r || !r.name) { alert('테스트를 먼저 완료해 주세요!'); return; }
+    var link = base() + '?r=' + encodeURIComponent(r.name.slice(0, 40));
+    var title = cut(CFG.fmt.replace('{name}', r.name), 80);
+    var desc = (r.nick ? cut(r.nick, 60) + ' | ' : '') + CFG.test;
+    try {
+      if (!window.Kakao) throw 0;
+      var img = og();
+      try { img = (await getImage(r.img || '')) || og(); } catch (e) { img = og(); }
+      Kakao.Share.sendDefault({
+        objectType: 'feed',
+        content: { title: title, description: desc, imageUrl: img, link: { mobileWebUrl: link, webUrl: link } },
+        buttons: [{ title: '나도 해보기', link: { mobileWebUrl: link, webUrl: link } }]
+      });
+    } catch (e) {
+      try {
+        if (navigator.share) { await navigator.share({ title: title, text: title, url: link }); return; }
+        await navigator.clipboard.writeText(title + ' ' + link);
+        alert('링크가 복사되었어요!');
+      } catch (e2) {}
+    }
+  }
+
+  window.addEventListener('click', function (e) {
+    var el = e.target.closest && e.target.closest('[data-kshare]');
+    if (!el || el.textContent.trim() !== LABEL) return;
+    e.preventDefault(); e.stopImmediatePropagation(); share();
+  }, true);
+
+  function sync() {
+    if (CFG.btn) [].forEach.call(document.querySelectorAll(CFG.btn), function (b) {
+      if (!SHARE_RE.test(b.textContent)) return;
+      if (b.textContent.trim() !== LABEL) b.textContent = LABEL;
+      if (!b.hasAttribute('data-kshare')) b.setAttribute('data-kshare', '');
+    });
+    if (CFG.add && !Q('[data-kshare]')) {
+      var a = Q(CFG.add.sel);
+      if (a) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = CFG.add.cls != null ? CFG.add.cls : (CFG.add.into ? ((a.querySelector('button') || {}).className || '') : (a.className || ''));
+        b.textContent = LABEL;
+        b.setAttribute('data-kshare', '');
+        if (CFG.add.into) a.appendChild(b); else a.parentNode.insertBefore(b, a.nextSibling);
+      }
+    }
+  }
+
+  function banner() {
+    var who = new URLSearchParams(location.search).get('r'), pb = Q('.post-body');
+    if (!who || !pb) return;
+    var d = document.createElement('div');
+    d.style.cssText = 'margin:0 0 14px;padding:12px 14px;border-radius:12px;background:#e8f4ff;color:#0b3a66;font-weight:600;text-align:center;line-height:1.5';
+    d.textContent = '\ud83d\udc8c 친구의 결과는 "' + who.slice(0, 40) + '" ' + DOT + ' 나도 해보기 \ud83d\udc47';
+    pb.insertBefore(d, pb.firstChild);
+  }
+
+  function init() {
+    sync(); banner();
+    var pending = false, pb = Q('.post-body') || document.body;
+    new MutationObserver(function () {
+      if (pending) return; pending = true;
+      requestAnimationFrame(function () { pending = false; sync(); });
+    }).observe(pb, { childList: true, subtree: true });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+})();
+//]]>
+</script>

@@ -1,0 +1,352 @@
+<!-- 회사에서 살아남기 직장인 레벨 테스트 - Blogger 게시물 HTML 모드용 -->
+<div id="osl-app">
+  <style>
+    #osl-app,#osl-app *{box-sizing:border-box}
+    #osl-app{--ink:#201a16;--paper:#f4e1b7;--paper2:#fff8e7;--red:#9c1f16;--line:#bda67d;max-width:820px;margin:20px auto;color:var(--ink);font-family:"Noto Sans KR",Arial,sans-serif;line-height:1.6;word-break:keep-all}
+    #osl-app button{font:inherit;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+    #osl-app img{display:block;width:100%;height:auto;margin:0;border:0}
+    #osl-app .osl-game{overflow:hidden;border:3px solid var(--ink);border-radius:8px;background:var(--paper2);box-shadow:8px 9px 0 rgba(70,45,25,.2)}
+    #osl-app .osl-top{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:11px 14px;border-bottom:2px solid var(--ink);background:#ead2a0}
+    #osl-app .osl-mini{font-family:Batang,"Nanum Myeongjo",serif;font-size:14px;font-weight:900}
+    #osl-app .osl-sound{border:2px solid var(--ink);border-radius:5px;background:#fff5d9;color:var(--ink);padding:7px 10px;font-size:12px;font-weight:900;cursor:pointer}
+    #osl-app .osl-screen[hidden]{display:none!important}
+    #osl-app .osl-image{position:relative;aspect-ratio:1/1;overflow:hidden;background:#ead7ae}
+    #osl-app .osl-image img{width:100%!important;height:100%!important;object-fit:contain}
+    #osl-app .osl-start-copy{padding:25px 22px 29px;text-align:center;background:linear-gradient(#fff9e9,#f4e1b7)}
+    #osl-app .osl-kicker{display:inline-block;padding:5px 10px;border:1px solid #9c835c;background:#fff4d6;color:#684d32;font-size:12px;font-weight:900}
+    #osl-app h1,#osl-app h2,#osl-app h3{font-family:Batang,"Nanum Myeongjo",serif;color:var(--ink)}
+    #osl-app .osl-start-copy h1{margin:12px 0 7px;font-size:clamp(29px,6vw,44px);line-height:1.2;letter-spacing:-.05em}
+    #osl-app .osl-start-copy h1 em{display:block;color:var(--red);font-style:normal}
+    #osl-app .osl-start-copy p{max-width:620px;margin:0 auto;color:#5f5143}
+    #osl-app .osl-start-tags{display:flex;justify-content:center;flex-wrap:wrap;gap:7px;margin:16px 0 20px}
+    #osl-app .osl-start-tags span{padding:5px 9px;border:1px dashed #9f8661;background:#fff8e9;font-size:12px;font-weight:800}
+    #osl-app .osl-start-btn{width:min(100%,500px);border:3px solid var(--ink);border-radius:5px;padding:15px 18px;background:var(--red);color:#fff8e8;font-size:18px;font-weight:900;cursor:pointer;box-shadow:4px 5px 0 var(--ink)}
+    #osl-app .osl-start-btn:active{transform:translate(3px,3px);box-shadow:1px 2px 0 var(--ink)}
+    @media(hover:hover) and (pointer:fine){#osl-app .osl-start-btn:hover,#osl-app .osl-answer:hover{filter:brightness(.96);transform:translateY(-1px)}}
+    #osl-app .osl-quiz{padding-bottom:28px;background:#f8edcf}
+    #osl-app .osl-progress-row{display:flex;align-items:center;justify-content:space-between;padding:13px 16px 7px;font-size:12px;font-weight:900}
+    #osl-app .osl-progress{height:9px;margin:0 16px 13px;border:2px solid var(--ink);background:#fff}
+    #osl-app .osl-progress span{display:block;height:100%;width:0;background:var(--red);transition:width .25s ease}
+    #osl-app .osl-question-image{margin:0 13px;border:2px solid var(--ink);aspect-ratio:1/1;overflow:hidden;background:#ead7ae}
+    #osl-app .osl-question-image img{height:100%!important;object-fit:contain}
+    #osl-app .osl-question-card{margin:14px 13px 0;padding:19px 16px 16px;border:2px solid var(--ink);background:#fffaf0;box-shadow:4px 5px 0 #c8ad7e}
+    #osl-app .osl-category{display:inline-block;padding:3px 8px;background:#ead2a0;border:1px solid #826c4b;color:#513b27;font-size:11px;font-weight:900}
+    #osl-app .osl-question-card h2{margin:10px 0 15px;font-size:clamp(20px,4.8vw,28px);line-height:1.4;letter-spacing:-.035em}
+    #osl-app .osl-answers{display:grid;gap:9px}
+    #osl-app .osl-answer{width:100%;position:relative;border:2px solid #8c7655;border-radius:4px;padding:12px 36px 12px 13px;background:#fff;color:#342a20;text-align:left;font-size:14px;font-weight:750;cursor:pointer}
+    #osl-app .osl-answer:after{content:">";position:absolute;right:13px;top:50%;transform:translateY(-50%);font-weight:900;color:#8e271e}
+    #osl-app .osl-answer.is-picked{border-color:var(--red);background:#b2382e;color:#fff}
+    #osl-app .osl-answer.is-picked:after{color:#fff}
+    #osl-app .osl-answer:disabled{cursor:default}
+    #osl-app .osl-quiz-tools{display:flex;justify-content:space-between;margin-top:12px;align-items:center}
+    #osl-app .osl-back{border:0;background:transparent;color:#735c40;font-size:12px;font-weight:900;cursor:pointer;padding:5px}
+    #osl-app .osl-hint{margin:0;color:#8a765e;font-size:11px}
+    #osl-app .osl-loading{min-height:480px;padding:135px 20px;text-align:center;background:#f1dfb9}
+    #osl-app .osl-stamps{display:flex;justify-content:center;gap:10px;margin-bottom:16px}
+    #osl-app .osl-stamps i{width:17px;height:17px;border-radius:50%;background:var(--red);animation:osl-bounce .8s infinite alternate}
+    #osl-app .osl-stamps i:nth-child(2){animation-delay:.15s}#osl-app .osl-stamps i:nth-child(3){animation-delay:.3s}
+    @keyframes osl-bounce{to{transform:translateY(-12px)}}
+    #osl-app .osl-loading h2{font-size:25px;margin:0 0 8px}
+    #osl-app .osl-result{padding:25px 18px 32px;text-align:center;background:linear-gradient(#fff8e7,#ead3a1)}
+    #osl-app .osl-result-head{margin-bottom:14px}
+    #osl-app .osl-level{display:block;margin:0 auto 2px;font-family:Batang,"Nanum Myeongjo",serif;font-weight:900;line-height:1;letter-spacing:-.07em;transition:.3s}
+    #osl-app .osl-result.lv1 .osl-level{font-size:31px;color:#8a7863}
+    #osl-app .osl-result.lv2 .osl-level{font-size:35px;color:#9b6f4d}
+    #osl-app .osl-result.lv3 .osl-level{font-size:40px;color:#a4513e}
+    #osl-app .osl-result.lv4 .osl-level{font-size:46px;color:#ae3024;text-shadow:2px 2px 0 #e5c497}
+    #osl-app .osl-result.lv5 .osl-level{font-size:52px;color:#95170f;text-shadow:3px 3px 0 #dab27f}
+    #osl-app .osl-result.lv6 .osl-level{font-size:60px;color:#790500;text-shadow:3px 3px 0 #e0ae6a,6px 6px 0 #2a1710;transform:rotate(-2deg)}
+    #osl-app .osl-result-title{margin:6px 0 4px;font-size:clamp(23px,5vw,34px);line-height:1.25}
+    #osl-app .osl-result-one{margin:0;color:#654e38;font-weight:800}
+    #osl-app .osl-result-image{margin:17px auto;border:3px solid var(--ink);max-width:650px;aspect-ratio:1/1;overflow:hidden;background:#ecd9ae;box-shadow:5px 6px 0 #9c7f55}
+    #osl-app .osl-result-image img{height:100%!important;object-fit:contain}
+    #osl-app .osl-meter{max-width:650px;margin:0 auto 19px;text-align:left}
+    #osl-app .osl-meter-row{display:flex;justify-content:space-between;font-size:12px;font-weight:900;margin-bottom:4px}
+    #osl-app .osl-meter-track{height:12px;border:2px solid var(--ink);background:#fff}
+    #osl-app .osl-meter-track span{display:block;height:100%;background:linear-gradient(90deg,#c8a77b,var(--red));width:0;transition:width .6s}
+    #osl-app .osl-result-copy{max-width:650px;margin:auto;text-align:left}
+    #osl-app .osl-summary{padding:16px;border:2px solid #826b4c;background:#fff9e9;color:#544332}
+    #osl-app .osl-result-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+    #osl-app .osl-result-box{padding:15px;border:2px solid #927b59;background:#fff9e9}
+    #osl-app .osl-result-box h3{margin:0 0 7px;color:#7c1812;font-size:17px}
+    #osl-app .osl-result-box ul{margin:0;padding-left:19px;color:#5b4938;font-size:14px}
+    #osl-app .osl-result-box li+li{margin-top:5px}
+    #osl-app .osl-tip{margin-top:10px;padding:15px;border:3px double var(--red);background:#f6dfb4}
+    #osl-app .osl-tip h3{margin:0 0 6px;color:var(--red);font-size:18px}
+    #osl-app .osl-tip p{margin:0;color:#523b2b}
+    #osl-app .osl-actions{display:grid;grid-template-columns:1fr 1fr;gap:9px;max-width:650px;margin:17px auto 0}
+    #osl-app .osl-actions button{border:2px solid var(--ink);padding:12px 8px;font-weight:900;cursor:pointer}
+    #osl-app .osl-share{background:var(--red);color:#fff}.osl-restart{background:#fff4d6;color:var(--ink)}
+    #osl-app .osl-share-note{min-height:20px;margin:7px 0 0;color:#705a43;font-size:11px}
+    #osl-app .osl-seo{margin-top:34px}
+    #osl-app .osl-seo section{margin-top:22px;padding:23px 20px;border:2px solid #a88f68;background:#fff8e8;box-shadow:4px 5px 0 #dbc194}
+    #osl-app .osl-seo h2{margin:0 0 10px;font-size:25px}
+    #osl-app .osl-seo h3{margin:14px 0 5px;font-size:18px;color:#7f2119}
+    #osl-app .osl-seo p{margin:0;color:#5c4a39}
+    #osl-app .osl-faq details{border-top:1px solid #b9a27e}
+    #osl-app .osl-faq details:last-child{border-bottom:1px solid #b9a27e}
+    #osl-app .osl-faq summary{padding:13px 3px;font-weight:900;cursor:pointer}
+    #osl-app .osl-faq details p{padding:0 3px 13px}
+    #osl-app .osl-note{margin:16px 5px 0;text-align:center;color:#8b7962;font-size:11px}
+    @media(max-width:560px){#osl-app{margin:10px auto}#osl-app .osl-game{border-radius:3px;box-shadow:4px 5px 0 rgba(70,45,25,.18)}#osl-app .osl-start-copy{padding:21px 14px 25px}#osl-app .osl-question-card{padding:16px 12px 14px}#osl-app .osl-answer{font-size:13px}#osl-app .osl-result{padding:22px 12px 28px}#osl-app .osl-result-grid{grid-template-columns:1fr}#osl-app .osl-result.lv6 .osl-level{font-size:49px}#osl-app .osl-actions{grid-template-columns:1fr}#osl-app .osl-seo section{padding:19px 14px}}
+    @media(prefers-reduced-motion:reduce){#osl-app *,#osl-app *:before,#osl-app *:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+  </style>
+
+  <section class="osl-game" aria-labelledby="osl-title">
+    <div class="osl-top"><span class="osl-mini">회사 생존 능력 평가표</span><button type="button" id="osl-sound" class="osl-sound" aria-pressed="true">BGM ON</button></div>
+    <div id="osl-start" class="osl-screen">
+      <div class="osl-image"><img id="osl-start-img" src="https://blogger.googleusercontent.com/img/a/AVvXsEji49ahVSnVvlcSxAPFBzHdvGPYky-3mZVoJAfyPu6flaXz_kDW4Q7ZzMw7LXwnmEfF98SKaYiHB3XFlQfjAdTBgGFtPdmk6WlqSr5xorQoPoHSscnEay07DRmogkUVtHTSrYReDHMJZKKr8BmjSq3BGgUwE-HT2cM7n2w2wk6hTo-JQ6hWlNq9Z7qqEnwi" alt="회사에서 살아남기 나의 직장인 레벨 테스트 시작 이미지" /></div>
+      <div class="osl-start-copy">
+        <span class="osl-kicker">12문항 - 약 2분 - 밈 테스트</span>
+        <h1 id="osl-title">회사에서 살아남기<em>나의 직장인 레벨은 몇?</em></h1>
+        <p>시키는 대로 고개만 끄덕이는 신입부터 회사가 더 이상 나를 굴리지 못하는 사내 최종 보스까지, 평소 반응으로 생존 레벨을 확인해 보세요.</p>
+        <div class="osl-start-tags"><span>업무 폭탄</span><span>책임 떠넘기기</span><span>주말 연락</span><span>눈치 야근</span></div>
+        <button type="button" id="osl-start-btn" class="osl-start-btn">내 직장인 레벨 확인하기</button>
+      </div>
+    </div>
+
+    <div id="osl-quiz" class="osl-screen osl-quiz" hidden>
+      <div class="osl-progress-row"><span id="osl-count">1 / 12</span><span id="osl-percent">8%</span></div>
+      <div class="osl-progress" aria-hidden="true"><span id="osl-bar"></span></div>
+      <div class="osl-question-image"><img id="osl-question-img" alt="직장 생활 상황 질문 이미지" /></div>
+      <div class="osl-question-card">
+        <span id="osl-category" class="osl-category">업무 폭탄</span>
+        <h2 id="osl-question">질문을 불러오는 중입니다.</h2>
+        <div id="osl-answers" class="osl-answers"></div>
+        <div class="osl-quiz-tools"><button type="button" id="osl-back" class="osl-back">BACK - 이전 질문</button><p class="osl-hint">회사에서 실제로 하는 행동을 골라주세요.</p></div>
+      </div>
+    </div>
+
+    <div id="osl-loading" class="osl-screen osl-loading" hidden>
+      <div class="osl-stamps"><i></i><i></i><i></i></div>
+      <h2>회사 생존 연차를 계산하는 중</h2><p>참은 횟수와 선을 그은 횟수를 결재 중입니다.</p>
+    </div>
+
+    <div id="osl-result" class="osl-screen osl-result lv1" hidden>
+      <div class="osl-result-head"><span id="osl-level" class="osl-level">LEVEL 1</span><h2 id="osl-result-title" class="osl-result-title">결과 제목</h2><p id="osl-result-one" class="osl-result-one"></p></div>
+      <div class="osl-result-image"><img id="osl-result-img" alt="직장인 생존 레벨 결과 이미지" /></div>
+      <div class="osl-meter"><div class="osl-meter-row"><span>순진한 신입</span><strong id="osl-score-label">생존력 0%</strong><span>사내 최종 보스</span></div><div class="osl-meter-track"><span id="osl-meter-bar"></span></div></div>
+      <div class="osl-result-copy"><p id="osl-summary" class="osl-summary"></p><div class="osl-result-grid"><div class="osl-result-box"><h3>이 레벨의 장점</h3><ul id="osl-strengths"></ul></div><div class="osl-result-box"><h3>이 레벨의 단점</h3><ul id="osl-weaknesses"></ul></div></div><div class="osl-tip"><h3>다음 생존을 위한 제안</h3><p id="osl-advice"></p></div></div>
+      <div class="osl-actions"><button type="button" id="osl-share" class="osl-share">친구와 함께 하기</button><button type="button" id="osl-restart" class="osl-restart">다시 테스트하기</button></div><p id="osl-share-note" class="osl-share-note" aria-live="polite"></p>
+    </div>
+  </section>
+
+  <article class="osl-seo">
+    <section><h2>직장인 레벨 테스트는 어떤 테스트인가요?</h2><p>회사에서 갑자기 일이 늘어났을 때, 잡무를 떠맡았을 때, 실수 책임이 넘어올 때, 주말에 업무 연락이 왔을 때처럼 직장인이 자주 마주치는 12가지 상황을 통해 나의 회사 생존 방식을 알아보는 재미용 테스트입니다. 네 가지 선택지는 무조건 참는 반응부터 업무 범위와 책임을 분명히 정하는 반응까지 구성되어 있으며 결과는 총 6단계로 나뉩니다.</p><h3>레벨이 높으면 무조건 좋은가요?</h3><p>높은 레벨은 경계와 자기 기준이 분명하다는 뜻이지만 때로는 차갑거나 독단적으로 보일 수 있고, 낮은 레벨은 경험이 부족할 수 있지만 협조성과 유연성이 장점이 될 수 있습니다. 결과의 장점과 단점, 다음 행동 제안을 함께 보는 것이 좋습니다.</p></section>
+    <section class="osl-faq"><h2>회사 생존 테스트 자주 묻는 질문</h2><details><summary>문항은 몇 개인가요?</summary><p>총 12문항이며 네 개의 선택지 중 평소 행동과 가장 가까운 답을 고르면 됩니다.</p></details><details><summary>결과는 몇 단계인가요?</summary><p>시키는 대로 하는 순진한 신입인 레벨 1부터 내 갈 길을 가는 사내 최종 보스인 레벨 6까지 나옵니다.</p></details><details><summary>실제 직무 능력을 평가하나요?</summary><p>아닙니다. 직장 생활에서 보이는 반응을 밈처럼 과장한 재미용 테스트이며 인사 평가나 심리 진단 도구가 아닙니다.</p></details></section>
+    <p class="osl-note">이 테스트는 재미를 위한 콘텐츠이며 실제 직무 능력이나 조직 적합성을 진단하지 않습니다.</p>
+  </article>
+
+  <script>
+  (function(){
+    "use strict";
+    var images={start:"https://blogger.googleusercontent.com/img/a/AVvXsEji49ahVSnVvlcSxAPFBzHdvGPYky-3mZVoJAfyPu6flaXz_kDW4Q7ZzMw7LXwnmEfF98SKaYiHB3XFlQfjAdTBgGFtPdmk6WlqSr5xorQoPoHSscnEay07DRmogkUVtHTSrYReDHMJZKKr8BmjSq3BGgUwE-HT2cM7n2w2wk6hTo-JQ6hWlNq9Z7qqEnwi",scenes:["https://blogger.googleusercontent.com/img/a/AVvXsEjIhZe0Unb5BDy5ZjnOdiiBrWCE4kxgzKFe7MnciN1WB3t9zCeXHw_in8qS_CN56LIyEq8H_RRRl8JpKEO3R8FuMVru67poQqoI-7SNCCuth4_adEOkhw0QAuzFDBgHrDJHUwrw0FnDFT9DMo6gap5cZ3QBSEp6GKciDaLJXSadR83QrDVcq8-tkteOHfp-","https://blogger.googleusercontent.com/img/a/AVvXsEiLXZGc1ySKYdkKCwNlpMqUfxCvTvlfMMKLAA8XgWwRwOOAFRIkkuXSRQZscswLCelkrmgyeNfD_mV7S0gqoU6G7EvtiRx_4h5vaUuTKIKZD1koV-5bLlFqGIMKHFl1EyRsNdy368KrHl5T3ISoUEjzwl6rC3Aj-FkvnjdDylT8huby7kSzk6cgK0Chut3K","https://blogger.googleusercontent.com/img/a/AVvXsEhOVpRoK-iXkaslCM4GFAseH01d1a-tpAPCHCXiZQBqt5UEXYFDDkHWEXFnKu8IBUKsyYkHISMfd-zxPyg_NPdefLdHZis4lO6Plr6OUBJAUiGUjKa5c3HQHtuHsbH6efRrBrDtYJ3CtuYpDz03kRt-xadxiGHemVh5vxDWc1yVrqGR-5Jp_5alENujFcK7","https://blogger.googleusercontent.com/img/a/AVvXsEiimk-HvtX6WKuMrbvXAD9dJGVwAY1IegVVgK6RgPiNjcZoAf_5d7nDJkMkv-b403FWjDZCd_980NTVUkZDdplOB8H_S3H8A-wfVjyM3OJmwjS-BuPdvoez4YrQBc3vH10815AR9UE1EwAssy5jnYHuBkRTaIWIY5EYXe9gzxyrYwXXBR97swJaP0EQG_3S","https://blogger.googleusercontent.com/img/a/AVvXsEiYUeeQbCoDnjvjG3IxEmJIA9R4tEGmE45iDjtSiGXUf1xiqrxrVXOA5scmbwxK2BBrWZ0msdcRiWHQlHBMom7MLvZ6Idr6R5Q9T-9983OozM4ybg-PSXekJkm8h-C5b3tjCwVvzM_ehbeirj73jPQSyYfAAjawZzFFIH5Us4yH0q4t0Iwj5GAM5csfMgig","https://blogger.googleusercontent.com/img/a/AVvXsEg--IiOYihyQAnFdTU5Wye_UwDmZswre86K-RrwJSh19FxiZpzLJuTrVtnZbzYhSi6JTkxe83lqMJeRdpe4BQM-2smC10rDrA1ZiNB9X2GTJY4QTC8ZB1PMCtyJ78d-wJ4Ro_CgY_9Tt7e0V1cjOx8xqItQjgGHdoFSm4aygjOkXA_fiEJ4n3mCPlefaCpl"],results:["https://blogger.googleusercontent.com/img/a/AVvXsEhJiX-uY4UGSvqIIJZWmx5s3P5eGD3wBWt57suFZMx9XaXTsWkcu1Xkbyc-axGftVCz_MLJd4iQHF1WI_5yhlTbUpGGpanEl38qC1aXwDzwDqoD4HdgguGFJJsQZkXu3vWdC5KLaPjByeljm_jY-KOZesQ9ycm6Tl9SApllz0im3lk4ex-jM4irfutpY99m","https://blogger.googleusercontent.com/img/a/AVvXsEhc5LmzwhE8tComtpsIgzJMTyinBfftQD1l3HH7mpDGUq62joJ7F6wX535L6uxYCdhRA6UBBrRq-qsAYUz-Hp98bxwkqNAmEfqKQ0y68PDTy8FWFCY57x6lmBRZIfG71ixiVKcyHJXFS9teJwEJzLjJ4PjbouAn1OB1F7GA6p2Gd5HsSOtXZutLjhEyaPJ7","https://blogger.googleusercontent.com/img/a/AVvXsEgCx0_yDCRO7NPCBXwiC0nTy8GydRXPrEJGwviQ642as_zWOyQ_OcYqYsYfv_nLUmuEn8N783JTWR6sU0OCf5DQa1XOibArDsVxrZmQAD7n0lM5auUV5Ze8rtbRGHlvJ8gXDxmYMLlSnNXyuHnh2x-jymwzqRdaYaSrjvO-cJRiHQh280QBE6-FuYf8imMx","https://blogger.googleusercontent.com/img/a/AVvXsEgFrRQkJ8leG__3Bn_hhKzIVxAabooDKZT1h_12uEDNRNnwnYS76_xn-c2F3rGW72neI8BWW9Uiniu6Idiebnl7Vy6Yo0jzc6K6qH9ktlWi2Z5cirSxE2_lxks0jmucGXXSvH-M-DpJfD_ip6jOuPJg6ghb0f7uwO5RucMZ5NHkDrnMDoXr4fINIy-sTCm2","https://blogger.googleusercontent.com/img/a/AVvXsEgeUv99CiQN91h6obKgm4q8WmzfsooyPxUnHZPOYb2HGhRe21idAmkRremczZAAts73GJTYrSOiB0Q7Z5uBJ1g-5hF9vDF1HD1pOaE8EAUiXkq9L7zP4yrIpT5DK2VMje_st5GNM2ehpUGT4BFItus4Qtpx1K4Fj67ofyn3yUJ_HnjbAHU-5im_vfh8PVeN","https://blogger.googleusercontent.com/img/a/AVvXsEhTwzDPA-D7y35nyM4pUXtsIgfRA6HF11SohzUG2uTN00GSuKzUbaZduDjIMHpWULmxWc0IzkRneD7ElDo4OzsAcIE7-LCLqgpGn1WohwPGojXrAV1ASbWKrCtuEuB2J-ntsJFPsPAyQFizw_UC6jeOQFalHanRXq-_QTsRM3eyQLQTuX6STpgdisByROYZ"]};
+    var questions=[
+      {c:"업무 폭탄",q:"이미 할 일이 쌓였는데 팀장이 오늘까지 가능한지 묻는다.",a:["일단 네라고 하고 야근해서라도 끝낸다.","할 수 있는 데까지 해보겠다고 말한다.","기존 업무를 보여주며 우선순위를 정해 달라고 한다.","오늘 가능한 범위를 말하고 나머지는 내일 일정으로 잡는다."]},
+      {c:"업무 폭탄",q:"급한 업무를 겨우 끝냈더니 팀장이 일을 하나 더 얹어 준다.",a:["표정 관리하며 조용히 받아 온다.","속으로 욕하고 일단 처리한다.","지금 맡으면 다른 일정이 밀린다고 바로 알린다.","새 업무의 담당자와 마감을 다시 정리한 뒤 움직인다."]},
+      {c:"막내 잡무",q:"선배가 회식 예약을 당연하다는 듯 내게 넘긴다.",a:["장소 조사부터 인원 확인까지 혼자 한다.","귀찮지만 이번 한 번은 맡는다.","조건을 정해 주시면 예약만 하겠다고 한다.","담당을 돌아가며 맡는 방식으로 바꾸자고 제안한다."]},
+      {c:"막내 잡무",q:"바쁜데 동료가 자기 커피와 출력물까지 부탁한다.",a:["싫은 티를 못 내고 전부 해준다.","이번만 해주고 다음에는 피한다.","지금 바쁘니 각자 하자고 말한다.","내 동선에 맞는 일만 돕고 나머지는 분명히 거절한다."]},
+      {c:"책임 떠넘기기",q:"동료가 자기 실수를 우리 팀 실수로 뭉개려 한다.",a:["분위기가 깨질까 봐 같이 책임진다.","일단 수습하고 나중에 따로 말한다.","사실관계를 정리해 담당 범위를 구분한다.","기록을 남기고 재발 방지 방식까지 회의에서 정한다."]},
+      {c:"공 가로채기",q:"내가 만든 아이디어를 상사가 자기 아이디어처럼 발표한다.",a:["원래 회사가 다 그런가 보다 하고 넘긴다.","친한 동료에게만 억울하다고 털어놓는다.","다음 보고에서 내가 진행한 내용을 자연스럽게 밝힌다.","자료와 메일에 담당 기록을 남겨 다시는 빼앗기지 않게 한다."]},
+      {c:"주말 연락",q:"주말에 잠깐만 봐달라는 업무 메시지가 온다.",a:["바로 노트북을 켠다.","확인은 하지만 답장은 조금 늦게 한다.","긴급한지 확인한 뒤 월요일 처리 가능 여부를 알린다.","진짜 비상이 아니면 알림을 끄고 월요일에 답한다."]},
+      {c:"퇴근 직전",q:"퇴근 직전 갑작스러운 회의나 회식 참석을 요구한다.",a:["약속을 취소하고 참석한다.","눈치를 보며 끝까지 자리를 지킨다.","필요한 시간만 참석하고 먼저 나온다.","일정이 있으면 이유를 길게 설명하지 않고 불참한다."]},
+      {c:"눈치 야근",q:"내 일은 끝났는데 팀장이 다들 남는데 먼저 가냐고 한다.",a:["다시 자리에 앉아 할 일을 찾는다.","30분 정도 눈치를 보다 퇴근한다.","오늘 업무를 공유하고 정시에 퇴근한다.","퇴근 인사를 밝게 하고 뒤도 돌아보지 않는다."]},
+      {c:"휴가 사수",q:"인력 부족을 이유로 이미 승인된 휴가를 바꿔 달라고 한다.",a:["회사가 어렵다니 휴가를 취소한다.","일정 조정이 가능한지 고민해 본다.","변경 비용과 대체 일정을 확인한 뒤 협의한다.","승인된 휴가는 유지하고 인수인계만 확실히 한다."]},
+      {c:"무한 수정",q:"기준도 없이 같은 방향으로 다시 해달라는 요청이 세 번째다.",a:["말없이 처음부터 다시 만든다.","불평하면서도 요청대로 수정한다.","원하는 예시와 완료 기준을 먼저 요구한다.","변경 이력을 보여주며 결정권자와 기준부터 확정한다."]},
+      {c:"회의 생존",q:"회의에서 의견을 물어놓고 내 말을 계속 끊는다.",a:["더 말하지 않고 조용히 있는다.","회의가 끝난 뒤 메시지로 의견을 보낸다.","제 말을 마저 하겠다고 말하고 핵심을 전달한다.","근거를 제시하고 선택과 책임은 결정권자에게 돌린다."]}
+    ];
+    var results=[
+      {title:"네!만 외치는 순진한 신입",one:"회사 말을 아직 공지사항처럼 믿는 맑은 단계",summary:"부탁을 받으면 거절보다 해결부터 생각합니다. 협조적이고 성실하지만, 일이 생기는 속도보다 거절을 배우는 속도가 느려 내 책상만 계속 높아질 수 있습니다.",s:["배우려는 태도와 책임감이 좋습니다.","사람들의 부탁을 세심하게 챙깁니다."],w:["담당 범위가 쉽게 흐려집니다.","참는 것이 성실함이라고 착각할 수 있습니다."],tip:"바로 네라고 하기 전에 마감, 우선순위, 담당자 세 가지만 확인해 보세요."},
+      {title:"웃으며 버티는 눈치 생존러",one:"부당함은 알지만 아직 웃음으로 넘기는 단계",summary:"회사 분위기와 사람의 표정을 빠르게 읽습니다. 일단 버티는 요령은 생겼지만 속으로 쌓인 피로가 어느 날 갑자기 퇴사 검색창으로 폭발할 수 있습니다.",s:["상황 적응력과 눈치가 빠릅니다.","충돌 없이 급한 일을 수습합니다."],w:["불만을 혼자 쌓아 두기 쉽습니다.","이번 한 번이 반복 업무가 될 수 있습니다."],tip:"싫다고만 하지 말고 지금 가능한 범위와 시간을 한 문장으로 알려주세요."},
+      {title:"할 말은 하는 반격 준비생",one:"조용히 참기보다 근거를 꺼내기 시작한 단계",summary:"누가 무엇을 맡았고 왜 일정이 밀리는지 설명할 수 있습니다. 예전처럼 전부 삼키지는 않지만 말할 타이밍과 표현을 고르느라 에너지를 많이 씁니다.",s:["사실과 감정을 구분해 말합니다.","책임과 성과를 기록으로 남기기 시작합니다."],w:["참다가 한 번에 강하게 말할 수 있습니다.","상대 반응을 지나치게 복기할 수 있습니다."],tip:"문제, 영향, 제안 순서로 짧게 말하면 할 말은 하면서 싸움은 줄일 수 있습니다."},
+      {title:"선 넘으면 퇴근하는 경계 수호자",one:"회사 일과 내 시간을 분리할 줄 아는 단계",summary:"업무시간, 휴가, 담당 범위를 분명하게 지킵니다. 불필요한 눈치 야근에는 흔들리지 않지만 설명이 너무 짧으면 주변에는 차갑게 보일 수도 있습니다.",s:["시간과 에너지를 안정적으로 관리합니다.","무리한 요구에 대안을 제시할 수 있습니다."],w:["협업이 필요한 순간에도 단호해질 수 있습니다.","융통성이 없다는 오해를 받을 수 있습니다."],tip:"선을 지키되 이유 한 줄과 가능한 대안 하나를 함께 주면 경계가 더 오래 유지됩니다."},
+      {title:"회사가 나를 못 굴리는 고인물",one:"회사보다 회사 사용법을 더 잘 아는 단계",summary:"누가 결정하고 누가 책임져야 하는지 알고, 기록과 일정표로 혼란을 정리합니다. 회사가 나를 굴리는 대신 내가 업무 흐름을 굴리지만 모든 일을 통제하려 들면 혼자 또 바빠집니다.",s:["협상, 기록, 우선순위 설정이 능숙합니다.","복잡한 일을 구조로 바꿉니다."],w:["냉소적이거나 통제적으로 보일 수 있습니다.","후배의 시행착오까지 대신 관리할 수 있습니다."],tip:"내가 다 해결하기보다 기준과 방법을 공유해 주변 사람의 생존 레벨도 올려주세요."},
+      {title:"내 갈 길 가는 사내 최종 보스",one:"회사에 다니지만 인생의 결재권자는 나인 단계",summary:"회사의 급한 사정과 내 인생의 중요한 일을 구분합니다. 상사의 표정이나 단체 눈치보다 내 기준과 장기 계획을 따라 움직이며, 필요하면 업무 요새까지 끌고 자기 길을 갑니다.",s:["자율성과 판단력이 매우 강합니다.","불필요한 감정 소모 없이 결정을 내립니다."],w:["조직과 너무 멀어져 혼자 움직일 수 있습니다.","내 기준이 늘 옳다는 확신에 빠질 수 있습니다."],tip:"내 길은 지키되 사람과 다리를 전부 끊지는 마세요. 최종 보스에게도 믿을 만한 동료는 필요합니다."}
+    ];
+    var state={index:0,values:[],locked:false,sound:true,audio:null,music:null,started:false};
+    var el={};
+    function $(id){return document.getElementById(id)}
+    function cache(){el.start=$("osl-start");el.quiz=$("osl-quiz");el.loading=$("osl-loading");el.result=$("osl-result");el.startBtn=$("osl-start-btn");el.sound=$("osl-sound");el.count=$("osl-count");el.percent=$("osl-percent");el.bar=$("osl-bar");el.qimg=$("osl-question-img");el.category=$("osl-category");el.question=$("osl-question");el.answers=$("osl-answers");el.back=$("osl-back");el.level=$("osl-level");el.rtitle=$("osl-result-title");el.rone=$("osl-result-one");el.rimg=$("osl-result-img");el.score=$("osl-score-label");el.meter=$("osl-meter-bar");el.summary=$("osl-summary");el.strengths=$("osl-strengths");el.weaknesses=$("osl-weaknesses");el.advice=$("osl-advice");el.shareNote=$("osl-share-note")}
+    function show(target){[el.start,el.quiz,el.loading,el.result].forEach(function(x){x.hidden=x!==target})}
+    function audio(){if(state.audio)return;var C=window.AudioContext||window.webkitAudioContext;if(C)state.audio=new C()}
+    function tone(f,d,v){if(!state.sound)return;audio();if(!state.audio)return;if(state.audio.state==="suspended")state.audio.resume();var o=state.audio.createOscillator(),g=state.audio.createGain(),t=state.audio.currentTime;o.type="triangle";o.frequency.value=f;g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(v,t+.02);g.gain.exponentialRampToValueAtTime(.0001,t+d);o.connect(g);g.connect(state.audio.destination);o.start(t);o.stop(t+d+.03)}
+    function startMusic(){if(!state.sound||state.music)return;var notes=[220,261.63,293.66,246.94,220,329.63,293.66,246.94],i=0;tone(notes[0],.28,.038);state.music=setInterval(function(){i=(i+1)%notes.length;tone(notes[i],.28,.038)},650)}
+    function stopMusic(){if(state.music){clearInterval(state.music);state.music=null}}
+    function start(){if(state.started)return;state.started=true;state.index=0;state.values=[];startMusic();tone(392,.16,.065);show(el.quiz);render();el.quiz.scrollIntoView({behavior:"smooth",block:"start"})}
+    function render(){state.locked=false;var q=questions[state.index],pct=Math.round((state.index+1)/questions.length*100);el.count.textContent=(state.index+1)+" / "+questions.length;el.percent.textContent=pct+"%";el.bar.style.width=pct+"%";el.qimg.src=images.scenes[Math.floor(state.index/2)];el.qimg.alt=q.c+" 직장인 생존 테스트 상황";el.category.textContent=q.c;el.question.textContent=q.q;el.answers.innerHTML="";q.a.forEach(function(label,i){var b=document.createElement("button");b.type="button";b.className="osl-answer";b.textContent=label;b.addEventListener("click",function(){pick(i+1,b)});el.answers.appendChild(b)});el.back.style.visibility=state.index?"visible":"hidden"}
+    function pick(value,button){if(state.locked)return;state.locked=true;Array.prototype.forEach.call(el.answers.children,function(b){b.disabled=true});button.classList.add("is-picked");state.values[state.index]=value;tone(value>=3?587.33:493.88,.13,.055);setTimeout(function(){state.index++;if(state.index<questions.length){render();el.quiz.scrollIntoView({behavior:"smooth",block:"start"})}else finish()},260)}
+    function back(){if(state.locked||state.index===0)return;state.index--;state.values.length=state.index;render()}
+    function finish(){stopMusic();show(el.loading);tone(392,.18,.06);setTimeout(result,1250)}
+    function levelFrom(total){if(total<=17)return 1;if(total<=23)return 2;if(total<=29)return 3;if(total<=35)return 4;if(total<=41)return 5;return 6}
+    function list(node,items){node.innerHTML="";items.forEach(function(x){var li=document.createElement("li");li.textContent=x;node.appendChild(li)})}
+    function result(){var total=state.values.reduce(function(a,b){return a+b},0),lv=levelFrom(total),d=results[lv-1],pct=Math.round((total-12)/36*100);el.result.className="osl-screen osl-result lv"+lv;el.level.textContent="LEVEL "+lv;el.rtitle.textContent=d.title;el.rone.textContent=d.one;el.rimg.src=images.results[lv-1];el.rimg.alt="직장인 레벨 "+lv+" "+d.title+" 결과";el.score.textContent="생존력 "+pct+"%";el.meter.style.width=pct+"%";el.summary.textContent=d.summary;list(el.strengths,d.s);list(el.weaknesses,d.w);el.advice.textContent=d.tip;show(el.result);tone(659.25,.2,.07);setTimeout(function(){tone(lv===6?987.77:783.99,.3,.06)},170);el.result.scrollIntoView({behavior:"smooth",block:"start"})}
+    function restart(){stopMusic();state.index=0;state.values=[];state.locked=false;state.started=false;el.shareNote.textContent="";show(el.start);el.start.scrollIntoView({behavior:"smooth",block:"start"})}
+    function share(){var text="나의 직장인 생존 결과는 "+el.level.textContent+" "+el.rtitle.textContent+"! 당신의 회사 생존 레벨도 확인해 보세요.";if(navigator.share){navigator.share({title:"나의 직장인 레벨 테스트",text:text,url:location.href}).catch(function(){});return}var all=text+" "+location.href;if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(all).then(function(){el.shareNote.textContent="친구에게 보낼 결과와 주소를 복사했습니다."})}else{window.prompt("아래 내용을 복사해 주세요.",all)}}
+    function bindStart(){function activate(e){if(e&&e.cancelable&&(e.type==="pointerup"||e.type==="touchend"))e.preventDefault();start()}if(window.PointerEvent){el.startBtn.addEventListener("pointerup",function(e){if(e.pointerType==="touch"||e.pointerType==="pen")activate(e)},{passive:false})}else{el.startBtn.addEventListener("touchend",activate,{passive:false})}el.startBtn.addEventListener("click",activate)}
+    function init(){cache();bindStart();el.back.addEventListener("click",back);$("osl-restart").addEventListener("click",restart);$("osl-share").addEventListener("click",share);el.sound.addEventListener("click",function(){state.sound=!state.sound;el.sound.textContent=state.sound?"BGM ON":"BGM OFF";el.sound.setAttribute("aria-pressed",state.sound?"true":"false");if(!state.sound)stopMusic();else if(!el.quiz.hidden)startMusic()})}
+    if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",init);else init();
+  })();
+  </script>
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Quiz","name":"회사에서 살아남기 나의 직장인 레벨은 몇?","description":"12가지 회사 생활 상황으로 직장인 생존 레벨 1부터 6까지 알아보는 재미용 테스트","educationalLevel":"직장인","inLanguage":"ko-KR","isAccessibleForFree":true},{"@type":"FAQPage","inLanguage":"ko-KR","mainEntity":[{"@type":"Question","name":"직장인 레벨 테스트 문항은 몇 개인가요?","acceptedAnswer":{"@type":"Answer","text":"총 12문항이며 각 문항마다 네 가지 선택지가 있습니다."}},{"@type":"Question","name":"직장인 레벨 테스트 결과는 몇 단계인가요?","acceptedAnswer":{"@type":"Answer","text":"순진한 신입인 레벨 1부터 내 갈 길을 가는 사내 최종 보스인 레벨 6까지 나옵니다."}},{"@type":"Question","name":"실제 직무 능력을 평가하나요?","acceptedAnswer":{"@type":"Answer","text":"아닙니다. 직장 생활 반응을 밈처럼 과장한 재미용 테스트입니다."}}]}]}</script>
+</div>
+
+<!-- ===== 카카오톡 결과 공유 (testmix v2.2) ===== -->
+<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.4/kakao.min.js" crossorigin="anonymous"></script>
+<script>
+//<![CDATA[
+(function () {
+  var Q = function (s) { return document.querySelector(s); };
+  var T = function (s) {
+    var e = Q(s); if (!e) return '';
+    var c = e.cloneNode(true);
+    [].forEach.call(c.querySelectorAll('[class*="google-anno"],ins,script,style'), function (x) { x.remove(); });
+    return c.textContent.replace(/\s+/g, ' ').trim();
+  };
+  var DOT = '\u00b7';
+  var CFG = {test:'직장인 레벨 테스트', fmt:'나는 {name}', btn:'#osl-share', read:function(){return {name:(T('#osl-level')+' '+T('#osl-result-title')).trim(), nick:T('#osl-result-one'), img:'#osl-result-img'};}};
+  var KEY = '7ddee789fac314a1a3a712d361c76c21', LABEL = '결과 공유하기';
+  var SHARE_RE = /친구|공유|함께|보내기|찾아주기/;
+  if (window.Kakao && !Kakao.isInitialized()) Kakao.init(KEY);
+
+  function base() { return location.origin + location.pathname; }
+  function og() { var m = Q('meta[property="og:image"]'); return m ? m.content : ''; }
+  function cut(s, n) { s = s || ''; return s.length > n ? s.slice(0, n - 1) + '\u2026' : s; }
+
+  async function upload(blob) {
+    var res = await Kakao.Share.uploadImage({ file: [new File([blob], 'result.png', { type: blob.type || 'image/png' })] });
+    return res.infos.original.url.replace(/^http:/, 'https:');
+  }
+  function toBlob(cv) { return new Promise(function (r) { cv.toBlob(r, 'image/png'); }); }
+
+  async function cropSprite(url, el, cs) {
+    var sz = cs.backgroundSize.split(' '), ps = cs.backgroundPosition.split(' ');
+    if (sz[0].indexOf('%') < 0) return url;
+    var W = parseFloat(sz[0]), H = parseFloat(sz[1] || sz[0]);
+    if (W <= 100 && H <= 100) return url;
+    var bmp = await createImageBitmap(await (await fetch(url + (url.indexOf('?') < 0 ? '?' : '&') + 'ks=1', { mode: 'cors' })).blob());
+    var nw = bmp.width, nh = bmp.height;
+    function frac(p, S, elLen) {
+      if (/%$/.test(p)) return (1 - 100 / S) * parseFloat(p) / 100;
+      var bg = S / 100 * elLen; return bg ? -parseFloat(p) / bg : 0;
+    }
+    var sw = nw * Math.min(1, 100 / W), sh = nh * Math.min(1, 100 / H);
+    var sx = nw * frac(ps[0] || '0%', W, el.offsetWidth), sy = nh * frac(ps[1] || ps[0] || '0%', H, el.offsetHeight);
+    var k = Math.min(1, 800 / Math.max(sw, sh));
+    var cv = document.createElement('canvas'); cv.width = Math.round(sw * k); cv.height = Math.round(sh * k);
+    cv.getContext('2d').drawImage(bmp, sx, sy, sw, sh, 0, 0, cv.width, cv.height);
+    return upload(await toBlob(cv));
+  }
+
+  async function svgShot(svg) {
+    var r = svg.getBoundingClientRect(), c = svg.cloneNode(true);
+    var src = [svg].concat([].slice.call(svg.querySelectorAll('*'))), dst = [c].concat([].slice.call(c.querySelectorAll('*')));
+    var props = ['fill', 'stroke', 'stroke-width', 'stroke-dasharray', 'opacity', 'fill-opacity', 'stroke-opacity', 'font-size', 'font-weight', 'font-family', 'text-anchor', 'dominant-baseline'];
+    src.forEach(function (s, i) { var st = getComputedStyle(s); dst[i].setAttribute('style', props.map(function (p) { return p + ':' + st.getPropertyValue(p); }).join(';')); });
+    c.setAttribute('xmlns', 'http://www.w3.org/2000/svg'); c.setAttribute('width', r.width); c.setAttribute('height', r.height);
+    var u = URL.createObjectURL(new Blob([new XMLSerializer().serializeToString(c)], { type: 'image/svg+xml' }));
+    var img = new Image(); await new Promise(function (ok, no) { img.onload = ok; img.onerror = no; img.src = u; });
+    var pad = 40, s = 2, cv = document.createElement('canvas');
+    cv.width = (r.width + pad * 2) * s; cv.height = (r.height + pad * 2) * s;
+    var x = cv.getContext('2d'); x.fillStyle = '#fff'; x.fillRect(0, 0, cv.width, cv.height);
+    x.drawImage(img, pad * s, pad * s, r.width * s, r.height * s); URL.revokeObjectURL(u);
+    return upload(await toBlob(cv));
+  }
+
+  async function getImage(sel) {
+    var el = sel ? Q(sel) : null;
+    if (!el) return og();
+    var src = '';
+    if (el.tagName === 'IMG') src = el.currentSrc || el.src;
+    else if (el.tagName.toLowerCase() === 'svg') return svgShot(el);
+    else {
+      var im = el.querySelector('img');
+      if (im) src = im.currentSrc || im.src;
+      else {
+        var nodes = [el].concat([].slice.call(el.querySelectorAll('*')));
+        for (var i = 0; i < nodes.length; i++) {
+          var cs = getComputedStyle(nodes[i]), m = /url\(["']?([^"')]+)/.exec(cs.backgroundImage);
+          if (m) {
+            if (/^https?:/.test(m[1])) return cropSprite(m[1], nodes[i], cs);
+            src = m[1]; break;
+          }
+        }
+        if (!src) { var sv = el.querySelector('svg'); if (sv) return svgShot(sv); }
+      }
+    }
+    if (/^https:\/\//.test(src)) return src;
+    if (/^(data|blob):/.test(src)) return upload(await (await fetch(src)).blob());
+    return og();
+  }
+
+  async function share() {
+    var r = null;
+    try { r = CFG.read(); } catch (e) {}
+    if (!r || !r.name) { alert('테스트를 먼저 완료해 주세요!'); return; }
+    var link = base() + '?r=' + encodeURIComponent(r.name.slice(0, 40));
+    var title = cut(CFG.fmt.replace('{name}', r.name), 80);
+    var desc = (r.nick ? cut(r.nick, 60) + ' | ' : '') + CFG.test;
+    try {
+      if (!window.Kakao) throw 0;
+      var img = og();
+      try { img = (await getImage(r.img || '')) || og(); } catch (e) { img = og(); }
+      Kakao.Share.sendDefault({
+        objectType: 'feed',
+        content: { title: title, description: desc, imageUrl: img, link: { mobileWebUrl: link, webUrl: link } },
+        buttons: [{ title: '나도 해보기', link: { mobileWebUrl: link, webUrl: link } }]
+      });
+    } catch (e) {
+      try {
+        if (navigator.share) { await navigator.share({ title: title, text: title, url: link }); return; }
+        await navigator.clipboard.writeText(title + ' ' + link);
+        alert('링크가 복사되었어요!');
+      } catch (e2) {}
+    }
+  }
+
+  window.addEventListener('click', function (e) {
+    var el = e.target.closest && e.target.closest('[data-kshare]');
+    if (!el || el.textContent.trim() !== LABEL) return;
+    e.preventDefault(); e.stopImmediatePropagation(); share();
+  }, true);
+
+  function sync() {
+    if (CFG.btn) [].forEach.call(document.querySelectorAll(CFG.btn), function (b) {
+      if (!SHARE_RE.test(b.textContent)) return;
+      if (b.textContent.trim() !== LABEL) b.textContent = LABEL;
+      if (!b.hasAttribute('data-kshare')) b.setAttribute('data-kshare', '');
+    });
+    if (CFG.add && !Q('[data-kshare]')) {
+      var a = Q(CFG.add.sel);
+      if (a) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = CFG.add.cls != null ? CFG.add.cls : (CFG.add.into ? ((a.querySelector('button') || {}).className || '') : (a.className || ''));
+        b.textContent = LABEL;
+        b.setAttribute('data-kshare', '');
+        if (CFG.add.into) a.appendChild(b); else a.parentNode.insertBefore(b, a.nextSibling);
+      }
+    }
+  }
+
+  function banner() {
+    var who = new URLSearchParams(location.search).get('r'), pb = Q('.post-body');
+    if (!who || !pb) return;
+    var d = document.createElement('div');
+    d.style.cssText = 'margin:0 0 14px;padding:12px 14px;border-radius:12px;background:#e8f4ff;color:#0b3a66;font-weight:600;text-align:center;line-height:1.5';
+    d.textContent = '\ud83d\udc8c 친구의 결과는 "' + who.slice(0, 40) + '" ' + DOT + ' 나도 해보기 \ud83d\udc47';
+    pb.insertBefore(d, pb.firstChild);
+  }
+
+  function init() {
+    sync(); banner();
+    var pending = false, pb = Q('.post-body') || document.body;
+    new MutationObserver(function () {
+      if (pending) return; pending = true;
+      requestAnimationFrame(function () { pending = false; sync(); });
+    }).observe(pb, { childList: true, subtree: true });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+})();
+//]]>
+</script>

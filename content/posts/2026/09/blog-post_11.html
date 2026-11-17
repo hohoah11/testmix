@@ -1,0 +1,463 @@
+<!--이 코드 전체를 블로그 글의 HTML 보기에서 붙여 넣으세요.-->
+<style>
+#rd-illusion{box-sizing:border-box;width:100%;max-width:560px;min-width:0;margin:24px auto;border:1px solid #213b53;border-radius:22px;overflow:hidden;background:#0b1c30;color:#f7f3e9;font-family:system-ui,-apple-system,"Noto Sans KR","Malgun Gothic",sans-serif;line-height:1.7;text-align:left;isolation:isolate;color-scheme:dark}
+#rd-illusion *,#rd-illusion *::before,#rd-illusion *::after{box-sizing:border-box}
+#rd-illusion [hidden]{display:none!important}
+#rd-illusion .rd-picture{margin:0;padding:0;background:#061525}
+#rd-illusion .rd-picture img{display:block!important;width:100%!important;max-width:100%!important;height:auto!important;aspect-ratio:1/1;object-fit:contain;border:0!important;border-radius:0!important;margin:0!important;padding:0!important;box-shadow:none!important}
+#rd-illusion .rd-content{padding:23px 24px 25px}
+#rd-illusion h2,#rd-illusion h3,#rd-illusion p{border:0;background:none;padding:0;letter-spacing:normal;word-break:keep-all;overflow-wrap:anywhere}
+#rd-illusion h2::before,#rd-illusion h2::after,#rd-illusion h3::before,#rd-illusion h3::after{display:none!important}
+#rd-illusion h2{margin:0 0 9px;color:#fff5dc;font-size:25px;font-weight:800;line-height:1.4;text-align:center}
+#rd-illusion h3{margin:0 0 8px;color:#f7dc9b;font-size:18px;font-weight:750;line-height:1.5}
+#rd-illusion p{margin:0;color:#d6e0ec;font-size:15px;line-height:1.85}
+#rd-illusion .rd-intro{text-align:center}
+#rd-illusion .rd-buttons{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:21px}
+#rd-illusion button{appearance:none;display:flex;align-items:center;justify-content:center;gap:7px;width:100%;min-width:0;min-height:56px;margin:0;padding:13px 9px;border:1px solid #647488;border-radius:13px;background:#20344b;color:#fff;font:inherit;font-size:17px;font-weight:750;line-height:1.4;letter-spacing:normal;text-transform:none;text-decoration:none;white-space:normal;word-break:keep-all;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent;box-shadow:none;transition:background .15s,transform .15s}
+#rd-illusion button[data-choice="rabbit"]{background:#f1d9a5;color:#17293d;border-color:#f1d9a5}
+#rd-illusion button:active{transform:scale(.98)}
+#rd-illusion button:focus-visible,#rd-illusion a:focus-visible{outline:3px solid #fff1bd;outline-offset:3px}
+#rd-illusion button:disabled{opacity:.55;cursor:default}
+#rd-illusion .rd-result-heading{margin-bottom:19px}
+#rd-illusion .rd-copy{margin-top:19px}
+#rd-illusion .rd-character{margin-top:20px;padding:17px 18px;border:1px solid #3d5063;border-radius:13px;background:#13283f}
+#rd-illusion .rd-label{display:block;margin-bottom:5px;color:#b6c6d9;font-size:12px;letter-spacing:.04em}
+#rd-illusion .rd-character strong{display:block;margin-bottom:8px;color:#ffe5ae;font-size:19px;line-height:1.5}
+#rd-illusion .rd-actions button{font-size:14px;min-height:50px;background:#20344b;color:#edf2f8}
+#rd-illusion .rd-note{margin-top:18px;color:#aabbce;font-size:12px;line-height:1.75}
+#rd-illusion .rd-source{margin-top:9px;color:#aabbce;font-size:12px;text-align:center}
+#rd-illusion a{color:#f0d8a3;text-decoration:underline;text-underline-offset:3px}
+#rd-illusion .rd-error{padding:12px 18px;background:#20344b;font-size:13px}
+@media(hover:hover){#rd-illusion button:hover{filter:brightness(1.1)}}
+@media(max-width:380px){#rd-illusion{margin:16px auto;border-radius:17px}#rd-illusion .rd-content{padding:20px 16px}#rd-illusion h2{font-size:21px}#rd-illusion button{font-size:16px}#rd-illusion .rd-character{padding:15px}}
+@media(prefers-reduced-motion:reduce){#rd-illusion button{transition:none}}
+</style>
+
+<div id="rd-illusion">
+  <div class="rd-picture">
+    <img alt="밤하늘과 호수 위에 떠 있는 동물 실루엣 착시 그림" data-rd="image" decoding="async" height="1254" loading="eager" src="https://blogger.googleusercontent.com/img/a/AVvXsEhoHIfFNDM0S1DPFmcfZJodhMQZc_hDRgAgtUqJ7tacNLE0NdZnx_l5pDBCpOSTGfg3hbVBKiRc_KD1foTw-CCp5Pyb-Hb1c4px8MG1PvFdGKtod65IE9mfQkYBaA4H9XxFaYoCxdkvvLXJkjXLmbUOOWtpkQ_9icY1DesKDB3LPI448aeQQE9RdXpnp656" width="1254" />
+  </div>
+
+  <p class="rd-error" data-rd="error" hidden="" role="status">
+    이미지를 불러오지 못했어요.
+    잠시 후 다시 접속하거나
+    <a data-rd="image-link" rel="noopener noreferrer" target="_blank">이미지 열기</a>를 눌러 주세요.
+  </p>
+
+  <div class="rd-content">
+    <div data-rd="question">
+      <h2 data-rd="question-title" tabindex="-1">
+        당신의 눈에 보이는 것은?
+      </h2>
+
+      <p class="rd-intro">
+        가장 먼저 눈에 들어온 동물을 골라 주세요.
+      </p>
+
+      <div class="rd-buttons">
+        <button data-choice="rabbit" disabled="" type="button">
+          토끼
+        </button>
+        <button data-choice="duck" disabled="" type="button">
+          오리
+        </button>
+      </div>
+
+      <p class="rd-note rd-intro">
+        정답은 없어요. 첫 느낌대로 선택해 보세요.
+      </p>
+    </div>
+
+    <div aria-labelledby="rd-result-title" data-rd="result" hidden="" role="region">
+      <h2 class="rd-result-heading" data-rd="title" id="rd-result-title" tabindex="-1"></h2>
+
+      <div class="rd-copy">
+        <h3 data-rd="reason-title"></h3>
+        <p data-rd="reason"></p>
+      </div>
+
+      <div class="rd-character">
+        <span class="rd-label">재미로 읽는 나의 캐릭터</span>
+        <strong data-rd="character"></strong>
+        <p data-rd="personality"></p>
+      </div>
+
+      <div class="rd-copy">
+        <h3>다른 동물도 보이나요?</h3>
+        <p data-rd="tip"></p>
+      </div>
+
+      <div class="rd-buttons rd-actions">
+        <button data-rd="restart" type="button">
+          원본 다시 보기
+        </button>
+        <button data-rd="other" type="button"></button>
+      </div>
+
+      <p class="rd-note">
+        캐릭터 해설은 재미를 위한 창작이에요.
+        어떤 동물을 먼저 보았는지만으로
+        성격이나 능력을 판단할 수는 없어요.
+      </p>
+
+      <p class="rd-source">
+        <a href="https://sites.psych.ualberta.ca/kylemathewson/duck-duck-rabbit-how-we-see-what-we-see/" rel="noopener noreferrer" target="_blank">
+          오리 토끼 착시 원리 알아보기
+        </a>
+      </p>
+    </div>
+
+    <noscript>
+      <p class="rd-note">
+        선택 결과를 보려면 브라우저에서
+        자바스크립트를 허용해 주세요.
+      </p>
+    </noscript>
+  </div>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  var root = document.getElementById("rd-illusion");
+
+  if (!root || root.dataset.ready) {
+    return;
+  }
+
+  root.dataset.ready = "true";
+
+  function get(name) {
+    return root.querySelector('[data-rd="' + name + '"]');
+  }
+
+  function decodeText(value) {
+    var box = document.createElement("textarea");
+    box.innerHTML = String(value == null ? "" : value);
+    return box.value;
+  }
+
+  function setText(element, value) {
+    if (!element) return;
+    element.textContent = decodeText(value);
+  }
+
+  var picture = get("image");
+  var original = picture.getAttribute("src");
+  var originalAlt = picture.alt;
+  var current = null;
+
+  var data = {
+    rabbit: {
+      image: "https://blogger.googleusercontent.com/img/a/AVvXsEhP9PYcEz1d19zqv5z6jOHxpBog9fPFvk1YPOZuNuD9jWKEq25J3C0nSpV777IhZAKzgnDkXawmtxKSqGEcnAiMarV-VRoNWYdBhY7oknSQStRDLbd1KvZAA-DZBeUNTNGiWuTu4DTKIuvZKqf177Ss1RixJollbEbLDqKjmN0qhuwsvQ_1MVjnhOiN3UsF",
+
+      alt: "왼쪽으로 뻗은 두 귀와 오른쪽을 향한 얼굴이 강조된 토끼 해설 이미지",
+
+      title: "토끼가 먼저 보였군요!",
+
+      reasonTitle: "토끼로 보이는 이유",
+
+      reason: "왼쪽으로 길게 갈라진 부분을 토끼의 두 귀로 받아들였기 때문이에요. 그러면 오른쪽의 둥근 윤곽은 이마와 코가 되고, 검은 점은 눈으로 연결되면서 오른쪽을 바라보는 토끼가 완성돼요. 같은 선도 어떤 신체 부위로 해석하느냐에 따라 전혀 다른 동물로 보일 수 있답니다.",
+
+      character: "상상을 즐기는 토끼",
+
+      personality: "이번 선택에 재미로 붙여 본 캐릭터는 익숙한 장면에서도 새로운 이야기를 발견하는 토끼예요. 하나의 답에 머무르기보다 '이렇게 보면 어떨까?' 하고 다른 가능성을 떠올리는 모습이 어울려요. 평소의 나와 닮았나요? 떠오른 생각을 작은 행동으로 옮겨 보면 더 재미있는 하루가 될 거예요.",
+
+      tip: "원본으로 돌아가 긴 두 귀를 살짝 벌어진 오리의 부리라고 생각해 보세요. 이번에는 왼쪽을 바라보는 오리가 나타날지도 몰라요.",
+
+      other: "오리 해설 보기"
+    },
+
+    duck: {
+      image: "https://blogger.googleusercontent.com/img/a/AVvXsEg_zeeoIPtudU3DNkLSJdgKcCE4y9ZYQkD3zCaasxpajHFNMOkDWct-TE4_jbvKy53JN89xO9Nb7qtw2_RL5dfcgC04ENSqNnt3R_0k5Li6O2AzmmEsYgx1344-qMbcCdm_QyzigTvOGPbczWF68aajb6_9GtgnDB7X3_ioafKcTfUXhs0s4kwWyprwRMLS",
+
+      alt: "왼쪽으로 벌어진 노란 부리가 강조된 오리 해설 이미지",
+
+      title: "오리가 먼저 보였군요!",
+
+      reasonTitle: "오리로 보이는 이유",
+
+      reason: "왼쪽으로 길게 벌어진 부분을 오리의 부리로 받아들였기 때문이에요. 그 옆의 검은 점을 눈으로, 오른쪽의 둥근 윤곽을 머리 뒤쪽으로 연결하면 왼쪽을 바라보는 오리가 완성돼요. 토끼로 볼 때는 귀였던 부분이 오리로 볼 때는 부리가 되는 것이 이 착시의 재미랍니다.",
+
+      character: "단서를 찾는 오리",
+
+      personality: "이번 선택에 재미로 붙여 본 캐릭터는 눈에 들어온 특징을 연결하며 상황을 살펴보는 오리예요. 막연하게 넘기기보다 '어떤 단서가 있을까?' 하고 차근차근 확인하는 모습이 어울려요. 평소의 나와 닮았나요? 익숙한 답을 찾은 뒤 다른 가능성도 한 번 떠올려 보면 새로운 재미가 생길 거예요.",
+
+      tip: "원본으로 돌아가 벌어진 부리를 뒤로 길게 뻗은 토끼의 두 귀라고 생각해 보세요. 이번에는 오른쪽을 바라보는 토끼가 나타날지도 몰라요.",
+
+      other: "토끼 해설 보기"
+    }
+  };
+
+  function changeImage(src, alt) {
+    get("error").hidden = true;
+    picture.alt = decodeText(alt);
+    get("image-link").href = src;
+    picture.src = src;
+  }
+
+  picture.addEventListener("error", function () {
+    get("error").hidden = false;
+  });
+
+  picture.addEventListener("load", function () {
+    get("error").hidden = true;
+  });
+
+  get("image-link").href = original;
+
+  if (picture.complete && !picture.naturalWidth) {
+    get("error").hidden = false;
+  }
+
+  function moveToStart(heading) {
+    heading.focus({ preventScroll: true });
+
+    var rect = root.getBoundingClientRect();
+
+    if (rect.top < 0 || rect.top > window.innerHeight * 0.35) {
+      var reduced = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches;
+
+      root.scrollIntoView({
+        behavior: reduced ? "auto" : "smooth",
+        block: "start"
+      });
+    }
+  }
+
+  function showResult(key, comparing) {
+    var item = data[key];
+    if (!item) return;
+
+    current = key;
+    changeImage(item.image, item.alt);
+
+    setText(
+      get("title"),
+      comparing
+        ? (
+            key === "rabbit"
+              ? "토끼로 보면 이런 모습이에요"
+              : "오리로 보면 이런 모습이에요"
+          )
+        : item.title
+    );
+
+    setText(get("reason-title"), item.reasonTitle);
+    setText(get("reason"), item.reason);
+    setText(get("character"), item.character);
+    setText(get("personality"), item.personality);
+    setText(get("tip"), item.tip);
+    setText(get("other"), item.other);
+
+    get("question").hidden = true;
+    get("result").hidden = false;
+
+    moveToStart(get("title"));
+  }
+
+  root.querySelectorAll("[data-choice]").forEach(function (button) {
+    button.disabled = false;
+
+    button.addEventListener("click", function () {
+      showResult(button.dataset.choice, false);
+    });
+  });
+
+  get("restart").addEventListener("click", function () {
+    changeImage(original, originalAlt);
+    current = null;
+
+    get("result").hidden = true;
+    get("question").hidden = false;
+
+    moveToStart(get("question-title"));
+  });
+
+  get("other").addEventListener("click", function () {
+    showResult(
+      current === "rabbit" ? "duck" : "rabbit",
+      true
+    );
+  });
+
+  var preloadImages = [];
+
+  function preload() {
+    Object.keys(data).forEach(function (key) {
+      var cached = new Image();
+      cached.src = data[key].image;
+      preloadImages.push(cached);
+    });
+  }
+
+  if (picture.complete) {
+    preload();
+  } else {
+    picture.addEventListener("load", preload, { once: true });
+  }
+})();
+</script>
+
+<!-- ===== 카카오톡 결과 공유 (testmix v2.2) ===== -->
+<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.4/kakao.min.js" crossorigin="anonymous"></script>
+<script>
+//<![CDATA[
+(function () {
+  var Q = function (s) { return document.querySelector(s); };
+  var T = function (s) {
+    var e = Q(s); if (!e) return '';
+    var c = e.cloneNode(true);
+    [].forEach.call(c.querySelectorAll('[class*="google-anno"],ins,script,style'), function (x) { x.remove(); });
+    return c.textContent.replace(/\s+/g, ' ').trim();
+  };
+  var DOT = '\u00b7';
+  var CFG = {test:'오리 토끼 착시 심리테스트', fmt:'나는 {name}!', add:{sel:'.rd-actions', into:true}, read:function(){return {name:T('.rd-character strong'), nick:T('#rd-result-title'), img:'#rd-illusion img'};}};
+  var KEY = '7ddee789fac314a1a3a712d361c76c21', LABEL = '결과 공유하기';
+  var SHARE_RE = /친구|공유|함께|보내기|찾아주기/;
+  if (window.Kakao && !Kakao.isInitialized()) Kakao.init(KEY);
+
+  function base() { return location.origin + location.pathname; }
+  function og() { var m = Q('meta[property="og:image"]'); return m ? m.content : ''; }
+  function cut(s, n) { s = s || ''; return s.length > n ? s.slice(0, n - 1) + '\u2026' : s; }
+
+  async function upload(blob) {
+    var res = await Kakao.Share.uploadImage({ file: [new File([blob], 'result.png', { type: blob.type || 'image/png' })] });
+    return res.infos.original.url.replace(/^http:/, 'https:');
+  }
+  function toBlob(cv) { return new Promise(function (r) { cv.toBlob(r, 'image/png'); }); }
+
+  async function cropSprite(url, el, cs) {
+    var sz = cs.backgroundSize.split(' '), ps = cs.backgroundPosition.split(' ');
+    if (sz[0].indexOf('%') < 0) return url;
+    var W = parseFloat(sz[0]), H = parseFloat(sz[1] || sz[0]);
+    if (W <= 100 && H <= 100) return url;
+    var bmp = await createImageBitmap(await (await fetch(url + (url.indexOf('?') < 0 ? '?' : '&') + 'ks=1', { mode: 'cors' })).blob());
+    var nw = bmp.width, nh = bmp.height;
+    function frac(p, S, elLen) {
+      if (/%$/.test(p)) return (1 - 100 / S) * parseFloat(p) / 100;
+      var bg = S / 100 * elLen; return bg ? -parseFloat(p) / bg : 0;
+    }
+    var sw = nw * Math.min(1, 100 / W), sh = nh * Math.min(1, 100 / H);
+    var sx = nw * frac(ps[0] || '0%', W, el.offsetWidth), sy = nh * frac(ps[1] || ps[0] || '0%', H, el.offsetHeight);
+    var k = Math.min(1, 800 / Math.max(sw, sh));
+    var cv = document.createElement('canvas'); cv.width = Math.round(sw * k); cv.height = Math.round(sh * k);
+    cv.getContext('2d').drawImage(bmp, sx, sy, sw, sh, 0, 0, cv.width, cv.height);
+    return upload(await toBlob(cv));
+  }
+
+  async function svgShot(svg) {
+    var r = svg.getBoundingClientRect(), c = svg.cloneNode(true);
+    var src = [svg].concat([].slice.call(svg.querySelectorAll('*'))), dst = [c].concat([].slice.call(c.querySelectorAll('*')));
+    var props = ['fill', 'stroke', 'stroke-width', 'stroke-dasharray', 'opacity', 'fill-opacity', 'stroke-opacity', 'font-size', 'font-weight', 'font-family', 'text-anchor', 'dominant-baseline'];
+    src.forEach(function (s, i) { var st = getComputedStyle(s); dst[i].setAttribute('style', props.map(function (p) { return p + ':' + st.getPropertyValue(p); }).join(';')); });
+    c.setAttribute('xmlns', 'http://www.w3.org/2000/svg'); c.setAttribute('width', r.width); c.setAttribute('height', r.height);
+    var u = URL.createObjectURL(new Blob([new XMLSerializer().serializeToString(c)], { type: 'image/svg+xml' }));
+    var img = new Image(); await new Promise(function (ok, no) { img.onload = ok; img.onerror = no; img.src = u; });
+    var pad = 40, s = 2, cv = document.createElement('canvas');
+    cv.width = (r.width + pad * 2) * s; cv.height = (r.height + pad * 2) * s;
+    var x = cv.getContext('2d'); x.fillStyle = '#fff'; x.fillRect(0, 0, cv.width, cv.height);
+    x.drawImage(img, pad * s, pad * s, r.width * s, r.height * s); URL.revokeObjectURL(u);
+    return upload(await toBlob(cv));
+  }
+
+  async function getImage(sel) {
+    var el = sel ? Q(sel) : null;
+    if (!el) return og();
+    var src = '';
+    if (el.tagName === 'IMG') src = el.currentSrc || el.src;
+    else if (el.tagName.toLowerCase() === 'svg') return svgShot(el);
+    else {
+      var im = el.querySelector('img');
+      if (im) src = im.currentSrc || im.src;
+      else {
+        var nodes = [el].concat([].slice.call(el.querySelectorAll('*')));
+        for (var i = 0; i < nodes.length; i++) {
+          var cs = getComputedStyle(nodes[i]), m = /url\(["']?([^"')]+)/.exec(cs.backgroundImage);
+          if (m) {
+            if (/^https?:/.test(m[1])) return cropSprite(m[1], nodes[i], cs);
+            src = m[1]; break;
+          }
+        }
+        if (!src) { var sv = el.querySelector('svg'); if (sv) return svgShot(sv); }
+      }
+    }
+    if (/^https:\/\//.test(src)) return src;
+    if (/^(data|blob):/.test(src)) return upload(await (await fetch(src)).blob());
+    return og();
+  }
+
+  async function share() {
+    var r = null;
+    try { r = CFG.read(); } catch (e) {}
+    if (!r || !r.name) { alert('테스트를 먼저 완료해 주세요!'); return; }
+    var link = base() + '?r=' + encodeURIComponent(r.name.slice(0, 40));
+    var title = cut(CFG.fmt.replace('{name}', r.name), 80);
+    var desc = (r.nick ? cut(r.nick, 60) + ' | ' : '') + CFG.test;
+    try {
+      if (!window.Kakao) throw 0;
+      var img = og();
+      try { img = (await getImage(r.img || '')) || og(); } catch (e) { img = og(); }
+      Kakao.Share.sendDefault({
+        objectType: 'feed',
+        content: { title: title, description: desc, imageUrl: img, link: { mobileWebUrl: link, webUrl: link } },
+        buttons: [{ title: '나도 해보기', link: { mobileWebUrl: link, webUrl: link } }]
+      });
+    } catch (e) {
+      try {
+        if (navigator.share) { await navigator.share({ title: title, text: title, url: link }); return; }
+        await navigator.clipboard.writeText(title + ' ' + link);
+        alert('링크가 복사되었어요!');
+      } catch (e2) {}
+    }
+  }
+
+  window.addEventListener('click', function (e) {
+    var el = e.target.closest && e.target.closest('[data-kshare]');
+    if (!el || el.textContent.trim() !== LABEL) return;
+    e.preventDefault(); e.stopImmediatePropagation(); share();
+  }, true);
+
+  function sync() {
+    if (CFG.btn) [].forEach.call(document.querySelectorAll(CFG.btn), function (b) {
+      if (!SHARE_RE.test(b.textContent)) return;
+      if (b.textContent.trim() !== LABEL) b.textContent = LABEL;
+      if (!b.hasAttribute('data-kshare')) b.setAttribute('data-kshare', '');
+    });
+    if (CFG.add && !Q('[data-kshare]')) {
+      var a = Q(CFG.add.sel);
+      if (a) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = CFG.add.cls != null ? CFG.add.cls : (CFG.add.into ? ((a.querySelector('button') || {}).className || '') : (a.className || ''));
+        b.textContent = LABEL;
+        b.setAttribute('data-kshare', '');
+        if (CFG.add.into) a.appendChild(b); else a.parentNode.insertBefore(b, a.nextSibling);
+      }
+    }
+  }
+
+  function banner() {
+    var who = new URLSearchParams(location.search).get('r'), pb = Q('.post-body');
+    if (!who || !pb) return;
+    var d = document.createElement('div');
+    d.style.cssText = 'margin:0 0 14px;padding:12px 14px;border-radius:12px;background:#e8f4ff;color:#0b3a66;font-weight:600;text-align:center;line-height:1.5';
+    d.textContent = '\ud83d\udc8c 친구의 결과는 "' + who.slice(0, 40) + '" ' + DOT + ' 나도 해보기 \ud83d\udc47';
+    pb.insertBefore(d, pb.firstChild);
+  }
+
+  function init() {
+    sync(); banner();
+    var pending = false, pb = Q('.post-body') || document.body;
+    new MutationObserver(function () {
+      if (pending) return; pending = true;
+      requestAnimationFrame(function () { pending = false; sync(); });
+    }).observe(pb, { childList: true, subtree: true });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+})();
+//]]>
+</script>

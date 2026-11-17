@@ -1,0 +1,338 @@
+<!-- Kkomma Senior Test: paste this entire block in Blogger HTML view -->
+<div id="kk-test">
+  <style>
+    #kk-test, #kk-test * { box-sizing: border-box !important; }
+    #kk-test { --blue:#1557d6; --red:#ef4d3f; --ink:#151515; --paper:#f4f1e9; --white:#fff; max-width:920px; margin:0 auto; color:var(--ink) !important; font-family:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif !important; line-height:1.6; background:var(--paper); border:2px solid var(--ink); overflow:hidden; position:relative; }
+    #kk-test button { font-family:inherit !important; }
+    #kk-test h1,#kk-test h2,#kk-test h3,#kk-test p { margin-top:0; color:inherit !important; }
+    #kk-test .kk-screen { display:none; min-height:720px; }
+    #kk-test .kk-screen.is-on { display:block; }
+    #kk-test .kk-mast { display:flex; justify-content:space-between; align-items:center; padding:13px 18px; color:#fff !important; background:var(--blue); border-bottom:2px solid var(--ink); font-weight:900; letter-spacing:.08em; text-transform:uppercase; }
+    #kk-test .kk-vol { border:1px solid #fff; background:transparent; color:#fff; padding:7px 10px; cursor:pointer; font-size:12px; font-weight:900; }
+    #kk-test .kk-hero { padding:30px 30px 45px; background-image:linear-gradient(rgba(21,87,214,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(21,87,214,.07) 1px,transparent 1px); background-size:22px 22px; }
+    #kk-test .kk-cover { display:grid; grid-template-columns:minmax(0,1.1fr) minmax(280px,.9fr); gap:34px; align-items:center; }
+    #kk-test .kk-photo-frame { position:relative; margin:0 10px 14px 0; background:#fff; border:2px solid var(--ink); box-shadow:10px 10px 0 var(--blue); }
+    #kk-test .kk-photo { display:block; width:100%; aspect-ratio:4/3; object-fit:contain; background:#e7e7e7; }
+    #kk-test .kk-kicker { display:inline-block; padding:5px 9px; margin-bottom:16px; color:#fff !important; background:var(--red); font-size:12px; font-weight:900; letter-spacing:.12em; transform:rotate(-2deg); }
+    #kk-test .kk-title { margin:0 0 18px !important; font-size:clamp(38px,6vw,68px) !important; line-height:1.08 !important; letter-spacing:-.07em !important; font-weight:950 !important; word-break:keep-all; color:var(--ink) !important; }
+    #kk-test .kk-title em { display:block; color:var(--blue) !important; font-style:normal; }
+    #kk-test .kk-lead { font-size:17px; word-break:keep-all; }
+    #kk-test .kk-stats { display:flex; gap:8px; flex-wrap:wrap; margin:20px 0; }
+    #kk-test .kk-chip { padding:6px 11px; border:1px solid var(--ink); background:#fff; font-size:12px; font-weight:800; }
+    #kk-test .kk-main-btn { width:100%; border:2px solid var(--ink); background:var(--red); color:#fff; padding:17px 18px; font-size:17px; font-weight:950; cursor:pointer; box-shadow:6px 6px 0 var(--ink); transition:.15s; }
+    #kk-test .kk-main-btn:active { transform:translate(4px,4px); box-shadow:2px 2px 0 var(--ink); }
+    #kk-test .kk-note { margin:18px 0 0 !important; font-size:12px; color:#555 !important; }
+    #kk-test .kk-quiz-head { display:grid; grid-template-columns:auto 1fr auto; gap:14px; align-items:center; padding:14px 18px; background:#fff; border-bottom:2px solid var(--ink); position:relative; z-index:2; }
+    #kk-test .kk-back { border:0; background:none; color:var(--blue); padding:8px 0; font-weight:950; cursor:pointer; }
+    #kk-test .kk-progress { height:8px; border:1px solid var(--ink); background:#ddd; overflow:hidden; }
+    #kk-test .kk-progress span { display:block; height:100%; width:5%; background:linear-gradient(90deg,var(--blue),var(--red)); transition:width .25s; }
+    #kk-test .kk-count { font-size:13px; font-weight:950; white-space:nowrap; }
+    #kk-test .kk-quiz-body { display:grid; grid-template-columns:54% 46%; min-height:700px; }
+    #kk-test .kk-scene-photo-wrap { background:#151515; display:flex; align-items:flex-start; }
+    #kk-test .kk-scene-photo { width:100%; aspect-ratio:4/3; object-fit:contain; display:block; background:#151515; position:sticky; top:0; }
+    #kk-test .kk-question-paper { padding:42px 34px 50px; background:#fff; border-left:2px solid var(--ink); }
+    #kk-test .kk-scene-tag { display:inline-block; margin-bottom:20px; padding:5px 10px; color:#fff !important; background:var(--blue); font-size:12px; font-weight:900; letter-spacing:.1em; transform:rotate(-1deg); }
+    #kk-test .kk-question { margin-bottom:26px !important; font-size:clamp(24px,3.5vw,38px) !important; line-height:1.32 !important; letter-spacing:-.045em !important; word-break:keep-all; font-weight:950 !important; color:var(--ink) !important; }
+    #kk-test .kk-options { display:grid; gap:11px; }
+    #kk-test .kk-option { width:100%; display:grid; grid-template-columns:34px 1fr; gap:10px; align-items:start; text-align:left; border:1.5px solid var(--ink); background:#f8f7f3; color:var(--ink); padding:14px 15px; cursor:pointer; font-size:15px; line-height:1.55; transition:.15s; }
+    #kk-test .kk-option:hover { background:#eef3ff; transform:translateX(3px); }
+    #kk-test .kk-letter { color:var(--red); font-weight:950; }
+    #kk-test .kk-loading { min-height:720px; display:none; place-items:center; padding:40px; text-align:center; background:var(--blue); color:#fff !important; }
+    #kk-test .kk-loading.is-on { display:grid; }
+    #kk-test .kk-loader { width:70px; height:70px; margin:0 auto 25px; border:7px solid rgba(255,255,255,.28); border-top-color:#fff; border-radius:50%; animation:kkspin .8s linear infinite; }
+    @keyframes kkspin { to { transform:rotate(360deg); } }
+    #kk-test .kk-result { padding:30px; background-image:linear-gradient(135deg,rgba(21,87,214,.08) 25%,transparent 25%),linear-gradient(315deg,rgba(239,77,63,.08) 25%,transparent 25%); background-size:34px 34px; }
+    #kk-test .kk-result-card { background:#fff; border:2px solid var(--ink); box-shadow:10px 10px 0 var(--blue); overflow:hidden; }
+    #kk-test .kk-result-photo { width:100%; aspect-ratio:4/3; object-fit:contain; display:block; background:#e8e8e8; }
+    #kk-test .kk-result-copy { padding:30px; }
+    #kk-test .kk-result-label { color:var(--red) !important; font-size:12px; font-weight:950; letter-spacing:.12em; }
+    #kk-test .kk-result-title { margin:8px 0 12px !important; color:var(--blue) !important; font-size:clamp(30px,6vw,54px) !important; line-height:1.2 !important; letter-spacing:-.055em !important; word-break:keep-all; font-weight:950 !important; }
+    #kk-test .kk-scoreline { display:flex; align-items:center; gap:12px; margin:20px 0 25px; }
+    #kk-test .kk-scorebar { flex:1; height:12px; border:1px solid var(--ink); background:#e7e7e7; }
+    #kk-test .kk-scorebar span { display:block; height:100%; background:linear-gradient(90deg,var(--red),var(--blue)); }
+    #kk-test .kk-percent { font-size:22px; font-weight:950; }
+    #kk-test .kk-analysis { display:grid; grid-template-columns:1fr 1fr; border-top:2px solid var(--ink); border-left:2px solid var(--ink); margin:24px 0; }
+    #kk-test .kk-analysis div { padding:18px; border-right:2px solid var(--ink); border-bottom:2px solid var(--ink); }
+    #kk-test .kk-analysis h3 { margin:0 0 7px !important; color:var(--blue) !important; font-size:15px !important; font-weight:950 !important; }
+    #kk-test .kk-analysis p { margin:0 !important; font-size:14px; }
+    #kk-test .kk-actions { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+    #kk-test .kk-action { border:2px solid var(--ink); background:#fff; color:var(--ink); padding:15px; cursor:pointer; font-weight:950; }
+    #kk-test .kk-action.primary { background:var(--red); color:#fff; }
+    #kk-test .kk-disclaimer { margin:20px 0 0 !important; padding:13px; border-left:5px solid var(--red); background:#f6f6f6; color:#555 !important; font-size:12px; }
+    #kk-test .kk-toast { position:fixed; left:50%; bottom:90px; transform:translateX(-50%); z-index:9999; padding:11px 17px; background:var(--ink); color:#fff; opacity:0; pointer-events:none; transition:.2s; font-size:13px; }
+    #kk-test .kk-toast.is-on { opacity:1; }
+    @media (max-width:700px) {
+      #kk-test { border-left:0; border-right:0; }
+      #kk-test .kk-screen { min-height:0; }
+      #kk-test .kk-hero { padding:20px 17px 38px; }
+      #kk-test .kk-cover { display:flex; flex-direction:column; gap:28px; }
+      #kk-test .kk-photo-frame { width:calc(100% - 9px); margin-right:9px; box-shadow:8px 8px 0 var(--blue); }
+      #kk-test .kk-cover-copy { width:100%; }
+      #kk-test .kk-title { font-size:42px !important; }
+      #kk-test .kk-quiz-head { grid-template-columns:auto 1fr auto; padding:10px 12px; gap:9px; }
+      #kk-test .kk-quiz-body { display:block; min-height:0; padding-bottom:110px; }
+      #kk-test .kk-scene-photo-wrap { display:block; background:#151515; }
+      #kk-test .kk-scene-photo { position:static; width:100%; height:auto; aspect-ratio:4/3; object-fit:contain; }
+      #kk-test .kk-question-paper { margin:0; padding:27px 18px 42px; border-left:0; border-top:2px solid var(--ink); }
+      #kk-test .kk-question { font-size:27px !important; }
+      #kk-test .kk-result { padding:18px 14px 125px; }
+      #kk-test .kk-result-copy { padding:23px 18px; }
+      #kk-test .kk-analysis { grid-template-columns:1fr; }
+      #kk-test .kk-actions { grid-template-columns:1fr; }
+    }
+  </style>
+
+  <section id="kk-start" class="kk-screen is-on">
+    <div class="kk-mast"><span>CAMPUS LOVE FILE 01</span><button class="kk-vol" type="button">SOUND ON</button></div>
+    <div class="kk-hero">
+      <div class="kk-cover">
+        <div class="kk-photo-frame"><img class="kk-photo" src="https://blogger.googleusercontent.com/img/a/AVvXsEi-6NVcpZfmg6ybDzqzFTk2DxFFq2UHD7D7G4T8dYRflJhm5qpg72AoD3nzFB8-VRrf-bfWaEJjAeaeKjaIxLwtLD1tidMfoTtb_yua0VoQwTDlB2mnsQZKmwYehUJn5CAJ222ZOsNIVN8FUCRmdBo9obwic6KLFQdg5aRdQBixDijJJON2WHuzmGffosFw" alt="대학교 남자 선배" /></div>
+        <div class="kk-cover-copy">
+          <span class="kk-kicker">LOVE SIGNAL CHECK</span>
+          <h1 class="kk-title">나를 꼬마라고 부르는<em>남자 선배의 속마음은?</em></h1>
+          <p class="kk-lead">수업부터 알바, 친구들과의 나들이, 늦은 귀갓길까지. 선배의 말보다 행동에 숨어 있는 신호를 확인해 보세요.</p>
+          <div class="kk-stats"><span class="kk-chip">20가지 상황</span><span class="kk-chip">10개 캠퍼스 장면</span><span class="kk-chip">약 4분</span></div>
+          <button id="kk-start-btn" class="kk-main-btn" type="button">선배의 속마음 확인하기</button>
+          <p class="kk-note">재미로 보는 관계 심리 테스트이며, 실제 마음은 솔직한 대화로 확인하는 것이 가장 정확합니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="kk-quiz" class="kk-screen">
+    <div class="kk-quiz-head"><button id="kk-back" class="kk-back" type="button">BACK</button><div class="kk-progress"><span id="kk-progress-bar"></span></div><span id="kk-count" class="kk-count">1 / 20</span></div>
+    <div class="kk-quiz-body">
+      <div class="kk-scene-photo-wrap"><img id="kk-scene-photo" class="kk-scene-photo" src="" alt="질문 상황" /></div>
+      <div class="kk-question-paper"><span id="kk-scene-tag" class="kk-scene-tag"></span><h2 id="kk-question" class="kk-question"></h2><div id="kk-options" class="kk-options"></div></div>
+    </div>
+  </section>
+
+  <section id="kk-loading" class="kk-loading"><div><div class="kk-loader"></div><h2>선배의 말과 행동을 비교하고 있어요</h2><p>꼬마라는 호칭보다 반복된 관심과 시간 투자를 더 크게 보고 있어요.</p></div></section>
+
+  <section id="kk-result" class="kk-screen">
+    <div class="kk-mast"><span>CAMPUS LOVE REPORT</span><button class="kk-vol" type="button">SOUND ON</button></div>
+    <div class="kk-result"><article class="kk-result-card">
+      <img id="kk-result-photo" class="kk-result-photo" src="" alt="테스트 결과" />
+      <div class="kk-result-copy">
+        <span class="kk-result-label">HIS REAL SIGNAL</span><h2 id="kk-result-title" class="kk-result-title"></h2><p id="kk-result-summary"></p>
+        <div class="kk-scoreline"><div class="kk-scorebar"><span id="kk-score-bar"></span></div><strong id="kk-percent" class="kk-percent"></strong></div>
+        <div class="kk-analysis"><div><h3>눈여겨볼 신호</h3><p id="kk-signal"></p></div><div><h3>착각하기 쉬운 부분</h3><p id="kk-mistake"></p></div><div><h3>다음에 확인할 것</h3><p id="kk-next"></p></div><div><h3>추천하는 한마디</h3><p id="kk-line"></p></div></div>
+        <div class="kk-actions"><button id="kk-share" class="kk-action primary" type="button">친구도 함께 해보기</button><button id="kk-retry" class="kk-action" type="button">다시 테스트</button></div>
+        <p class="kk-disclaimer">꼬마라는 별명 하나만으로 호감을 단정하지 않습니다. 이 결과는 반복적인 연락, 일대일 시간, 구체적인 기억과 배려를 종합한 재미용 해석입니다.</p>
+      </div>
+    </article></div>
+  </section>
+  <div id="kk-toast" class="kk-toast">친구에게 보낼 링크를 복사했어요</div>
+
+  <script>
+  (function(){
+    var root=document.getElementById('kk-test');
+    if(!root){return;}
+    var images={hero:'https://blogger.googleusercontent.com/img/a/AVvXsEi-6NVcpZfmg6ybDzqzFTk2DxFFq2UHD7D7G4T8dYRflJhm5qpg72AoD3nzFB8-VRrf-bfWaEJjAeaeKjaIxLwtLD1tidMfoTtb_yua0VoQwTDlB2mnsQZKmwYehUJn5CAJ222ZOsNIVN8FUCRmdBo9obwic6KLFQdg5aRdQBixDijJJON2WHuzmGffosFw',classroom:'https://blogger.googleusercontent.com/img/a/AVvXsEhYec9cEIwd01h99UkuIUlYTEbOOZCKM3PnfbbxxMMfC53TsuKpq7fahNsMyHxDhpoFHNs0MzVVb0ZDiYwfZyTocgkSFEef8cH_ExLoCCegFN3mqDl3qSKGJR1b82cv88Wf_8Lp3a2HQC2j_Pit8Inw5jBLNnazsMuFNfpBiYA3QXChW-JasxuAYUwdSAG6',library:'https://blogger.googleusercontent.com/img/a/AVvXsEj__FpABtqqh4-NFtKYIIlkkU8xHtEptaYl97RyqRWWMIxMlPUGh0fBfCuLFMHp4h9VTlMA5dcvig6pKA27jGtACl5YQQXazh72JCNLjW_TXyOCRUyDGPEzY1qsIQUFcJmjHJ-ZudSxQAAt46iQT6_JKO3fE8wkMQ-_rpGa5H-VPi2U9puRUX1gTNcWSrZC',cafe:'https://blogger.googleusercontent.com/img/a/AVvXsEi0IUoujyzJPNjWRFpdQIDvobHyRz5jKQuJRaqRijthtoEHAoosk-TWk69sc3MbP6239XJqy7HsOszZTffq2NV7Chai0Y6CusBctTuzVmI0eLeNjhwkUf4nvr8kkFgnbQvPMbPSof8pPmY73i-SxqqTjbI9tp2WkkrLSQgduazSyc_lRdqtiRuxaGMfRC1m',job:'https://blogger.googleusercontent.com/img/a/AVvXsEhaRrr1mjR5p-K8zM5wZoWQiK61y4MLnHG83ItiU8n-BqMSntucFQhrWK9fNf-cCUUuwGlHvDws8tDTtjJrSGgT1tUjxx_zTt-6l1TciEg30Tn5h-DDmUaBwDHNXyFeHxaHwW7emExPDcVrEU8IV6MrhuuyRZvZelXH_e17Hm3leqOomAhN5OfAnKf5meFI',store:'https://blogger.googleusercontent.com/img/a/AVvXsEgDOk8Kje6MDtBUcX2uL-bweVebgEO2dHyaioPWJ2s7L8XxPoHS8rF0S2e_YlcmS2khhMIdqPPXPz6vhGYLS8BLKKZ7esAYvshmUtfLvCVtr3BHeSYdVUMBKlmpUjFdfSLfIDryzQrwMU4nde3Ma1eNBQTgdzl7gHpSfwN7nmALRdm-Y9TUKceAj4Cgsoez',game:'https://blogger.googleusercontent.com/img/a/AVvXsEgC53S6pnWlA49nmOupAjysZObAG1-AmGgcXpaONN0OgsdaVqbiXDz8yQJIJO8vREXJrvytqdsQiGs0jLJXZiXGIPXNDh_Jzxhr12Gw0ixePhQdVyyuLqZhPtPNwtOAWzz0SsaWskimvHEp22mNeKGTA65Fk3UXW66lm0VAN8VZaQX7jU5cqQALVXqaZtiP',play:'https://blogger.googleusercontent.com/img/a/AVvXsEgE3U70TsBgT0nagKRcdiMtLgcC9zFfxJw9eHyERcNnLL9LpUO8cqsDQnO7lxdSC0GoZ3r28cxP3k0k_uskFozYQS-1WgMI2t7_7a6O7YPs-9QxO53_9MGt-jeC-208n1t3Hvivf1ju1uCy6UA2BG2wcptUyJQyUtt_vQAZfzPE8pfIKshTXP-P5S7cgtnw',beach:'https://blogger.googleusercontent.com/img/a/AVvXsEjG943HEHPjSIokYDTUwtsdcgzssta6hZzo0HoUiQXHsQkZx43rh9yQVgecgfg7Wzsz4uXo7w0OsFNKEjEUylEo1QQI_Y5A8qr_RMpm6WGht9QiX2B69p4011CeddAWYWt2zNy_IBtf2WUbpEzizGFfhkraHADtDK39oZK1ZlYyM1bT1gFOBhp6mejITZg_',bus:'https://blogger.googleusercontent.com/img/a/AVvXsEitrKAf0tMCU5pt-oPMCq1XfpYnnwMTy4rxp-H6xuCdqB3dl2A3SkOYm99xoF0DSpS9vrWvd-rYvqX4uiUvl9oHlQ6ibQ0w7Mkn71zzxU35baWJd6d09a5NNOznUhwzsWi9VIV6_adBkemZ0uahsYlNR2O8y0z2gpqQnrqgwxzm_UxHX8XVgdcjkorjqItw',rain:'https://blogger.googleusercontent.com/img/a/AVvXsEiH3V-55lBcOS4zp0RXZK1Gmcww5iiEqbLtuxYcKo-LzSYS1AgUppHbBsmYaG1e5nMjS22SHF9pm6ZA4e4YmoDQT3PVQ0PNQE-uYUcK_eB0tLuyRNuQBWeVFuA9loKc94likDT8Qc7FaL3MgdY9mZh4jH0NANVWC88Y_IkXhZMAlLdPi1yGt_yzgJ43K57l',interest:'https://blogger.googleusercontent.com/img/a/AVvXsEj9Xmt5XcSuSIBGa8w4UImuRmPSjck1cmDBa890jtRD9I2A0CMazTbL822gIohczs8JYd0e9C78rtfeEZ7W7ipP4Aflwu1fpOoT4xq4GdJ4GUMipJ2Y0SeXZ50ys87NShSkk-0Qopkr4qpxu0-lokgVomz0cqkgCpSWf7xsINMgGEg36qobdXDj4aNjfAYE',caution:'https://blogger.googleusercontent.com/img/a/AVvXsEiCMozm-xHX0rrnwBDq6Jzg6oDS9z2Fs2kaNrOeCDLsDVepAJjF9VHeudQ7yXFMT2VfCEl8djF4LOSmdkvIylIEMVDS-NBe0nWRZ_lGo_-Cmn0vdcppKO4YDaXk5wLYw9h6imeC3m-ntoBKQgKxARmQahE-Mk0dKLjtI-X9n73YLsJYspOBd-fXuxjl940Y'};
+    var questions=[
+      {scene:'SCENE 01 / 수업 전 강의실',img:'classroom',q:'선배가 "꼬마야, 또 펜 안 가져왔지?"라며 펜을 건넸다. 실제 모습은?',a:[['내가 자주 잊는 걸 알고 여분을 따로 챙겨 왔다',3],['자기 필통에 있던 펜을 바로 빌려줬다',1],['주변 후배 모두에게 늘 빌려주는 편이다',0]]},
+      {scene:'SCENE 01 / 수업 전 강의실',img:'classroom',q:'수업 뒤 선배가 "꼬마야, 이 부분 이해했어?"라고 물었다. 그다음 행동은?',a:[['다른 약속을 미루고 나만 이해할 때까지 설명했다',3],['팀원들과 함께 잠깐 설명해 줬다',1],['장난처럼 묻고 바로 친구들에게 갔다',0]]},
+      {scene:'SCENE 02 / 도서관 팀플',img:'library',q:'선배가 "꼬마야, 오늘은 내가 끝까지 봐줄게"라고 했다. 실제로는?',a:[['계획보다 오래 남아 내 과제를 같이 마쳤다',3],['팀플 담당 시간까지만 함께했다',1],['말만 하고 자기 일이 생기자 먼저 갔다',0]]},
+      {scene:'SCENE 02 / 도서관 팀플',img:'library',q:'선배가 먼저 "꼬마야, 과제 오늘까지잖아"라고 말했다. 어떻게 알았을까?',a:[['전에 한 말을 기억하고 먼저 연락까지 했다',3],['단체 채팅방 공지를 보고 알았다',1],['내가 다시 말한 뒤에야 알았다',0]]},
+      {scene:'SCENE 03 / 교내 카페',img:'cafe',q:'선배가 음료를 내밀며 "꼬마야, 넌 이거 좋아하지?"라고 했다. 주문은?',a:[['내가 예전에 한 번 말한 취향까지 정확히 기억했다',3],['방금 메뉴를 물어보고 그대로 주문했다',1],['자기가 좋아하는 메뉴를 그냥 하나 더 샀다',0]]},
+      {scene:'SCENE 03 / 교내 카페',img:'cafe',q:'선배가 "꼬마야, 우리 둘이 마시고 갈래?"라고 했다. 약속의 구체성은?',a:[['날짜와 시간을 바로 정하고 실제로 둘이 만났다',3],['친구들도 부르면 좋겠다고 덧붙였다',1],['언젠가 보자고만 하고 다시 꺼내지 않았다',0]]},
+      {scene:'SCENE 04 / 카페 알바 중',img:'job',q:'알바 중인 선배가 나를 보고 "꼬마야, 여기까지 웬일이야?"라고 했다. 표정과 행동은?',a:[['표정이 확 밝아지고 잠깐이라도 내게 와서 말을 걸었다',3],['다른 손님에게 하듯 친절하게 인사했다',1],['바쁜 표정으로 주문만 받고 돌아갔다',0]]},
+      {scene:'SCENE 04 / 카페 알바 중',img:'job',q:'선배가 "꼬마 건 내가 해줄게"라며 음료를 만들었다. 어느 정도였나?',a:[['내 취향대로 바꾸고 쉬는 시간까지 맞춰 함께 앉았다',3],['직원 서비스로 양만 조금 더 줬다',1],['모든 지인에게 늘 해주는 서비스였다',0]]},
+      {scene:'SCENE 05 / 편의점 앞 휴식',img:'store',q:'선배가 "꼬마야, 밥은 먹고 다니냐?"라며 간식을 건넸다. 그 간식은?',a:[['내가 좋아한다고 했던 것을 기억해 골라 왔다',3],['눈앞에 있던 인기 간식을 하나 건넸다',1],['자기가 먹다 남은 것을 자연스럽게 줬다',0]]},
+      {scene:'SCENE 05 / 편의점 앞 휴식',img:'store',q:'선배가 "꼬마야, 잠깐 앉았다 가"라고 했다. 대화는 어떻게 이어졌나?',a:[['쉬는 시간이 끝나도 내 이야기를 더 듣고 싶어 했다',3],['정해진 휴식 시간 동안 가볍게 이야기했다',1],['부탁할 일이 끝나자 바로 자리에서 일어났다',0]]},
+      {scene:'SCENE 06 / 친구들과 보드게임',img:'game',q:'친구들 사이에서 선배가 "꼬마야, 내 옆에 앉아"라고 했다. 자리는?',a:[['미리 비워 두고 내가 올 때까지 다른 사람을 앉히지 않았다',3],['게임 설명을 위해 가까운 빈자리를 권했다',1],['누구에게나 남는 자리에 앉으라고 했다',0]]},
+      {scene:'SCENE 06 / 친구들과 보드게임',img:'game',q:'선배가 "꼬마야, 이기면 소원 들어줄게"라며 장난쳤다. 관심의 방향은?',a:[['사람이 많아도 계속 나와 눈을 맞추며 반응을 살폈다',3],['그날 모든 친구에게 똑같이 장난쳤다',1],['내 반응에는 별 관심 없이 게임만 했다',0]]},
+      {scene:'SCENE 07 / 놀이공원 나들이',img:'play',q:'선배가 "꼬마야, 무서우면 내 옆에 있어"라고 했다. 실제 행동은?',a:[['내 속도와 표정을 계속 살피며 놀이기구도 맞춰 줬다',3],['일행을 챙기는 역할이라 모두를 살폈다',1],['말한 뒤 자기 친구들과 먼저 움직였다',0]]},
+      {scene:'SCENE 07 / 놀이공원 나들이',img:'play',q:'선배가 인형을 들고 "꼬마야, 이거 너 닮았다"라고 했다. 그다음은?',a:[['직접 얻어 내게 주고 내가 좋아하는지 오래 지켜봤다',3],['다 같이 웃을 장난 소재로만 사용했다',1],['사진만 찍고 자기가 가져갔다',0]]},
+      {scene:'SCENE 08 / 바닷가 여행',img:'beach',q:'선배가 노을 앞에서 "꼬마야, 여기 와서 같이 봐"라고 했다. 누구를 불렀나?',a:[['사람들 사이에서 나를 따로 찾아 둘만 잠시 걸었다',3],['흩어진 일행 모두를 한곳으로 불렀다',1],['가까이 있던 사람에게 아무나 한 말이었다',0]]},
+      {scene:'SCENE 08 / 바닷가 여행',img:'beach',q:'선배가 "꼬마야, 추우면 이거 입어"라며 겉옷을 건넸다. 그 뒤에는?',a:[['자기는 추워도 내가 괜찮은지 계속 확인했다',3],['가장 가까이 있던 사람에게 잠깐 빌려준 것이었다',1],['말만 하고 실제로 겉옷은 건네지 않았다',0]]},
+      {scene:'SCENE 09 / 버스정류장 귀갓길',img:'bus',q:'선배가 "꼬마야, 버스 올 때까지 같이 있자"라고 했다. 선배의 동선은?',a:[['반대 방향인데도 마지막 버스가 올 때까지 기다렸다',3],['원래 같은 버스를 타는 길이었다',1],['몇 분 서 있다가 친구 연락을 받고 떠났다',0]]},
+      {scene:'SCENE 09 / 버스정류장 귀갓길',img:'bus',q:'헤어지며 선배가 "꼬마야, 도착하면 연락해"라고 했다. 이후에는?',a:[['내 연락이 늦자 먼저 개인 메시지로 확인했다',3],['단체 채팅방에서 모두 잘 갔는지 물었다',1],['다음 날까지 별다른 연락이 없었다',0]]},
+      {scene:'SCENE 10 / 비 오는 밤',img:'rain',q:'선배가 우산을 기울이며 "꼬마야, 이리 와. 젖겠다"라고 했다. 어디까지 함께했나?',a:[['자기 길을 돌아서라도 집이나 정류장 가까이 데려다줬다',3],['비를 피할 처마까지만 잠깐 함께 갔다',1],['편의점 위치만 알려주고 먼저 갔다',0]]},
+      {scene:'SCENE 10 / 비 오는 밤',img:'rain',q:'선배가 진지하게 "꼬마야, 다음에도 나부터 불러"라고 했다. 평소 행동과 비교하면?',a:[['이후에도 먼저 연락하고 둘만의 시간을 구체적으로 만들었다',3],['원래 모든 후배를 잘 챙기는 선배다',1],['같은 말을 여러 사람에게 습관처럼 한다',0],['그 뒤로 연락이나 행동이 전혀 이어지지 않았다',0]]}
+    ];
+    var results={
+      interest:{title:'꼬마라는 말에 호감이 섞였어요',summary:'선배의 애칭보다 더 중요한 것은 반복해서 당신을 찾고, 취향을 기억하고, 자신의 시간을 실제로 썼다는 점이에요. 친근함을 넘어 당신의 반응을 특별히 살피는 흐름이 보입니다.',signal:'단둘이 만날 약속을 구체적으로 잡고, 사소한 취향과 일정을 기억하며, 자신의 동선을 바꾸면서까지 시간을 썼어요.',mistake:'다정한 성격이나 선후배 문화는 호감처럼 보일 수 있어요. 다른 후배에게도 같은 행동을 하는지는 꼭 비교해야 해요.',next:'장난이 없는 순간에도 먼저 연락하는지, 둘만의 다음 약속을 스스로 정하는지 지켜보세요.',line:'선배, 저만 꼬마라고 부르는 거예요? 하고 가볍게 웃으며 반응을 살펴보세요.'},
+      caution:{title:'그냥 편한 후배일 수 있어요',summary:'꼬마라는 호칭은 친근하지만, 현재 선택에서는 당신만을 향한 반복적 투자보다 상황에 따른 친절과 장난이 더 많이 보였어요. 호칭 하나를 고백처럼 받아들이기에는 아직 근거가 부족합니다.',signal:'개인적인 연락이나 단둘의 약속보다 단체 상황에서의 챙김과 습관적인 장난이 중심이에요.',mistake:'별명, 한두 번의 친절, 우연히 가까웠던 순간은 설레지만 누구에게나 가능한 행동일 수 있어요.',next:'당신이 먼저 다가가지 않아도 선배가 연락을 시작하고 구체적인 일대일 시간을 만드는지 확인해 보세요.',line:'선배는 원래 후배들 다 이렇게 챙겨요?라고 자연스럽게 물어 차이를 확인해 보세요.'}
+    };
+    var idx=0,answers=[],soundOn=true,audioCtx=null,bgmTimer=null;
+    var start=root.querySelector('#kk-start'),quiz=root.querySelector('#kk-quiz'),loading=root.querySelector('#kk-loading'),result=root.querySelector('#kk-result');
+    var photo=root.querySelector('#kk-scene-photo'),tag=root.querySelector('#kk-scene-tag'),question=root.querySelector('#kk-question'),opts=root.querySelector('#kk-options'),bar=root.querySelector('#kk-progress-bar'),count=root.querySelector('#kk-count');
+    function show(el){[start,quiz,result].forEach(function(x){x.classList.remove('is-on');});loading.classList.remove('is-on');el.classList.add('is-on');window.scrollTo({top:root.getBoundingClientRect().top+window.pageYOffset-12,behavior:'smooth'});}
+    function audio(){if(!audioCtx){audioCtx=new (window.AudioContext||window.webkitAudioContext)();}if(audioCtx.state==='suspended'){audioCtx.resume();}return audioCtx;}
+    function tone(freq,dur,vol,delay){if(!soundOn){return;}var c=audio(),o=c.createOscillator(),g=c.createGain();o.type='sine';o.frequency.value=freq;g.gain.setValueAtTime(0,c.currentTime+delay);g.gain.linearRampToValueAtTime(vol,c.currentTime+delay+.015);g.gain.exponentialRampToValueAtTime(.001,c.currentTime+delay+dur);o.connect(g);g.connect(c.destination);o.start(c.currentTime+delay);o.stop(c.currentTime+delay+dur+.02);}
+    function clickSound(){tone(620,.12,.045,0);tone(830,.15,.035,.06);}
+    function startBgm(){stopBgm();if(!soundOn){return;}var notes=[392,494,587,494,440,523,659,523],n=0;function tick(){tone(notes[n%notes.length],.28,.018,0);n+=1;}tick();bgmTimer=setInterval(tick,620);}
+    function stopBgm(){if(bgmTimer){clearInterval(bgmTimer);bgmTimer=null;}}
+    function syncSound(){root.querySelectorAll('.kk-vol').forEach(function(b){b.textContent=soundOn?'SOUND ON':'SOUND OFF';});if(soundOn&&quiz.classList.contains('is-on')){startBgm();}else if(!soundOn){stopBgm();}}
+    function render(){var q=questions[idx];photo.src=images[q.img];tag.textContent=q.scene;question.textContent=q.q;count.textContent=(idx+1)+' / '+questions.length;bar.style.width=((idx+1)/questions.length*100)+'%';opts.innerHTML='';q.a.forEach(function(item,i){var b=document.createElement('button');b.type='button';b.className='kk-option';b.innerHTML='<span class="kk-letter">'+String.fromCharCode(65+i)+'</span><span></span>';b.lastChild.textContent=item[0];b.addEventListener('click',function(){answers[idx]=item[1];clickSound();if(idx<questions.length-1){idx+=1;render();window.scrollTo({top:root.getBoundingClientRect().top+window.pageYOffset-12,behavior:'smooth'});}else{finish();}});opts.appendChild(b);});}
+    function finish(){stopBgm();show(loading);tone(392,.2,.04,0);tone(523,.25,.04,.14);setTimeout(function(){var score=answers.reduce(function(s,v){return s+(v||0);},0),max=questions.length*3,pct=Math.round(score/max*100),key=pct>=60?'interest':'caution',r=results[key];root.querySelector('#kk-result-photo').src=images[key];root.querySelector('#kk-result-title').textContent=r.title;root.querySelector('#kk-result-summary').textContent=r.summary;root.querySelector('#kk-score-bar').style.width=pct+'%';root.querySelector('#kk-percent').textContent=pct+'%';root.querySelector('#kk-signal').textContent=r.signal;root.querySelector('#kk-mistake').textContent=r.mistake;root.querySelector('#kk-next').textContent=r.next;root.querySelector('#kk-line').textContent=r.line;show(result);tone(key==='interest'?659:440,.35,.05,0);tone(key==='interest'?784:523,.4,.04,.18);},1200);}
+    root.querySelector('#kk-start-btn').addEventListener('click',function(){audio();idx=0;answers=[];show(quiz);render();startBgm();});
+    root.querySelector('#kk-back').addEventListener('click',function(){if(idx>0){idx-=1;render();}else{stopBgm();show(start);}});
+    root.querySelector('#kk-retry').addEventListener('click',function(){idx=0;answers=[];show(start);});
+    root.querySelectorAll('.kk-vol').forEach(function(b){b.addEventListener('click',function(){soundOn=!soundOn;syncSound();});});
+    root.querySelector('#kk-share').addEventListener('click',function(){var data={title:'나를 꼬마라고 부르는 남자 선배의 속마음은?',text:'선배의 꼬마라는 말, 호감일까 친근함일까? 20가지 상황으로 확인해 봐.',url:location.href};if(navigator.share){navigator.share(data).catch(function(){});}else{navigator.clipboard.writeText(data.text+' '+data.url).then(function(){var t=root.querySelector('#kk-toast');t.classList.add('is-on');setTimeout(function(){t.classList.remove('is-on');},1800);});}});
+    Object.keys(images).forEach(function(k){var pre=new Image();pre.src=images[k];});
+  })();
+  </script>
+</div>
+
+<!-- ===== 카카오톡 결과 공유 (testmix v2.2) ===== -->
+<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.4/kakao.min.js" crossorigin="anonymous"></script>
+<script>
+//<![CDATA[
+(function () {
+  var Q = function (s) { return document.querySelector(s); };
+  var T = function (s) {
+    var e = Q(s); if (!e) return '';
+    var c = e.cloneNode(true);
+    [].forEach.call(c.querySelectorAll('[class*="google-anno"],ins,script,style'), function (x) { x.remove(); });
+    return c.textContent.replace(/\s+/g, ' ').trim();
+  };
+  var DOT = '\u00b7';
+  var CFG = {test:'나를 꼬마라고 부르는 선배 속마음 테스트', fmt:'결과: {name}', btn:'#kk-share', read:function(){return {name:T('#kk-result-title'), nick:T('#kk-percent'), img:'#kk-result-photo'};}};
+  var KEY = '7ddee789fac314a1a3a712d361c76c21', LABEL = '결과 공유하기';
+  var SHARE_RE = /친구|공유|함께|보내기|찾아주기/;
+  if (window.Kakao && !Kakao.isInitialized()) Kakao.init(KEY);
+
+  function base() { return location.origin + location.pathname; }
+  function og() { var m = Q('meta[property="og:image"]'); return m ? m.content : ''; }
+  function cut(s, n) { s = s || ''; return s.length > n ? s.slice(0, n - 1) + '\u2026' : s; }
+
+  async function upload(blob) {
+    var res = await Kakao.Share.uploadImage({ file: [new File([blob], 'result.png', { type: blob.type || 'image/png' })] });
+    return res.infos.original.url.replace(/^http:/, 'https:');
+  }
+  function toBlob(cv) { return new Promise(function (r) { cv.toBlob(r, 'image/png'); }); }
+
+  async function cropSprite(url, el, cs) {
+    var sz = cs.backgroundSize.split(' '), ps = cs.backgroundPosition.split(' ');
+    if (sz[0].indexOf('%') < 0) return url;
+    var W = parseFloat(sz[0]), H = parseFloat(sz[1] || sz[0]);
+    if (W <= 100 && H <= 100) return url;
+    var bmp = await createImageBitmap(await (await fetch(url + (url.indexOf('?') < 0 ? '?' : '&') + 'ks=1', { mode: 'cors' })).blob());
+    var nw = bmp.width, nh = bmp.height;
+    function frac(p, S, elLen) {
+      if (/%$/.test(p)) return (1 - 100 / S) * parseFloat(p) / 100;
+      var bg = S / 100 * elLen; return bg ? -parseFloat(p) / bg : 0;
+    }
+    var sw = nw * Math.min(1, 100 / W), sh = nh * Math.min(1, 100 / H);
+    var sx = nw * frac(ps[0] || '0%', W, el.offsetWidth), sy = nh * frac(ps[1] || ps[0] || '0%', H, el.offsetHeight);
+    var k = Math.min(1, 800 / Math.max(sw, sh));
+    var cv = document.createElement('canvas'); cv.width = Math.round(sw * k); cv.height = Math.round(sh * k);
+    cv.getContext('2d').drawImage(bmp, sx, sy, sw, sh, 0, 0, cv.width, cv.height);
+    return upload(await toBlob(cv));
+  }
+
+  async function svgShot(svg) {
+    var r = svg.getBoundingClientRect(), c = svg.cloneNode(true);
+    var src = [svg].concat([].slice.call(svg.querySelectorAll('*'))), dst = [c].concat([].slice.call(c.querySelectorAll('*')));
+    var props = ['fill', 'stroke', 'stroke-width', 'stroke-dasharray', 'opacity', 'fill-opacity', 'stroke-opacity', 'font-size', 'font-weight', 'font-family', 'text-anchor', 'dominant-baseline'];
+    src.forEach(function (s, i) { var st = getComputedStyle(s); dst[i].setAttribute('style', props.map(function (p) { return p + ':' + st.getPropertyValue(p); }).join(';')); });
+    c.setAttribute('xmlns', 'http://www.w3.org/2000/svg'); c.setAttribute('width', r.width); c.setAttribute('height', r.height);
+    var u = URL.createObjectURL(new Blob([new XMLSerializer().serializeToString(c)], { type: 'image/svg+xml' }));
+    var img = new Image(); await new Promise(function (ok, no) { img.onload = ok; img.onerror = no; img.src = u; });
+    var pad = 40, s = 2, cv = document.createElement('canvas');
+    cv.width = (r.width + pad * 2) * s; cv.height = (r.height + pad * 2) * s;
+    var x = cv.getContext('2d'); x.fillStyle = '#fff'; x.fillRect(0, 0, cv.width, cv.height);
+    x.drawImage(img, pad * s, pad * s, r.width * s, r.height * s); URL.revokeObjectURL(u);
+    return upload(await toBlob(cv));
+  }
+
+  async function getImage(sel) {
+    var el = sel ? Q(sel) : null;
+    if (!el) return og();
+    var src = '';
+    if (el.tagName === 'IMG') src = el.currentSrc || el.src;
+    else if (el.tagName.toLowerCase() === 'svg') return svgShot(el);
+    else {
+      var im = el.querySelector('img');
+      if (im) src = im.currentSrc || im.src;
+      else {
+        var nodes = [el].concat([].slice.call(el.querySelectorAll('*')));
+        for (var i = 0; i < nodes.length; i++) {
+          var cs = getComputedStyle(nodes[i]), m = /url\(["']?([^"')]+)/.exec(cs.backgroundImage);
+          if (m) {
+            if (/^https?:/.test(m[1])) return cropSprite(m[1], nodes[i], cs);
+            src = m[1]; break;
+          }
+        }
+        if (!src) { var sv = el.querySelector('svg'); if (sv) return svgShot(sv); }
+      }
+    }
+    if (/^https:\/\//.test(src)) return src;
+    if (/^(data|blob):/.test(src)) return upload(await (await fetch(src)).blob());
+    return og();
+  }
+
+  async function share() {
+    var r = null;
+    try { r = CFG.read(); } catch (e) {}
+    if (!r || !r.name) { alert('테스트를 먼저 완료해 주세요!'); return; }
+    var link = base() + '?r=' + encodeURIComponent(r.name.slice(0, 40));
+    var title = cut(CFG.fmt.replace('{name}', r.name), 80);
+    var desc = (r.nick ? cut(r.nick, 60) + ' | ' : '') + CFG.test;
+    try {
+      if (!window.Kakao) throw 0;
+      var img = og();
+      try { img = (await getImage(r.img || '')) || og(); } catch (e) { img = og(); }
+      Kakao.Share.sendDefault({
+        objectType: 'feed',
+        content: { title: title, description: desc, imageUrl: img, link: { mobileWebUrl: link, webUrl: link } },
+        buttons: [{ title: '나도 해보기', link: { mobileWebUrl: link, webUrl: link } }]
+      });
+    } catch (e) {
+      try {
+        if (navigator.share) { await navigator.share({ title: title, text: title, url: link }); return; }
+        await navigator.clipboard.writeText(title + ' ' + link);
+        alert('링크가 복사되었어요!');
+      } catch (e2) {}
+    }
+  }
+
+  window.addEventListener('click', function (e) {
+    var el = e.target.closest && e.target.closest('[data-kshare]');
+    if (!el || el.textContent.trim() !== LABEL) return;
+    e.preventDefault(); e.stopImmediatePropagation(); share();
+  }, true);
+
+  function sync() {
+    if (CFG.btn) [].forEach.call(document.querySelectorAll(CFG.btn), function (b) {
+      if (!SHARE_RE.test(b.textContent)) return;
+      if (b.textContent.trim() !== LABEL) b.textContent = LABEL;
+      if (!b.hasAttribute('data-kshare')) b.setAttribute('data-kshare', '');
+    });
+    if (CFG.add && !Q('[data-kshare]')) {
+      var a = Q(CFG.add.sel);
+      if (a) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = CFG.add.cls != null ? CFG.add.cls : (CFG.add.into ? ((a.querySelector('button') || {}).className || '') : (a.className || ''));
+        b.textContent = LABEL;
+        b.setAttribute('data-kshare', '');
+        if (CFG.add.into) a.appendChild(b); else a.parentNode.insertBefore(b, a.nextSibling);
+      }
+    }
+  }
+
+  function banner() {
+    var who = new URLSearchParams(location.search).get('r'), pb = Q('.post-body');
+    if (!who || !pb) return;
+    var d = document.createElement('div');
+    d.style.cssText = 'margin:0 0 14px;padding:12px 14px;border-radius:12px;background:#e8f4ff;color:#0b3a66;font-weight:600;text-align:center;line-height:1.5';
+    d.textContent = '\ud83d\udc8c 친구의 결과는 "' + who.slice(0, 40) + '" ' + DOT + ' 나도 해보기 \ud83d\udc47';
+    pb.insertBefore(d, pb.firstChild);
+  }
+
+  function init() {
+    sync(); banner();
+    var pending = false, pb = Q('.post-body') || document.body;
+    new MutationObserver(function () {
+      if (pending) return; pending = true;
+      requestAnimationFrame(function () { pending = false; sync(); });
+    }).observe(pb, { childList: true, subtree: true });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+})();
+//]]>
+</script>

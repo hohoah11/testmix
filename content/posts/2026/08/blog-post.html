@@ -1,0 +1,505 @@
+<!--
+  나의 본캐·부캐 성격 테스트 / Blogger 본문 HTML
+  업로드 후 아래 3개 URL만 교체하면 됩니다.
+  https://blogger.googleusercontent.com/img/a/AVvXsEjnN0yYNWflSZpbsqZW5vfbwLYhUcWY-yU_sgSbNfIA41L750TS1GWG2DEFKzb81CDyrKAED2ZnSvRIHnWNd66YKQUO7qnHW5D1XYac379BhjU9wNXlMh6ylHlfM342VnoaSNAqXtd27XdF_qUkLYD2mXhiN4hSiG57j_scr5icBpdMn9dCGg-Tud8rXymS
+  https://blogger.googleusercontent.com/img/a/AVvXsEiKVWmv2-afTpzWr38mgy5a4j8ifALS7BJkwXUi-jwmkHzF6BkbZyKFmFgRGqUTIiJweodd-HeSvfX7uBKlqToq6zPUqKCvtZJ_lrO9Q1nmfX6xGQopV4RE6jk0Q_-Wuo0SbSjK8DS22I0qTAt4KSQbViMaz0lOhlZRN4MdZuFuXmR3uRSgH05VbysASdhL
+  https://blogger.googleusercontent.com/img/a/AVvXsEi1D_GggwSH4z669NXup9Q8mu0BBDw-frHFZtVk8np-uMYJP5X_HhaogvbYJPObgwcvqqMdhnY3bgEuFk73CpRxPWgvbXneodQpzSG-vajnWbxzcvLtn8rsAPCdILqjH6RpmAdEhP_C5iSx_DnejW79F3quvh0j6hC7D1jHkUIj0cbVbz8Xot269XwvEMEg
+-->
+<div id="persona-duo-test">
+  <div class="pdt-shell" role="region" aria-label="나의 본캐 부캐 성격 테스트">
+    <button class="pdt-sound" id="pdt-sound" type="button" aria-pressed="true" aria-label="효과음 켜짐">SOUND ON</button>
+
+    <section class="pdt-screen is-active" id="pdt-start" aria-labelledby="pdt-title">
+      <div class="pdt-kicker">MAIN / HIDDEN PERSONA</div>
+      <h2 id="pdt-title">사람들 앞의 나와<br><em>아무도 모르는 나</em></h2>
+      <p class="pdt-lead">평소 자연스럽게 꺼내 쓰는 <b>본캐</b>와<br>편안하거나 예상 밖의 순간에 등장하는 <b>부캐</b>를 찾아보세요.</p>
+      <div class="pdt-hero-wrap">
+        <img class="pdt-hero" src="https://blogger.googleusercontent.com/img/a/AVvXsEjnN0yYNWflSZpbsqZW5vfbwLYhUcWY-yU_sgSbNfIA41L750TS1GWG2DEFKzb81CDyrKAED2ZnSvRIHnWNd66YKQUO7qnHW5D1XYac379BhjU9wNXlMh6ylHlfM342VnoaSNAqXtd27XdF_qUkLYD2mXhiN4hSiG57j_scr5icBpdMn9dCGg-Tud8rXymS" alt="거울을 사이에 두고 서로 다른 모습을 보여 주는 한 사람" loading="eager">
+        <span class="pdt-sticker pdt-sticker-a">본캐는<br>누구?</span>
+        <span class="pdt-sticker pdt-sticker-b">부캐<br>출몰 중</span>
+      </div>
+      <div class="pdt-meta" aria-label="테스트 정보">
+        <span><b>30</b> 문항</span><span><b>10</b> 유형</span><span><b>90</b> 조합</span><span><b>약 5분</b></span>
+      </div>
+      <button class="pdt-primary" id="pdt-start-btn" type="button">두 캐릭터 만나러 가기 <span>GO</span></button>
+      <p class="pdt-note">정답은 없습니다. 가장 실제의 나와 가까운 답을 골라 주세요.</p>
+    </section>
+
+    <section class="pdt-screen" id="pdt-quiz" aria-live="polite" aria-labelledby="pdt-question">
+      <div class="pdt-quiz-top">
+        <button class="pdt-back" id="pdt-back" type="button" aria-label="이전 질문">BACK</button>
+        <div class="pdt-progress-copy"><span id="pdt-act">ACT 1 - 사람들 앞의 나</span><b><span id="pdt-now">1</span> / 30</b></div>
+      </div>
+      <div class="pdt-progress" aria-hidden="true"><i id="pdt-progress-bar"></i></div>
+      <div class="pdt-scene" id="pdt-scene">사람이 많은 모임에 도착했다.</div>
+      <h3 id="pdt-question"></h3>
+      <div class="pdt-options" id="pdt-options"></div>
+      <p class="pdt-tap-tip">고르는 순간 다음 질문으로 넘어갑니다.</p>
+    </section>
+
+    <section class="pdt-screen" id="pdt-loading" aria-live="assertive">
+      <div class="pdt-orbit" aria-hidden="true"><i></i><i></i><i></i></div>
+      <div class="pdt-kicker">PERSONA SCANNING</div>
+      <h2>두 캐릭터가<br>서로를 확인하는 중</h2>
+      <p id="pdt-loading-copy">사람들 앞에서 반복되는 선택을 모으고 있어요.</p>
+      <div class="pdt-loading-track"><i id="pdt-loading-bar"></i></div>
+    </section>
+
+    <section class="pdt-screen" id="pdt-result" aria-live="polite" aria-labelledby="pdt-result-title">
+      <div class="pdt-kicker">YOUR PERSONA DUO</div>
+      <p class="pdt-result-label">당신 안에서 교대 근무 중인 두 사람</p>
+      <h2 id="pdt-result-title"></h2>
+      <div class="pdt-duo">
+        <article class="pdt-card pdt-card-main">
+          <span class="pdt-card-tag">MAIN - 본캐</span>
+          <div class="pdt-avatar" id="pdt-main-avatar" role="img"></div>
+          <h3 id="pdt-main-name"></h3>
+          <p id="pdt-main-summary"></p>
+        </article>
+        <div class="pdt-x" aria-hidden="true">X</div>
+        <article class="pdt-card pdt-card-sub">
+          <span class="pdt-card-tag">HIDDEN - 부캐</span>
+          <div class="pdt-avatar" id="pdt-sub-avatar" role="img"></div>
+          <h3 id="pdt-sub-name"></h3>
+          <p id="pdt-sub-summary"></p>
+        </article>
+      </div>
+      <div class="pdt-combo">
+        <span>둘이 함께 있을 때</span>
+        <h3 id="pdt-combo-title"></h3>
+        <p id="pdt-combo-copy"></p>
+      </div>
+      <div class="pdt-detail-grid">
+        <div><span>본캐가 빛나는 순간</span><p id="pdt-main-shine"></p></div>
+        <div><span>부캐가 튀어나오는 순간</span><p id="pdt-sub-appear"></p></div>
+        <div><span>나도 모르는 강점</span><p id="pdt-strength"></p></div>
+        <div><span>에너지 관리 팁</span><p id="pdt-tip"></p></div>
+      </div>
+      <div class="pdt-actions">
+        <button class="pdt-primary" id="pdt-share" type="button">친구도 함께 해보기</button>
+        <button class="pdt-secondary" id="pdt-retry" type="button">다시 테스트</button>
+      </div>
+      <p class="pdt-share-status" id="pdt-share-status" role="status"></p>
+      <p class="pdt-disclaimer">이 테스트는 재미와 자기 이해를 위한 창작형 콘텐츠이며 전문 심리검사가 아닙니다.</p>
+    </section>
+  </div>
+</div>
+
+<style>
+#persona-duo-test{--ink:#17245b;--blue:#1746d1;--deep:#0d2d85;--cream:#fff8e9;--coral:#ff7166;--mint:#8dd9c3;--yellow:#ffd55a;--paper:#f7edda;max-width:780px;margin:24px auto;color:var(--ink);font-family:Pretendard,"Noto Sans KR","Apple SD Gothic Neo",sans-serif;line-height:1.55;word-break:keep-all}
+#persona-duo-test *{box-sizing:border-box}
+#persona-duo-test button{font:inherit}
+#persona-duo-test .pdt-shell{position:relative;overflow:hidden;min-height:680px;border:2px solid var(--ink);border-radius:30px;background:var(--cream);box-shadow:10px 12px 0 rgba(23,36,91,.13);isolation:isolate}
+#persona-duo-test .pdt-shell:before{content:"";position:absolute;inset:0;z-index:-1;opacity:.34;background-image:radial-gradient(rgba(23,36,91,.22) .7px,transparent .7px);background-size:7px 7px;pointer-events:none}
+#persona-duo-test .pdt-screen{display:none;min-height:680px;padding:64px 48px 42px;text-align:center;animation:pdtIn .42s ease both}
+#persona-duo-test .pdt-screen.is-active{display:block}
+#persona-duo-test .pdt-sound{position:absolute;z-index:10;right:18px;top:17px;border:1.5px solid var(--ink);border-radius:999px;background:#fff;padding:7px 11px;color:var(--ink);font-size:11px;font-weight:900;letter-spacing:.06em;cursor:pointer;box-shadow:2px 2px 0 var(--ink)}
+#persona-duo-test .pdt-sound[aria-pressed="false"]{opacity:.58;box-shadow:none;transform:translate(2px,2px)}
+#persona-duo-test .pdt-kicker{display:inline-flex;align-items:center;gap:7px;margin-bottom:14px;color:var(--blue);font-size:12px;font-weight:950;letter-spacing:.13em}
+#persona-duo-test .pdt-kicker:before,#persona-duo-test .pdt-kicker:after{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--coral)}
+#persona-duo-test h2{margin:0;font-size:clamp(34px,6vw,57px);line-height:1.12;letter-spacing:-.055em;font-weight:950}
+#persona-duo-test h2 em{position:relative;color:var(--coral);font-style:normal}
+#persona-duo-test h2 em:after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:7px;background:var(--yellow);z-index:-1;transform:rotate(-1.5deg)}
+#persona-duo-test .pdt-lead{margin:18px auto 22px;color:#435080;font-size:17px}
+#persona-duo-test .pdt-hero-wrap{position:relative;margin:0 auto 22px;max-width:590px}
+#persona-duo-test .pdt-hero{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border:2px solid var(--ink);border-radius:22px;box-shadow:6px 7px 0 var(--ink)}
+#persona-duo-test .pdt-sticker{position:absolute;display:grid;place-items:center;width:72px;height:72px;border:2px solid var(--ink);border-radius:50%;font-size:13px;line-height:1.2;font-weight:950;box-shadow:3px 3px 0 var(--ink)}
+#persona-duo-test .pdt-sticker-a{left:-18px;top:30px;background:var(--yellow);transform:rotate(-9deg)}
+#persona-duo-test .pdt-sticker-b{right:-13px;bottom:24px;background:var(--mint);transform:rotate(8deg)}
+#persona-duo-test .pdt-meta{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin:8px 0 18px}
+#persona-duo-test .pdt-meta span{border:1.5px solid rgba(23,36,91,.32);border-radius:999px;background:rgba(255,255,255,.72);padding:6px 12px;font-size:12px;font-weight:750}
+#persona-duo-test .pdt-meta b{color:var(--coral)}
+#persona-duo-test .pdt-primary,#persona-duo-test .pdt-secondary{min-height:54px;border:2px solid var(--ink);border-radius:16px;padding:13px 22px;font-weight:900;cursor:pointer;transition:transform .18s ease,box-shadow .18s ease}
+#persona-duo-test .pdt-primary{background:var(--blue);color:#fff;box-shadow:5px 6px 0 var(--ink)}
+#persona-duo-test .pdt-primary:hover{transform:translate(-2px,-2px);box-shadow:7px 8px 0 var(--ink)}
+#persona-duo-test .pdt-primary:active{transform:translate(4px,4px);box-shadow:1px 1px 0 var(--ink)}
+#persona-duo-test .pdt-primary span{margin-left:8px}
+#persona-duo-test .pdt-secondary{background:#fff;color:var(--ink)}
+#persona-duo-test .pdt-note,#persona-duo-test .pdt-tap-tip{margin:13px 0 0;color:#697399;font-size:12px}
+#persona-duo-test #pdt-quiz{padding-top:78px;text-align:left}
+#persona-duo-test .pdt-quiz-top{display:flex;align-items:center;gap:13px}
+#persona-duo-test .pdt-back{width:38px;height:38px;border:1.5px solid var(--ink);border-radius:50%;background:#fff;color:var(--ink);font-size:18px;cursor:pointer}
+#persona-duo-test .pdt-progress-copy{display:flex;justify-content:space-between;align-items:center;flex:1;font-size:12px;font-weight:850}
+#persona-duo-test .pdt-progress-copy span{color:var(--blue);letter-spacing:.03em}
+#persona-duo-test .pdt-progress{height:10px;margin:13px 0 38px;border:1.5px solid var(--ink);border-radius:999px;background:#fff;overflow:hidden}
+#persona-duo-test .pdt-progress i{display:block;width:3.333%;height:100%;background:linear-gradient(90deg,var(--coral),var(--yellow));transition:width .32s ease}
+#persona-duo-test .pdt-scene{display:inline-block;margin-bottom:14px;border-radius:8px;background:var(--yellow);padding:5px 10px;font-size:12px;font-weight:900;transform:rotate(-1deg)}
+#persona-duo-test #pdt-question{min-height:92px;margin:0 0 24px;color:var(--ink)!important;font-size:clamp(25px,4.3vw,36px);line-height:1.28;letter-spacing:-.035em}
+#persona-duo-test .pdt-options{display:grid;gap:11px}
+#persona-duo-test .pdt-option{display:flex;align-items:center;width:100%;min-height:65px;border:1.7px solid var(--ink);border-radius:16px;background:rgba(255,255,255,.88);padding:13px 17px;color:var(--ink);text-align:left;font-size:15px;font-weight:750;cursor:pointer;box-shadow:3px 4px 0 rgba(23,36,91,.2);transition:.16s ease}
+#persona-duo-test .pdt-option:before{content:attr(data-letter);flex:0 0 auto;display:grid;place-items:center;width:31px;height:31px;margin-right:12px;border-radius:50%;background:var(--paper);color:var(--blue);font-size:12px;font-weight:950}
+#persona-duo-test .pdt-option:hover,#persona-duo-test .pdt-option:focus-visible{outline:none;background:#eef4ff;transform:translateX(4px);box-shadow:0 4px 0 var(--blue)}
+#persona-duo-test .pdt-option.is-picked{background:var(--yellow);transform:scale(.985)}
+#persona-duo-test #pdt-loading{padding-top:150px}
+#persona-duo-test .pdt-orbit{position:relative;width:116px;height:116px;margin:0 auto 28px;border:2px dashed var(--blue);border-radius:50%;animation:pdtSpin 4s linear infinite}
+#persona-duo-test .pdt-orbit i{position:absolute;width:28px;height:28px;border:2px solid var(--ink);border-radius:50%}
+#persona-duo-test .pdt-orbit i:nth-child(1){left:42px;top:-14px;background:var(--coral)}
+#persona-duo-test .pdt-orbit i:nth-child(2){right:-5px;bottom:7px;background:var(--yellow)}
+#persona-duo-test .pdt-orbit i:nth-child(3){left:-5px;bottom:7px;background:var(--mint)}
+#persona-duo-test #pdt-loading h2{font-size:clamp(31px,5vw,47px)}
+#persona-duo-test #pdt-loading-copy{color:#5d688f}
+#persona-duo-test .pdt-loading-track{width:min(390px,90%);height:12px;margin:28px auto;border:1.5px solid var(--ink);border-radius:999px;background:#fff;overflow:hidden}
+#persona-duo-test .pdt-loading-track i{display:block;width:0;height:100%;background:linear-gradient(90deg,var(--blue),var(--coral),var(--yellow));transition:width .65s ease}
+#persona-duo-test #pdt-result{padding-top:72px}
+#persona-duo-test .pdt-result-label{margin:0 0 5px;color:#68739b;font-size:13px;font-weight:800}
+#persona-duo-test #pdt-result-title{max-width:100%;margin:0 auto 28px;color:var(--ink)!important;font-size:clamp(25px,5vw,43px);line-height:1.25;overflow-wrap:anywhere;word-break:keep-all}
+#persona-duo-test .pdt-duo{display:grid;grid-template-columns:1fr 42px 1fr;align-items:center;margin:0 auto 26px}
+#persona-duo-test .pdt-card{position:relative;border:2px solid var(--ink);border-radius:20px;background:#fff;padding:38px 16px 18px;box-shadow:5px 6px 0 var(--ink)}
+#persona-duo-test .pdt-card-main{transform:rotate(-1.3deg)}
+#persona-duo-test .pdt-card-sub{transform:rotate(1.3deg)}
+#persona-duo-test .pdt-card-tag{position:absolute;top:10px;left:12px;border-radius:999px;padding:4px 8px;color:#fff;background:var(--blue);font-size:10px;font-weight:950;letter-spacing:.05em}
+#persona-duo-test .pdt-card-sub .pdt-card-tag{background:var(--coral)}
+#persona-duo-test .pdt-avatar{width:100%;aspect-ratio:1/1;margin:auto;border:1.5px solid var(--ink);border-radius:16px;background-repeat:no-repeat;background-color:var(--paper);overflow:hidden}
+#persona-duo-test .pdt-card h3{margin:13px 0 5px;color:var(--ink)!important;font-size:20px;letter-spacing:-.03em}
+#persona-duo-test .pdt-card p{min-height:44px;margin:0;color:#4b577f!important;font-size:13px}
+#persona-duo-test .pdt-x{position:relative;z-index:2;display:grid;place-items:center;width:50px;height:50px;margin-left:-4px;border:2px solid var(--ink);border-radius:50%;background:var(--yellow);font-size:27px;font-weight:950;transform:rotate(8deg)}
+#persona-duo-test .pdt-combo{margin:22px 0;border:2px solid var(--ink);border-radius:18px;background:#153a9b;padding:26px 24px;color:#fff!important;box-shadow:5px 6px 0 var(--coral)}
+#persona-duo-test .pdt-combo span{color:var(--yellow);font-size:11px;font-weight:900;letter-spacing:.08em}
+#persona-duo-test .pdt-combo h3{margin:7px 0 10px;color:#fff!important;font-size:26px;line-height:1.35;text-shadow:0 1px 0 rgba(0,0,0,.14)}
+#persona-duo-test .pdt-combo p{margin:0;color:#eef3ff!important;font-size:15px;line-height:1.72}
+#persona-duo-test .pdt-detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;text-align:left}
+#persona-duo-test .pdt-detail-grid>div{border:1.5px solid var(--ink);border-radius:15px;background:rgba(255,255,255,.82);padding:15px}
+#persona-duo-test .pdt-detail-grid span{color:var(--blue);font-size:11px;font-weight:950}
+#persona-duo-test .pdt-detail-grid p{margin:6px 0 0;color:var(--ink)!important;font-size:13px}
+#persona-duo-test .pdt-actions{display:grid;grid-template-columns:1.35fr 1fr;gap:10px;margin-top:18px}
+#persona-duo-test .pdt-share-status{min-height:21px;margin:9px 0;color:var(--blue);font-size:12px;font-weight:850}
+#persona-duo-test .pdt-disclaimer{margin:15px auto 0;color:#7a829e;font-size:11px}
+@keyframes pdtIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes pdtSpin{to{transform:rotate(360deg)}}
+@media(max-width:600px){
+  #persona-duo-test{margin:10px auto}
+  #persona-duo-test .pdt-shell{min-height:650px;border-radius:22px;box-shadow:5px 6px 0 rgba(23,36,91,.14)}
+  #persona-duo-test .pdt-screen{min-height:650px;padding:66px 20px 30px}
+  #persona-duo-test #pdt-quiz{padding:70px 18px 28px}
+  #persona-duo-test .pdt-lead{font-size:15px}
+  #persona-duo-test .pdt-sticker{width:60px;height:60px;font-size:11px}
+  #persona-duo-test .pdt-sticker-a{left:-7px}.pdt-sticker-b{right:-5px}
+  #persona-duo-test #pdt-question{min-height:82px;font-size:25px}
+  #persona-duo-test .pdt-option{min-height:60px;padding:11px 12px;font-size:14px}
+  #persona-duo-test .pdt-duo{grid-template-columns:1fr 26px 1fr}
+  #persona-duo-test .pdt-x{width:38px;height:38px;margin-left:-6px;font-size:21px}
+  #persona-duo-test .pdt-card{padding:33px 9px 13px;box-shadow:3px 4px 0 var(--ink)}
+  #persona-duo-test .pdt-card h3{font-size:16px}
+  #persona-duo-test .pdt-card p{font-size:11px;line-height:1.45}
+  #persona-duo-test .pdt-detail-grid{grid-template-columns:1fr}
+  #persona-duo-test .pdt-actions{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){#persona-duo-test *,#persona-duo-test *:before,#persona-duo-test *:after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+
+<script>
+(function(){
+  'use strict';
+  var root=document.getElementById('persona-duo-test');
+  if(!root||root.dataset.ready==='1')return;
+  root.dataset.ready='1';
+
+  var ASSETS={
+    hero:'https://blogger.googleusercontent.com/img/a/AVvXsEjnN0yYNWflSZpbsqZW5vfbwLYhUcWY-yU_sgSbNfIA41L750TS1GWG2DEFKzb81CDyrKAED2ZnSvRIHnWNd66YKQUO7qnHW5D1XYac379BhjU9wNXlMh6ylHlfM342VnoaSNAqXtd27XdF_qUkLYD2mXhiN4hSiG57j_scr5icBpdMn9dCGg-Tud8rXymS',
+    sprite8:'https://blogger.googleusercontent.com/img/a/AVvXsEiKVWmv2-afTpzWr38mgy5a4j8ifALS7BJkwXUi-jwmkHzF6BkbZyKFmFgRGqUTIiJweodd-HeSvfX7uBKlqToq6zPUqKCvtZJ_lrO9Q1nmfX6xGQopV4RE6jk0Q_-Wuo0SbSjK8DS22I0qTAt4KSQbViMaz0lOhlZRN4MdZuFuXmR3uRSgH05VbysASdhL',
+    sprite2:'https://blogger.googleusercontent.com/img/a/AVvXsEi1D_GggwSH4z669NXup9Q8mu0BBDw-frHFZtVk8np-uMYJP5X_HhaogvbYJPObgwcvqqMdhnY3bgEuFk73CpRxPWgvbXneodQpzSG-vajnWbxzcvLtn8rsAPCdILqjH6RpmAdEhP_C5iSx_DnejW79F3quvh0j6hC7D1jHkUIj0cbVbz8Xot269XwvEMEg'
+  };
+
+  var types={
+    leader:{name:'스포트라이트 리더',short:'앞에 서면 길이 보이는 추진형',summary:'흐름을 빠르게 읽고 사람들을 한 방향으로 모아요.',shine:'결정이 필요하거나 여러 사람의 속도를 맞춰야 할 때',appear:'누군가 먼저 나서 주기를 기다리는 답답한 순간',strength:'망설임을 행동으로 바꾸고 팀에 확신을 전하는 힘',tip:'늘 앞장설 필요는 없어요. 결정을 잠시 미루는 시간도 일정에 넣어 보세요.',group:'drive',idx:0},
+    observer:{name:'고요한 관찰자',short:'말보다 먼저 패턴을 읽는 분석형',summary:'성급히 끼어들기보다 충분히 보고 정확한 한마디를 해요.',shine:'정보가 복잡하고 사람들이 놓친 단서를 찾아야 할 때',appear:'혼자 생각할 시간과 안전한 거리가 확보되었을 때',strength:'작은 변화와 모순을 남들보다 먼저 알아채는 집중력',tip:'생각이 완성될 때까지 기다리면 타이밍을 놓칠 수 있어요. 70%일 때 한번 꺼내 보세요.',group:'depth',idx:1},
+    supporter:{name:'마음 온도 조절사',short:'사람 사이의 온도를 맞추는 공감형',summary:'표정과 말투의 미세한 변화를 알아차리고 편안함을 만들어요.',shine:'누군가 말하지 못한 마음을 안전하게 꺼내야 할 때',appear:'가까운 사람이 지쳐 있거나 관계의 공기가 어색할 때',strength:'사람이 자기답게 머물 수 있는 분위기를 만드는 힘',tip:'모두의 기분을 책임지지 않아도 괜찮아요. 내 감정부터 이름 붙여 주세요.',group:'care',idx:2},
+    explorer:{name:'즉흥 탐험가',short:'새로운 길에서 에너지를 얻는 자유형',summary:'계획 밖의 변수를 재미로 바꾸고 낯선 선택을 가볍게 시도해요.',shine:'정답이 없고 새로운 방식이 필요한 첫 장면',appear:'일상이 반복되거나 예상 못 한 기회가 갑자기 열릴 때',strength:'실패를 경험으로 바꾸고 분위기를 가볍게 전환하는 힘',tip:'재미가 식은 뒤의 마무리 장치를 미리 하나만 만들어 두세요.',group:'spark',idx:3},
+    planner:{name:'빈틈없는 설계자',short:'복잡한 일을 순서로 바꾸는 계획형',summary:'목표를 잘게 나누고 안정적인 흐름을 만들어 끝까지 완성해요.',shine:'마감과 역할, 순서를 분명하게 정리해야 할 때',appear:'상황이 어수선하거나 누락될 가능성이 보일 때',strength:'막연한 목표를 누구나 따라갈 수 있는 단계로 바꾸는 힘',tip:'예상 밖의 변화까지 실패로 보지 말고 계획 안의 여백으로 남겨 두세요.',group:'order',idx:4},
+    challenger:{name:'독립적인 도전자',short:'남의 기준보다 내 확신을 따르는 개척형',summary:'불합리한 관성을 의심하고 필요하면 혼자서라도 새 길을 열어요.',shine:'눈치보다 솔직한 기준과 결단이 필요한 순간',appear:'통제받는 느낌이 들거나 모두가 당연하다고 말할 때',strength:'두려움과 반대 의견 속에서도 핵심을 밀고 가는 힘',tip:'혼자 증명하려 애쓰기보다 도움을 받는 것도 독립적인 선택임을 기억하세요.',group:'drive',idx:5},
+    creator:{name:'감각 수집가',short:'평범한 장면에 의미를 더하는 창작형',summary:'감정과 이미지, 아이디어를 연결해 자기만의 표현을 만들어요.',shine:'새로운 콘셉트와 섬세한 표현이 필요한 작업',appear:'혼자 걷거나 음악을 듣고 마음이 자유롭게 떠다닐 때',strength:'흩어진 느낌을 다른 사람이 공감할 수 있는 형태로 바꾸는 힘',tip:'영감이 올 때까지 기다리지 말고 작은 초안을 자주 남겨 보세요.',group:'depth',idx:6},
+    mediator:{name:'유연한 중재자',short:'양쪽의 언어를 번역하는 균형형',summary:'서로 다른 입장을 이해하고 모두가 움직일 현실적인 접점을 찾아요.',shine:'의견이 맞서거나 분위기가 한쪽으로 과열될 때',appear:'누군가 소외되거나 선택지가 너무 극단적으로 갈릴 때',strength:'흑백으로 나뉜 상황에 제3의 선택지를 만드는 힘',tip:'중간을 찾느라 내 입장이 사라지지 않도록 먼저 원하는 것을 적어 보세요.',group:'care',idx:7},
+    energizer:{name:'분위기 메이커',short:'함께일 때 에너지가 커지는 활력형',summary:'어색함을 먼저 깨고 사람들의 좋은 반응을 자연스럽게 끌어내요.',shine:'처음 만난 사람들이 빠르게 가까워져야 할 때',appear:'분위기가 무겁거나 모두가 머뭇거리는 순간',strength:'사람들이 참여하고 싶게 만드는 유쾌한 촉진력',tip:'밝은 역할을 잠시 내려놓아도 관계는 유지돼요. 조용한 날도 그대로 보여 주세요.',group:'spark',idx:8},
+    guardian:{name:'원칙 수호자',short:'쉽게 흔들리지 않는 기준형',summary:'상황에 휩쓸리지 않고 중요한 약속과 기준을 차분히 지켜요.',shine:'편한 선택보다 오래 믿을 수 있는 선택이 필요할 때',appear:'책임이 흐려지거나 누군가 선을 넘는다고 느낄 때',strength:'압박 속에서도 일관성과 신뢰를 유지하는 단단함',tip:'기준을 지키는 이유까지 나누면 고집이 아니라 신뢰로 전달돼요.',group:'order',idx:9}
+  };
+
+  function W(a,b,c){var o={};o[a]=3;if(b)o[b]=2;if(c)o[c]=1;return o}
+  var questions=[
+    {act:0,scene:'처음 보는 사람이 많은 모임',q:'문을 열고 들어간 뒤 가장 먼저 하는 행동은?',a:[['아는 얼굴을 찾아 자연스럽게 대화를 넓힌다',W('energizer','leader')],['조용히 전체 분위기와 사람들의 관계를 살핀다',W('observer','mediator')],['혼자 있는 사람에게 먼저 편하게 말을 건다',W('supporter','mediator')],['끌리는 자리로 가서 일단 재미있게 섞인다',W('explorer','energizer')]]},
+    {act:0,scene:'갑작스러운 팀 프로젝트',q:'아무도 방향을 잡지 못하고 있을 때 나는?',a:[['목표와 역할부터 빠르게 정한다',W('leader','planner')],['자료를 확인해 핵심 문제가 뭔지 짚는다',W('observer','guardian')],['각자 원하는 방식부터 차분히 들어 본다',W('mediator','supporter')],['재미있는 아이디어를 던져 분위기를 움직인다',W('creator','explorer')]]},
+    {act:0,scene:'친구가 고민을 털어놓는 밤',q:'나도 모르게 먼저 나오는 반응은?',a:[['지금 가장 힘든 감정이 뭔지 들어 준다',W('supporter','mediator')],['상황을 정리하고 가능한 해결책을 찾는다',W('planner','observer')],['답답한 부분을 대신 솔직하게 말해 준다',W('challenger','guardian')],['잠시 기분이 환기될 재미있는 일을 제안한다',W('energizer','explorer')]]},
+    {act:0,scene:'여럿이 떠나는 여행',q:'일정을 정할 때 가장 나다운 모습은?',a:[['예약과 동선을 표로 정리한다',W('planner','guardian')],['꼭 하고 싶은 한두 가지만 정하고 움직인다',W('explorer','creator')],['모두의 취향을 물어 균형 있게 묶는다',W('mediator','supporter')],['내가 후보를 추리고 빠르게 선택을 이끈다',W('leader','challenger')]]},
+    {act:0,scene:'회의에서 내 의견이 반대에 부딪혔다',q:'그다음에 가장 가까운 행동은?',a:[['근거를 보완해 다시 설득한다',W('leader','observer')],['상대 논리에서 배울 점부터 찾는다',W('observer','mediator')],['핵심 기준을 어기면 분명하게 맞선다',W('guardian','challenger')],['완전히 다른 제3의 아이디어로 전환한다',W('creator','explorer')]]},
+    {act:0,scene:'친구들 사이에 어색한 침묵',q:'이 상황에서 나는 주로?',a:[['가벼운 농담이나 질문으로 공기를 바꾼다',W('energizer','explorer')],['누가 불편한지 표정을 먼저 살핀다',W('supporter','observer')],['침묵도 괜찮다고 생각하며 기다린다',W('observer','guardian')],['자연스럽게 다음 행동을 제안한다',W('leader','planner')]]},
+    {act:0,scene:'새로운 일을 맡은 첫날',q:'가장 먼저 확보하고 싶은 것은?',a:[['목표와 내 결정 범위',W('leader','challenger')],['전체 구조를 이해할 자료',W('observer','planner')],['함께할 사람들과의 편안한 관계',W('supporter','energizer')],['내 방식으로 실험해 볼 여지',W('creator','explorer')]]},
+    {act:0,scene:'단체 채팅방에 갈등이 생겼다',q:'내가 취하기 쉬운 역할은?',a:[['핵심 쟁점을 정리해 결론을 낸다',W('leader','guardian')],['양쪽이 오해한 표현을 번역해 준다',W('mediator','supporter')],['사실관계를 조용히 확인한다',W('observer','planner')],['지나친 분위기를 환기할 출구를 만든다',W('energizer','creator')]]},
+    {act:0,scene:'사람들이 나를 처음 볼 때',q:'가장 자주 듣는 인상에 가까운 것은?',a:[['믿고 맡길 수 있을 것 같다',W('planner','guardian')],['편하게 이야기할 수 있을 것 같다',W('supporter','mediator')],['자기 색이 분명해 보인다',W('challenger','creator')],['활기차고 먼저 다가올 것 같다',W('energizer','leader')]]},
+    {act:0,scene:'모두가 망설이는 선택의 순간',q:'내 행동을 가장 잘 설명하는 문장은?',a:[['일단 시작해야 다음이 보인다',W('leader','explorer')],['충분히 확인해야 후회가 적다',W('observer','planner')],['사람들이 감당할 수 있는 선택이어야 한다',W('supporter','mediator')],['내 기준에 맞지 않으면 다른 길을 찾는다',W('challenger','guardian')]]},
+
+    {act:1,scene:'아무 약속도 없는 휴일 아침',q:'저절로 끌리는 하루의 시작은?',a:[['미뤄 둔 일을 정리하고 계획을 세운다',W('planner','guardian')],['혼자만의 취향에 깊이 빠져든다',W('creator','observer')],['갑자기 떠오른 곳으로 나가 본다',W('explorer','challenger')],['좋아하는 사람에게 뭐 하냐고 연락한다',W('energizer','supporter')]]},
+    {act:1,scene:'아무도 보지 않는 내 방',q:'가장 편안한 나의 모습은?',a:[['생각과 감정을 기록하는 나',W('creator','observer')],['순서대로 공간을 정리하는 나',W('planner','guardian')],['하고 싶은 것을 마음대로 바꾸는 나',W('explorer','challenger')],['누군가와 긴 통화를 하는 나',W('supporter','energizer')]]},
+    {act:1,scene:'해야 할 일이 쌓인 늦은 밤',q:'혼자 있을 때 실제로 나오는 대처는?',a:[['우선순위를 다시 짜 하나씩 끝낸다',W('planner','leader')],['왜 막혔는지 원인을 오래 파고든다',W('observer','guardian')],['기분이 움직이는 작은 일부터 시작한다',W('creator','explorer')],['믿는 사람에게 솔직히 힘들다고 말한다',W('supporter','mediator')]]},
+    {act:1,scene:'마음에 남은 실수를 떠올릴 때',q:'내면에서 가장 먼저 하는 일은?',a:[['다음에는 반복하지 않을 규칙을 만든다',W('guardian','planner')],['상황의 모든 장면을 다시 분석한다',W('observer','creator')],['그때의 내 마음을 이해하려 한다',W('supporter','mediator')],['과거보다 지금 바꿀 행동을 정한다',W('challenger','leader')]]},
+    {act:1,scene:'오랫동안 꿈꿔 온 일이 생겼다',q:'아무에게도 말하기 전 나는?',a:[['가능한 경로와 비용을 조사한다',W('planner','observer')],['성공한 장면을 생생하게 상상한다',W('creator','explorer')],['안 될 이유보다 해볼 이유를 붙잡는다',W('challenger','leader')],['누구와 함께하면 좋을지 떠올린다',W('supporter','energizer')]]},
+    {act:1,scene:'혼자 카페에 앉아 있는 시간',q:'나도 모르게 시선이 머무는 곳은?',a:[['사람들의 대화와 관계',W('supporter','observer')],['공간의 색과 음악, 작은 디테일',W('creator','explorer')],['내일 해야 할 일과 일정',W('planner','guardian')],['밖에서 새롭게 벌어지는 장면',W('explorer','challenger')]]},
+    {act:1,scene:'누군가의 기대가 부담스러울 때',q:'속으로 가장 크게 드는 생각은?',a:[['그래도 맡은 만큼은 지키고 싶다',W('guardian','planner')],['내 방식과 속도를 존중받고 싶다',W('challenger','creator')],['실망시키면 관계가 멀어질까 걱정된다',W('supporter','mediator')],['왜 그런 기대를 하는지부터 이해하고 싶다',W('observer','leader')]]},
+    {act:1,scene:'머릿속이 복잡해진 날',q:'나를 가장 빨리 회복시키는 것은?',a:[['말없이 혼자 생각을 정리하는 시간',W('observer','creator')],['믿는 사람과 감정을 나누는 대화',W('supporter','mediator')],['몸을 움직이거나 새로운 곳에 가기',W('explorer','challenger')],['작은 일이라도 완료 표시를 하는 것',W('planner','leader')]]},
+    {act:1,scene:'내가 정말 중요하게 여기는 것',q:'하나를 고른다면 가장 가까운 것은?',a:[['내 선택을 스스로 결정할 자유',W('challenger','explorer')],['오래 믿을 수 있는 관계',W('supporter','guardian')],['계속 성장하고 이해하는 과정',W('observer','creator')],['약속한 일을 끝내는 책임',W('planner','leader')]]},
+    {act:1,scene:'마음속 진짜 나를 한 단어로',q:'가장 끌리는 표현은?',a:[['단단한',W('guardian','challenger')],['다정한',W('supporter','mediator')],['자유로운',W('explorer','creator')],['깊이 있는',W('observer','planner')]]},
+
+    {act:2,scene:'마감 직전 예상 못 한 오류',q:'압박이 올라오는 순간 나오는 본능은?',a:[['사람들을 모아 즉시 역할을 나눈다',W('leader','planner')],['오류가 시작된 지점을 집요하게 찾는다',W('observer','guardian')],['기존 방식을 버리고 우회로를 만든다',W('challenger','explorer')],['불안한 사람부터 진정시키며 함께 푼다',W('supporter','mediator')]]},
+    {act:2,scene:'내 계획이 갑자기 취소됐다',q:'첫 10분의 실제 반응은?',a:[['바로 대체 계획을 세운다',W('planner','leader')],['아쉬운 마음부터 충분히 느낀다',W('creator','supporter')],['오히려 생긴 자유 시간이 반갑다',W('explorer','energizer')],['취소된 이유가 납득되는지 확인한다',W('guardian','observer')]]},
+    {act:2,scene:'가까운 사람이 선을 넘었다',q:'결국 내가 선택할 가능성이 큰 행동은?',a:[['분명하게 불편했다고 말한다',W('challenger','guardian')],['관계를 해치지 않을 표현을 고른다',W('mediator','supporter')],['왜 그랬는지 행동의 맥락을 본다',W('observer','creator')],['시간을 정해 대화를 끝까지 이끈다',W('leader','planner')]]},
+    {act:2,scene:'완전히 낯선 환경에 혼자 남았다',q:'살아남기 위해 가장 먼저 쓰는 능력은?',a:[['사람들과 빠르게 연결되는 친화력',W('energizer','supporter')],['주변 규칙을 파악하는 관찰력',W('observer','planner')],['일단 움직이며 배우는 적응력',W('explorer','challenger')],['필요한 것을 정리하는 통제력',W('leader','guardian')]]},
+    {act:2,scene:'열심히 한 일이 인정받지 못했다',q:'마음 깊은 곳에서 올라오는 반응은?',a:[['결과로 다시 증명하고 싶다',W('challenger','leader')],['평가 기준이 공정했는지 따져 본다',W('guardian','observer')],['내가 의미를 느꼈다면 남겨 두고 싶다',W('creator','explorer')],['누군가 과정만은 알아줬으면 한다',W('supporter','energizer')]]},
+    {act:2,scene:'친구가 충동적인 제안을 했다',q:'평소보다 솔직한 나의 대답은?',a:[['재미있겠다, 지금 하자',W('explorer','energizer')],['현실적으로 가능한지 5분만 보자',W('planner','observer')],['다들 진짜 원하는지 먼저 묻자',W('mediator','supporter')],['내 기준에 맞으면 남들이 말려도 한다',W('challenger','guardian')]]},
+    {act:2,scene:'중요한 발표 5분 전',q:'긴장을 다루는 나만의 방식은?',a:[['전체 흐름을 다시 머릿속으로 지휘한다',W('leader','planner')],['혼자 조용히 핵심 문장만 점검한다',W('observer','guardian')],['주변 사람과 웃으며 에너지를 올린다',W('energizer','supporter')],['완벽보다 내 색을 보여 주자고 생각한다',W('creator','challenger')]]},
+    {act:2,scene:'두 사람이 내게 서로 다른 편을 요구한다',q:'가장 나다운 선택은?',a:[['둘 다 만나 사실을 분리해서 본다',W('observer','mediator')],['옳다고 생각하는 쪽을 분명히 고른다',W('guardian','challenger')],['각자가 원하는 핵심을 연결해 타협점을 만든다',W('mediator','supporter')],['갈등이 커지기 전에 결론을 위한 자리를 만든다',W('leader','energizer')]]},
+    {act:2,scene:'아무도 시도하지 않은 기회',q:'나를 움직이게 하는 마지막 한마디는?',a:[['먼저 하는 사람이 기준을 만든다',W('leader','challenger')],['궁금하면 직접 확인해 봐야 한다',W('explorer','creator')],['충분히 준비하면 위험을 줄일 수 있다',W('planner','observer')],['함께할 사람이 있다면 해볼 만하다',W('supporter','energizer')]]},
+    {act:2,scene:'모든 질문이 끝나기 직전',q:'사람들이 잘 모르는 내 모습은 무엇에 가깝나?',a:[['생각보다 훨씬 장난스럽다',W('energizer','explorer')],['생각보다 기준이 단단하다',W('guardian','challenger')],['생각보다 감정과 상상이 깊다',W('creator','supporter')],['생각보다 앞에 서는 것을 두려워하지 않는다',W('leader','mediator')]]}
+  ];
+
+  var state={index:0,answers:[],sound:true,audio:null};
+  var $=function(s){return root.querySelector(s)};
+  var screens=['#pdt-start','#pdt-quiz','#pdt-loading','#pdt-result'];
+  var actNames=['ACT 1 - 사람들 앞의 나','ACT 2 - 아무도 모르는 나','ACT 3 - 예상 밖의 나'];
+  var loadCopies=['사람들 앞에서 반복되는 선택을 모으고 있어요.','혼자일 때 편안해지는 방향을 살펴보고 있어요.','두 캐릭터의 의외의 궁합을 연결하고 있어요.'];
+
+  function show(id){screens.forEach(function(s){$(s).classList.toggle('is-active',s===id)});root.scrollIntoView({behavior:'smooth',block:'start'})}
+  function audio(){if(!state.audio){var C=window.AudioContext||window.webkitAudioContext;if(C)state.audio=new C()}if(state.audio&&state.audio.state==='suspended')state.audio.resume();return state.audio}
+  function tone(freq,dur,type,vol,delay){if(!state.sound)return;var c=audio();if(!c)return;var o=c.createOscillator(),g=c.createGain(),t=c.currentTime+(delay||0);o.type=type||'sine';o.frequency.setValueAtTime(freq,t);g.gain.setValueAtTime(0.0001,t);g.gain.exponentialRampToValueAtTime(vol||.04,t+.012);g.gain.exponentialRampToValueAtTime(.0001,t+dur);o.connect(g);g.connect(c.destination);o.start(t);o.stop(t+dur+.02)}
+  function clickSound(){tone(520,.08,'triangle',.035);tone(780,.09,'sine',.025,.045)}
+  function actSound(){tone(392,.14,'triangle',.035);tone(523,.15,'triangle',.035,.09);tone(659,.2,'triangle',.04,.18)}
+  function resultSound(){[392,494,587,784].forEach(function(f,i){tone(f,.3,'sine',.045,i*.11)})}
+
+  function renderQuestion(){
+    var x=questions[state.index];
+    $('#pdt-now').textContent=state.index+1;$('#pdt-act').textContent=actNames[x.act];
+    $('#pdt-progress-bar').style.width=((state.index+1)/questions.length*100)+'%';
+    $('#pdt-scene').textContent=x.scene;$('#pdt-question').textContent=x.q;
+    $('#pdt-back').style.visibility=state.index?'visible':'hidden';
+    var box=$('#pdt-options');box.innerHTML='';
+    x.a.forEach(function(ans,i){var b=document.createElement('button');b.type='button';b.className='pdt-option';b.dataset.letter='ABCD'.charAt(i);b.textContent=ans[0];b.addEventListener('click',function(){choose(i,b)});box.appendChild(b)});
+  }
+  function choose(i,button){
+    if(button.classList.contains('is-picked'))return;
+    Array.prototype.forEach.call($('#pdt-options').children,function(x){x.disabled=true});
+    button.classList.add('is-picked');clickSound();state.answers[state.index]=i;
+    setTimeout(function(){
+      if(state.index<questions.length-1){var oldAct=questions[state.index].act;state.index++;if(questions[state.index].act!==oldAct)actSound();renderQuestion()}
+      else analyze();
+    },220);
+  }
+  function scores(){
+    var main={},sub={};Object.keys(types).forEach(function(k){main[k]=0;sub[k]=0});
+    state.answers.forEach(function(ai,qi){var q=questions[qi],w=q.a[ai][1];Object.keys(w).forEach(function(k){
+      if(q.act===0){main[k]+=w[k]*1.25;sub[k]+=w[k]*.2}
+      else if(q.act===1){sub[k]+=w[k]*1.25;main[k]+=w[k]*.2}
+      else{main[k]+=w[k]*.55;sub[k]+=w[k]*.9}
+    })});return{main:main,sub:sub}
+  }
+  function rank(obj){return Object.keys(obj).sort(function(a,b){return obj[b]-obj[a]})}
+  function combo(a,b){
+    var ga=types[a].group,gb=types[b].group,key=ga+'-'+gb;
+    var title,copy,strength;
+    if(ga===gb){title='겉과 속의 방향이 같은 선명한 캐릭터';copy='상황이 달라져도 중요한 기준이 크게 바뀌지 않아 주변에서 당신을 일관된 사람으로 느껴요. 다만 같은 방식만 반복하지 않도록 반대 성향의 선택도 가끔 시험해 보세요.';strength='말과 행동의 간격이 작아 신뢰를 빠르게 쌓는 일관성'}
+    else if((ga==='drive'&&gb==='care')||(ga==='care'&&gb==='drive')){title='단호함 속에 다정함을 숨긴 해결사';copy='겉으로는 결정을 빠르게 내리지만, 실제로는 그 결정이 사람에게 남길 감정까지 살펴요. 차갑지도 무르지도 않은 균형이 당신의 매력입니다.';strength='결론과 관계를 동시에 놓치지 않는 현실적인 리더십'}
+    else if((ga==='order'&&gb==='spark')||(ga==='spark'&&gb==='order')){title='계획표 안에 탈출구를 숨긴 반전형';copy='평소에는 안정적으로 움직이지만 안전하다고 느끼는 순간 누구보다 장난스럽고 과감해져요. 책임감과 즉흥성이 교대로 삶의 활력을 지켜 줍니다.';strength='마무리 능력과 순간적인 적응력을 함께 쓰는 힘'}
+    else if((ga==='depth'&&gb==='spark')||(ga==='spark'&&gb==='depth')){title='조용히 관찰하다 한 번에 판을 바꾸는 영감형';copy='충분히 보고 느낀 뒤 뜻밖의 아이디어를 꺼내는 편이에요. 남들은 갑작스럽다고 느끼지만 당신 안에서는 오래 연결된 결론입니다.';strength='깊은 몰입에서 누구도 예상하지 못한 변화를 만드는 창의성'}
+    else if((ga==='care'&&gb==='depth')||(ga==='depth'&&gb==='care')){title='마음의 결을 읽고 오래 기억하는 섬세형';copy='사람의 말뿐 아니라 그 뒤에 남은 망설임까지 알아차려요. 조용하지만 깊은 관심으로 관계에 안정감을 더하는 조합입니다.';strength='미세한 감정과 맥락을 읽어 정확한 위로를 건네는 힘'}
+    else if((ga==='drive'&&gb==='order')||(ga==='order'&&gb==='drive')){title='결정하면 끝까지 완성하는 실행형';copy='방향을 정하는 속도와 끝까지 지키는 힘을 함께 가졌어요. 목표가 분명할수록 성과가 빠르지만, 쉬어 가는 신호도 계획의 일부로 넣는 것이 좋아요.';strength='결단을 실제 결과로 바꾸는 강한 완주력'}
+    else if((ga==='drive'&&gb==='spark')||(ga==='spark'&&gb==='drive')){title='분위기를 타면 누구보다 빠른 돌파형';copy='사람과 기회가 모이는 순간 과감하게 앞을 열어요. 예상 밖의 상황을 두려워하기보다 내 편으로 만드는 에너지가 큽니다.';strength='망설이는 순간에도 재미와 추진력을 동시에 만드는 힘'}
+    else if((ga==='order'&&gb==='depth')||(ga==='depth'&&gb==='order')){title='머릿속 복잡함을 정확한 구조로 바꾸는 설계형';copy='충분히 생각한 뒤 빈틈없는 순서로 옮기는 편이에요. 말수보다 결과로 신뢰를 주며 혼자 집중할 시간이 확보될수록 강해집니다.';strength='복잡한 정보를 핵심과 순서로 정돈하는 고도의 집중력'}
+    else{title='서로 다른 두 힘을 상황에 맞게 바꾸는 스위치형';copy='겉으로 보이는 방식과 혼자일 때의 방식이 달라 처음에는 의외라는 말을 들을 수 있어요. 하지만 바로 그 차이가 다양한 상황을 견디게 하는 유연함입니다.';strength='한 가지 이미지에 갇히지 않고 역할을 바꿔 쓰는 적응력'}
+    return{title:title,copy:copy,strength:strength}
+  }
+  function avatar(el,key){var i=types[key].idx;el.setAttribute('aria-label',types[key].name+' 캐릭터 이미지');if(i<8){el.style.backgroundImage='url("'+ASSETS.sprite8+'")';el.style.backgroundSize='400% 200%';el.style.backgroundPosition=(i%4)*33.333333+'% '+(Math.floor(i/4)*100)+'%'}else{el.style.backgroundImage='url("'+ASSETS.sprite2+'")';el.style.backgroundSize='200% 100%';el.style.backgroundPosition=(i-8)*100+'% 0%'}}
+  function analyze(){
+    show('#pdt-loading');var bar=$('#pdt-loading-bar'),step=0;setTimeout(function(){bar.style.width='36%'},60);
+    var timer=setInterval(function(){step++;if(step<3){$('#pdt-loading-copy').textContent=loadCopies[step];bar.style.width=(36+step*31)+'%'}else{clearInterval(timer);displayResult()}},620)
+  }
+  function displayResult(){
+    var s=scores(),m=rank(s.main)[0],sr=rank(s.sub),b=sr[0];if(b===m)b=sr[1];var c=combo(m,b);
+    $('#pdt-result-title').textContent=types[m].name+' X '+types[b].name;
+    $('#pdt-main-name').textContent=types[m].name;$('#pdt-main-summary').textContent=types[m].short;
+    $('#pdt-sub-name').textContent=types[b].name;$('#pdt-sub-summary').textContent=types[b].short;
+    avatar($('#pdt-main-avatar'),m);avatar($('#pdt-sub-avatar'),b);
+    $('#pdt-combo-title').textContent=c.title;$('#pdt-combo-copy').textContent=c.copy;
+    $('#pdt-main-shine').textContent=types[m].shine;$('#pdt-sub-appear').textContent=types[b].appear;
+    $('#pdt-strength').textContent=c.strength;$('#pdt-tip').textContent=types[m].tip+' '+types[b].tip;
+    show('#pdt-result');resultSound();
+  }
+  function reset(){state.index=0;state.answers=[];$('#pdt-loading-bar').style.width='0';$('#pdt-share-status').textContent='';renderQuestion();show('#pdt-start')}
+  function share(){var text='나의 본캐 부캐 성격 테스트 결과: '+$('#pdt-result-title').textContent;var data={title:'나의 본캐 부캐 성격 테스트',text:text,url:location.href};if(navigator.share){navigator.share(data).catch(function(){})}else if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(text+' '+location.href).then(function(){$('#pdt-share-status').textContent='친구에게 보낼 링크를 복사했어요.'})}else{var ta=document.createElement('textarea');ta.value=text+' '+location.href;document.body.appendChild(ta);ta.select();document.execCommand('copy');ta.remove();$('#pdt-share-status').textContent='친구에게 보낼 링크를 복사했어요.'}}
+
+  $('#pdt-start-btn').addEventListener('click',function(){audio();actSound();renderQuestion();show('#pdt-quiz')});
+  $('#pdt-back').addEventListener('click',function(){if(state.index>0){state.index--;renderQuestion();tone(330,.08,'triangle',.025)}});
+  $('#pdt-retry').addEventListener('click',reset);$('#pdt-share').addEventListener('click',share);
+  $('#pdt-sound').addEventListener('click',function(){state.sound=!state.sound;this.setAttribute('aria-pressed',String(state.sound));this.setAttribute('aria-label',state.sound?'효과음 켜짐':'효과음 꺼짐');this.textContent=state.sound?'SOUND ON':'SOUND OFF';if(state.sound)clickSound()});
+  if(ASSETS.hero.indexOf('__')===-1)$('.pdt-hero').src=ASSETS.hero;
+})();
+</script>
+
+<h2>나의 본캐 부캐 성격 테스트란?</h2>
+<p>사람은 언제나 한 가지 모습으로만 살아가지 않습니다. 여러 사람과 함께 있을 때 자연스럽게 맡는 역할과 혼자 있을 때 편안해지는 방식, 예상하지 못한 상황에서 튀어나오는 반응이 서로 다를 수 있습니다. 이 테스트는 30가지 일상 상황을 통해 자주 사용하는 본캐와 평소에는 잘 드러나지 않는 부캐를 각각 찾아보고 두 성향이 함께 작동할 때의 장점까지 재미있게 확인하는 창작형 성격 테스트입니다.</p>
+<h2>결과에 나오는 10가지 캐릭터</h2>
+<p>스포트라이트 리더, 고요한 관찰자, 마음 온도 조절사, 즉흥 탐험가, 빈틈없는 설계자, 독립적인 도전자, 감각 수집가, 유연한 중재자, 분위기 메이커, 원칙 수호자 가운데 사람들 앞에서 자주 쓰는 성향은 본캐로, 혼자 있거나 예상 밖의 순간에 선명해지는 성향은 부캐로 표시됩니다. 같은 유형이 높은 점수를 받더라도 두 번째로 강한 다른 성향을 부캐로 연결해 본캐와 부캐의 대비가 나타나도록 구성했습니다.</p>
+<h2>테스트를 재미있게 이용하는 방법</h2>
+<p>이상적으로 보이는 답을 고르기보다 실제 상황에서 가장 먼저 할 것 같은 행동을 선택해 주세요. 오래 고민하기보다 첫 느낌에 가까운 답을 고르면 평소 반복되는 성향이 자연스럽게 드러납니다. 결과가 재미있었다면 링크를 친구에게 보내 서로의 본캐와 부캐 조합을 비교해 볼 수 있습니다.</p>
+<h2>자주 묻는 질문</h2>
+<h3>문항은 몇 개인가요?</h3>
+<p>총 30문항이며 사람들 앞의 나, 아무도 모르는 나, 예상 밖의 나라는 세 구간으로 나뉩니다. 보통 약 5분이면 결과를 확인할 수 있습니다.</p>
+<h3>효과음을 끌 수 있나요?</h3>
+<p>테스트 오른쪽 위의 SOUND 버튼을 누르면 언제든 효과음을 끌 수 있습니다. 모바일 브라우저 정책에 따라 첫 화면의 시작 버튼을 누른 뒤부터 소리가 재생됩니다.</p>
+<h3>전문 심리검사인가요?</h3>
+<p>아닙니다. 이 결과는 재미와 자기 이해를 위한 비공식 창작형 콘텐츠이며 전문적인 심리검사나 의학적 진단을 대신하지 않습니다.</p>
+
+<!-- ===== 카카오톡 결과 공유 (testmix v2.2) ===== -->
+<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.4/kakao.min.js" crossorigin="anonymous"></script>
+<script>
+//<![CDATA[
+(function () {
+  var Q = function (s) { return document.querySelector(s); };
+  var T = function (s) {
+    var e = Q(s); if (!e) return '';
+    var c = e.cloneNode(true);
+    [].forEach.call(c.querySelectorAll('[class*="google-anno"],ins,script,style'), function (x) { x.remove(); });
+    return c.textContent.replace(/\s+/g, ' ').trim();
+  };
+  var DOT = '\u00b7';
+  var CFG = {test:'본캐 부캐 테스트', fmt:'{name}', btn:'#pdt-share', read:function(){return {name:'본캐 '+T('#pdt-main-name')+' '+DOT+' 부캐 '+T('#pdt-sub-name'), nick:T('#pdt-combo-title'), img:'#pdt-main-avatar'};}};
+  var KEY = '7ddee789fac314a1a3a712d361c76c21', LABEL = '결과 공유하기';
+  var SHARE_RE = /친구|공유|함께|보내기|찾아주기/;
+  if (window.Kakao && !Kakao.isInitialized()) Kakao.init(KEY);
+
+  function base() { return location.origin + location.pathname; }
+  function og() { var m = Q('meta[property="og:image"]'); return m ? m.content : ''; }
+  function cut(s, n) { s = s || ''; return s.length > n ? s.slice(0, n - 1) + '\u2026' : s; }
+
+  async function upload(blob) {
+    var res = await Kakao.Share.uploadImage({ file: [new File([blob], 'result.png', { type: blob.type || 'image/png' })] });
+    return res.infos.original.url.replace(/^http:/, 'https:');
+  }
+  function toBlob(cv) { return new Promise(function (r) { cv.toBlob(r, 'image/png'); }); }
+
+  async function cropSprite(url, el, cs) {
+    var sz = cs.backgroundSize.split(' '), ps = cs.backgroundPosition.split(' ');
+    if (sz[0].indexOf('%') < 0) return url;
+    var W = parseFloat(sz[0]), H = parseFloat(sz[1] || sz[0]);
+    if (W <= 100 && H <= 100) return url;
+    var bmp = await createImageBitmap(await (await fetch(url + (url.indexOf('?') < 0 ? '?' : '&') + 'ks=1', { mode: 'cors' })).blob());
+    var nw = bmp.width, nh = bmp.height;
+    function frac(p, S, elLen) {
+      if (/%$/.test(p)) return (1 - 100 / S) * parseFloat(p) / 100;
+      var bg = S / 100 * elLen; return bg ? -parseFloat(p) / bg : 0;
+    }
+    var sw = nw * Math.min(1, 100 / W), sh = nh * Math.min(1, 100 / H);
+    var sx = nw * frac(ps[0] || '0%', W, el.offsetWidth), sy = nh * frac(ps[1] || ps[0] || '0%', H, el.offsetHeight);
+    var k = Math.min(1, 800 / Math.max(sw, sh));
+    var cv = document.createElement('canvas'); cv.width = Math.round(sw * k); cv.height = Math.round(sh * k);
+    cv.getContext('2d').drawImage(bmp, sx, sy, sw, sh, 0, 0, cv.width, cv.height);
+    return upload(await toBlob(cv));
+  }
+
+  async function svgShot(svg) {
+    var r = svg.getBoundingClientRect(), c = svg.cloneNode(true);
+    var src = [svg].concat([].slice.call(svg.querySelectorAll('*'))), dst = [c].concat([].slice.call(c.querySelectorAll('*')));
+    var props = ['fill', 'stroke', 'stroke-width', 'stroke-dasharray', 'opacity', 'fill-opacity', 'stroke-opacity', 'font-size', 'font-weight', 'font-family', 'text-anchor', 'dominant-baseline'];
+    src.forEach(function (s, i) { var st = getComputedStyle(s); dst[i].setAttribute('style', props.map(function (p) { return p + ':' + st.getPropertyValue(p); }).join(';')); });
+    c.setAttribute('xmlns', 'http://www.w3.org/2000/svg'); c.setAttribute('width', r.width); c.setAttribute('height', r.height);
+    var u = URL.createObjectURL(new Blob([new XMLSerializer().serializeToString(c)], { type: 'image/svg+xml' }));
+    var img = new Image(); await new Promise(function (ok, no) { img.onload = ok; img.onerror = no; img.src = u; });
+    var pad = 40, s = 2, cv = document.createElement('canvas');
+    cv.width = (r.width + pad * 2) * s; cv.height = (r.height + pad * 2) * s;
+    var x = cv.getContext('2d'); x.fillStyle = '#fff'; x.fillRect(0, 0, cv.width, cv.height);
+    x.drawImage(img, pad * s, pad * s, r.width * s, r.height * s); URL.revokeObjectURL(u);
+    return upload(await toBlob(cv));
+  }
+
+  async function getImage(sel) {
+    var el = sel ? Q(sel) : null;
+    if (!el) return og();
+    var src = '';
+    if (el.tagName === 'IMG') src = el.currentSrc || el.src;
+    else if (el.tagName.toLowerCase() === 'svg') return svgShot(el);
+    else {
+      var im = el.querySelector('img');
+      if (im) src = im.currentSrc || im.src;
+      else {
+        var nodes = [el].concat([].slice.call(el.querySelectorAll('*')));
+        for (var i = 0; i < nodes.length; i++) {
+          var cs = getComputedStyle(nodes[i]), m = /url\(["']?([^"')]+)/.exec(cs.backgroundImage);
+          if (m) {
+            if (/^https?:/.test(m[1])) return cropSprite(m[1], nodes[i], cs);
+            src = m[1]; break;
+          }
+        }
+        if (!src) { var sv = el.querySelector('svg'); if (sv) return svgShot(sv); }
+      }
+    }
+    if (/^https:\/\//.test(src)) return src;
+    if (/^(data|blob):/.test(src)) return upload(await (await fetch(src)).blob());
+    return og();
+  }
+
+  async function share() {
+    var r = null;
+    try { r = CFG.read(); } catch (e) {}
+    if (!r || !r.name) { alert('테스트를 먼저 완료해 주세요!'); return; }
+    var link = base() + '?r=' + encodeURIComponent(r.name.slice(0, 40));
+    var title = cut(CFG.fmt.replace('{name}', r.name), 80);
+    var desc = (r.nick ? cut(r.nick, 60) + ' | ' : '') + CFG.test;
+    try {
+      if (!window.Kakao) throw 0;
+      var img = og();
+      try { img = (await getImage(r.img || '')) || og(); } catch (e) { img = og(); }
+      Kakao.Share.sendDefault({
+        objectType: 'feed',
+        content: { title: title, description: desc, imageUrl: img, link: { mobileWebUrl: link, webUrl: link } },
+        buttons: [{ title: '나도 해보기', link: { mobileWebUrl: link, webUrl: link } }]
+      });
+    } catch (e) {
+      try {
+        if (navigator.share) { await navigator.share({ title: title, text: title, url: link }); return; }
+        await navigator.clipboard.writeText(title + ' ' + link);
+        alert('링크가 복사되었어요!');
+      } catch (e2) {}
+    }
+  }
+
+  window.addEventListener('click', function (e) {
+    var el = e.target.closest && e.target.closest('[data-kshare]');
+    if (!el || el.textContent.trim() !== LABEL) return;
+    e.preventDefault(); e.stopImmediatePropagation(); share();
+  }, true);
+
+  function sync() {
+    if (CFG.btn) [].forEach.call(document.querySelectorAll(CFG.btn), function (b) {
+      if (!SHARE_RE.test(b.textContent)) return;
+      if (b.textContent.trim() !== LABEL) b.textContent = LABEL;
+      if (!b.hasAttribute('data-kshare')) b.setAttribute('data-kshare', '');
+    });
+    if (CFG.add && !Q('[data-kshare]')) {
+      var a = Q(CFG.add.sel);
+      if (a) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = CFG.add.cls != null ? CFG.add.cls : (CFG.add.into ? ((a.querySelector('button') || {}).className || '') : (a.className || ''));
+        b.textContent = LABEL;
+        b.setAttribute('data-kshare', '');
+        if (CFG.add.into) a.appendChild(b); else a.parentNode.insertBefore(b, a.nextSibling);
+      }
+    }
+  }
+
+  function banner() {
+    var who = new URLSearchParams(location.search).get('r'), pb = Q('.post-body');
+    if (!who || !pb) return;
+    var d = document.createElement('div');
+    d.style.cssText = 'margin:0 0 14px;padding:12px 14px;border-radius:12px;background:#e8f4ff;color:#0b3a66;font-weight:600;text-align:center;line-height:1.5';
+    d.textContent = '\ud83d\udc8c 친구의 결과는 "' + who.slice(0, 40) + '" ' + DOT + ' 나도 해보기 \ud83d\udc47';
+    pb.insertBefore(d, pb.firstChild);
+  }
+
+  function init() {
+    sync(); banner();
+    var pending = false, pb = Q('.post-body') || document.body;
+    new MutationObserver(function () {
+      if (pending) return; pending = true;
+      requestAnimationFrame(function () { pending = false; sync(); });
+    }).observe(pb, { childList: true, subtree: true });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+})();
+//]]>
+</script>

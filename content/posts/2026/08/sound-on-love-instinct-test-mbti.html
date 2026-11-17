@@ -1,0 +1,340 @@
+<!-- MBTI 연애본능 테스트 - Blogger 본문용 / 아래 이미지 주소 2곳만 교체 -->
+<div id="love-mbti-test">
+  <div class="lmt-shell">
+    <button class="lmt-sound" id="lmt-sound" type="button" aria-pressed="true">SOUND ON</button>
+
+    <section class="lmt-screen is-active" id="lmt-start">
+      <div class="lmt-kicker">LOVE INSTINCT TEST</div>
+      <h2>나는 사랑할 때<br><em>어떤 사람이 될까?</em></h2>
+      <p class="lmt-lead">평소 성격보다 더 솔직하게 드러나는<br>나의 MBTI 연애 본능을 알아보세요.</p>
+      <img class="lmt-hero" src="https://blogger.googleusercontent.com/img/a/AVvXsEhVK7jUvc4TqbZLdBljBP3qwx3FbEwzW6O4HsYJ07pkLZAci1eIVfx25w8z6U1Xm7yOgJ4Fi3hfxoPNeJcN6JQR7uZHGdhmGP1VjDQlRVktagCnk7aX0hBtMhJV2AhDEsdemwTse9nAdyO6f_KkWxlPXAgm3CeSWm-rw5i-mRi--rCJzdcWlM3ca7bPq8HI" alt="귀여운 동물 커플이 등장하는 MBTI 연애본능 테스트" loading="eager">
+      <div class="lmt-meta"><span><b>32</b> 문항</span><span><b>16</b> 유형</span><span><b>약 5분</b></span></div>
+      <button class="lmt-primary" id="lmt-start-btn" type="button">나의 연애 본능 확인하기 <span>GO</span></button>
+      <p class="lmt-note">최근의 실제 연애나 좋아하는 사람이 생겼을 때의 나를 떠올려 주세요.</p>
+    </section>
+
+    <section class="lmt-screen" id="lmt-quiz" aria-live="polite">
+      <div class="lmt-top"><button class="lmt-back" id="lmt-back" type="button">BACK</button><div><span id="lmt-part">PART 1 - 설레는 시작</span><b><span id="lmt-now">1</span> / 32</b></div></div>
+      <div class="lmt-progress"><i id="lmt-progress-bar"></i></div>
+      <div class="lmt-scene" id="lmt-scene"></div>
+      <h3 id="lmt-question"></h3>
+      <div class="lmt-options" id="lmt-options"></div>
+    </section>
+
+    <section class="lmt-screen" id="lmt-loading" aria-live="assertive">
+      <div class="lmt-heart"><i></i><i></i><i></i></div>
+      <div class="lmt-kicker">READING YOUR LOVE SIGNALS</div>
+      <h2>당신의 연애 신호를<br>분석하고 있어요</h2>
+      <p id="lmt-loading-copy">설레는 순간의 선택을 모으는 중이에요.</p>
+      <div class="lmt-loading-track"><i id="lmt-loading-bar"></i></div>
+    </section>
+
+    <section class="lmt-screen" id="lmt-result" aria-live="polite">
+      <div class="lmt-kicker">YOUR LOVE MBTI</div>
+      <p class="lmt-result-label">사랑할 때 가장 선명해지는 나</p>
+      <h2 id="lmt-result-type"></h2>
+      <div class="lmt-result-card">
+        <div class="lmt-avatar" id="lmt-avatar" role="img"></div>
+        <div class="lmt-card-copy"><span id="lmt-animal"></span><h3 id="lmt-title"></h3><p id="lmt-summary"></p></div>
+      </div>
+      <div class="lmt-bars" id="lmt-bars"></div>
+      <div class="lmt-instinct"><span>나의 연애관</span><h3 id="lmt-view-title"></h3><p id="lmt-view"></p></div>
+      <div class="lmt-grid">
+        <article><span>호감이 생기면</span><p id="lmt-signal"></p></article>
+        <article><span>갈등이 생기면</span><p id="lmt-conflict"></p></article>
+        <article><span>잘 맞는 데이트</span><p id="lmt-date"></p></article>
+        <article><span>연애 주의점</span><p id="lmt-caution"></p></article>
+      </div>
+      <div class="lmt-actions"><button class="lmt-primary" id="lmt-share" type="button">친구도 함께 해보기</button><button class="lmt-secondary" id="lmt-retry" type="button">다시 테스트</button></div>
+      <p class="lmt-share-status" id="lmt-share-status"></p>
+      <p class="lmt-disclaimer">이 테스트는 재미와 자기 이해를 위한 창작형 콘텐츠이며 공식 MBTI 검사가 아닙니다.</p>
+    </section>
+  </div>
+</div>
+
+<style>
+#love-mbti-test{--ink:#34233d;--pink:#ff6f91;--red:#e74765;--cream:#fff8e9;--yellow:#ffd966;--lav:#c9b8ff;--mint:#9be0c7;max-width:760px;margin:22px auto;color:var(--ink);font-family:Pretendard,"Noto Sans KR","Apple SD Gothic Neo",sans-serif;line-height:1.55;word-break:keep-all}
+#love-mbti-test *{box-sizing:border-box}
+#love-mbti-test button{font:inherit}
+#love-mbti-test .lmt-shell{position:relative;overflow:hidden;min-height:680px;border:2px solid var(--ink);border-radius:30px;background:var(--cream);box-shadow:9px 11px 0 rgba(52,35,61,.14);isolation:isolate}
+#love-mbti-test .lmt-shell:before{content:"";position:absolute;inset:0;z-index:-1;opacity:.25;background-image:radial-gradient(rgba(231,71,101,.35) .8px,transparent .8px);background-size:9px 9px}
+#love-mbti-test .lmt-screen{display:none;min-height:680px;padding:66px 48px 40px;text-align:center;animation:lmtIn .4s ease both}
+#love-mbti-test .lmt-screen.is-active{display:block}
+#love-mbti-test .lmt-sound{position:absolute;z-index:8;right:17px;top:16px;border:1.5px solid var(--ink);border-radius:99px;background:#fff;padding:7px 11px;color:var(--ink);font-size:11px;font-weight:900;box-shadow:2px 2px 0 var(--ink);cursor:pointer}
+#love-mbti-test .lmt-sound[aria-pressed="false"]{opacity:.55;box-shadow:none;transform:translate(2px,2px)}
+#love-mbti-test .lmt-kicker{display:inline-flex;align-items:center;gap:7px;margin-bottom:13px;color:var(--red);font-size:12px;font-weight:950;letter-spacing:.12em}
+#love-mbti-test .lmt-kicker:before,#love-mbti-test .lmt-kicker:after{content:"";width:7px;height:7px;border-radius:50%;background:var(--pink)}
+#love-mbti-test h2{margin:0;color:var(--ink)!important;font-size:clamp(34px,6vw,55px);line-height:1.13;letter-spacing:-.055em;font-weight:950}
+#love-mbti-test h2 em{color:var(--red);font-style:normal}
+#love-mbti-test .lmt-lead{margin:17px auto 20px;color:#66586b!important;font-size:17px}
+#love-mbti-test .lmt-hero{display:block;width:min(560px,100%);aspect-ratio:4/3;object-fit:cover;margin:0 auto 20px;border:2px solid var(--ink);border-radius:22px;box-shadow:6px 7px 0 var(--pink)}
+#love-mbti-test .lmt-meta{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin:8px 0 18px}
+#love-mbti-test .lmt-meta span{border:1.5px solid rgba(52,35,61,.3);border-radius:99px;background:rgba(255,255,255,.8);padding:6px 12px;font-size:12px;font-weight:800}.lmt-meta b{color:var(--red)}
+#love-mbti-test .lmt-primary,#love-mbti-test .lmt-secondary{min-height:54px;border:2px solid var(--ink);border-radius:16px;padding:13px 20px;font-weight:900;cursor:pointer}
+#love-mbti-test .lmt-primary{background:var(--red);color:#fff!important;box-shadow:5px 6px 0 var(--ink)}
+#love-mbti-test .lmt-primary:active{transform:translate(4px,4px);box-shadow:1px 1px 0 var(--ink)}
+#love-mbti-test .lmt-secondary{background:#fff;color:var(--ink)!important}
+#love-mbti-test .lmt-note{margin:13px 0 0;color:#817484!important;font-size:12px}
+#love-mbti-test #lmt-quiz{padding-top:76px;text-align:left}
+#love-mbti-test .lmt-top{display:flex;align-items:center;gap:12px}.lmt-top>div{display:flex;justify-content:space-between;align-items:center;flex:1;font-size:12px;font-weight:900}.lmt-top span{color:var(--red)}
+#love-mbti-test .lmt-back{width:42px;height:38px;border:1.5px solid var(--ink);border-radius:99px;background:#fff;color:var(--ink);font-size:10px;font-weight:900;cursor:pointer}
+#love-mbti-test .lmt-progress{height:10px;margin:13px 0 38px;border:1.5px solid var(--ink);border-radius:99px;background:#fff;overflow:hidden}.lmt-progress i{display:block;width:3.125%;height:100%;background:linear-gradient(90deg,var(--pink),var(--yellow));transition:width .25s ease}
+#love-mbti-test .lmt-scene{display:inline-block;margin-bottom:13px;border-radius:8px;background:var(--yellow);padding:5px 10px;font-size:12px;font-weight:900;transform:rotate(-1deg)}
+#love-mbti-test #lmt-question{min-height:92px;margin:0 0 23px;color:var(--ink)!important;font-size:clamp(25px,4.2vw,35px);line-height:1.3;letter-spacing:-.035em}
+#love-mbti-test .lmt-options{display:grid;gap:11px}.lmt-option{display:flex;align-items:center;width:100%;min-height:66px;border:1.7px solid var(--ink);border-radius:16px;background:rgba(255,255,255,.9);padding:13px 16px;color:var(--ink)!important;text-align:left;font-size:15px;font-weight:750;box-shadow:3px 4px 0 rgba(52,35,61,.18);cursor:pointer}.lmt-option:before{content:attr(data-letter);display:grid;place-items:center;flex:0 0 auto;width:31px;height:31px;margin-right:11px;border-radius:50%;background:#ffe2e8;color:var(--red);font-size:12px;font-weight:950}.lmt-option.is-picked{background:var(--yellow);transform:scale(.985)}
+#love-mbti-test #lmt-loading{padding-top:150px}.lmt-heart{position:relative;width:110px;height:110px;margin:0 auto 27px;border:2px dashed var(--red);border-radius:50%;animation:lmtSpin 4s linear infinite}.lmt-heart i{position:absolute;width:26px;height:26px;border:2px solid var(--ink);border-radius:50%}.lmt-heart i:nth-child(1){top:-13px;left:41px;background:var(--pink)}.lmt-heart i:nth-child(2){right:-5px;bottom:6px;background:var(--yellow)}.lmt-heart i:nth-child(3){left:-5px;bottom:6px;background:var(--mint)}
+#love-mbti-test #lmt-loading h2{font-size:clamp(31px,5vw,46px)}#love-mbti-test #lmt-loading-copy{color:#786b7c!important}.lmt-loading-track{width:min(390px,90%);height:12px;margin:27px auto;border:1.5px solid var(--ink);border-radius:99px;background:#fff;overflow:hidden}.lmt-loading-track i{display:block;width:0;height:100%;background:linear-gradient(90deg,var(--pink),var(--yellow),var(--lav));transition:width .65s ease}
+#love-mbti-test #lmt-result{padding-top:70px}.lmt-result-label{margin:0 0 4px;color:#807383!important;font-size:13px;font-weight:800}#love-mbti-test #lmt-result-type{color:var(--red)!important;font-size:clamp(38px,8vw,66px);letter-spacing:.03em}
+#love-mbti-test .lmt-result-card{display:grid;grid-template-columns:minmax(190px,45%) 1fr;gap:22px;align-items:center;margin:23px 0;border:2px solid var(--ink);border-radius:21px;background:#fff;padding:18px;text-align:left;box-shadow:6px 7px 0 var(--pink)}
+#love-mbti-test .lmt-avatar{width:100%;aspect-ratio:1/1;border:1.5px solid var(--ink);border-radius:17px;background-repeat:no-repeat;background-color:#f6eadf}
+#love-mbti-test .lmt-card-copy span{color:var(--red);font-size:12px;font-weight:950}.lmt-card-copy h3{margin:5px 0 8px;color:var(--ink)!important;font-size:27px;line-height:1.25}.lmt-card-copy p{margin:0;color:#66586b!important;font-size:14px;line-height:1.7}
+#love-mbti-test .lmt-bars{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:20px 0}.lmt-bar{border:1.5px solid var(--ink);border-radius:13px;background:#fff;padding:10px 12px;text-align:left}.lmt-bar-top{display:flex;justify-content:space-between;font-size:11px;font-weight:900}.lmt-bar-track{height:8px;margin-top:7px;border-radius:99px;background:#eee2e6;overflow:hidden}.lmt-bar-track i{display:block;height:100%;background:var(--pink)}
+#love-mbti-test .lmt-instinct{margin:21px 0;border:2px solid var(--ink);border-radius:18px;background:#7b56c5;padding:25px 24px;color:#fff!important;box-shadow:5px 6px 0 var(--yellow)}.lmt-instinct span{color:#fff1a9;font-size:11px;font-weight:950}.lmt-instinct h3{margin:6px 0 9px;color:#fff!important;font-size:26px;line-height:1.35}.lmt-instinct p{margin:0;color:#fbf8ff!important;font-size:15px;line-height:1.72}
+#love-mbti-test .lmt-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;text-align:left}.lmt-grid article{border:1.5px solid var(--ink);border-radius:15px;background:rgba(255,255,255,.88);padding:15px}.lmt-grid span{color:var(--red);font-size:11px;font-weight:950}.lmt-grid p{margin:6px 0 0;color:var(--ink)!important;font-size:13px;line-height:1.65}
+#love-mbti-test .lmt-actions{display:grid;grid-template-columns:1.35fr 1fr;gap:10px;margin-top:18px}.lmt-share-status{min-height:20px;margin:9px 0;color:var(--red)!important;font-size:12px;font-weight:850}.lmt-disclaimer{margin:14px 0 0;color:#85798a!important;font-size:11px}
+@keyframes lmtIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}@keyframes lmtSpin{to{transform:rotate(360deg)}}
+@media(max-width:600px){#love-mbti-test{margin:10px auto}.lmt-shell{border-radius:22px!important;box-shadow:5px 6px 0 rgba(52,35,61,.13)!important}.lmt-screen{padding:65px 19px 29px!important}#love-mbti-test #lmt-quiz{padding:70px 17px 28px}.lmt-lead{font-size:15px!important}.lmt-result-card{grid-template-columns:1fr!important;text-align:center!important}.lmt-avatar{width:min(290px,100%)!important;margin:auto}.lmt-bars,.lmt-grid,.lmt-actions{grid-template-columns:1fr!important}#love-mbti-test #lmt-question{min-height:83px;font-size:25px}.lmt-option{min-height:61px;padding:11px 12px;font-size:14px}}
+@media(prefers-reduced-motion:reduce){#love-mbti-test *,#love-mbti-test *:before,#love-mbti-test *:after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+
+<script>
+(function(){
+'use strict';
+var root=document.getElementById('love-mbti-test');if(!root||root.dataset.ready==='1')return;root.dataset.ready='1';
+var ASSETS={hero:'https://blogger.googleusercontent.com/img/a/AVvXsEhVK7jUvc4TqbZLdBljBP3qwx3FbEwzW6O4HsYJ07pkLZAci1eIVfx25w8z6U1Xm7yOgJ4Fi3hfxoPNeJcN6JQR7uZHGdhmGP1VjDQlRVktagCnk7aX0hBtMhJV2AhDEsdemwTse9nAdyO6f_KkWxlPXAgm3CeSWm-rw5i-mRi--rCJzdcWlM3ca7bPq8HI',sprite:'https://blogger.googleusercontent.com/img/a/AVvXsEh1744e2lBx-NqagDjwq3qKOMYwqwAG4a7mPPHqlqV-4EMyuGRRDYc3nlGdtGUdmALwrC1crQ4DDtbd2XxK0G2TZ6NF4Lalpknf5LLv2BoAstwX4j41mr-Ee9ZaqgE4Fc39XVZ9Zj2zO0sHiDI6uMHegIn8tXytpF9Eg4oKH7SadsRMTqIrVv4ZybCAY5e7'};
+var order=['ENFP','ENFJ','ENTP','ENTJ','ESFP','ESFJ','ESTP','ESTJ','INFP','INFJ','INTP','INTJ','ISFP','ISFJ','ISTP','ISTJ'];
+var results={
+ENFP:{animal:'불꽃 여우',title:'설렘을 키우는 낭만 탐험가',summary:'좋아하는 사람과 새로운 감정과 경험을 발견할 때 가장 반짝여요.',viewTitle:'마음이 움직이면 사랑도 함께 자라야 해',view:'연애를 정해진 역할보다 둘만의 세계를 넓혀 가는 모험으로 생각해요. 진심 어린 대화와 뜻밖의 이벤트로 관계에 생기를 불어넣습니다.',signal:'사소한 이야기도 길게 나누고 함께 해보고 싶은 일을 계속 제안해요.',conflict:'감정을 바로 꺼내지만 답답함이 길어지면 다른 주제로 피할 수 있어요.',date:'처음 가는 동네, 즉흥 여행, 서로의 취향을 바꾸어 체험하는 날',caution:'처음의 강한 설렘만큼 평범한 일상을 함께 돌보는 힘도 필요해요.'},
+ENFJ:{animal:'다정한 골든리트리버',title:'사랑을 성장시키는 응원 대장',summary:'상대의 가능성을 믿고 관계가 더 좋은 방향으로 가도록 다정하게 이끌어요.',viewTitle:'좋은 사랑은 서로를 더 좋은 사람으로 만들어',view:'상대의 감정과 필요를 빠르게 알아차리고 표현과 행동으로 애정을 확인해 줍니다. 함께 세운 미래를 향해 움직일 때 안정감을 느껴요.',signal:'상대 일정과 고민을 기억하고 필요한 도움을 먼저 준비해요.',conflict:'대화로 풀려 하지만 상대 반응까지 책임지려다 지칠 수 있어요.',date:'서로를 위한 하루 코스, 의미 있는 공연, 함께하는 봉사나 클래스',caution:'상대가 원하는 사랑과 내가 주고 싶은 사랑이 같은지 확인해 보세요.'},
+ENTP:{animal:'재치 있는 앵무새',title:'밀고 당기는 대화의 발명가',summary:'재미있는 대화와 예상 밖의 제안으로 둘 사이의 긴장을 매력으로 바꿔요.',viewTitle:'대화가 살아 있으면 사랑도 지루할 틈이 없어',view:'서로의 생각을 흔들고 새 관점을 주고받는 관계를 좋아해요. 연인을 가장 친한 토론 상대이자 실험 파트너로 여깁니다.',signal:'장난 섞인 질문을 던지고 상대 반응을 보며 대화의 접점을 넓혀요.',conflict:'논리로 이기려다 상대의 감정을 뒤늦게 알아차릴 수 있어요.',date:'방탈출, 신기한 전시, 즉석 토론이 이어지는 새로운 공간',caution:'재치 있는 해명보다 먼저 상대 감정을 인정하는 한마디가 필요해요.'},
+ENTJ:{animal:'당당한 사자',title:'미래를 설계하는 직진 리더',summary:'좋아한다는 확신이 들면 관계의 방향을 분명히 정하고 적극적으로 움직여요.',viewTitle:'진지한 사랑이라면 함께 갈 미래가 보여야 해',view:'서로의 목표를 존중하면서도 관계가 정체되지 않기를 바라요. 솔직한 약속과 실행을 신뢰의 핵심으로 생각합니다.',signal:'시간을 확보하고 계획을 세우며 상대를 자신의 중요한 미래에 포함해요.',conflict:'해결책부터 제시해 상대가 충분히 공감받지 못했다고 느낄 수 있어요.',date:'목표가 있는 여행, 수준 높은 공연과 식사, 함께 배우는 프로젝트',caution:'효율적으로 해결되지 않는 감정도 기다리며 들어 줄 가치가 있어요.'},
+ESFP:{animal:'반짝이는 수달',title:'오늘을 사랑으로 채우는 행복 전도사',summary:'함께 웃고 느끼는 지금 이 순간을 풍성하게 만드는 데 뛰어나요.',viewTitle:'사랑은 오늘 서로를 행복하게 해주는 것',view:'표현을 아끼지 않고 재미와 다정함으로 관계의 온도를 높여요. 말보다 눈빛, 스킨십, 함께한 순간으로 애정을 실감합니다.',signal:'자주 만나고 싶어 하고 작은 선물과 리액션으로 호감을 숨기지 않아요.',conflict:'무거운 분위기를 빨리 끝내고 싶어 핵심 이야기를 미룰 수 있어요.',date:'맛집 탐방, 축제, 놀이공원, 사진이 많이 남는 활동적인 하루',caution:'즐거움이 사라진 순간에도 필요한 대화를 끝까지 이어가 보세요.'},
+ESFJ:{animal:'포근한 토끼',title:'매일을 챙기는 생활 밀착 연인',summary:'작은 약속과 세심한 돌봄을 쌓아 사랑받고 있다는 확신을 줘요.',viewTitle:'사랑은 매일의 관심으로 증명되는 것',view:'연락, 기념일, 생활 속 배려처럼 눈에 보이는 애정 표현을 중요하게 생각해요. 주변 사람들과도 자연스럽게 어울리는 안정적인 관계를 원합니다.',signal:'식사와 컨디션을 챙기고 주변 사람에게 자연스럽게 상대를 소개해요.',conflict:'관계가 틀어질까 걱정해 서운함을 참다가 한꺼번에 꺼낼 수 있어요.',date:'정성스러운 집밥, 기념일 코스, 둘의 추억을 남기는 소소한 외출',caution:'상대의 반응이 기대와 달라도 사랑의 크기로 단정하지 마세요.'},
+ESTP:{animal:'활동적인 치타',title:'심장을 뛰게 하는 현실형 직진러',summary:'눈앞의 기회를 놓치지 않고 행동으로 호감을 보여 주는 대담한 연인이에요.',viewTitle:'끌린다면 머뭇거리기보다 함께 부딪쳐 봐야 해',view:'복잡한 눈치보다 직접 만나고 경험하며 관계를 확인해요. 위기에서도 빠르게 행동해 든든하지만 자유로운 호흡도 중요하게 여깁니다.',signal:'바로 약속을 잡고 상대가 필요로 하는 일을 실질적으로 해결해 줘요.',conflict:'답답한 감정 설명보다 결론을 재촉해 상대를 몰아붙일 수 있어요.',date:'스포츠, 드라이브, 액티비티, 즉석에서 목적지를 정하는 여행',caution:'빠른 해결보다 상대가 자기 속도로 말할 시간을 먼저 주세요.'},
+ESTJ:{animal:'든든한 비버',title:'약속으로 관계를 지키는 책임 연인',summary:'말한 것은 실행하고 안정적인 일상을 함께 만드는 데 진심이에요.',viewTitle:'신뢰할 수 있는 사랑은 행동과 책임으로 보여',view:'관계의 기준과 약속이 분명할수록 편안함을 느껴요. 현실적인 문제를 함께 해결하고 오래 유지할 수 있는 기반을 만드는 사랑을 합니다.',signal:'일정과 미래 계획을 공유하고 상대의 현실적인 문제를 챙겨요.',conflict:'옳고 그름을 먼저 가리다 감정적인 맥락을 놓칠 수 있어요.',date:'예약이 잘 된 여행, 함께 장보기, 목표가 분명한 체험이나 나들이',caution:'내 기준의 성실함만이 유일한 애정 표현은 아니라는 점을 기억하세요.'},
+INFP:{animal:'꿈꾸는 사슴',title:'마음속 서사를 쓰는 순수 낭만가',summary:'겉으로 조용해도 한 사람을 향한 감정은 깊고 오래 자라요.',viewTitle:'진짜 사랑은 서로의 가장 깊은 마음을 알아보는 것',view:'관계의 형식보다 진정성과 둘만의 의미를 중요하게 여겨요. 마음을 열기까지 시간이 걸리지만 안전하다고 느끼면 섬세하고 헌신적입니다.',signal:'상대가 한 말을 오래 기억하고 취향에 맞춘 메시지나 선물을 준비해요.',conflict:'상처를 혼자 해석하며 거리를 두다가 상대가 이유를 모를 수 있어요.',date:'조용한 산책, 작은 서점, 음악과 긴 대화가 있는 아늑한 공간',caution:'마음속 이상적인 상대와 실제 사람 사이의 차이를 너그럽게 봐주세요.'},
+INFJ:{animal:'별빛 올빼미',title:'마음의 결을 읽는 깊은 동반자',summary:'말하지 않은 마음까지 이해하고 오래 이어질 관계의 의미를 찾아요.',viewTitle:'사랑은 두 사람의 내면이 안전하게 연결되는 것',view:'가벼운 호감보다 가치관과 삶의 방향이 통하는 관계를 원해요. 상대를 깊이 이해하지만 자신의 욕구는 늦게 드러내는 편입니다.',signal:'상대의 변화와 숨은 고민을 알아차리고 진지한 질문으로 가까워져요.',conflict:'충분히 참은 뒤 갑자기 마음의 문을 닫을 수 있어요.',date:'한적한 전시, 깊은 주제의 대화, 의미 있는 장소를 천천히 걷는 날',caution:'상대가 알아서 눈치채길 기다리지 말고 필요한 것을 구체적으로 말하세요.'},
+INTP:{animal:'호기심 많은 고양이',title:'사랑의 원리를 탐구하는 조용한 분석가',summary:'표현은 담백하지만 관심 있는 사람의 세계를 깊이 이해하려고 해요.',viewTitle:'편안한 사랑은 각자의 생각을 존중하면서 연결되는 것',view:'서로 간섭하지 않으면서도 흥미로운 생각을 나누는 관계에 끌려요. 감정 표현은 서툴 수 있지만 문제를 함께 고민하는 것으로 애정을 보여 줍니다.',signal:'상대 관심사를 조사하고 자신만 아는 생각과 시간을 조금씩 공유해요.',conflict:'감정을 분석 문제로 다뤄 차갑게 보이거나 대화를 미룰 수 있어요.',date:'과학관, 보드게임, 조용한 카페에서 관심사를 끝없이 이야기하기',caution:'정확한 말만 찾지 말고 지금 느끼는 감정을 짧게라도 먼저 전하세요.'},
+INTJ:{animal:'차분한 늑대',title:'한 사람을 선택하는 장기 전략가',summary:'쉽게 마음을 열지 않지만 선택한 관계에는 깊은 집중과 계획을 보여요.',viewTitle:'사랑도 서로의 삶을 더 단단하게 만드는 선택이어야 해',view:'감정의 크기만큼 가치관과 성장 가능성을 중요하게 봐요. 독립성을 지키면서도 믿을 수 있는 한 사람과 긴 미래를 설계합니다.',signal:'자신의 계획에 상대를 포함하고 더 나은 선택을 위해 진지하게 조언해요.',conflict:'혼자 결론을 내린 뒤 통보하듯 말해 상대가 소외될 수 있어요.',date:'목적이 분명한 여행, 전문적인 전시, 조용히 몰입할 수 있는 공간',caution:'조언하기 전에 상대가 해결책과 공감 중 무엇을 원하는지 물어보세요.'},
+ISFP:{animal:'수줍은 판다',title:'말보다 분위기로 전하는 감성 연인',summary:'부드러운 배려와 자연스러운 순간 속에서 진심을 보여 줘요.',viewTitle:'사랑은 서로를 바꾸지 않고 편안히 곁에 있는 것',view:'강요 없는 관계와 섬세한 감각의 공유를 좋아해요. 큰 선언보다 함께 있을 때의 편안함과 작은 행동으로 애정을 표현합니다.',signal:'상대 취향에 맞춘 장소와 선물을 고르고 조용히 곁을 지켜요.',conflict:'갈등이 커질까 걱정해 불편한 마음을 숨기거나 자리를 피할 수 있어요.',date:'감성 카페, 공원 피크닉, 공방 체험, 좋아하는 음악을 함께 듣는 날',caution:'평화를 지키기 위해 내 경계까지 양보하지 않도록 분명히 말해 주세요.'},
+ISFJ:{animal:'다정한 코알라',title:'기억으로 사랑하는 포근한 수호자',summary:'상대의 습관과 필요를 기억하고 변함없는 돌봄으로 관계를 지켜요.',viewTitle:'사랑은 작은 약속을 오래 지키는 따뜻한 일상',view:'천천히 신뢰를 쌓고 익숙한 행복을 소중히 여겨요. 상대가 편안하도록 세심하게 챙기며 관계에 안정적인 뿌리를 내립니다.',signal:'좋아하는 음식과 중요한 일정을 기억하고 필요한 순간 먼저 나타나요.',conflict:'참는 것이 배려라고 생각하다가 속으로 서운함이 오래 쌓일 수 있어요.',date:'익숙한 맛집, 집에서 영화 보기, 추억이 있는 장소를 다시 찾는 날',caution:'주는 것만으로 사랑을 확인하지 말고 받고 싶은 것도 요청해 보세요.'},
+ISTP:{animal:'쿨한 라쿤',title:'필요한 순간 나타나는 무심한 해결사',summary:'말은 많지 않아도 위기의 순간 행동으로 확실한 애정을 보여 줘요.',viewTitle:'좋은 사랑은 부담 없이 함께하고 필요할 때 믿을 수 있는 것',view:'각자의 자유와 공간을 존중하면서 자연스럽게 곁에 있는 관계를 편안해해요. 과장된 표현보다 실제 도움과 함께한 경험을 믿습니다.',signal:'고장 난 것을 고쳐 주거나 상대가 어려워하는 일을 조용히 해결해요.',conflict:'감정이 과열되면 대화를 끊고 혼자 정리하려 해 오해가 생길 수 있어요.',date:'드라이브, 캠핑, 만들기 체험, 말없이도 즐길 수 있는 활동',caution:'혼자 진정할 시간이 필요하다면 언제 다시 대화할지도 함께 알려 주세요.'},
+ISTJ:{animal:'성실한 펭귄',title:'한결같음으로 증명하는 신뢰 연인',summary:'쉽게 흔들리지 않고 정한 사람과의 약속을 꾸준히 지켜요.',viewTitle:'오래가는 사랑은 예측 가능한 신뢰에서 시작돼',view:'진지한 관계를 가볍게 시작하지 않으며 책임과 일관성을 중요하게 생각해요. 눈에 띄는 이벤트보다 변함없이 곁에 있는 것으로 사랑을 표현합니다.',signal:'약속 시간을 지키고 생활 계획에 상대의 자리를 꾸준히 확보해요.',conflict:'사실과 원칙에 집중해 상대의 감정을 사소하게 보는 인상을 줄 수 있어요.',date:'계획한 근교 여행, 단골 식당, 차분하게 둘만의 루틴을 만드는 시간',caution:'예상 밖의 표현과 변화가 반드시 불안정함을 뜻하는 것은 아니에요.'}
+};
+var questions=[
+['첫눈에 마음에 드는 사람이 나타났다','가장 먼저 나오는 반응은?','먼저 말을 걸며 분위기를 만든다','조금 더 지켜보다 자연스럽게 다가간다','E','I'],
+['소개팅을 마친 뒤','에너지가 더 남는 쪽은?','바로 친구에게 전화해 이야기를 쏟아낸다','혼자 장면을 떠올리며 마음을 정리한다','E','I'],
+['연인과 주말을 보낸다면','더 끌리는 방식은?','사람들과 어울리는 활기찬 약속','둘만 조용히 보내는 깊은 시간','E','I'],
+['호감 있는 사람과 메시지 중','답장이 늦게 왔을 때 나는?','새 화제를 보내 흐름을 다시 만든다','상대가 편할 때 답하길 기다린다','E','I'],
+['연애 초반의 연락','나에게 자연스러운 쪽은?','자주 주고받으며 가까워지고 싶다','각자 시간을 보내다 깊게 나누고 싶다','E','I'],
+['함께 간 파티에서','연인에게 바라는 모습은?','여러 사람과 자연스럽게 섞여 즐기기','가끔 둘만의 조용한 공간으로 돌아오기','E','I'],
+['서운한 일이 생겼다','처음 하는 행동은?','말하면서 내 감정을 알아간다','혼자 정리한 뒤 핵심만 이야기한다','E','I'],
+['새로운 데이트 상대를 알아갈 때','더 편한 방법은?','다양한 활동을 많이 함께 해본다','한두 번 만나도 긴 대화를 나눈다','E','I'],
+['연인이 여행 계획을 묻는다','가장 먼저 떠오르는 것은?','꼭 가고 싶은 장소와 실제 동선','그곳에서 생길 분위기와 특별한 가능성','S','N'],
+['상대의 말을 이해할 때','더 믿는 단서는?','실제로 한 행동과 구체적인 표현','말 사이에 숨은 의도와 전체 느낌','S','N'],
+['기념일 선물을 고른다면','더 나다운 선택은?','지금 꼭 필요하고 잘 쓸 수 있는 것','둘만의 의미와 이야기가 담긴 것','S','N'],
+['연애 상담을 들을 때','먼저 보는 것은?','실제로 무슨 일이 있었는지','두 사람 관계가 어디로 가고 있는지','S','N'],
+['데이트가 계획과 달라졌다','더 가까운 반응은?','현재 가능한 대안을 바로 찾는다','예상 밖의 하루도 새로운 이야기로 즐긴다','S','N'],
+['상대의 매력에 끌릴 때','더 중요한 지점은?','생활 습관과 현실적인 신뢰감','독특한 관점과 앞으로의 가능성','S','N'],
+['연애의 행복을 떠올리면','더 선명한 장면은?','함께 밥 먹고 연락하는 안정적인 일상','둘만 아는 세계가 점점 넓어지는 느낌','S','N'],
+['연인이 아이디어를 말한다','내 반응에 가까운 것은?','실제로 할 수 있게 구체적인 방법을 찾는다','아이디어를 더 확장해 새로운 가능성을 붙인다','S','N'],
+['연인이 힘들다고 말한다','가장 먼저 하는 일은?','문제를 해결할 방법을 함께 찾는다','힘들었던 감정을 충분히 공감한다','T','F'],
+['다툼의 원인을 정리할 때','더 중요하게 보는 것은?','누가 어떤 행동을 했는지 일관된 기준','각자가 왜 그렇게 느꼈는지 감정의 맥락','T','F'],
+['솔직한 조언이 상처가 될 수 있다','나는 어떻게 하는 편일까?','필요한 말이라면 정확하게 전달한다','받아들일 수 있는 표현과 타이밍을 고른다','T','F'],
+['둘 중 하나만 선택해야 한다면','관계를 지키는 핵심은?','합리적인 약속과 공정한 기준','서로의 마음을 헤아리는 따뜻함','T','F'],
+['상대가 실수했을 때','먼저 드는 생각은?','같은 일이 반복되지 않을 방법','얼마나 미안하고 당황했을지에 대한 마음','T','F'],
+['연인의 중요한 결정을 도울 때','더 자연스러운 태도는?','장단점을 객관적으로 비교해 준다','그 사람이 진짜 원하는 마음을 찾아준다','T','F'],
+['감정이 격해진 대화에서','내가 붙드는 것은?','논점이 흐려지지 않게 사실을 정리한다','상대가 상처받지 않게 관계를 먼저 돌본다','T','F'],
+['좋아한다는 표현을 할 때','더 나다운 방식은?','필요한 일을 해결하고 실질적으로 돕는다','다정한 말과 반응으로 마음을 확인해 준다','T','F'],
+['주말 데이트 약속','더 마음 편한 쪽은?','시간과 장소를 미리 확정해 둔다','그날 기분에 따라 유연하게 정한다','J','P'],
+['연애의 미래를 생각할 때','더 가까운 태도는?','관계의 방향과 계획을 분명히 하고 싶다','지금 서로 좋은 흐름을 충분히 느끼고 싶다','J','P'],
+['여행을 준비할 때','내 휴대폰 화면은?','예약표와 시간별 일정이 정리돼 있다','가고 싶은 곳만 저장하고 현장에서 고른다','J','P'],
+['연인이 갑자기 만나자고 한다','속마음에 가까운 것은?','미리 말했으면 더 편했을 텐데','예상 밖이라 더 설레고 재미있다','J','P'],
+['데이트 장소가 붐빈다','나는 어떻게 할까?','준비해 둔 다음 후보로 이동한다','주변을 걷다가 끌리는 곳에 들어간다','J','P'],
+['사이가 애매한 시기','더 견디기 어려운 것은?','관계가 무엇인지 정해지지 않은 상태','너무 빨리 관계의 규칙이 정해지는 것','J','P'],
+['함께 살게 된다면','더 중요하게 생각하는 것은?','생활 규칙과 역할을 미리 맞추는 것','각자 상황에 따라 자연스럽게 조율하는 것','J','P'],
+['연애에서 변수가 생겼다','가장 나다운 문장은?','일단 흐트러진 계획부터 다시 세운다','새로운 선택지가 생겼다고 생각한다','J','P']
+];
+var parts=['PART 1 - 설레는 시작','PART 2 - 가까워지는 방식','PART 3 - 마음이 부딪칠 때','PART 4 - 오래 사랑하는 법'];
+var state={i:0,answers:[],score:{E:0,I:0,S:0,N:0,T:0,F:0,J:0,P:0},sound:true,bgmStarted:false,bgmTimer:null,bgmStep:0};
+function $(id){return document.getElementById(id)}
+function screen(id){var all=root.querySelectorAll('.lmt-screen');for(var i=0;i<all.length;i++)all[i].classList.remove('is-active');$(id).classList.add('is-active');root.scrollIntoView({behavior:'smooth',block:'start'})}
+function tone(freq,dur,type,delay){if(!state.sound)return;try{var C=window.AudioContext||window.webkitAudioContext;if(!C)return;if(!window.lmtAudio)window.lmtAudio=new C();var c=window.lmtAudio,o=c.createOscillator(),g=c.createGain(),t=c.currentTime+(delay||0);o.type=type||'sine';o.frequency.setValueAtTime(freq,t);g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(.09,t+.01);g.gain.exponentialRampToValueAtTime(.0001,t+dur);o.connect(g);g.connect(c.destination);o.start(t);o.stop(t+dur+.02)}catch(e){}}
+function playPick(){tone(520,.08,'sine',0);tone(720,.1,'sine',.06)}function playPart(){tone(420,.12,'triangle',0);tone(590,.12,'triangle',.1);tone(790,.18,'triangle',.2)}function playResult(){tone(392,.18,'sine',0);tone(523,.18,'sine',.14);tone(659,.28,'sine',.28)}
+function bgmNote(freq,dur){if(!state.sound)return;try{var C=window.AudioContext||window.webkitAudioContext;if(!C)return;if(!window.lmtAudio)window.lmtAudio=new C();var c=window.lmtAudio,o=c.createOscillator(),g=c.createGain(),t=c.currentTime;o.type='sine';o.frequency.setValueAtTime(freq,t);g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(.018,t+.025);g.gain.exponentialRampToValueAtTime(.0001,t+dur);o.connect(g);g.connect(c.destination);o.start(t);o.stop(t+dur+.03)}catch(e){}}
+function bgmTick(){var melody=[523.25,659.25,783.99,659.25,587.33,698.46,880,698.46,493.88,587.33,783.99,587.33,523.25,659.25,783.99,1046.5];bgmNote(melody[state.bgmStep%melody.length],.34);if(state.bgmStep%4===0)bgmNote(melody[state.bgmStep%melody.length]/2,.46);state.bgmStep++}
+function startBgm(){if(state.bgmStarted)return;state.bgmStarted=true;bgmTick();state.bgmTimer=setInterval(bgmTick,430)}
+function render(){var q=questions[state.i],part=Math.floor(state.i/8);$('lmt-part').textContent=parts[part];$('lmt-now').textContent=state.i+1;$('lmt-progress-bar').style.width=((state.i+1)/32*100)+'%';$('lmt-scene').textContent=q[0];$('lmt-question').textContent=q[1];$('lmt-back').disabled=state.i===0;var box=$('lmt-options');box.innerHTML='';for(var x=0;x<2;x++){(function(n){var b=document.createElement('button');b.type='button';b.className='lmt-option';b.dataset.letter=n===0?'A':'B';b.textContent=q[2+n];b.addEventListener('click',function(){choose(n,b)});box.appendChild(b)})(x)}}
+function choose(n,b){var q=questions[state.i],letter=q[4+n];b.classList.add('is-picked');playPick();state.score[letter]++;state.answers.push(n);setTimeout(function(){state.i++;if(state.i>=32){finish()}else{if(state.i%8===0)playPart();render()}},180)}
+function back(){if(state.i===0)return;state.i--;var n=state.answers.pop(),q=questions[state.i];state.score[q[4+n]]--;render()}
+function typeOf(){return(state.score.E>=state.score.I?'E':'I')+(state.score.S>=state.score.N?'S':'N')+(state.score.T>=state.score.F?'T':'F')+(state.score.J>=state.score.P?'J':'P')}
+function pct(a,b){var total=state.score[a]+state.score[b];return total?Math.round(state.score[a]/total*100):50}
+function avatar(type){var idx=order.indexOf(type),col=idx%4,row=Math.floor(idx/4);$('lmt-avatar').style.backgroundImage='url("'+ASSETS.sprite+'")';$('lmt-avatar').style.backgroundSize='400% 400%';$('lmt-avatar').style.backgroundPosition=(col*100/3)+'% '+(row*100/3)+'%';$('lmt-avatar').setAttribute('aria-label',type+' '+results[type].animal)}
+function bars(){var pairs=[['E','I','함께 충전','혼자 충전'],['S','N','현실 감각','가능성 탐색'],['T','F','해결 우선','공감 우선'],['J','P','계획 선호','즉흥 선호']],html='';for(var i=0;i<pairs.length;i++){var p=pairs[i],v=pct(p[0],p[1]);html+='<div class="lmt-bar"><div class="lmt-bar-top"><span>'+p[2]+' '+v+'%</span><span>'+p[3]+' '+(100-v)+'%</span></div><div class="lmt-bar-track"><i style="width:'+v+'%"></i></div></div>'}$('lmt-bars').innerHTML=html}
+function showResult(){var type=typeOf(),r=results[type];$('lmt-result-type').textContent=type;$('lmt-animal').textContent=r.animal;$('lmt-title').textContent=r.title;$('lmt-summary').textContent=r.summary;$('lmt-view-title').textContent=r.viewTitle;$('lmt-view').textContent=r.view;$('lmt-signal').textContent=r.signal;$('lmt-conflict').textContent=r.conflict;$('lmt-date').textContent=r.date;$('lmt-caution').textContent=r.caution;avatar(type);bars();screen('lmt-result');playResult()}
+function finish(){screen('lmt-loading');var bar=$('lmt-loading-bar'),copy=$('lmt-loading-copy');setTimeout(function(){bar.style.width='34%';copy.textContent='호감이 생겼을 때의 표현을 확인하고 있어요.'},80);setTimeout(function(){bar.style.width='72%';copy.textContent='갈등과 약속에 대한 선택을 맞춰 보고 있어요.'},720);setTimeout(function(){bar.style.width='100%';copy.textContent='당신의 연애 본능을 찾았어요.'},1380);setTimeout(showResult,2050)}
+function reset(){state.i=0;state.answers=[];state.score={E:0,I:0,S:0,N:0,T:0,F:0,J:0,P:0};$('lmt-loading-bar').style.width='0';$('lmt-share-status').textContent='';render();screen('lmt-start')}
+function share(){var type=typeOf(),r=results[type],text='나의 MBTI 연애본능은 '+type+', '+r.title+'! 너의 연애본능도 확인해봐.';if(navigator.share){navigator.share({title:'나의 MBTI 연애본능 테스트',text:text,url:location.href}).catch(function(){})}else if(navigator.clipboard){navigator.clipboard.writeText(text+' '+location.href).then(function(){$('lmt-share-status').textContent='친구에게 보낼 링크를 복사했어요.'})}else{$('lmt-share-status').textContent='현재 페이지 주소를 복사해 친구에게 보내 주세요.'}}
+$('lmt-start-btn').addEventListener('click',function(){tone(480,.12,'sine',0);startBgm();render();screen('lmt-quiz')});$('lmt-back').addEventListener('click',back);$('lmt-retry').addEventListener('click',reset);$('lmt-share').addEventListener('click',share);$('lmt-sound').addEventListener('click',function(){state.sound=!state.sound;this.setAttribute('aria-pressed',state.sound?'true':'false');this.textContent=state.sound?'SOUND ON':'SOUND OFF';if(state.sound){tone(620,.12,'sine',0);startBgm()}});
+})();
+</script>
+
+<!-- ===== 카카오톡 결과 공유 (testmix v2.2) ===== -->
+<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.4/kakao.min.js" crossorigin="anonymous"></script>
+<script>
+//<![CDATA[
+(function () {
+  var Q = function (s) { return document.querySelector(s); };
+  var T = function (s) {
+    var e = Q(s); if (!e) return '';
+    var c = e.cloneNode(true);
+    [].forEach.call(c.querySelectorAll('[class*="google-anno"],ins,script,style'), function (x) { x.remove(); });
+    return c.textContent.replace(/\s+/g, ' ').trim();
+  };
+  var DOT = '\u00b7';
+  var CFG = {test:'MBTI 연애 테스트', fmt:'내 연애 유형은 {name}', btn:'#lmt-share', read:function(){return {name:(T('#lmt-result-type')+' '+T('#lmt-title')).trim(), nick:T('#lmt-summary'), img:'#lmt-avatar'};}};
+  var KEY = '7ddee789fac314a1a3a712d361c76c21', LABEL = '결과 공유하기';
+  var SHARE_RE = /친구|공유|함께|보내기|찾아주기/;
+  if (window.Kakao && !Kakao.isInitialized()) Kakao.init(KEY);
+
+  function base() { return location.origin + location.pathname; }
+  function og() { var m = Q('meta[property="og:image"]'); return m ? m.content : ''; }
+  function cut(s, n) { s = s || ''; return s.length > n ? s.slice(0, n - 1) + '\u2026' : s; }
+
+  async function upload(blob) {
+    var res = await Kakao.Share.uploadImage({ file: [new File([blob], 'result.png', { type: blob.type || 'image/png' })] });
+    return res.infos.original.url.replace(/^http:/, 'https:');
+  }
+  function toBlob(cv) { return new Promise(function (r) { cv.toBlob(r, 'image/png'); }); }
+
+  async function cropSprite(url, el, cs) {
+    var sz = cs.backgroundSize.split(' '), ps = cs.backgroundPosition.split(' ');
+    if (sz[0].indexOf('%') < 0) return url;
+    var W = parseFloat(sz[0]), H = parseFloat(sz[1] || sz[0]);
+    if (W <= 100 && H <= 100) return url;
+    var bmp = await createImageBitmap(await (await fetch(url + (url.indexOf('?') < 0 ? '?' : '&') + 'ks=1', { mode: 'cors' })).blob());
+    var nw = bmp.width, nh = bmp.height;
+    function frac(p, S, elLen) {
+      if (/%$/.test(p)) return (1 - 100 / S) * parseFloat(p) / 100;
+      var bg = S / 100 * elLen; return bg ? -parseFloat(p) / bg : 0;
+    }
+    var sw = nw * Math.min(1, 100 / W), sh = nh * Math.min(1, 100 / H);
+    var sx = nw * frac(ps[0] || '0%', W, el.offsetWidth), sy = nh * frac(ps[1] || ps[0] || '0%', H, el.offsetHeight);
+    var k = Math.min(1, 800 / Math.max(sw, sh));
+    var cv = document.createElement('canvas'); cv.width = Math.round(sw * k); cv.height = Math.round(sh * k);
+    cv.getContext('2d').drawImage(bmp, sx, sy, sw, sh, 0, 0, cv.width, cv.height);
+    return upload(await toBlob(cv));
+  }
+
+  async function svgShot(svg) {
+    var r = svg.getBoundingClientRect(), c = svg.cloneNode(true);
+    var src = [svg].concat([].slice.call(svg.querySelectorAll('*'))), dst = [c].concat([].slice.call(c.querySelectorAll('*')));
+    var props = ['fill', 'stroke', 'stroke-width', 'stroke-dasharray', 'opacity', 'fill-opacity', 'stroke-opacity', 'font-size', 'font-weight', 'font-family', 'text-anchor', 'dominant-baseline'];
+    src.forEach(function (s, i) { var st = getComputedStyle(s); dst[i].setAttribute('style', props.map(function (p) { return p + ':' + st.getPropertyValue(p); }).join(';')); });
+    c.setAttribute('xmlns', 'http://www.w3.org/2000/svg'); c.setAttribute('width', r.width); c.setAttribute('height', r.height);
+    var u = URL.createObjectURL(new Blob([new XMLSerializer().serializeToString(c)], { type: 'image/svg+xml' }));
+    var img = new Image(); await new Promise(function (ok, no) { img.onload = ok; img.onerror = no; img.src = u; });
+    var pad = 40, s = 2, cv = document.createElement('canvas');
+    cv.width = (r.width + pad * 2) * s; cv.height = (r.height + pad * 2) * s;
+    var x = cv.getContext('2d'); x.fillStyle = '#fff'; x.fillRect(0, 0, cv.width, cv.height);
+    x.drawImage(img, pad * s, pad * s, r.width * s, r.height * s); URL.revokeObjectURL(u);
+    return upload(await toBlob(cv));
+  }
+
+  async function getImage(sel) {
+    var el = sel ? Q(sel) : null;
+    if (!el) return og();
+    var src = '';
+    if (el.tagName === 'IMG') src = el.currentSrc || el.src;
+    else if (el.tagName.toLowerCase() === 'svg') return svgShot(el);
+    else {
+      var im = el.querySelector('img');
+      if (im) src = im.currentSrc || im.src;
+      else {
+        var nodes = [el].concat([].slice.call(el.querySelectorAll('*')));
+        for (var i = 0; i < nodes.length; i++) {
+          var cs = getComputedStyle(nodes[i]), m = /url\(["']?([^"')]+)/.exec(cs.backgroundImage);
+          if (m) {
+            if (/^https?:/.test(m[1])) return cropSprite(m[1], nodes[i], cs);
+            src = m[1]; break;
+          }
+        }
+        if (!src) { var sv = el.querySelector('svg'); if (sv) return svgShot(sv); }
+      }
+    }
+    if (/^https:\/\//.test(src)) return src;
+    if (/^(data|blob):/.test(src)) return upload(await (await fetch(src)).blob());
+    return og();
+  }
+
+  async function share() {
+    var r = null;
+    try { r = CFG.read(); } catch (e) {}
+    if (!r || !r.name) { alert('테스트를 먼저 완료해 주세요!'); return; }
+    var link = base() + '?r=' + encodeURIComponent(r.name.slice(0, 40));
+    var title = cut(CFG.fmt.replace('{name}', r.name), 80);
+    var desc = (r.nick ? cut(r.nick, 60) + ' | ' : '') + CFG.test;
+    try {
+      if (!window.Kakao) throw 0;
+      var img = og();
+      try { img = (await getImage(r.img || '')) || og(); } catch (e) { img = og(); }
+      Kakao.Share.sendDefault({
+        objectType: 'feed',
+        content: { title: title, description: desc, imageUrl: img, link: { mobileWebUrl: link, webUrl: link } },
+        buttons: [{ title: '나도 해보기', link: { mobileWebUrl: link, webUrl: link } }]
+      });
+    } catch (e) {
+      try {
+        if (navigator.share) { await navigator.share({ title: title, text: title, url: link }); return; }
+        await navigator.clipboard.writeText(title + ' ' + link);
+        alert('링크가 복사되었어요!');
+      } catch (e2) {}
+    }
+  }
+
+  window.addEventListener('click', function (e) {
+    var el = e.target.closest && e.target.closest('[data-kshare]');
+    if (!el || el.textContent.trim() !== LABEL) return;
+    e.preventDefault(); e.stopImmediatePropagation(); share();
+  }, true);
+
+  function sync() {
+    if (CFG.btn) [].forEach.call(document.querySelectorAll(CFG.btn), function (b) {
+      if (!SHARE_RE.test(b.textContent)) return;
+      if (b.textContent.trim() !== LABEL) b.textContent = LABEL;
+      if (!b.hasAttribute('data-kshare')) b.setAttribute('data-kshare', '');
+    });
+    if (CFG.add && !Q('[data-kshare]')) {
+      var a = Q(CFG.add.sel);
+      if (a) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = CFG.add.cls != null ? CFG.add.cls : (CFG.add.into ? ((a.querySelector('button') || {}).className || '') : (a.className || ''));
+        b.textContent = LABEL;
+        b.setAttribute('data-kshare', '');
+        if (CFG.add.into) a.appendChild(b); else a.parentNode.insertBefore(b, a.nextSibling);
+      }
+    }
+  }
+
+  function banner() {
+    var who = new URLSearchParams(location.search).get('r'), pb = Q('.post-body');
+    if (!who || !pb) return;
+    var d = document.createElement('div');
+    d.style.cssText = 'margin:0 0 14px;padding:12px 14px;border-radius:12px;background:#e8f4ff;color:#0b3a66;font-weight:600;text-align:center;line-height:1.5';
+    d.textContent = '\ud83d\udc8c 친구의 결과는 "' + who.slice(0, 40) + '" ' + DOT + ' 나도 해보기 \ud83d\udc47';
+    pb.insertBefore(d, pb.firstChild);
+  }
+
+  function init() {
+    sync(); banner();
+    var pending = false, pb = Q('.post-body') || document.body;
+    new MutationObserver(function () {
+      if (pending) return; pending = true;
+      requestAnimationFrame(function () { pending = false; sync(); });
+    }).observe(pb, { childList: true, subtree: true });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+})();
+//]]>
+</script>

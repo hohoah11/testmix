@@ -1,0 +1,19 @@
+{
+ "title": "테스트믹스",
+ "description": "mbti 성향 빌런레벨 성격 연애 자기진단 재미로 하는 무료 테스트 사이트",
+ "origin": "https://testmix.infopick.co.kr",
+ "adClient": "ca-pub-2087628123837294",
+ "adSlots": [
+  "4528552263",
+  "2409550185"
+ ],
+ "menuLabels": [
+  "성격",
+  "연애",
+  "심리",
+  "사회성향",
+  "운세",
+  "게임"
+ ],
+ "readingLabel": "읽을거리"
+}

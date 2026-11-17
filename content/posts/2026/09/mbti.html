@@ -1,0 +1,293 @@
+<div id="dog-personality-test">
+<style>
+#dog-personality-test{--ink:#192940;--blue:#294bdb;max-width:620px;margin:24px auto;padding:16px 16px 130px;background:#f5f7fc;border:2px solid #192940;border-radius:24px;font-family:Arial,'Noto Sans KR',sans-serif;color:var(--ink);line-height:1.6;box-sizing:border-box}
+#dog-personality-test *{box-sizing:border-box}
+#dog-personality-test [hidden]{display:none!important}
+#dog-personality-test h2,#dog-personality-test h3,#dog-personality-test p,#dog-personality-test strong{color:var(--ink);word-break:keep-all;overflow-wrap:anywhere}
+#dog-personality-test h2{font-size:clamp(23px,5vw,34px);line-height:1.3;margin:8px 0;font-weight:900}
+#dog-personality-test h3{font-size:20px;margin:12px 0 6px;line-height:1.4}
+#dog-personality-test p{margin:8px 0;font-size:16px}
+#dog-personality-test button{appearance:none;cursor:pointer;touch-action:manipulation;font:700 16px/1.5 Arial,sans-serif;border:2px solid var(--ink);border-radius:13px;padding:14px 16px;min-height:50px;background:white;color:var(--ink);white-space:normal;word-break:keep-all;width:100%;text-align:left;box-shadow:3px 3px 0 var(--ink)}
+#dog-personality-test button:focus-visible{outline:3px solid #f19527;outline-offset:4px}
+#dog-personality-test button:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+#dog-personality-test .primary{background:var(--blue);color:white;text-align:center}
+#dog-personality-test .top{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px}
+#dog-personality-test .top button{width:auto;font-size:12px;padding:8px 10px;min-height:44px;box-shadow:none}
+#dog-personality-test .brand{font-size:12px;letter-spacing:1px;font-weight:900;color:var(--blue)}
+#dog-personality-test .picture{position:relative;aspect-ratio:1/1;background:#d8f0e4;border-radius:18px;overflow:hidden;margin:0;border:1px solid #d4dce5}
+#dog-personality-test .picture img{display:block;width:100%;height:100%;object-fit:contain;margin:0;max-width:100%}
+#dog-personality-test .caption{position:absolute;bottom:0;left:0;right:0;padding:12px 16px 17px;background:linear-gradient(transparent,rgba(255,255,255,.96) 28%);padding-top:32px}
+#dog-personality-test .caption h2{font-size:clamp(19px,4.5vw,29px);margin:4px 0 0}
+#dog-personality-test .caption .eyebrow{color:#344263;font-size:12px;font-weight:800}
+#dog-personality-test .answers{display:grid;gap:11px;margin:16px 3px 22px 0}
+#dog-personality-test .answers button[aria-pressed="true"]{background:#d8f0e4}
+#dog-personality-test .progress{height:7px;border-radius:8px;background:#d9dfec;margin:14px 0}
+#dog-personality-test .progress span{display:block;height:100%;background:var(--blue);border-radius:8px}
+#dog-personality-test .small{font-size:13px;color:#4b5870}
+#dog-personality-test .card{padding:18px;background:white;border:1px solid #d7deea;border-radius:16px;margin:14px 0}
+#dog-personality-test .badge{display:inline-block;background:#192940;color:white;padding:5px 12px;border-radius:30px;font-weight:900;letter-spacing:2px}
+#dog-personality-test .result-image{width:100%;aspect-ratio:1/1;object-fit:contain;display:block;border-radius:18px;margin:12px 0}
+#dog-personality-test .actions{display:grid;gap:12px;margin:22px 3px 0 0}
+#dog-personality-test blockquote{margin:12px 0;padding:12px;border-left:4px solid var(--blue);background:#f1f4ff;color:#192940;font-size:15px}
+#dog-personality-test .bar{height:8px;background:#e7eaf2;border-radius:8px;overflow:hidden;margin:6px 0 14px}
+#dog-personality-test .bar span{display:block;height:100%;background:#294bdb}
+#dog-personality-test details{margin-top:22px}
+#dog-personality-test summary{cursor:pointer;font-weight:800;color:#192940}
+#dog-personality-test .catalog{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:14px}
+#dog-personality-test .catalog figure{margin:0;background:white;padding:8px;border-radius:12px;color:#192940;font-size:13px}
+#dog-personality-test .catalog img{width:100%;aspect-ratio:1;object-fit:contain;display:block;border-radius:8px}
+#dog-personality-test textarea{width:100%;min-height:100px;font:16px/1.5 sans-serif;color:#192940;background:white}
+@media(hover:hover) and (pointer:fine){#dog-personality-test button:hover{background:#e7edff}#dog-personality-test .primary:hover{background:#203db6}}
+@media(max-width:360px){#dog-personality-test{padding:10px 10px 130px}#dog-personality-test .caption{padding:24px 12px 12px}#dog-personality-test .caption h2{font-size:18px}}
+</style>
+<div class="top"><span class="brand">MY DOG PERSONALITY</span><button type="button" id="dpt-sound" aria-pressed="true">SOUND ON</button></div>
+<section id="dpt-start">
+ <figure class="picture"><img src="https://blogger.googleusercontent.com/img/a/AVvXsEjr7t0JtoW-zFHLpVQJkdKMJVKhBJOj5W4KwNf60R6pOLjYm9MnUrpicYNVGIhxWz9b8aUowNyiELEOVVcNCtVZn3Y_RDD_kf63FlrrUXNN7nuBs_ar5gYnyr40ZTVlkFOuYFFoM1Padhdi3oCvK1TxG8wDNGBa_9rWYo8Dxa4W54U2T1iQc7-lIax8Cqmx" alt="익살스러운 리트리버, 시바견, 허스키의 흰 테두리 스티커" fetchpriority="high"><figcaption class="caption"><span class="eyebrow">내 성격으로 보는 강아지 MBTI</span><h2>나는 어떤 강아지일까?</h2></figcaption></figure>
+ <p>겉은 사람, 속은 강아지?<br>일상 속 내 선택으로 숨겨진 멍멍이를 찾아봐요.</p><p class="small">20문항 / 약 3분 / 16가지 강아지 캐릭터</p>
+ <button type="button" class="primary" id="dpt-go">내 안의 강아지 찾기</button>
+ <p class="small">정답은 없어요. 가장 평소의 나에 가까운 답을 골라주세요. 소리는 시작 후 재생되며 위 버튼으로 끌 수 있어요.</p>
+</section>
+<section id="dpt-quiz" hidden aria-labelledby="dpt-question">
+ <div class="top"><button type="button" id="dpt-back">이전 질문</button><span id="dpt-count"></span></div><div class="progress" role="progressbar" aria-label="응답 진행률" aria-valuemin="0" aria-valuemax="20" id="dpt-progress"><span id="dpt-fill"></span></div>
+ <figure class="picture"><img id="dpt-scene" alt=""><figcaption class="caption"><span class="eyebrow" id="dpt-chapter"></span><h2 id="dpt-question" tabindex="-1"></h2></figcaption></figure>
+ <div class="answers" id="dpt-answers"></div>
+</section>
+<section id="dpt-result" hidden aria-labelledby="dpt-result-title"></section>
+<p id="dpt-status" class="small" role="status" aria-live="polite"></p><textarea id="dpt-copy" hidden readonly aria-label="친구에게 보낼 문구"></textarea>
+<details id="dpt-directory"><summary>16가지 강아지 캐릭터 구경하기</summary><div class="catalog"><figure><img loading="lazy" src="https://blogger.googleusercontent.com/img/a/AVvXsEgLfwyreID_CvBd4FNLeQEnEtOkZLIUj8e9NT0vWgcT0OcczqAZoA2Gif7Ij0BJaHW4ylSZ_Mg3n03n44MbkYcCLIHqozAt9KNNrG2Fm5bwfRbujGG66n7LK9ejjQB4_5HtsdWHTYIZUL6kcOBmHodd9PO9iHwuko-uTimBcsJph2yTJJvYwv5iasE88zmo" alt="ISTJ 아키타 얼굴 스티커"><figcaption><strong>ISTJ 아키타</strong><br>원칙 지키는 경비대장</figcaption></figure><figure><img loading="lazy" src="https://blogger.googleusercontent.com/img/a/AVvXsEizJm2_Q9yjhJtVpRgL13KBMZa7CGeL7va1xeldBD12GgJJbEHkB_bDiu7QppVwTRCKXX4jQRlZVXDWCtmfMLF-jhbgSCvn9g6xqYyzDZM8NV19D3UuxwD7eLaRgRK2dT--vo3ddat_4hQ_56ibtvC7x_FkBfDbFltv2LTyfZLEESV2v0LMssoO6oJFGNnV" alt="ISFJ 카발리에 얼굴 스티커"><figcaption><strong>ISFJ 카발리에</strong><br>간식 챙기는 다정 집사</figcaption></figure><figure><img loading="lazy" src="https://blogger.googleusercontent.com/img/a/AVvXsEiDLMjcj6C3gVKA1Kh12bE4dvBohLxEP7-AlWr1GEzaElwan9tp7WuEW7BWb-p7O-pfRWtkJuEHHjvkw4FsaRK65__dd6-z2Swju6GE5NpFugvDgeyrsJWiFJdY0QjtOqkWmr1FVeHZA3SpjwGxV6K3rfNo6nLCWWKUeoFdGxBfSSNP3anYkwtsdoM8_Wdg" alt="INFJ 그레이하운드 얼굴 스티커"><figcaption><strong>INFJ 그레이하운드</strong><br>눈빛으로 읽는 상담견</figcaption></figure><figure><img loading="lazy" src="https://blogger.googleusercontent.com/img/a/AVvXsEgITtOyzFhlN-MZutbDUvdIbBsVEIRWt3JdweIC0oiOlb8AT7tbmKERTO0XWTYDs_tFtQ4fR_7b5zI7loxi-XnaxT_XmbSJflkHd8z9QdIzoY-1fZkJxML15Wfs9Vy5XpAgoo9nFcXuH8KOFfbEL6yTPE0JXXSKukzd3ts_1YUQqICfrm7uQeggcbNTLqLj" alt="INTJ 도베르만 얼굴 스티커"><figcaption><strong>INTJ 도베르만</strong><br>세 수 앞을 보는 전략견</figcaption></figure><figure><img loading="lazy" src="https://blogger.googleusercontent.com/img/a/AVvXsEjcPorY73D6ZhdO8i9-vEd9-B0hU9w5h9DdDcY4j-XTlmdDUwO5SLzwAk2We1Uai1JNppC4oKKDXzeq7__aTrsp4aalajfA1vBXDHI1PrRwGmo48-8WxcMKf3YZ5AuZLEbX2FJjhXgiilS2xYRTq_u0fPlAgIDOcEDeMk6hNxYFoBuoM4r6C28e1EvyXFAB" alt="ISTP 시바견 얼굴 스티커"><figcaption><strong>ISTP 시바견</strong><br>건드리지 마 만능견</figcaption></figure><figure><img loading="lazy" src="https://blogger.googleusercontent.com/img/a/AVvXsEiU6ndguLqpfaLpOBH10MdIZ8V9voW8WMDI0CZ39ahFKdDZvzsxVDHuJNujnMFoQWYANh4wHXTN3Hb8TbrDSz7-9TTHMlVjozXJuf5oXgISCMx0tJ64vKG5ITvwLHnPLSAPXiGBHUWAS860LYHH7WLLngY2Gn-6kMClOGtFoJ5N0lpXWX-2GtTjivsPUMSP" alt="ISFP 시추 얼굴 스티커"><figcaption><strong>ISFP 시추</strong><br>취향 확실한 감성견</figcaption></figure><figure><img loading="lazy" src="https://blogger.googleusercontent.com/img/a/AVvXsEhtNA0FbOPmMtAFr5UR3LzcwttgK9Fdpifs74CcqCQoNNbFSRiopibf5mIwfzw3S7zu83GSGhzv5LgCF51IcbmBtWzMFA_EYqAso_V7iaDRc2FXv6UzF6OypBhMPp6TYHGi5D2-O69DQVJeVW38PSUsFfUOJnwxjJP0Q3U31fDcATZh19jnQj1O0DhUasbG" alt="INFP 말티즈 얼굴 스티커"><figcaption><strong>INFP 말티즈</strong><br>상상 속 주인공</figcaption></figure><figure><img loading="lazy" src="https://blogger.googleusercontent.com/img/a/AVvXsEgiPqzYye9mb4b6MfxjmDHbnzb3wZJbUKVdxEbR-1dTKkala4UrS0COtUME051IDxf0n-_f4wZB0YTrkyEqSAxV0f9V8b6VtNV0-Y4Hm7Ra_CfJYfSWUGR5DwOCj7H08aibNuJsxBQofK9apL-yZNR4o8bDEwtKVy_f9hAuoCkKtbQWt9eC7Rq2aINxeMT1" alt="INTP 푸들 얼굴 스티커"><figcaption><strong>INTP 푸들</strong><br>왜요 연구소 소장</figcaption></figure><figure><img loading="lazy" src="https://blogger.googleusercontent.com/img/a/AVvXsEhy2yN7FcYBf7cwEnXwzA1CED-ObvQxvUzBgUzBmpQUmvTuZmKD928ZfZnobumA9ffTsxZP9mIMYKJr_YQcqA5EV4RkHSgooE-sSs-2VAGYvY8sIN2oTFbV9Yzyxuc9G25-crAF55SQ2e_7vl5VbP0htq7C6FCxob9z_Wg_cZkgwGSDVmz5do4ondKA37qY" alt="ESTP 잭 러셀 테리어 얼굴 스티커"><figcaption><strong>ESTP 잭 러셀 테리어</strong><br>일단 뛰는 행동대장</figcaption></figure><figure><img loading="lazy" src="https://blogger.googleusercontent.com/img/a/AVvXsEg182jJHpC5-AYDNJulUITIZR9GyjcGJBayXIEX7oYmY45qQb85JFlGVhOOGds6kRwcW0pPzbo7wTyqHeW9HOG4u7yoO18ZMEDTXzqfCWEQo3Et6ePPrNChjxr6Z5_4-n1owwFrIRW8C8FKbBiv5JMSHDIwekpPhNc_4o8kUic5U4XIs5YxMJ0yWw3qXzR2" alt="ESFP 포메라니안 얼굴 스티커"><figcaption><strong>ESFP 포메라니안</strong><br>동네 스타견</figcaption></figure><figure><img loading="lazy" src="https://blogger.googleusercontent.com/img/a/AVvXsEgKfZlujYZ3pEu5A7VATPptUHcgYPKI1lY4AIDzSq-RS5KEBiMBJQ9jT8uxsfdoszJR5PE1u0H6m2X2CokApIZ6MWhVbihay4CUHpLt-nakO-1GDkIsQhlAufkSQp-zbcAUDIhNsliir0tY6zBpOCD6D_cqBrBiN5uaEV0xgGb1Z6kOMicPFDBB9OCxWFgy" alt="ENFP 골든 리트리버 얼굴 스티커"><figcaption><strong>ENFP 골든 리트리버</strong><br>전 국민 내 친구</figcaption></figure><figure><img loading="lazy" src="https://blogger.googleusercontent.com/img/a/AVvXsEjYEzGeCbj2Kq9GoNvlLS1K02AxxdcxAHg9v6JHZI4ViPG3dZWQBAkZLj6BicONcORiQs7qKwMheyWDjmCwCJI1iQ1e8acqeOpE2FjeCiLeuKheptUrAEfVfHE2Lq4qGV6WYvTedM2hqFZWGKU8QGc97ujxEwDYaFM0dMoruBZflOaGv0B2xeJLJivLbvuk" alt="ENTP 허스키 얼굴 스티커"><figcaption><strong>ENTP 허스키</strong><br>반박 준비 완료</figcaption></figure><figure><img loading="lazy" src="https://blogger.googleusercontent.com/img/a/AVvXsEhI5o-fOlS_-2Gfkl_fJGJHoCmNMgZ3s_fYO0oMm-ESfPW_lwTteOzNNml15k-LuFnT5NICjE9-PmsngupKl6zW0BIMToUCMS7dx1VyM2wPxfmJIaSilAMoScVWT6KfIIolHeVHunSCxDz6hkgaFeXmzDJjvzLxlhAFro9tKjm8STpX3-kglgmKU73CSha6" alt="ESTJ 저먼 셰퍼드 얼굴 스티커"><figcaption><strong>ESTJ 저먼 셰퍼드</strong><br>산책도 업무 분장</figcaption></figure><figure><img loading="lazy" src="https://blogger.googleusercontent.com/img/a/AVvXsEiKM0Z0bzCBX3Q08LN4swKCCYMWqk1UCv8mViDOUE549VUhhq3uB1F33UwhY6TDTs_1_229cC0xQYoKynjbJYlJabfuq4_NV4GffCaTGzD4wPhPnRgXqGGi_NXNpfLk0yGPSffiF5LYWj6naTl_yXqB1PrnR5hEGw6e_9IcPCpNjtwyn8IzEa9e_HElA1mC" alt="ESFJ 웰시 코기 얼굴 스티커"><figcaption><strong>ESFJ 웰시 코기</strong><br>모임 총무견</figcaption></figure><figure><img loading="lazy" src="https://blogger.googleusercontent.com/img/a/AVvXsEjcx0gZoYvLZfEqYKVhT5YQrzC6QycW7S8uDHU4Uqfo3R-W9IX9EygFhL6alEapAfdAT0rEo3dg8woAMhsOs7S4lf508Q3GZHrTwyPJzYlAQTelDVwcQt8JUmMZcSdtONBi02oXDjD73IpaBzLdsTkG-Vc5oX4Yx54RqlBygKBgnb5gTxji8QEMHfZuaXc5" alt="ENFJ 사모예드 얼굴 스티커"><figcaption><strong>ENFJ 사모예드</strong><br>응원단 단장</figcaption></figure><figure><img loading="lazy" src="https://blogger.googleusercontent.com/img/a/AVvXsEh2rxhu1_ZisF10VR5AnamgUH-nMt2omWPyAxCwfDwnlFyJz-OleCsufcoBtnHcAncdlh7SozPUGweGHR20Qgaz0aAJe5_iZr7-nWSeadvsVIU8jD6xe8TRYVGxNwiRaotc5f5_TCHu23ZzFmhhivCh1005UEhuPzLJtKqAuOoHIgAQ9pEqrDpnABYbMLd6" alt="ENTJ 보더 콜리 얼굴 스티커"><figcaption><strong>ENTJ 보더 콜리</strong><br>간식 회사 대표</figcaption></figure></div></details>
+<div class="card"><h3>사람 성격을 강아지에 비유한 테스트예요</h3><p class="small">일상의 선택을 E/I, S/N, T/F, J/P 네 가지 선호 축으로 나누어 재미로 보는 콘텐츠입니다. 공식 MBTI 검사나 심리 진단이 아니며, 실제 견종의 성격과 MBTI 사이의 과학적 대응을 뜻하지 않습니다. 같은 견종도 개체마다 다릅니다. 결과는 반려견 입양 추천 기준이 아닙니다.</p><p class="small">답변은 이 페이지 안에서만 계산하며 별도로 전송하지 않습니다. 새로고침하면 초기화됩니다.</p></div>
+<noscript>테스트를 진행하려면 브라우저의 JavaScript를 켜주세요.</noscript>
+<script>
+(function(){
+'use strict';
+const DOGS = {
+ISTJ:['아키타','원칙 지키는 경비대장','약속 시간 5분 전, 이미 도착한 강아지.','조용히 맡은 일을 끝내고 믿음을 쌓는 캐릭터예요.','꾸준함과 책임감','익숙한 방식만 고집하면 새 기회를 놓칠 수 있어요.','오늘은 작은 일 하나만 다른 방식으로 해보세요.'],
+ISFJ:['카발리에','간식 챙기는 다정 집사','네 간식은 챙겼는데 내 간식은 어디 갔지?','좋아하는 사람의 작은 습관까지 기억하는 돌봄 캐릭터예요.','세심한 배려와 지속적인 관심','부탁을 전부 받아주다 내 체력이 먼저 바닥날 수 있어요.','도와주기 전에 내가 가능한 범위를 먼저 말해보세요.'],
+INFJ:['그레이하운드','눈빛으로 읽는 상담견','괜찮다고? 네 표정은 아닌데.','조용히 관찰하다 관계의 의미를 깊게 생각하는 캐릭터예요.','깊은 통찰과 진심 어린 관심','상대의 속마음을 추측만으로 확정할 수 있어요.','느낌이 맞는지 부드럽게 직접 물어보세요.'],
+INTJ:['도베르만','세 수 앞을 보는 전략견','놀고 있는 거 아니고 다음 수 계산 중.','혼자 큰 그림을 그리고 효율적인 길을 찾는 캐릭터예요.','독립적인 사고와 장기 계획','결론만 말하면 주변에는 차갑게 들릴 수 있어요.','왜 그렇게 생각했는지 중간 과정도 한 문장 나눠보세요.'],
+ISTP:['시바견','건드리지 마 만능견','필요하면 부르세요. 자주는 말고.','말보다 손이 빠르고 자기만의 공간을 아끼는 캐릭터예요.','침착한 문제 해결과 실용성','혼자 해결하다 필요한 소통까지 생략할 수 있어요.','진행 상황을 짧게 알려주면 오해를 줄일 수 있어요.'],
+ISFP:['시추','취향 확실한 감성견','다 좋은데 이 색은 내 감성 아님.','자기 취향을 조용히 지키며 순간의 즐거움을 발견하는 캐릭터예요.','섬세한 감각과 유연함','싫다는 말을 미루다가 갑자기 지칠 수 있어요.','작은 불편함일 때 취향과 경계를 표현해보세요.'],
+INFP:['말티즈','상상 속 주인공','답장 하나에 장편소설 한 편 완성.','마음속 이야기가 풍부하고 자기 가치에 진심인 캐릭터예요.','상상력과 깊은 공감','아직 일어나지 않은 장면까지 걱정할 수 있어요.','지금 확인된 사실과 상상을 따로 적어보세요.'],
+INTP:['푸들','왜요 연구소 소장','왜? 근데 왜? 마지막으로 진짜 왜?','궁금한 것을 끝까지 파고드는 호기심 연구견이에요.','독창적인 분석과 탐구심','생각이 늘어날수록 시작이 늦어질 수 있어요.','완벽한 답 대신 10분짜리 실험부터 해보세요.'],
+ESTP:['잭 러셀 테리어','일단 뛰는 행동대장','설명은 뛰면서 들을게!','눈앞의 기회를 빠르게 잡고 부딪히며 배우는 캐릭터예요.','빠른 실행과 위기 대응','재미에 집중하다 뒷정리를 잊을 수 있어요.','시작 전 위험과 마무리 방법을 하나씩 확인하세요.'],
+ESFP:['포메라니안','동네 스타견','등장만 했는데 분위기 벌써 축제.','표현이 풍부하고 함께 즐기는 순간을 만드는 캐릭터예요.','밝은 표현력과 현장 감각','분위기에 맞추다 내 컨디션을 놓칠 수 있어요.','약속 사이에 혼자 쉬는 시간도 예약해두세요.'],
+ENFP:['골든 리트리버','전 국민 내 친구','처음 뵙겠습니다! 우리 절친 맞죠?','사람과 새로운 가능성에 금세 마음이 뛰는 캐릭터예요.','열린 마음과 아이디어','좋아 보이는 일을 너무 많이 벌일 수 있어요.','오늘 끝낼 한 가지를 골라 먼저 마무리해보세요.'],
+ENTP:['허스키','반박 준비 완료','맞는 말인데 반대로 생각하면?','다른 관점을 꺼내 대화에 불꽃을 만드는 캐릭터예요.','재치와 새로운 관점','가벼운 토론이 상대에게는 싸움처럼 느껴질 수 있어요.','의견을 묻기 전에 지금 토론할 기분인지 확인하세요.'],
+ESTJ:['저먼 셰퍼드','산책도 업무 분장','산책 동선 공유합니다. 지각 금지.','기준을 세우고 사람과 일을 정돈하는 캐릭터예요.','추진력과 체계적인 운영','내 기준이 모두의 기준이라고 생각할 수 있어요.','계획을 확정하기 전에 다른 사람의 사정도 물어보세요.'],
+ESFJ:['웰시 코기','모임 총무견','다들 밥 먹었어? 안 먹었으면 집합.','사람들을 연결하고 일상의 안부를 챙기는 캐릭터예요.','친화력과 실질적인 챙김','모두를 만족시키려다 내 선택이 사라질 수 있어요.','이번 약속에는 내 취향도 하나 넣어보세요.'],
+ENFJ:['사모예드','응원단 단장','너 할 수 있어. 내가 옆에서 짖어줄게.','사람의 가능성을 보고 함께 나아가도록 북돋는 캐릭터예요.','따뜻한 리더십과 격려','좋은 뜻으로 상대의 선택까지 대신할 수 있어요.','조언하기 전에 도움이 필요한지 먼저 물어보세요.'],
+ENTJ:['보더 콜리','간식 회사 대표','공은 네가 던져. 방향은 내가 정해.','목표를 정하면 자원을 모아 끝까지 밀어붙이는 캐릭터예요.','결단력과 큰 그림 설계','속도가 다른 사람을 답답하게 느낄 수 있어요.','목표뿐 아니라 함께 갈 속도도 합의해보세요.']
+};
+// axis 0 E/I, 1 S/N, 2 T/F, 3 J/P. Positive = first letter.
+const QUESTIONS = [
+[0,1,'처음 간 모임, 아는 사람이 없다면?',['먼저 다가가서 말 걸고 본다','옆자리 사람에게 가볍게 인사한다','누가 말 걸면 천천히 친해진다','분위기를 보며 조용히 적응한다']],
+[0,-1,'약속으로 꽉 찬 한 주가 끝났다. 주말에는?',['혼자 있어야 배터리가 충전된다','반나절쯤은 혼자 쉬고 싶다','쉬다가 친한 사람을 만나고 싶다','사람 만나야 다시 기운이 난다']],
+[0,1,'기분 좋은 일이 생겼을 때 나는?',['바로 친구들에게 신나게 알린다','가까운 사람에게 먼저 이야기한다','나중에 대화 중 자연스럽게 말한다','혼자 충분히 즐긴 뒤 말한다']],
+[0,-1,'회의에서 새 아이디어를 말할 때?',['생각을 다 정리한 뒤 말한다','메모로 정리하고 짧게 말한다','이야기하며 생각을 보완한다','일단 말하면서 아이디어를 찾는다']],
+[0,1,'여행 숙소에서 다른 여행객이 말을 건다면?',['신나서 함께할 일정까지 잡는다','반갑게 대화를 이어간다','짧게 대화하고 내 시간으로 돌아간다','예의 있게 인사하고 조용히 쉰다']],
+[1,1,'새 취미를 배우려 한다. 먼저 보고 싶은 것은?',['그대로 따라 할 수 있는 실제 예시','준비물과 기본적인 방법','어디까지 응용할 수 있는지','이걸로 만들어낼 새로운 가능성']],
+[1,-1,'영화를 보고 친구와 가장 오래 이야기하는 것은?',['숨은 상징과 전혀 다른 결말 상상','등장인물의 선택이 가진 의미','인상 깊었던 대사와 장면','연기와 촬영 등 눈에 보인 디테일']],
+[1,1,'친구가 여행이 어땠냐고 물으면?',['먹은 것과 장소를 구체적으로 말한다','기억나는 사건을 순서대로 말한다','여행에서 느낀 분위기를 말한다','그 여행이 내게 남긴 의미를 말한다']],
+[1,-1,'아무 용도 없는 빈 공책을 받았다면?',['떠오르는 상상과 아이디어로 채운다','언젠가 만들고 싶은 것을 적는다','필요할 때 쓸 메모장으로 둔다','할 일과 지출 등 실용적으로 쓴다']],
+[1,1,'새 제품을 살 때 더 끌리는 설명은?',['검증된 성능과 구체적인 사용 후기','현재 생활에 바로 쓸 수 있는 기능','새로운 방식으로 쓸 수 있다는 점','아직 없던 미래를 열어줄 가능성']],
+[2,-1,'친구가 실수해서 속상하다고 연락했다면?',['일단 마음부터 충분히 들어준다','위로한 뒤 필요한 도움을 묻는다','상황을 듣고 해결책도 제안한다','원인을 정리해 다음 대책을 찾는다']],
+[2,1,'팀에서 의견이 갈렸다. 내가 먼저 볼 것은?',['같은 기준으로 비교한 근거','실제로 실행 가능한 장단점','팀원들이 납득할 수 있는 방식','각자 중요하게 느끼는 마음과 사정']],
+[2,-1,'친구가 만든 작품에 아쉬운 부분이 있다면?',['노력한 마음과 좋은 점부터 말한다','어떻게 느낄지 생각하며 조심히 말한다','좋은 점과 수정할 점을 함께 말한다','더 좋아질 수 있도록 솔직히 짚는다']],
+[2,1,'약속을 어긴 사람과 대화할 때?',['무엇이 잘못됐고 어떻게 바꿀지 정한다','사실을 확인한 뒤 해결 방법을 찾는다','사정을 듣고 서로의 입장을 맞춘다','상처받은 마음을 먼저 나누고 싶다']],
+[2,-1,'어려운 부탁을 거절해야 한다면?',['상대가 상처받지 않게 표현을 오래 고민한다','마음을 알아주면서 조심히 거절한다','불가능한 이유와 대안을 간단히 말한다','가능한 범위를 명확하고 바로 말한다']],
+[3,1,'여행 날짜가 정해졌다. 나는?',['숙소부터 동선까지 미리 확정한다','중요한 예약과 큰 일정은 잡는다','숙소만 잡고 나머지는 현장에서','그날 마음이 끌리는 대로 움직인다']],
+[3,-1,'갑자기 오후 일정이 취소됐다면?',['뜻밖의 자유 시간이라 신난다','그때 끌리는 일을 찾아본다','미뤄둔 할 일을 꺼내본다','새 시간표를 짜야 마음이 편하다']],
+[3,1,'마감이 일주일 남은 일을 처리하는 방식은?',['날짜별로 나눠 미리 끝낸다','여유를 두고 차근차근 진행한다','아이디어가 잡히면 몰아서 한다','막판 집중력이 올라올 때 끝낸다']],
+[3,-1,'맛집에 갔는데 휴무다. 내 반응은?',['오히려 좋아, 새 골목을 탐험한다','근처에서 끌리는 곳을 찾는다','후보로 봐둔 다른 집에 간다','다음에는 영업일을 꼭 재확인한다']],
+[3,1,'할 일이 여러 개 생긴 아침에는?',['우선순위와 순서를 먼저 정한다','꼭 할 일 몇 개를 정해둔다','상황을 보며 순서를 바꿔가며 한다','그때 가장 손이 가는 것부터 한다']]
+].map((q,i)=>({axis:q[0],direction:q[1],text:q[2],options:q[3],scene:1+Math.floor(i/5)}));
+const AXES=[['E','I','함께 나누며 충전','혼자 정리하며 충전'],['S','N','구체적인 사실 관찰','가능성과 의미 탐색'],['T','F','기준과 해결책 고려','마음과 관계 고려'],['J','P','미리 정하고 준비','상황에 맞춰 조정']];
+function scoreAnswers(answers){
+ if(answers.length!==20 || answers.some(v=>!Number.isInteger(v)||v<0||v>3)) throw Error('20개 답변이 필요합니다.');
+ const sums=[0,0,0,0]; answers.forEach((v,i)=>sums[QUESTIONS[i].axis]+=[3,1,-1,-3][v]*QUESTIONS[i].direction);
+ const type=sums.map((s,i)=>AXES[i][s>0?0:1]).join('');
+ const evidence=sums.map((sum,axis)=>QUESTIONS.map((q,i)=>({q,i,value:[3,1,-1,-3][answers[i]]*q.direction})).filter(x=>x.q.axis===axis&&x.value*sum>0).sort((a,b)=>Math.abs(b.value)-Math.abs(a.value))[0].i);
+ return {type,sums,evidence};
+}
+
+const ASSETS=["https://blogger.googleusercontent.com/img/a/AVvXsEjr7t0JtoW-zFHLpVQJkdKMJVKhBJOj5W4KwNf60R6pOLjYm9MnUrpicYNVGIhxWz9b8aUowNyiELEOVVcNCtVZn3Y_RDD_kf63FlrrUXNN7nuBs_ar5gYnyr40ZTVlkFOuYFFoM1Padhdi3oCvK1TxG8wDNGBa_9rWYo8Dxa4W54U2T1iQc7-lIax8Cqmx","https://blogger.googleusercontent.com/img/a/AVvXsEhu9OON0Qjm_cVO9VRA0dzcck2Yoz8uMVdoCHHvECUGOXMAopoRF1opDajsTTFhuURBwcz5aBCC3IjcUllil3j9n3RAORK5hwxKo8MhIJ8HXjLAoNhyaaWmSx_KDpXwBCxivfHDukwqv6bYLdyUu3VrDqbiyugSMHzy3UAxJXVlTB9KacKjbyuuMYmARjGD","https://blogger.googleusercontent.com/img/a/AVvXsEgTw8iukfUsRZ6j7qhjB73e0uKM7NId63wD1V2JC_ye7HI7AhFTuN9d2Xjo-AuMjJTEYmSfBTOECRjSVIyj0UA5sVJ3ZU5xO3QTUhmH2Y-mbCQzSK0Es0F-RJ_xpkxG06wBJgIBNiDmaIqAnB4bvvEQIBpJG0i4VKq3oQ43EbbLoRapl_Svkj29CgoXPEa4","https://blogger.googleusercontent.com/img/a/AVvXsEi65N-xvDOvgJcSymck3lPEWJGdeW_MIQsFN2sn1X5sEFKvcQHEyOLj9TulJpjAtmtLx4LrglF1TIkwCZo1V_MTyZA0jqRkKyMKJhRik9c-gqMEE2CYUUp1jR2NSr01Xpll_w-zjmTg3aKSKUV5eTfapGvpu9ArgOwfyWAIIBj84O5ockHmv0HKm_8bJPm3","https://blogger.googleusercontent.com/img/a/AVvXsEgjKxUCn7JoQI0hagYbnQEGr6vbcSlTZ2R4SUtReYtjzNPnW4mMmMt8C169RDjRANLJRJTeWaaKHe48QEehOwXGIWctxKNA3Mc3iF2kBdpvhdVur3MqKWOI4QmGDn5MlpV1opc81Lg9PvmVUuom_5_zWxVW6HVG4-yoiC2AhkNEmKbzr8G23mXCx2lmyt5I","https://blogger.googleusercontent.com/img/a/AVvXsEgLfwyreID_CvBd4FNLeQEnEtOkZLIUj8e9NT0vWgcT0OcczqAZoA2Gif7Ij0BJaHW4ylSZ_Mg3n03n44MbkYcCLIHqozAt9KNNrG2Fm5bwfRbujGG66n7LK9ejjQB4_5HtsdWHTYIZUL6kcOBmHodd9PO9iHwuko-uTimBcsJph2yTJJvYwv5iasE88zmo","https://blogger.googleusercontent.com/img/a/AVvXsEizJm2_Q9yjhJtVpRgL13KBMZa7CGeL7va1xeldBD12GgJJbEHkB_bDiu7QppVwTRCKXX4jQRlZVXDWCtmfMLF-jhbgSCvn9g6xqYyzDZM8NV19D3UuxwD7eLaRgRK2dT--vo3ddat_4hQ_56ibtvC7x_FkBfDbFltv2LTyfZLEESV2v0LMssoO6oJFGNnV","https://blogger.googleusercontent.com/img/a/AVvXsEiDLMjcj6C3gVKA1Kh12bE4dvBohLxEP7-AlWr1GEzaElwan9tp7WuEW7BWb-p7O-pfRWtkJuEHHjvkw4FsaRK65__dd6-z2Swju6GE5NpFugvDgeyrsJWiFJdY0QjtOqkWmr1FVeHZA3SpjwGxV6K3rfNo6nLCWWKUeoFdGxBfSSNP3anYkwtsdoM8_Wdg","https://blogger.googleusercontent.com/img/a/AVvXsEgITtOyzFhlN-MZutbDUvdIbBsVEIRWt3JdweIC0oiOlb8AT7tbmKERTO0XWTYDs_tFtQ4fR_7b5zI7loxi-XnaxT_XmbSJflkHd8z9QdIzoY-1fZkJxML15Wfs9Vy5XpAgoo9nFcXuH8KOFfbEL6yTPE0JXXSKukzd3ts_1YUQqICfrm7uQeggcbNTLqLj","https://blogger.googleusercontent.com/img/a/AVvXsEjcPorY73D6ZhdO8i9-vEd9-B0hU9w5h9DdDcY4j-XTlmdDUwO5SLzwAk2We1Uai1JNppC4oKKDXzeq7__aTrsp4aalajfA1vBXDHI1PrRwGmo48-8WxcMKf3YZ5AuZLEbX2FJjhXgiilS2xYRTq_u0fPlAgIDOcEDeMk6hNxYFoBuoM4r6C28e1EvyXFAB","https://blogger.googleusercontent.com/img/a/AVvXsEiU6ndguLqpfaLpOBH10MdIZ8V9voW8WMDI0CZ39ahFKdDZvzsxVDHuJNujnMFoQWYANh4wHXTN3Hb8TbrDSz7-9TTHMlVjozXJuf5oXgISCMx0tJ64vKG5ITvwLHnPLSAPXiGBHUWAS860LYHH7WLLngY2Gn-6kMClOGtFoJ5N0lpXWX-2GtTjivsPUMSP","https://blogger.googleusercontent.com/img/a/AVvXsEhtNA0FbOPmMtAFr5UR3LzcwttgK9Fdpifs74CcqCQoNNbFSRiopibf5mIwfzw3S7zu83GSGhzv5LgCF51IcbmBtWzMFA_EYqAso_V7iaDRc2FXv6UzF6OypBhMPp6TYHGi5D2-O69DQVJeVW38PSUsFfUOJnwxjJP0Q3U31fDcATZh19jnQj1O0DhUasbG","https://blogger.googleusercontent.com/img/a/AVvXsEgiPqzYye9mb4b6MfxjmDHbnzb3wZJbUKVdxEbR-1dTKkala4UrS0COtUME051IDxf0n-_f4wZB0YTrkyEqSAxV0f9V8b6VtNV0-Y4Hm7Ra_CfJYfSWUGR5DwOCj7H08aibNuJsxBQofK9apL-yZNR4o8bDEwtKVy_f9hAuoCkKtbQWt9eC7Rq2aINxeMT1","https://blogger.googleusercontent.com/img/a/AVvXsEhy2yN7FcYBf7cwEnXwzA1CED-ObvQxvUzBgUzBmpQUmvTuZmKD928ZfZnobumA9ffTsxZP9mIMYKJr_YQcqA5EV4RkHSgooE-sSs-2VAGYvY8sIN2oTFbV9Yzyxuc9G25-crAF55SQ2e_7vl5VbP0htq7C6FCxob9z_Wg_cZkgwGSDVmz5do4ondKA37qY","https://blogger.googleusercontent.com/img/a/AVvXsEg182jJHpC5-AYDNJulUITIZR9GyjcGJBayXIEX7oYmY45qQb85JFlGVhOOGds6kRwcW0pPzbo7wTyqHeW9HOG4u7yoO18ZMEDTXzqfCWEQo3Et6ePPrNChjxr6Z5_4-n1owwFrIRW8C8FKbBiv5JMSHDIwekpPhNc_4o8kUic5U4XIs5YxMJ0yWw3qXzR2","https://blogger.googleusercontent.com/img/a/AVvXsEgKfZlujYZ3pEu5A7VATPptUHcgYPKI1lY4AIDzSq-RS5KEBiMBJQ9jT8uxsfdoszJR5PE1u0H6m2X2CokApIZ6MWhVbihay4CUHpLt-nakO-1GDkIsQhlAufkSQp-zbcAUDIhNsliir0tY6zBpOCD6D_cqBrBiN5uaEV0xgGb1Z6kOMicPFDBB9OCxWFgy","https://blogger.googleusercontent.com/img/a/AVvXsEjYEzGeCbj2Kq9GoNvlLS1K02AxxdcxAHg9v6JHZI4ViPG3dZWQBAkZLj6BicONcORiQs7qKwMheyWDjmCwCJI1iQ1e8acqeOpE2FjeCiLeuKheptUrAEfVfHE2Lq4qGV6WYvTedM2hqFZWGKU8QGc97ujxEwDYaFM0dMoruBZflOaGv0B2xeJLJivLbvuk","https://blogger.googleusercontent.com/img/a/AVvXsEhI5o-fOlS_-2Gfkl_fJGJHoCmNMgZ3s_fYO0oMm-ESfPW_lwTteOzNNml15k-LuFnT5NICjE9-PmsngupKl6zW0BIMToUCMS7dx1VyM2wPxfmJIaSilAMoScVWT6KfIIolHeVHunSCxDz6hkgaFeXmzDJjvzLxlhAFro9tKjm8STpX3-kglgmKU73CSha6","https://blogger.googleusercontent.com/img/a/AVvXsEiKM0Z0bzCBX3Q08LN4swKCCYMWqk1UCv8mViDOUE549VUhhq3uB1F33UwhY6TDTs_1_229cC0xQYoKynjbJYlJabfuq4_NV4GffCaTGzD4wPhPnRgXqGGi_NXNpfLk0yGPSffiF5LYWj6naTl_yXqB1PrnR5hEGw6e_9IcPCpNjtwyn8IzEa9e_HElA1mC","https://blogger.googleusercontent.com/img/a/AVvXsEjcx0gZoYvLZfEqYKVhT5YQrzC6QycW7S8uDHU4Uqfo3R-W9IX9EygFhL6alEapAfdAT0rEo3dg8woAMhsOs7S4lf508Q3GZHrTwyPJzYlAQTelDVwcQt8JUmMZcSdtONBi02oXDjD73IpaBzLdsTkG-Vc5oX4Yx54RqlBygKBgnb5gTxji8QEMHfZuaXc5","https://blogger.googleusercontent.com/img/a/AVvXsEh2rxhu1_ZisF10VR5AnamgUH-nMt2omWPyAxCwfDwnlFyJz-OleCsufcoBtnHcAncdlh7SozPUGweGHR20Qgaz0aAJe5_iZr7-nWSeadvsVIU8jD6xe8TRYVGxNwiRaotc5f5_TCHu23ZzFmhhivCh1005UEhuPzLJtKqAuOoHIgAQ9pEqrDpnABYbMLd6"];
+const root=document.getElementById('dog-personality-test');
+const el=id=>root.querySelector('#dpt-'+id);
+let answers=[],index=0,state='start',result=null,enabled=true,ctx=null,timer=null,master=null,lockedUntil=0;
+const BGM_GAIN=.04,EFFECT_GAIN=.065;
+function stopSound(){clearInterval(timer);timer=null;if(master&&ctx)master.gain.setValueAtTime(0,ctx.currentTime);}
+function tone(f,d,g){try{if(!enabled||!ctx||ctx.state!=='running')return;const o=ctx.createOscillator(),v=ctx.createGain(),t=ctx.currentTime;o.type='sine';o.frequency.value=f;v.gain.setValueAtTime(0,t);v.gain.linearRampToValueAtTime(g,t+.015);v.gain.exponentialRampToValueAtTime(.0001,t+d);o.connect(v);v.connect(master);o.onended=()=>{o.disconnect();v.disconnect();};o.start();o.stop(t+d+.02);}catch(e){}}
+function startSound(){stopSound();if(!enabled||state!=='quiz'||document.hidden)return;try{const C=window.AudioContext||window.webkitAudioContext;if(!C)return;if(!ctx){ctx=new C();master=ctx.createGain();master.connect(ctx.destination);}master.gain.setValueAtTime(1,ctx.currentTime);Promise.resolve(ctx.resume()).catch(()=>{});let n=0;const notes=[261.63,329.63,392,329.63,293.66,349.23,440,349.23];tone(notes[n++],.26,BGM_GAIN);timer=setInterval(()=>tone(notes[n++%notes.length],.26,BGM_GAIN),620);}catch(e){stopSound();}}
+function message(s){el('status').textContent=s;}
+function view(next){state=next;['start','quiz','result'].forEach(s=>el(s).hidden=s!==next);el('directory').hidden=next==='quiz';}
+function renderQuestion(){view('quiz');const q=QUESTIONS[index];el('count').textContent=(index+1)+' / 20';el('progress').setAttribute('aria-valuenow',index);el('fill').style.width=(index/20*100)+'%';el('scene').src=ASSETS[q.scene];el('scene').alt=['','모임과 혼자 쉬는 시간을 표현한 강아지 스티커','상상과 구체적 관찰을 표현한 강아지 스티커','공감과 분석을 표현한 강아지 스티커','계획과 즉흥성을 표현한 강아지 스티커'][q.scene];el('chapter').textContent=['','01 - 나의 에너지','02 - 세상을 보는 방식','03 - 마음과 판단','04 - 일상의 리듬'][q.scene];el('question').textContent=q.text;el('answers').replaceChildren();q.options.forEach((label,v)=>{const b=document.createElement('button');b.type='button';b.textContent=String.fromCharCode(65+v)+'. '+label;b.setAttribute('aria-pressed',answers[index]===v?'true':'false');b.addEventListener('click',()=>{if(Date.now()<lockedUntil)return;lockedUntil=Date.now()+300;answers[index]=v;tone(520,.12,EFFECT_GAIN);if(index===19){showResult();}else{index++;renderQuestion();}});el('answers').append(b);});el('question').focus({preventScroll:true});}
+function showResult(){result=scoreAnswers(answers);view('result');stopSound();const d=DOGS[result.type];el('result').innerHTML='<span class="badge">'+result.type+'</span><h2 id="dpt-result-title" tabindex="-1">'+d[1]+'</h2><p>'+d[0]+' 타입</p><img class="result-image" src="'+ASSETS[5+Object.keys(DOGS).indexOf(result.type)]+'" alt="'+d[0]+' 익살스러운 실사풍 얼굴 스티커"><h3>'+d[2]+'</h3><div class="card"><h3>이 강아지 캐릭터의 성격</h3><p>'+d[3]+'</p><h3>나와 닮은 점</h3><p class="small">내가 실제 고른 답변 중 결과 방향과 맞는 선택을 골랐어요.</p>'+result.evidence.map((qi,a)=>'<blockquote><strong>Q'+(qi+1)+'. '+QUESTIONS[qi].text+'</strong><br>내 선택: '+QUESTIONS[qi].options[answers[qi]]+'<br><span class="small">닮은 포인트: '+AXES[a][result.sums[a]>0?2:3]+' 성향이 이번 답변에 나타났어요.</span></blockquote>').join('')+'</div><div class="card"><h3>이번 답변의 선호 경향</h3>'+result.sums.map((s,a)=>{const p=Math.round((s+15)/30*100);return '<p class="small">'+AXES[a][0]+' '+p+'% / '+AXES[a][1]+' '+(100-p)+'%</p><div class="bar"><span style="width:'+p+'%"></span></div>';}).join('')+'<p class="small">비율은 문항 점수를 환산한 값이며 성격의 정확도나 확률이 아닙니다. 가운데에 가까우면 두 경향을 함께 보인 답변이에요.</p></div><div class="card"><h3>나의 장점</h3><p>'+d[4]+'</p><h3>이럴 때는 조심</h3><p>'+d[5]+'</p><h3>오늘의 작은 제안</h3><p>'+d[6]+'</p></div><div class="actions"><button type="button" class="primary" id="dpt-share">친구와 함께 하기</button><button type="button" id="dpt-review">답변 돌아보기</button><button type="button" id="dpt-restart">다시 테스트하기</button></div>';el('share').onclick=share;el('review').onclick=()=>{index=19;renderQuestion();startSound();};el('restart').onclick=()=>{stopSound();answers=[];index=0;result=null;lockedUntil=0;message('');el('copy').hidden=true;view('start');el('go').focus();};el('result-title').focus({preventScroll:true});root.scrollIntoView({block:'start'});}
+async function share(){const d=DOGS[result.type];const url=location.protocol==='file:'?'':location.href.split('#')[0];const text='나는 '+result.type+' '+d[0]+'! '+d[1]+'. 너는 어떤 강아지일까?';try{if(url&&navigator.share){await navigator.share({title:'나는 어떤 강아지일까?',text,url});return;}}catch(e){if(e.name==='AbortError')return;}const payload=text+(url?'\n'+url:'\n게시 후에는 테스트 주소가 함께 들어갑니다.');try{if(!navigator.clipboard)throw Error('clipboard');await navigator.clipboard.writeText(payload);message('친구에게 보낼 문구'+(url?'와 링크':'')+'를 복사했어요.');}catch(e){el('copy').hidden=false;el('copy').value=payload;el('copy').focus();el('copy').select();message('아래 문구를 길게 눌러 복사해주세요.');}}
+el('go').onclick=()=>{answers=[];index=0;lockedUntil=Date.now()+300;renderQuestion();startSound();};
+el('back').onclick=()=>{lockedUntil=0;if(index>0){index--;renderQuestion();}else{stopSound();view('start');el('go').focus();}};
+el('sound').onclick=()=>{enabled=!enabled;el('sound').textContent=enabled?'SOUND ON':'SOUND OFF';el('sound').setAttribute('aria-pressed',String(enabled));if(enabled)startSound();else stopSound();};
+document.addEventListener('visibilitychange',()=>{if(document.hidden)stopSound();else startSound();});window.addEventListener('pagehide',stopSound);
+root.addEventListener('error',e=>{if(e.target.tagName==='IMG')message('이미지를 불러오지 못했어요. 업로드 주소 또는 연결을 확인해주세요. 테스트는 계속 진행할 수 있어요.');},true);
+})();
+</script>
+</div>
+
+<!-- ===== 카카오톡 결과 공유 (testmix v2.2) ===== -->
+<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.4/kakao.min.js" crossorigin="anonymous"></script>
+<script>
+//<![CDATA[
+(function () {
+  var Q = function (s) { return document.querySelector(s); };
+  var T = function (s) {
+    var e = Q(s); if (!e) return '';
+    var c = e.cloneNode(true);
+    [].forEach.call(c.querySelectorAll('[class*="google-anno"],ins,script,style'), function (x) { x.remove(); });
+    return c.textContent.replace(/\s+/g, ' ').trim();
+  };
+  var DOT = '\u00b7';
+  var CFG = {test:'강아지 MBTI 테스트', fmt:'나는 {name}!', btn:'#dpt-share', read:function(){return {name:T('#dpt-result-title'), nick:T('#dpt-result h3'), img:'#dpt-result img'};}};
+  var KEY = '7ddee789fac314a1a3a712d361c76c21', LABEL = '결과 공유하기';
+  var SHARE_RE = /친구|공유|함께|보내기|찾아주기/;
+  if (window.Kakao && !Kakao.isInitialized()) Kakao.init(KEY);
+
+  function base() { return location.origin + location.pathname; }
+  function og() { var m = Q('meta[property="og:image"]'); return m ? m.content : ''; }
+  function cut(s, n) { s = s || ''; return s.length > n ? s.slice(0, n - 1) + '\u2026' : s; }
+
+  async function upload(blob) {
+    var res = await Kakao.Share.uploadImage({ file: [new File([blob], 'result.png', { type: blob.type || 'image/png' })] });
+    return res.infos.original.url.replace(/^http:/, 'https:');
+  }
+  function toBlob(cv) { return new Promise(function (r) { cv.toBlob(r, 'image/png'); }); }
+
+  async function cropSprite(url, el, cs) {
+    var sz = cs.backgroundSize.split(' '), ps = cs.backgroundPosition.split(' ');
+    if (sz[0].indexOf('%') < 0) return url;
+    var W = parseFloat(sz[0]), H = parseFloat(sz[1] || sz[0]);
+    if (W <= 100 && H <= 100) return url;
+    var bmp = await createImageBitmap(await (await fetch(url + (url.indexOf('?') < 0 ? '?' : '&') + 'ks=1', { mode: 'cors' })).blob());
+    var nw = bmp.width, nh = bmp.height;
+    function frac(p, S, elLen) {
+      if (/%$/.test(p)) return (1 - 100 / S) * parseFloat(p) / 100;
+      var bg = S / 100 * elLen; return bg ? -parseFloat(p) / bg : 0;
+    }
+    var sw = nw * Math.min(1, 100 / W), sh = nh * Math.min(1, 100 / H);
+    var sx = nw * frac(ps[0] || '0%', W, el.offsetWidth), sy = nh * frac(ps[1] || ps[0] || '0%', H, el.offsetHeight);
+    var k = Math.min(1, 800 / Math.max(sw, sh));
+    var cv = document.createElement('canvas'); cv.width = Math.round(sw * k); cv.height = Math.round(sh * k);
+    cv.getContext('2d').drawImage(bmp, sx, sy, sw, sh, 0, 0, cv.width, cv.height);
+    return upload(await toBlob(cv));
+  }
+
+  async function svgShot(svg) {
+    var r = svg.getBoundingClientRect(), c = svg.cloneNode(true);
+    var src = [svg].concat([].slice.call(svg.querySelectorAll('*'))), dst = [c].concat([].slice.call(c.querySelectorAll('*')));
+    var props = ['fill', 'stroke', 'stroke-width', 'stroke-dasharray', 'opacity', 'fill-opacity', 'stroke-opacity', 'font-size', 'font-weight', 'font-family', 'text-anchor', 'dominant-baseline'];
+    src.forEach(function (s, i) { var st = getComputedStyle(s); dst[i].setAttribute('style', props.map(function (p) { return p + ':' + st.getPropertyValue(p); }).join(';')); });
+    c.setAttribute('xmlns', 'http://www.w3.org/2000/svg'); c.setAttribute('width', r.width); c.setAttribute('height', r.height);
+    var u = URL.createObjectURL(new Blob([new XMLSerializer().serializeToString(c)], { type: 'image/svg+xml' }));
+    var img = new Image(); await new Promise(function (ok, no) { img.onload = ok; img.onerror = no; img.src = u; });
+    var pad = 40, s = 2, cv = document.createElement('canvas');
+    cv.width = (r.width + pad * 2) * s; cv.height = (r.height + pad * 2) * s;
+    var x = cv.getContext('2d'); x.fillStyle = '#fff'; x.fillRect(0, 0, cv.width, cv.height);
+    x.drawImage(img, pad * s, pad * s, r.width * s, r.height * s); URL.revokeObjectURL(u);
+    return upload(await toBlob(cv));
+  }
+
+  async function getImage(sel) {
+    var el = sel ? Q(sel) : null;
+    if (!el) return og();
+    var src = '';
+    if (el.tagName === 'IMG') src = el.currentSrc || el.src;
+    else if (el.tagName.toLowerCase() === 'svg') return svgShot(el);
+    else {
+      var im = el.querySelector('img');
+      if (im) src = im.currentSrc || im.src;
+      else {
+        var nodes = [el].concat([].slice.call(el.querySelectorAll('*')));
+        for (var i = 0; i < nodes.length; i++) {
+          var cs = getComputedStyle(nodes[i]), m = /url\(["']?([^"')]+)/.exec(cs.backgroundImage);
+          if (m) {
+            if (/^https?:/.test(m[1])) return cropSprite(m[1], nodes[i], cs);
+            src = m[1]; break;
+          }
+        }
+        if (!src) { var sv = el.querySelector('svg'); if (sv) return svgShot(sv); }
+      }
+    }
+    if (/^https:\/\//.test(src)) return src;
+    if (/^(data|blob):/.test(src)) return upload(await (await fetch(src)).blob());
+    return og();
+  }
+
+  async function share() {
+    var r = null;
+    try { r = CFG.read(); } catch (e) {}
+    if (!r || !r.name) { alert('테스트를 먼저 완료해 주세요!'); return; }
+    var link = base() + '?r=' + encodeURIComponent(r.name.slice(0, 40));
+    var title = cut(CFG.fmt.replace('{name}', r.name), 80);
+    var desc = (r.nick ? cut(r.nick, 60) + ' | ' : '') + CFG.test;
+    try {
+      if (!window.Kakao) throw 0;
+      var img = og();
+      try { img = (await getImage(r.img || '')) || og(); } catch (e) { img = og(); }
+      Kakao.Share.sendDefault({
+        objectType: 'feed',
+        content: { title: title, description: desc, imageUrl: img, link: { mobileWebUrl: link, webUrl: link } },
+        buttons: [{ title: '나도 해보기', link: { mobileWebUrl: link, webUrl: link } }]
+      });
+    } catch (e) {
+      try {
+        if (navigator.share) { await navigator.share({ title: title, text: title, url: link }); return; }
+        await navigator.clipboard.writeText(title + ' ' + link);
+        alert('링크가 복사되었어요!');
+      } catch (e2) {}
+    }
+  }
+
+  window.addEventListener('click', function (e) {
+    var el = e.target.closest && e.target.closest('[data-kshare]');
+    if (!el || el.textContent.trim() !== LABEL) return;
+    e.preventDefault(); e.stopImmediatePropagation(); share();
+  }, true);
+
+  function sync() {
+    if (CFG.btn) [].forEach.call(document.querySelectorAll(CFG.btn), function (b) {
+      if (!SHARE_RE.test(b.textContent)) return;
+      if (b.textContent.trim() !== LABEL) b.textContent = LABEL;
+      if (!b.hasAttribute('data-kshare')) b.setAttribute('data-kshare', '');
+    });
+    if (CFG.add && !Q('[data-kshare]')) {
+      var a = Q(CFG.add.sel);
+      if (a) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = CFG.add.cls != null ? CFG.add.cls : (CFG.add.into ? ((a.querySelector('button') || {}).className || '') : (a.className || ''));
+        b.textContent = LABEL;
+        b.setAttribute('data-kshare', '');
+        if (CFG.add.into) a.appendChild(b); else a.parentNode.insertBefore(b, a.nextSibling);
+      }
+    }
+  }
+
+  function banner() {
+    var who = new URLSearchParams(location.search).get('r'), pb = Q('.post-body');
+    if (!who || !pb) return;
+    var d = document.createElement('div');
+    d.style.cssText = 'margin:0 0 14px;padding:12px 14px;border-radius:12px;background:#e8f4ff;color:#0b3a66;font-weight:600;text-align:center;line-height:1.5';
+    d.textContent = '\ud83d\udc8c 친구의 결과는 "' + who.slice(0, 40) + '" ' + DOT + ' 나도 해보기 \ud83d\udc47';
+    pb.insertBefore(d, pb.firstChild);
+  }
+
+  function init() {
+    sync(); banner();
+    var pending = false, pb = Q('.post-body') || document.body;
+    new MutationObserver(function () {
+      if (pending) return; pending = true;
+      requestAnimationFrame(function () { pending = false; sync(); });
+    }).observe(pb, { childList: true, subtree: true });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+})();
+//]]>
+</script>

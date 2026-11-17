@@ -1,0 +1,322 @@
+<div id="yf-test">
+  <style>
+    #yf-test { --ink:#17233d; --navy:#17345c; --red:#e6533f; --cream:#f7eedf; --paper:#fffaf1; --gold:#e9b949; width:100%; max-width:760px; margin:0 auto; color:var(--ink); font-family:"Pretendard","Noto Sans KR",Arial,sans-serif; line-height:1.55; box-sizing:border-box; }
+    #yf-test * { box-sizing:border-box; }
+    #yf-test button { font:inherit; }
+    #yf-test .yf-shell { position:relative; overflow:hidden; min-height:680px; padding:20px 18px 130px; border:3px solid var(--ink); background:var(--cream); box-shadow:10px 10px 0 var(--ink); }
+    #yf-test .yf-shell:before { content:""; position:absolute; inset:0; pointer-events:none; opacity:.17; background-image:linear-gradient(90deg,transparent 49%,rgba(23,35,61,.12) 50%,transparent 51%),linear-gradient(transparent 49%,rgba(23,35,61,.08) 50%,transparent 51%); background-size:34px 34px; }
+    #yf-test .yf-screen { position:relative; z-index:1; display:none; animation:yfIn .35s ease both; }
+    #yf-test .yf-screen.is-active { display:block; }
+    #yf-test .yf-kicker { display:inline-block; margin:0 0 12px; padding:5px 11px; border:2px solid var(--ink); background:var(--gold); color:var(--ink) !important; font-size:13px; font-weight:900; letter-spacing:.04em; transform:rotate(-1deg); }
+    #yf-test h1,#yf-test h2,#yf-test h3,#yf-test p { color:var(--ink); }
+    #yf-test h1 { margin:0; font-size:clamp(34px,8vw,62px); line-height:1.03; letter-spacing:-.055em; font-weight:1000; word-break:keep-all; }
+    #yf-test h1 span { color:var(--red); }
+    #yf-test .yf-lead { margin:16px 0 20px; font-size:16px; font-weight:700; word-break:keep-all; }
+    #yf-test .yf-square { width:100%; aspect-ratio:1 / 1; overflow:hidden; border:3px solid var(--ink); background:#eadcc9; box-shadow:6px 6px 0 var(--red); }
+    #yf-test .yf-square img { display:block; width:100%; height:100%; object-fit:contain; }
+    #yf-test .yf-note { margin:20px 0 0; padding:14px 15px; border-left:6px solid var(--red); background:rgba(255,255,255,.68); font-size:14px; font-weight:700; word-break:keep-all; }
+    #yf-test .yf-primary,#yf-test .yf-secondary,#yf-test .yf-answer { width:100%; min-height:54px; border:3px solid var(--ink); cursor:pointer; transition:transform .12s ease,box-shadow .12s ease,background .12s ease; }
+    #yf-test .yf-primary { margin-top:20px; background:var(--red); color:#fff !important; box-shadow:5px 5px 0 var(--ink); font-size:18px; font-weight:1000; }
+    #yf-test .yf-primary:hover,#yf-test .yf-answer:hover,#yf-test .yf-secondary:hover { transform:translate(-2px,-2px); box-shadow:7px 7px 0 var(--ink); }
+    #yf-test .yf-toolbar { display:flex; align-items:center; gap:9px; margin-bottom:15px; }
+    #yf-test .yf-mini { min-height:38px; padding:7px 10px; border:2px solid var(--ink); background:var(--paper); color:var(--ink) !important; font-size:12px; font-weight:900; cursor:pointer; }
+    #yf-test .yf-progress { flex:1; height:16px; border:2px solid var(--ink); background:#fff; overflow:hidden; }
+    #yf-test .yf-progress span { display:block; width:5%; height:100%; background:var(--red); transition:width .25s ease; }
+    #yf-test .yf-count { min-width:51px; text-align:right; font-size:13px; font-weight:1000; }
+    #yf-test .yf-question-card { min-height:250px; padding:24px 20px; border:3px solid var(--ink); background:var(--paper); box-shadow:7px 7px 0 var(--navy); display:flex; flex-direction:column; justify-content:center; }
+    #yf-test .yf-section { margin:0 0 8px; color:var(--red) !important; font-size:13px; font-weight:1000; letter-spacing:.08em; }
+    #yf-test .yf-alert { display:none; align-self:flex-start; margin-bottom:12px; padding:5px 9px; border:2px solid var(--red); background:#fff0bd; color:#b22e20 !important; font-size:12px; font-weight:1000; transform:rotate(-1deg); }
+    #yf-test .yf-alert.is-visible { display:block; }
+    #yf-test .yf-question { margin:0; font-size:clamp(23px,5vw,34px); line-height:1.35; letter-spacing:-.035em; font-weight:1000; word-break:keep-all; }
+    #yf-test .yf-answers { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:22px; }
+    #yf-test .yf-answer { background:#fff; color:var(--ink) !important; font-weight:1000; box-shadow:4px 4px 0 var(--ink); }
+    #yf-test .yf-answer[data-choice="yes"] { background:#ffd7cd; }
+    #yf-test .yf-answer[data-choice="maybe"] { background:#fff0bd; }
+    #yf-test .yf-answer[data-choice="no"] { background:#dcecff; }
+    #yf-test .yf-result-head { text-align:center; }
+    #yf-test .yf-level { display:inline-block; margin:0 auto 9px; padding:6px 13px; background:var(--ink); color:#fff !important; font-size:13px; font-weight:1000; }
+    #yf-test .yf-result-title { margin:0 0 10px; color:var(--red) !important; font-size:clamp(29px,7vw,48px); line-height:1.12; letter-spacing:-.05em; font-weight:1000; word-break:keep-all; }
+    #yf-test .yf-score { margin:0 0 18px; font-size:17px; font-weight:1000; }
+    #yf-test .yf-result-copy { margin-top:22px; padding:20px; border:3px solid var(--ink); background:#fff; box-shadow:6px 6px 0 var(--gold); }
+    #yf-test .yf-result-copy h3 { margin:0 0 8px; font-size:18px; font-weight:1000; }
+    #yf-test .yf-result-copy p { margin:0 0 16px; font-size:15px; font-weight:650; word-break:keep-all; }
+    #yf-test .yf-result-copy p:last-child { margin-bottom:0; }
+    #yf-test .yf-actions { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:22px; }
+    #yf-test .yf-secondary { background:var(--paper); color:var(--ink) !important; box-shadow:4px 4px 0 var(--ink); font-weight:1000; }
+    #yf-test .yf-toast { position:fixed; left:50%; bottom:125px; z-index:9999; transform:translateX(-50%) translateY(20px); max-width:calc(100vw - 32px); padding:11px 16px; border:2px solid var(--ink); background:var(--ink); color:#fff !important; font-size:13px; font-weight:900; opacity:0; pointer-events:none; transition:.2s ease; }
+    #yf-test .yf-toast.is-visible { opacity:1; transform:translateX(-50%) translateY(0); }
+    @keyframes yfIn { from { opacity:0; transform:translateY(9px); } to { opacity:1; transform:translateY(0); } }
+    @media (max-width:560px) {
+      #yf-test .yf-shell { min-height:620px; padding:15px 13px 130px; box-shadow:6px 6px 0 var(--ink); }
+      #yf-test .yf-answers { grid-template-columns:1fr; }
+      #yf-test .yf-answer { min-height:51px; }
+      #yf-test .yf-question-card { min-height:235px; padding:21px 17px; }
+      #yf-test .yf-actions { grid-template-columns:1fr; }
+    }
+    @media (prefers-reduced-motion:reduce) { #yf-test * { animation:none !important; transition:none !important; } }
+  </style>
+
+  <div class="yf-shell">
+    <section class="yf-screen is-active" id="yf-start">
+      <div class="yf-kicker">20문항 사회생활 자가진단</div>
+      <h1>나의 <span>영포티력</span> 테스트</h1>
+      <p class="yf-lead">최신폰, 회식, 단톡방, 훈수, 선택적 원칙까지. 취향보다 태도에서 새어 나오는 영포티력을 가볍게 확인해 보세요.</p>
+      <div class="yf-square"><img src="https://blogger.googleusercontent.com/img/a/AVvXsEjtZLq6ztcF4fokRSlhyTMTE2AAzra8lJO4XB1KprrtcSgEthUyVWH6kGwzniFo_dFMo4KsHOVJNuX-BnOe9E20Y0KrQfOrrutqNx9tsjZK9U3r1b1TsQhFQ4-80yOG4G9NJb4r5nfUvvZ4u5dXn5j_kLXuv0ZJL6rcysYq-bR3qZae_N8co0sgWK2dPVkr" alt="영포티력 테스트 시작 캐릭터"></div>
+      <p class="yf-note">이 테스트는 실제 나이나 특정 세대를 판정하지 않습니다. 젊은 취향은 무죄, 상대를 불편하게 만드는 이중잣대와 서열 의식만 유죄입니다.</p>
+      <button class="yf-primary" id="yf-start-btn" type="button">테스트 시작</button>
+    </section>
+
+    <section class="yf-screen" id="yf-quiz">
+      <div class="yf-toolbar">
+        <button class="yf-mini" id="yf-back" type="button">BACK</button>
+        <div class="yf-progress" aria-label="진행률"><span id="yf-progress-bar"></span></div>
+        <div class="yf-count" id="yf-count">1 / 20</div>
+        <button class="yf-mini" id="yf-sound" type="button">SOUND ON</button>
+      </div>
+      <div class="yf-question-card">
+        <p class="yf-section" id="yf-section">DIGITAL LIFE</p>
+        <div class="yf-alert" id="yf-alert">영포티력 UP 주의 - 실제 가점 문항</div>
+        <h2 class="yf-question" id="yf-question"></h2>
+      </div>
+      <div class="yf-answers">
+        <button class="yf-answer" data-choice="yes" type="button">그렇다</button>
+        <button class="yf-answer" data-choice="maybe" type="button">중간</button>
+        <button class="yf-answer" data-choice="no" type="button">아니다</button>
+      </div>
+    </section>
+
+    <section class="yf-screen" id="yf-result">
+      <div class="yf-result-head">
+        <div class="yf-level" id="yf-level">LEVEL 1</div>
+        <h2 class="yf-result-title" id="yf-result-title"></h2>
+        <p class="yf-score" id="yf-score"></p>
+      </div>
+      <div class="yf-square"><img id="yf-result-image" src="https://blogger.googleusercontent.com/img/a/AVvXsEgMYcyC6_Tsig5_Iw3d5y6slPx8LBQqq_9Wy_q4R-s77gT6zGyHFjB8rnRarTlx7e0uBSIBFGjU0G_t9ZUEofqySkIsbHIAfsw8uu4QCSNIVY7xt7Nq_ZjP4g1-yJuCNymFYjTTDYYzqYRPzBmvm-kjwedxsviiZW1mQX-KcFq0EPDEAg75aagjwCUSoa8K" alt="영포티력 테스트 결과 캐릭터"></div>
+      <div class="yf-result-copy">
+        <h3>현재 상태</h3><p id="yf-summary"></p>
+        <h3>주변에서 보이는 장면</h3><p id="yf-scene"></p>
+        <h3>오늘의 한 줄 처방</h3><p id="yf-tip"></p>
+      </div>
+      <div class="yf-actions">
+        <button class="yf-secondary" id="yf-share" type="button">친구도 함께 해보기</button>
+        <button class="yf-secondary" id="yf-retry" type="button">다시 테스트</button>
+      </div>
+    </section>
+  </div>
+  <div class="yf-toast" id="yf-toast" role="status"></div>
+
+  <script>
+  (function(){
+    "use strict";
+    var root=document.getElementById("yf-test");
+    if(!root){return;}
+    var questions=[
+      {s:"DIGITAL LIFE",q:"최신 스마트폰은 출시 초기에 샀지만, 주로 전화와 카메라와 메신저만 쓴다.",up:false},
+      {s:"DIGITAL LIFE",q:"휴대폰 설정이 막히면 가장 어린 직원부터 찾고, 해결되면 역시 직관적이었다고 말한다.",up:true},
+      {s:"DIGITAL LIFE",q:"QR, 간편결제, 파일 공유 기능을 누가 알려주면 알고 있었는데 확인만 한 척한다.",up:false},
+      {s:"DIGITAL LIFE",q:"SNS용 사진은 젊은 직원에게 부탁하고, 결과가 마음에 안 들면 요즘 감성이 아니라고 한다.",up:false},
+      {s:"OFFICE DINNER",q:"회식은 완전 자율이라고 공지했지만 여직원이 빠지면 요즘은 회사에 정이 없다고 느낀다.",up:true},
+      {s:"OFFICE DINNER",q:"여직원이 많이 참석한 회식은 왠지 분위기가 더 산다고 생각한다.",up:true},
+      {s:"OFFICE DINNER",q:"노래방 마이크를 잡고 1990년대 명곡을 부른 뒤, 이 노래를 정말 모르냐고 묻는다.",up:false},
+      {s:"OFFICE DINNER",q:"다들 내일 일정이 있다는데도 딱 한 잔만 더가 세 번쯤 반복된 적이 있다.",up:false},
+      {s:"GROUP CHAT",q:"이른 아침 단체방에 긴 기사나 영상을 올리고 꼭 한번 보라고 덧붙인다.",up:false},
+      {s:"GROUP CHAT",q:"내가 공유한 글에 반응이 없으면 요즘 사람들은 긴 글을 안 읽는다고 결론낸다.",up:false},
+      {s:"GROUP CHAT",q:"내 의견은 상식이고, 다른 의견은 커뮤니티나 유튜브에 물든 결과라고 느낄 때가 있다.",up:false},
+      {s:"SELECTIVE RULES",q:"일본 불매에는 공감하지만 일본 게임, 애니, 여행 특가는 별개의 취미라고 생각한다.",up:true},
+      {s:"SELECTIVE RULES",q:"불매 인증 글은 올렸지만 이미 산 일본 제품은 버리면 낭비라며 아주 오래 잘 쓴다.",up:false},
+      {s:"SELECTIVE RULES",q:"큰 로고가 있는 스트리트 옷을 입으면서도 젊은 세대의 브랜드 소비는 허세라고 말한다.",up:false},
+      {s:"SELECTIVE RULES",q:"새 휴대폰과 운동화는 바로 사지만, 후배의 비싼 취미에는 그 돈을 왜 쓰냐고 조언한다.",up:false},
+      {s:"LIFE ADVICE",q:"요즘 청년도 조금만 아끼면 집을 살 수 있다는 말을 현재 월급 이야기를 듣기 전에 한다.",up:true},
+      {s:"LIFE ADVICE",q:"나는 수평적인 사람이라고 생각하지만 후배가 내 이름에 님만 붙이면 조금 서운하다.",up:false},
+      {s:"LIFE ADVICE",q:"MZ는 말이야로 시작하면서도 내가 젊은 세대를 가장 잘 이해한다고 생각한다.",up:false},
+      {s:"LIFE ADVICE",q:"여직원에게 요즘 스타일을 알려준다며 요청받지 않은 외모 조언을 한 적이 있다.",up:false},
+      {s:"FINAL CHECK",q:"나는 꼰대는 아닌데로 시작한 말이 어느새 10분짜리 인생 강의가 된 적이 있다.",up:true}
+    ];
+    var results=[
+      {max:10,level:"LEVEL 1",title:"유행과 화해한 어른",img:"https://blogger.googleusercontent.com/img/a/AVvXsEgMYcyC6_Tsig5_Iw3d5y6slPx8LBQqq_9Wy_q4R-s77gT6zGyHFjB8rnRarTlx7e0uBSIBFGjU0G_t9ZUEofqySkIsbHIAfsw8uu4QCSNIVY7xt7Nq_ZjP4g1-yJuCNymFYjTTDYYzqYRPzBmvm-kjwedxsviiZW1mQX-KcFq0EPDEAg75aagjwCUSoa8K",summary:"젊은 문화를 즐겨도 그것을 권력처럼 쓰지 않는 편입니다. 스마트폰 기능을 몰라도 웃으며 배우고, 회식 불참에도 쿨하게 고개를 끄덕일 가능성이 큽니다.",scene:"선글라스는 손에 들고 있지만 눈치는 제대로 보고 있습니다. 주변 사람도 당신 앞에서는 세대 번역기를 켤 필요가 없습니다.",tip:"모르는 기능은 모른다고 말하고, 좋은 취향은 조용히 즐기면 지금처럼 충분합니다."},
+      {max:20,level:"LEVEL 2",title:"살짝 낀 영포티 필터",img:"https://blogger.googleusercontent.com/img/a/AVvXsEjW7r_3GTvXee88m_jyzF1BoXZbkIdjT1hZNHH_lN8KMPEXp7GW6qTV-uVmnxDiOvL9A-hC4IkHXliHuRVwL0SqlJtuPAkyciPBiu51NIdjljqys55pXxNOCwgUjGn7Yu1kXuVQiQH2va0bBb-PC5170ySv852Io1RuxKdF6t65rNjTgRsl-j6rgFoKj1OC",summary:"가끔 최신 기기와 유행어가 나를 젊게 증명해 준다고 믿지만, 아직 스스로 웃고 멈출 줄 압니다. 무해한 허세가 한두 방울 섞인 상태입니다.",scene:"새 기능을 알려준 후배에게 원래 알았다는 표정이 0.5초쯤 지나갑니다. 그래도 고맙다는 말은 빠뜨리지 않습니다.",tip:"아는 척보다 배우는 척이 훨씬 젊어 보입니다. 설명을 들은 뒤에는 그냥 고맙다고 말해 보세요."},
+      {max:31,level:"LEVEL 3",title:"회식 마이크 대기 중",img:"https://blogger.googleusercontent.com/img/a/AVvXsEiWByeq0PzjrAZRDemmPYw6C3Lj3COhtSGju_cwP3jwOat2Kmfm1pf7cnVNN75-xL62HzL3Cvdun1NTyLuFE1X1pGKyGqLUQnKywf4rQTi3BRquqJtKxLLfg2Xtxl8wHkCIcAUYC4_cpgazCHU55J2QnOShcBB8YnXY9RFj0B-M31wPR2YMieE_YBN9XkvA",summary:"회식과 단체방에서 존재감이 조금 커졌습니다. 분위기를 살린다고 나섰지만 누군가는 퇴근 버튼을 찾고 있을 수 있습니다.",scene:"자율 참석 공지 아래에 참석자 명단을 은근히 확인하고, 마이크를 든 순간 모두의 추억도 내 추억과 같다고 믿습니다.",tip:"즐거움은 참석 인원이나 성별이 아니라 각자의 선택권에서 시작합니다. 한 번 권하고 두 번은 묻지 마세요."},
+      {max:42,level:"LEVEL 4",title:"단톡방 인생 멘토",img:"https://blogger.googleusercontent.com/img/a/AVvXsEgC_E5N9G57vm9hkwc0Y_b3QGDMLooG_1HGblwWWU2reCzdgL2I4QnMF3HQQjOqeu-T_BPLZ3rZfQ2mG893zkAfLunitXChp64CkxlLYP51ZIK14gnDR71rPe3lWS2HKptU2vvVYZzLTbzzV1XKB54bGv10vnikyt-rZgG5_Mmkn6LJzCfSeONn8Gc_Yxt-",summary:"최신폰, 골프채, 긴 기사 링크와 인생 조언이 하나의 패키지로 완성되고 있습니다. 본인은 소통이라 생각하지만 상대는 강의를 수강 중일 수 있습니다.",scene:"수평적 조직을 말하며 호칭에는 예민하고, 젊은 세대의 소비를 걱정하면서 내 소비는 투자라고 부르는 장면이 자주 포착됩니다.",tip:"조언하기 전에 딱 한 문장만 물어보세요. 내 생각이 필요한지부터 확인하면 영포티력이 크게 내려갑니다."},
+      {max:52,level:"LEVEL 5",title:"선택적 원칙의 최종 보스",img:"https://blogger.googleusercontent.com/img/a/AVvXsEgZud1D7_t8M9MW7UeqxtqHU-x1mydgkC-Ao7a5yZkIRynBtKONUR-r9tPiLsxN9CmWaUsjYYbTPFRu-h7pXbl0xItQRXZ8r2rzM2SR_v7SOnXLnsjg80WBybdquiOg8ekYe_WKn9g2iZQTChETnGVw20ePleb1bZMzG4cBeLM8iXmNuuNsr_dInLyQkduS",summary:"마음속에는 NO NO JAPAN 깃발이 펄럭이지만 손에는 일본 게임기가 들려 있고, 최신폰과 회식 마이크와 인생 훈수가 동시에 빛나는 최종 단계입니다.",scene:"내 소비는 취향, 남의 소비는 낭비이고, 내 의견은 상식, 남의 의견은 편향이 됩니다. 단체방 알림이 울리면 주변 사람들이 먼저 긴장합니다.",tip:"취향은 자유롭게, 원칙은 나에게 먼저, 조언은 요청받았을 때만. 이 세 가지만 지켜도 최종 보스 장비가 하나씩 해제됩니다."}
+    ];
+    var index=0,answers=[],soundOn=true,audioCtx=null,bgmTimer=null,toastTimer=null;
+    var screens={start:root.querySelector("#yf-start"),quiz:root.querySelector("#yf-quiz"),result:root.querySelector("#yf-result")};
+    function show(name){Object.keys(screens).forEach(function(k){screens[k].classList.toggle("is-active",k===name);});root.scrollIntoView({behavior:"smooth",block:"start"});}
+    function ensureAudio(){if(!audioCtx){var C=window.AudioContext||window.webkitAudioContext;if(C){audioCtx=new C();}}if(audioCtx&&audioCtx.state==="suspended"){audioCtx.resume();}}
+    function tone(freq,duration,gain,delay){if(!soundOn){return;}ensureAudio();if(!audioCtx){return;}var o=audioCtx.createOscillator(),g=audioCtx.createGain(),t=audioCtx.currentTime+(delay||0);o.type="triangle";o.frequency.setValueAtTime(freq,t);g.gain.setValueAtTime(0.0001,t);g.gain.exponentialRampToValueAtTime(gain,t+.02);g.gain.exponentialRampToValueAtTime(0.0001,t+duration);o.connect(g);g.connect(audioCtx.destination);o.start(t);o.stop(t+duration+.03);}
+    function startBgm(){stopBgm();if(!soundOn){return;}var notes=[196,247,294,247,220,262,330,262],n=0;function play(){tone(notes[n%notes.length],.16,.038,0);n++;}play();bgmTimer=setInterval(play,520);}
+    function stopBgm(){if(bgmTimer){clearInterval(bgmTimer);bgmTimer=null;}}
+    function renderQuestion(){var item=questions[index];root.querySelector("#yf-count").textContent=(index+1)+" / "+questions.length;root.querySelector("#yf-progress-bar").style.width=(((index+1)/questions.length)*100)+"%";root.querySelector("#yf-section").textContent=item.s;root.querySelector("#yf-question").textContent=item.q;root.querySelector("#yf-alert").classList.toggle("is-visible",item.up);}
+    function pick(choice){answers[index]=choice;tone(choice==="yes"?440:choice==="maybe"?349:294,.14,.065,0);if(index<questions.length-1){index++;renderQuestion();}else{finish();}}
+    function score(){var total=0;answers.forEach(function(a,i){var base=a==="yes"?2:a==="maybe"?1:0;total+=questions[i].up?base*2:base;});return total;}
+    function finish(){var total=score(),result=results[0];for(var i=0;i<results.length;i++){if(total<=results[i].max){result=results[i];break;}}stopBgm();tone(392,.18,.075,0);tone(523,.22,.075,.15);tone(659,.28,.08,.32);root.querySelector("#yf-level").textContent=result.level;root.querySelector("#yf-result-title").textContent=result.title;root.querySelector("#yf-score").textContent="영포티력 "+total+" / 52점";root.querySelector("#yf-result-image").src=result.img;root.querySelector("#yf-result-image").alt=result.title+" 결과 캐릭터";root.querySelector("#yf-summary").textContent=result.summary;root.querySelector("#yf-scene").textContent=result.scene;root.querySelector("#yf-tip").textContent=result.tip;show("result");}
+    function toast(msg){var el=root.querySelector("#yf-toast");el.textContent=msg;el.classList.add("is-visible");clearTimeout(toastTimer);toastTimer=setTimeout(function(){el.classList.remove("is-visible");},2200);}
+    root.querySelector("#yf-start-btn").addEventListener("click",function(){index=0;answers=[];ensureAudio();startBgm();renderQuestion();show("quiz");});
+    root.querySelectorAll(".yf-answer").forEach(function(btn){btn.addEventListener("click",function(){pick(btn.getAttribute("data-choice"));});});
+    root.querySelector("#yf-back").addEventListener("click",function(){if(index>0){index--;answers.splice(index,1);tone(247,.1,.05,0);renderQuestion();}else{stopBgm();show("start");}});
+    root.querySelector("#yf-sound").addEventListener("click",function(){soundOn=!soundOn;this.textContent=soundOn?"SOUND ON":"SOUND OFF";if(soundOn){ensureAudio();startBgm();}else{stopBgm();}});
+    root.querySelector("#yf-retry").addEventListener("click",function(){index=0;answers=[];show("start");});
+    root.querySelector("#yf-share").addEventListener("click",function(){var text="나의 영포티력 테스트 결과: "+root.querySelector("#yf-result-title").textContent+" - "+root.querySelector("#yf-score").textContent;var data={title:"나의 영포티력 테스트",text:text,url:window.location.href};if(navigator.share){navigator.share(data).catch(function(){});}else if(navigator.clipboard){navigator.clipboard.writeText(text+" "+window.location.href).then(function(){toast("친구에게 보낼 링크를 복사했어요");});}else{toast("현재 주소를 복사해 친구에게 보내 주세요");}});
+  })();
+  </script>
+</div>
+
+<!-- ===== 카카오톡 결과 공유 (testmix v2.2) ===== -->
+<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.4/kakao.min.js" crossorigin="anonymous"></script>
+<script>
+//<![CDATA[
+(function () {
+  var Q = function (s) { return document.querySelector(s); };
+  var T = function (s) {
+    var e = Q(s); if (!e) return '';
+    var c = e.cloneNode(true);
+    [].forEach.call(c.querySelectorAll('[class*="google-anno"],ins,script,style'), function (x) { x.remove(); });
+    return c.textContent.replace(/\s+/g, ' ').trim();
+  };
+  var DOT = '\u00b7';
+  var CFG = {test:'영포티 테스트', fmt:'나의 영포티력: {name}', btn:'#yf-share', read:function(){return {name:(T('#yf-level')+' '+T('#yf-result-title')).trim(), nick:T('#yf-score'), img:'#yf-result-image'};}};
+  var KEY = '7ddee789fac314a1a3a712d361c76c21', LABEL = '결과 공유하기';
+  var SHARE_RE = /친구|공유|함께|보내기|찾아주기/;
+  if (window.Kakao && !Kakao.isInitialized()) Kakao.init(KEY);
+
+  function base() { return location.origin + location.pathname; }
+  function og() { var m = Q('meta[property="og:image"]'); return m ? m.content : ''; }
+  function cut(s, n) { s = s || ''; return s.length > n ? s.slice(0, n - 1) + '\u2026' : s; }
+
+  async function upload(blob) {
+    var res = await Kakao.Share.uploadImage({ file: [new File([blob], 'result.png', { type: blob.type || 'image/png' })] });
+    return res.infos.original.url.replace(/^http:/, 'https:');
+  }
+  function toBlob(cv) { return new Promise(function (r) { cv.toBlob(r, 'image/png'); }); }
+
+  async function cropSprite(url, el, cs) {
+    var sz = cs.backgroundSize.split(' '), ps = cs.backgroundPosition.split(' ');
+    if (sz[0].indexOf('%') < 0) return url;
+    var W = parseFloat(sz[0]), H = parseFloat(sz[1] || sz[0]);
+    if (W <= 100 && H <= 100) return url;
+    var bmp = await createImageBitmap(await (await fetch(url + (url.indexOf('?') < 0 ? '?' : '&') + 'ks=1', { mode: 'cors' })).blob());
+    var nw = bmp.width, nh = bmp.height;
+    function frac(p, S, elLen) {
+      if (/%$/.test(p)) return (1 - 100 / S) * parseFloat(p) / 100;
+      var bg = S / 100 * elLen; return bg ? -parseFloat(p) / bg : 0;
+    }
+    var sw = nw * Math.min(1, 100 / W), sh = nh * Math.min(1, 100 / H);
+    var sx = nw * frac(ps[0] || '0%', W, el.offsetWidth), sy = nh * frac(ps[1] || ps[0] || '0%', H, el.offsetHeight);
+    var k = Math.min(1, 800 / Math.max(sw, sh));
+    var cv = document.createElement('canvas'); cv.width = Math.round(sw * k); cv.height = Math.round(sh * k);
+    cv.getContext('2d').drawImage(bmp, sx, sy, sw, sh, 0, 0, cv.width, cv.height);
+    return upload(await toBlob(cv));
+  }
+
+  async function svgShot(svg) {
+    var r = svg.getBoundingClientRect(), c = svg.cloneNode(true);
+    var src = [svg].concat([].slice.call(svg.querySelectorAll('*'))), dst = [c].concat([].slice.call(c.querySelectorAll('*')));
+    var props = ['fill', 'stroke', 'stroke-width', 'stroke-dasharray', 'opacity', 'fill-opacity', 'stroke-opacity', 'font-size', 'font-weight', 'font-family', 'text-anchor', 'dominant-baseline'];
+    src.forEach(function (s, i) { var st = getComputedStyle(s); dst[i].setAttribute('style', props.map(function (p) { return p + ':' + st.getPropertyValue(p); }).join(';')); });
+    c.setAttribute('xmlns', 'http://www.w3.org/2000/svg'); c.setAttribute('width', r.width); c.setAttribute('height', r.height);
+    var u = URL.createObjectURL(new Blob([new XMLSerializer().serializeToString(c)], { type: 'image/svg+xml' }));
+    var img = new Image(); await new Promise(function (ok, no) { img.onload = ok; img.onerror = no; img.src = u; });
+    var pad = 40, s = 2, cv = document.createElement('canvas');
+    cv.width = (r.width + pad * 2) * s; cv.height = (r.height + pad * 2) * s;
+    var x = cv.getContext('2d'); x.fillStyle = '#fff'; x.fillRect(0, 0, cv.width, cv.height);
+    x.drawImage(img, pad * s, pad * s, r.width * s, r.height * s); URL.revokeObjectURL(u);
+    return upload(await toBlob(cv));
+  }
+
+  async function getImage(sel) {
+    var el = sel ? Q(sel) : null;
+    if (!el) return og();
+    var src = '';
+    if (el.tagName === 'IMG') src = el.currentSrc || el.src;
+    else if (el.tagName.toLowerCase() === 'svg') return svgShot(el);
+    else {
+      var im = el.querySelector('img');
+      if (im) src = im.currentSrc || im.src;
+      else {
+        var nodes = [el].concat([].slice.call(el.querySelectorAll('*')));
+        for (var i = 0; i < nodes.length; i++) {
+          var cs = getComputedStyle(nodes[i]), m = /url\(["']?([^"')]+)/.exec(cs.backgroundImage);
+          if (m) {
+            if (/^https?:/.test(m[1])) return cropSprite(m[1], nodes[i], cs);
+            src = m[1]; break;
+          }
+        }
+        if (!src) { var sv = el.querySelector('svg'); if (sv) return svgShot(sv); }
+      }
+    }
+    if (/^https:\/\//.test(src)) return src;
+    if (/^(data|blob):/.test(src)) return upload(await (await fetch(src)).blob());
+    return og();
+  }
+
+  async function share() {
+    var r = null;
+    try { r = CFG.read(); } catch (e) {}
+    if (!r || !r.name) { alert('테스트를 먼저 완료해 주세요!'); return; }
+    var link = base() + '?r=' + encodeURIComponent(r.name.slice(0, 40));
+    var title = cut(CFG.fmt.replace('{name}', r.name), 80);
+    var desc = (r.nick ? cut(r.nick, 60) + ' | ' : '') + CFG.test;
+    try {
+      if (!window.Kakao) throw 0;
+      var img = og();
+      try { img = (await getImage(r.img || '')) || og(); } catch (e) { img = og(); }
+      Kakao.Share.sendDefault({
+        objectType: 'feed',
+        content: { title: title, description: desc, imageUrl: img, link: { mobileWebUrl: link, webUrl: link } },
+        buttons: [{ title: '나도 해보기', link: { mobileWebUrl: link, webUrl: link } }]
+      });
+    } catch (e) {
+      try {
+        if (navigator.share) { await navigator.share({ title: title, text: title, url: link }); return; }
+        await navigator.clipboard.writeText(title + ' ' + link);
+        alert('링크가 복사되었어요!');
+      } catch (e2) {}
+    }
+  }
+
+  window.addEventListener('click', function (e) {
+    var el = e.target.closest && e.target.closest('[data-kshare]');
+    if (!el || el.textContent.trim() !== LABEL) return;
+    e.preventDefault(); e.stopImmediatePropagation(); share();
+  }, true);
+
+  function sync() {
+    if (CFG.btn) [].forEach.call(document.querySelectorAll(CFG.btn), function (b) {
+      if (!SHARE_RE.test(b.textContent)) return;
+      if (b.textContent.trim() !== LABEL) b.textContent = LABEL;
+      if (!b.hasAttribute('data-kshare')) b.setAttribute('data-kshare', '');
+    });
+    if (CFG.add && !Q('[data-kshare]')) {
+      var a = Q(CFG.add.sel);
+      if (a) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = CFG.add.cls != null ? CFG.add.cls : (CFG.add.into ? ((a.querySelector('button') || {}).className || '') : (a.className || ''));
+        b.textContent = LABEL;
+        b.setAttribute('data-kshare', '');
+        if (CFG.add.into) a.appendChild(b); else a.parentNode.insertBefore(b, a.nextSibling);
+      }
+    }
+  }
+
+  function banner() {
+    var who = new URLSearchParams(location.search).get('r'), pb = Q('.post-body');
+    if (!who || !pb) return;
+    var d = document.createElement('div');
+    d.style.cssText = 'margin:0 0 14px;padding:12px 14px;border-radius:12px;background:#e8f4ff;color:#0b3a66;font-weight:600;text-align:center;line-height:1.5';
+    d.textContent = '\ud83d\udc8c 친구의 결과는 "' + who.slice(0, 40) + '" ' + DOT + ' 나도 해보기 \ud83d\udc47';
+    pb.insertBefore(d, pb.firstChild);
+  }
+
+  function init() {
+    sync(); banner();
+    var pending = false, pb = Q('.post-body') || document.body;
+    new MutationObserver(function () {
+      if (pending) return; pending = true;
+      requestAnimationFrame(function () { pending = false; sync(); });
+    }).observe(pb, { childList: true, subtree: true });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+})();
+//]]>
+</script>
