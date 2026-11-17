@@ -14,6 +14,7 @@ import json
 import os
 import re
 import shutil
+from datetime import datetime
 from urllib.parse import quote
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -28,7 +29,23 @@ PREVIEW = bool(BASE)
 site = json.load(open(os.path.join(ROOT, 'theme', 'site.json'), encoding='utf-8'))
 ORIGIN = site['origin']
 posts = json.load(open(os.path.join(ROOT, 'content', 'posts.json'), encoding='utf-8'))['posts']
-posts.sort(key=lambda p: p['published'], reverse=True)
+posts.sort(key=lambda p: datetime.fromisoformat(p['published']), reverse=True)
+
+# Images copied from Blogger into the repository (see fetch_images.py)
+IMG_MAP_FILE = os.path.join(ROOT, 'content', 'image_map.json')
+IMG_MAP = json.load(open(IMG_MAP_FILE, encoding='utf-8')) if os.path.exists(IMG_MAP_FILE) else {}
+IMG_PAT = re.compile(r'https?://blogger\.googleusercontent\.com/[^\s"\'<>)\\]+')
+
+
+def local_images(text):
+    """Point Blogger image URLs at the copies served from this site (absolute URLs)."""
+    return IMG_PAT.sub(lambda m: ORIGIN + '/assets/img/' + IMG_MAP[m.group(0)] if m.group(0) in IMG_MAP else m.group(0), text)
+
+
+for _p in posts:
+    if _p['image'] in IMG_MAP:
+        _p['image'] = '/assets/img/' + IMG_MAP[_p['image']]
+    _p['ogImage'] = local_images(_p['ogImage'])
 
 esc = lambda s: html.escape(s or '', quote=True)
 
@@ -243,7 +260,7 @@ def build_home():
 
 # ---------------------------------------------------------------- post
 def build_post(p):
-    body = rebase_body(read(p['body']))
+    body = local_images(rebase_body(read(p['body'])))
     canonical = ORIGIN + p['path']
     desc = p['description'] or p['snippet']
     ld = {'@context': 'https://schema.org', '@type': 'BlogPosting',
@@ -470,6 +487,11 @@ def build_misc():
     os.makedirs(os.path.join(OUT, 'assets', 'thumbs'), exist_ok=True)
     for f in os.listdir(tdir):
         shutil.copy(os.path.join(tdir, f), os.path.join(OUT, 'assets', 'thumbs', f))
+    idir = os.path.join(ROOT, 'content', 'images')
+    os.makedirs(os.path.join(OUT, 'assets', 'img'), exist_ok=True)
+    for f in set(IMG_MAP.values()):
+        if os.path.exists(os.path.join(idir, f)):
+            shutil.copy(os.path.join(idir, f), os.path.join(OUT, 'assets', 'img', f))
     write('/ads.txt', 'google.com, %s, DIRECT, f08c47fec0942fa0\n' % site['adClient'].replace('ca-', ''))
     if PREVIEW:
         write('/robots.txt', 'User-agent: *\nDisallow: /\n')
@@ -496,7 +518,6 @@ def build_misc():
 
 
 def rfc822(iso):
-    from datetime import datetime
     return datetime.fromisoformat(iso).strftime('%a, %d %b %Y %H:%M:%S %z')
 
 

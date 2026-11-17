@@ -1,0 +1,509 @@
+<link href="https://cdn.jsdelivr.net/npm/galmuri@2.40.3/dist/galmuri.css" rel="stylesheet">
+<style>
+#tq07-app,#tq07-app *,.tq07-seo,.tq07-seo *{box-sizing:border-box}
+#tq07-app{--ink:#2E2A47;--sub:#5C5878;--main:#E0457A;--soft:#FFE6EF;--line:#F3C6D6;--dark:#A82A58;--hf:'Galmuri11',monospace;max-width:560px;margin:0 auto 28px;color:var(--ink);font-size:16px;line-height:1.65;word-break:keep-all}
+#tq07-app .q-screen{display:none}
+#tq07-app .q-screen.on{display:block;animation:tq07In .35s ease}
+@keyframes tq07In{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+#tq07-app .q-panel{background:#fff;border:2px solid var(--line);border-radius:26px;padding:24px 20px;box-shadow:0 8px 24px rgba(0,0,0,.06)}
+#tq07-app .q-hf{font-family:var(--hf);font-weight:400}
+#tq07-app .q-badge{display:inline-block;margin:0 0 10px;padding:4px 14px;border-radius:99px;background:var(--soft);color:var(--main);font-size:14px;font-weight:700}
+#tq07-app .q-title{margin:0 0 14px;font-family:var(--hf);font-weight:400;font-size:31px;line-height:1.3;color:var(--ink)}
+#tq07-app .q-title b{color:var(--main);font-weight:400}
+#tq07-app img{display:block;max-width:100%;height:auto;margin:0 auto;border-radius:20px}
+#tq07-app .q-meta{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:16px 0 4px}
+#tq07-app .q-meta span{padding:5px 12px;border-radius:99px;background:#fff;border:1px solid var(--line);font-size:14px;color:var(--sub)}
+#tq07-app .q-lead{margin:14px 0 18px;color:var(--sub);font-size:15px}
+#tq07-app .q-btn{display:block;width:100%;border:0;border-radius:18px;padding:16px;background:var(--main);color:#fff;font-family:var(--hf);font-size:21px;cursor:pointer;box-shadow:0 5px 0 var(--dark);transition:transform .1s}
+#tq07-app .q-btn:active{transform:translateY(3px);box-shadow:0 2px 0 var(--dark)}
+#tq07-app .q-start{text-align:center}
+#tq07-app .q-friend{display:none;margin:0 0 14px;padding:14px 16px;border-radius:18px;background:#FFF4D9;border:2px dashed #F2C46B;text-align:center;font-size:15px}
+#tq07-app .q-friend.on{display:block}
+#tq07-app .q-friend b{color:#D9822B}
+#tq07-app .q-inp{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 16px}
+#tq07-app .q-inp input,#tq07-app .q-inp select{width:100%;padding:12px;border:2px solid var(--line);border-radius:14px;font-size:16px;text-align:center;color:var(--ink);background:#fff;font-family:inherit}
+#tq07-app .q-inp label{display:block;font-size:13px;color:var(--sub);margin:0 0 4px}
+#tq07-app .q-top{display:flex;align-items:center;justify-content:space-between;margin:0 4px 10px;font-size:15px;color:var(--sub)}
+#tq07-app .q-back{border:0;background:none;color:var(--sub);font-size:15px;cursor:pointer;padding:6px 4px;font-family:inherit}
+#tq07-app .q-back[disabled]{visibility:hidden}
+#tq07-app .q-timer{font-weight:800;color:var(--main)}
+#tq07-app .q-prog{height:12px;border-radius:99px;background:var(--soft);overflow:hidden;margin-bottom:14px}
+#tq07-app .q-prog i{display:block;height:100%;width:0;border-radius:99px;background:var(--main);transition:width .3s}
+#tq07-app .q-qno{margin:0 0 6px;font-family:var(--hf);font-size:18px;color:var(--main)}
+#tq07-app .q-who{display:inline-block;margin-left:8px;padding:2px 10px;border-radius:99px;background:var(--soft);font-size:14px}
+#tq07-app .q-q{margin:0 0 20px;font-size:20px;font-weight:700;line-height:1.5;min-height:60px;color:var(--ink)}
+#tq07-app .q-fig{margin:0 0 16px;text-align:center}
+#tq07-app .q-fig svg{max-width:100%;height:auto}
+#tq07-app .q-opt{display:flex;align-items:center;gap:12px;width:100%;margin:0 0 10px;padding:13px 16px;border:2px solid var(--line);border-radius:16px;background:#fff;color:var(--ink);font-size:16px;text-align:left;cursor:pointer;transition:all .15s;font-family:inherit;line-height:1.45}
+@media (hover:hover){#tq07-app .q-opt:hover{border-color:var(--main);background:var(--soft)}}
+#tq07-app .q-opt.sel{border-color:var(--main);background:var(--soft)}
+#tq07-app .q-opt i{flex:0 0 auto;border-radius:50%;border:2px solid var(--line);background:#fff}
+#tq07-app .q-opt.sel i{background:var(--main);border-color:var(--main)}
+#tq07-app .q-opt b{flex:0 0 auto;width:26px;height:26px;border-radius:50%;background:var(--soft);color:var(--main);font-size:14px;display:flex;align-items:center;justify-content:center}
+#tq07-app .q-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+#tq07-app .q-grid .q-opt{display:block;padding:8px;text-align:center}
+#tq07-app .q-grid .q-opt svg{width:100%;height:auto}
+#tq07-app .q-load{text-align:center;padding:40px 10px}
+#tq07-app .q-load img{width:62%;animation:tq07Bob 1s ease-in-out infinite alternate}
+@keyframes tq07Bob{to{transform:translateY(-10px)}}
+#tq07-app .q-load p{margin:18px 0 0;font-family:var(--hf);font-size:21px}
+#tq07-app .q-rhead{text-align:center}
+#tq07-app .q-rlabel{margin:0;color:var(--sub);font-size:15px}
+#tq07-app .q-rname{margin:2px 0 0;font-family:var(--hf);font-weight:400;font-size:38px;line-height:1.25}
+#tq07-app .q-rnick{display:inline-block;margin:6px 0 16px;padding:4px 16px;border-radius:99px;color:#fff;font-family:var(--hf);font-size:18px}
+#tq07-app .q-one{margin:16px 0 0;padding:14px 16px;border-radius:18px;background:var(--soft);text-align:center;font-family:var(--hf);font-size:20px;line-height:1.45}
+#tq07-app .q-score{margin:18px 0 0}
+#tq07-app .q-big{text-align:center;font-family:var(--hf);font-size:44px;line-height:1.1;color:var(--main)}
+#tq07-app .q-big small{display:block;font-size:15px;color:var(--sub);font-family:inherit}
+#tq07-app .q-bar{margin:0 0 10px}
+#tq07-app .q-bar p{margin:0 0 4px;display:flex;justify-content:space-between;font-size:14px;font-weight:700}
+#tq07-app .q-track{height:12px;border-radius:99px;background:var(--soft);overflow:hidden}
+#tq07-app .q-track i{display:block;height:100%;border-radius:99px;width:0;transition:width .8s ease;background:var(--main)}
+#tq07-app .q-steps{display:flex;gap:6px;justify-content:center;margin:10px 0 0}
+#tq07-app .q-steps i{width:34px;height:12px;border-radius:99px;background:var(--soft)}
+#tq07-app .q-steps i.on{background:var(--main)}
+#tq07-app .q-radar{display:block;margin:0 auto;max-width:300px}
+#tq07-app .q-sec{margin:26px 0 8px;font-size:18px;font-weight:800;color:var(--ink)}
+#tq07-app .q-txt{margin:0;color:var(--sub)}
+#tq07-app .q-list{margin:0;padding:0;list-style:none}
+#tq07-app .q-list li{position:relative;margin:0 0 8px;padding:10px 12px 10px 38px;border-radius:14px;background:#FAFAFD;border:1px solid var(--line);color:var(--sub);font-size:15px}
+#tq07-app .q-list li:before{content:'';position:absolute;left:14px;top:18px;width:10px;height:10px;border-radius:50%;background:var(--c,var(--main))}
+#tq07-app .q-note{margin:0;padding:14px 16px;border-radius:16px;border:2px dashed var(--line);color:var(--sub);font-size:15px}
+#tq07-app .q-match{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+#tq07-app .q-mcard{padding:12px;border-radius:18px;text-align:center;font-size:13px;color:var(--sub);background:var(--soft)}
+#tq07-app .q-mcard img{width:78%;border-radius:14px;margin-bottom:6px}
+#tq07-app .q-mcard b{display:block;font-family:var(--hf);font-weight:400;font-size:17px;color:var(--ink)}
+#tq07-app .q-mcard em{display:inline-block;margin-bottom:6px;padding:2px 10px;border-radius:99px;background:#fff;font-style:normal;font-size:12px;font-weight:700}
+#tq07-app .q-tbl{width:100%;border-collapse:collapse;font-size:14px}
+#tq07-app .q-tbl td{padding:8px 6px;border-bottom:1px solid var(--line);font-size:13px;text-align:center}
+#tq07-app .q-tbl td:first-child{text-align:left;color:var(--sub)}
+#tq07-app .q-warn{margin:22px 0 0;font-size:12px;color:var(--sub);opacity:.75;text-align:center}
+#tq07-app .q-acts{display:grid;gap:10px;margin-top:20px}
+#tq07-app .q-kakao{background:#FEE500;color:#3A1D1D;box-shadow:0 5px 0 #D9C200}
+#tq07-app .q-kakao:active{box-shadow:0 2px 0 #D9C200}
+#tq07-app .q-sub2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+#tq07-app .q-ghost{border:2px solid var(--line);border-radius:16px;padding:12px;background:#fff;color:var(--ink);font-family:var(--hf);font-size:17px;cursor:pointer}
+#tq07-app .q-more{margin-top:22px;padding-top:18px;border-top:2px dashed var(--line)}
+#tq07-app .q-more p{margin:0 0 10px;font-weight:800}
+#tq07-app .q-more a{display:block;margin:0 0 8px;padding:12px 14px;border-radius:14px;background:var(--soft);color:var(--ink);text-decoration:none;font-size:15px}
+#tq07-app .q-toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%);padding:10px 18px;border-radius:99px;background:rgba(40,36,60,.92);color:#fff;font-size:14px;opacity:0;pointer-events:none;transition:opacity .25s;z-index:9999}
+#tq07-app .q-toast.on{opacity:1}
+.tq07-seo{max-width:680px;margin:36px auto 0;color:#3F3A4F;font-size:16px;line-height:1.8;word-break:keep-all}
+.tq07-seo h2{margin:38px 0 12px;padding-left:12px;border-left:6px solid #E0457A;font-size:22px;line-height:1.4;color:#2E2A47}
+.tq07-seo h3{margin:24px 0 8px;font-size:18px;color:#2E2A47}
+.tq07-seo p{margin:0 0 14px}
+.tq07-seo img{display:block;max-width:100%;height:auto;margin:10px auto 18px;border-radius:20px}
+.tq07-seo ul,.tq07-seo ol{margin:0 0 14px;padding-left:20px}
+.tq07-seo li{margin:0 0 6px}
+.tq07-seo .q-tw{overflow-x:auto;margin:0 0 16px}
+.tq07-seo table{width:100%;min-width:460px;border-collapse:collapse;font-size:14px}
+.tq07-seo th,.tq07-seo td{padding:10px 8px;border:1px solid #F3C6D6;text-align:center;vertical-align:middle}
+.tq07-seo th{background:#FFE6EF;color:#2E2A47}
+.tq07-seo .q-faq{margin:0 0 12px;padding:14px 16px;border-radius:16px;background:#FFE6EF}
+.tq07-seo .q-faq h3{margin:0 0 6px;font-size:16px}
+.tq07-seo .q-faq p{margin:0}
+.tq07-seo .q-box{padding:14px 16px;border-radius:16px;background:#FFF8E6;font-size:14px;color:#6B5A2E}
+
+#tq07-app .q-panel,#tq07-app .q-opt,#tq07-app .q-btn,#tq07-app .q-ghost,#tq07-app .q-list li,#tq07-app .q-one,#tq07-app .q-note,#tq07-app .q-mcard,#tq07-app .q-more a,#tq07-app .q-meta span,#tq07-app .q-badge,#tq07-app .q-rnick,#tq07-app .q-prog,#tq07-app .q-prog i,#tq07-app .q-track,#tq07-app .q-track i,#tq07-app img,#tq07-app .q-friend,#tq07-app .q-inp input,#tq07-app .q-inp select{border-radius:0}
+#tq07-app{font-family:'Galmuri11',sans-serif;font-size:15px}
+#tq07-app .q-panel{border:4px solid var(--ink);box-shadow:6px 6px 0 var(--ink)}
+#tq07-app .q-opt{border:3px solid var(--ink);box-shadow:3px 3px 0 var(--line)}
+#tq07-app .q-opt i{border-radius:0;border:3px solid var(--ink)}
+#tq07-app .q-btn{border:3px solid var(--ink);box-shadow:4px 4px 0 var(--ink)}
+#tq07-app .q-btn:active{box-shadow:1px 1px 0 var(--ink);transform:translate(3px,3px)}
+#tq07-app .q-kakao{box-shadow:4px 4px 0 var(--ink)}
+#tq07-app .q-ghost{border:3px solid var(--ink)}
+#tq07-app .q-prog,#tq07-app .q-track{border:2px solid var(--ink);height:16px}
+#tq07-app .q-prog i{background:repeating-linear-gradient(90deg,var(--main) 0 10px,var(--dark) 10px 12px)}
+#tq07-app img{image-rendering:pixelated}
+#tq07-app .q-list li:before{border-radius:0}
+#tq07-app .q-steps i{border-radius:0}
+#tq07-app .q-q{font-size:18px}
+</style>
+
+<div id="tq07-app" class="st-pixel">
+  <section id="tq07-start" class="q-screen on">
+    <div id="tq07-friend" class="q-friend"></div>
+    <div class="q-panel q-start">
+      <p class="q-badge">MBTI MATCH</p>
+      <h2 class="q-title">우리 둘의 <b>MBTI 궁합</b>은?</h2>
+      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjkyhmEwYhaYR996qJ62OX4uWmmXlqZ-mzdi7e_rLAaK9_ApvOB6tunBiVGWHQYnkUb-71-d3HGaZB-aTZoewwF8KcCOROp7WUtFj-XUmNJ02Fixn0Dive4oIlbrNuqmPXFiorMbtH_rb2vIo3URdms8J22S88yZsmaSTDzYrD7hyLE-iUqB9GpHlRIByY5/s1600/mbti-compatibility-test-thumbnail.png" alt="MBTI 궁합 테스트 - 16가지 유형 연애 궁합 도트 그래픽" width="1200" height="630">
+      <div class="q-meta"><span>16 × 16 궁합</span><span>10초 완성</span><span>글자별 분석</span><span>무료</span></div>
+      <p class="q-lead">내 MBTI와 상대의 MBTI를 고르면 연애 궁합 점수와 글자별 궁합 분석을 바로 알려 드려요. MBTI를 모른다면 아래 MBTI 테스트부터 해 보세요!</p>
+      <div class="q-inp"><div><label>나의 MBTI</label><select id="tq07-s1"><option value="">선택</option><option>INTJ</option><option>INTP</option><option>ENTJ</option><option>ENTP</option><option>INFJ</option><option>INFP</option><option>ENFJ</option><option>ENFP</option><option>ISTJ</option><option>ISFJ</option><option>ESTJ</option><option>ESFJ</option><option>ISTP</option><option>ISFP</option><option>ESTP</option><option>ESFP</option></select></div><div><label>상대의 MBTI</label><select id="tq07-s2"><option value="">선택</option><option>INTJ</option><option>INTP</option><option>ENTJ</option><option>ENTP</option><option>INFJ</option><option>INFP</option><option>ENFJ</option><option>ENFP</option><option>ISTJ</option><option>ISFJ</option><option>ESTJ</option><option>ESFJ</option><option>ISTP</option><option>ISFP</option><option>ESTP</option><option>ESFP</option></select></div></div>
+      <button type="button" id="tq07-go" class="q-btn">궁합 보기</button>
+    </div>
+  </section>
+
+  <section id="tq07-quiz" class="q-screen">
+    <div class="q-top">
+      <button type="button" id="tq07-back" class="q-back">‹ 이전</button>
+      
+      <span><b id="tq07-cnt">1</b> / 0</span>
+    </div>
+    <div class="q-prog"><i id="tq07-bar"></i></div>
+    <div class="q-panel">
+      <p id="tq07-qno" class="q-qno">Q1</p>
+      <h3 id="tq07-q" class="q-q"></h3>
+      <div id="tq07-fig" class="q-fig"></div>
+      <div id="tq07-opts"></div>
+    </div>
+  </section>
+
+  <section id="tq07-loading" class="q-screen">
+    <div class="q-panel q-load">
+      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjkyhmEwYhaYR996qJ62OX4uWmmXlqZ-mzdi7e_rLAaK9_ApvOB6tunBiVGWHQYnkUb-71-d3HGaZB-aTZoewwF8KcCOROp7WUtFj-XUmNJ02Fixn0Dive4oIlbrNuqmPXFiorMbtH_rb2vIo3URdms8J22S88yZsmaSTDzYrD7hyLE-iUqB9GpHlRIByY5/s1600/mbti-compatibility-test-thumbnail.png" alt="MBTI 궁합 테스트 결과 분석 중">
+      <p>MBTI 궁합 계산 중...</p>
+    </div>
+  </section>
+
+  <section id="tq07-result" class="q-screen">
+    <div class="q-panel">
+      <div class="q-rhead">
+        <p id="tq07-rlabel" class="q-rlabel">우리의 MBTI 궁합은</p>
+        <h2 id="tq07-rname" class="q-rname"></h2>
+        <span id="tq07-rnick" class="q-rnick"></span>
+        <img id="tq07-rimg" src="" alt="" width="800" height="800">
+      </div>
+      <p id="tq07-rone" class="q-one"></p>
+      <div id="tq07-score" class="q-score"></div>
+      <div id="tq07-rbody"></div>
+      <p class="q-warn">MBTI 궁합은 재미로 보는 참고 자료예요. 실제 관계는 유형보다 서로를 향한 노력이 훨씬 중요해요.</p>
+      <div class="q-acts">
+        <button type="button" id="tq07-share" class="q-btn q-kakao">결과 공유하기</button>
+        <div class="q-sub2">
+          <button type="button" id="tq07-copy" class="q-ghost">링크 복사</button>
+          <button type="button" id="tq07-retry" class="q-ghost">다시 하기</button>
+        </div>
+      </div>
+      <div class="q-more"><p>이 테스트도 해 보세요</p><a href="/2026/08/sound-on-love-instinct-test-mbti.html">MBTI 연애 테스트, 16가지 유형별 연애 성향</a><a href="/2026/09/mbti_0503772365.html">MBTI 레벨 테스트, 나는 내 성향의 몇 레벨?</a><a href="/2026/09/mbti.html">강아지 MBTI 테스트</a></div>
+    </div>
+  </section>
+  <div id="tq07-toast" class="q-toast"></div>
+</div>
+
+<div class="tq07-seo">
+
+  <h2>MBTI 궁합 테스트란? 우리 둘의 MBTI 연애 궁합</h2>
+  <p><strong>MBTI 궁합 테스트</strong>는 나와 상대의 MBTI 유형을 골라 연애 궁합을 알아보는 테스트예요. 16가지 유형끼리 만들 수 있는 256가지 조합의 궁합 점수를 바로 계산하고, E/I, S/N, T/F, J/P 네 글자를 하나씩 비교한 <strong>글자별 궁합 분석</strong>까지 보여 줘요.</p>
+  <h2>MBTI 궁합은 어떻게 계산하나요?</h2>
+  <p>이 테스트는 흔히 알려진 MBTI 궁합 이론을 바탕으로 네 글자에 서로 다른 가중치를 줘서 점수를 계산해요.</p>
+  <ul>
+    <li><strong>S/N (인식)</strong>: 세상을 보는 방식이 같을수록 대화가 잘 통해서 가장 큰 점수를 줘요.</li>
+    <li><strong>E/I (에너지)</strong>: 외향과 내향은 서로 다를 때 균형을 이룬다고 봐요.</li>
+    <li><strong>J/P (생활 양식)</strong>: 계획형과 즉흥형도 서로 다를 때 보완이 된다고 봐요.</li>
+    <li><strong>T/F (판단)</strong>: 같으면 서로를 이해하기 쉬워서 약간의 점수를 더해요.</li>
+  </ul>
+  <p>그래서 인식(S/N)은 같고 에너지(E/I)와 생활 양식(J/P)이 반대인 조합이 <strong>천생연분</strong>으로 나와요. 예를 들어 INFP와 ENFJ, ISTJ와 ESFP 같은 조합이에요.</p>
+  <h2>MBTI 궁합 5단계</h2>
+  <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjVe0GaHBEPR3qlgCHmpQQQHIsq6wmr__0a6rz_tZ5irolFdweQ-gqJunPognIORmE6poVC8uWNYwbJ1OTs_eWFHXoqtaZjLKFe9wwBAH9u2mY8Wwht8GoD6BZJdJjQnSI5L8LegeNy8_xxzTOkLv_bzaowBkPoK3StuqEdiBnX0QrV40XuOSEyDhQEIxBL/s1600/mbti-compatibility-test-types.png" alt="MBTI 궁합 테스트 궁합 5단계 한눈에 보기" loading="lazy">
+  <h2>16가지 MBTI 유형별 궁합표</h2>
+  <div class="q-tw"><table>
+    <thead><tr><th>나의 유형</th><th>천생연분</th><th>찰떡 궁합</th><th>극과 극</th></tr></thead>
+    <tbody>
+<tr><td><b>INTJ</b></td><td>ENTP, ENFP</td><td>INTP, ENTJ, INFP, ENFJ</td><td>ISTJ, ISFJ</td></tr>
+<tr><td><b>INTP</b></td><td>ENTJ, ENFJ</td><td>INTJ, ENTP, INFJ, ENFP</td><td>ISTP, ISFP</td></tr>
+<tr><td><b>ENTJ</b></td><td>INTP, INFP</td><td>INTJ, ENTP, INFJ, ENFP</td><td>ESTJ, ESFJ</td></tr>
+<tr><td><b>ENTP</b></td><td>INTJ, INFJ</td><td>INTP, ENTJ, INFP, ENFJ</td><td>ESTP, ESFP</td></tr>
+<tr><td><b>INFJ</b></td><td>ENTP, ENFP</td><td>INTP, ENTJ, INFP, ENFJ</td><td>ISTJ, ISFJ</td></tr>
+<tr><td><b>INFP</b></td><td>ENTJ, ENFJ</td><td>INTJ, ENTP, INFJ, ENFP</td><td>ISTP, ISFP</td></tr>
+<tr><td><b>ENFJ</b></td><td>INTP, INFP</td><td>INTJ, ENTP, INFJ, ENFP</td><td>ESTJ, ESFJ</td></tr>
+<tr><td><b>ENFP</b></td><td>INTJ, INFJ</td><td>INTP, ENTJ, INFP, ENFJ</td><td>ESTP, ESFP</td></tr>
+<tr><td><b>ISTJ</b></td><td>ESTP, ESFP</td><td>ESTJ, ESFJ, ISTP, ISFP</td><td>INTJ, INFJ</td></tr>
+<tr><td><b>ISFJ</b></td><td>ESTP, ESFP</td><td>ESTJ, ESFJ, ISTP, ISFP</td><td>INTJ, INFJ</td></tr>
+<tr><td><b>ESTJ</b></td><td>ISTP, ISFP</td><td>ISTJ, ISFJ, ESTP, ESFP</td><td>ENTJ, ENFJ</td></tr>
+<tr><td><b>ESFJ</b></td><td>ISTP, ISFP</td><td>ISTJ, ISFJ, ESTP, ESFP</td><td>ENTJ, ENFJ</td></tr>
+<tr><td><b>ISTP</b></td><td>ESTJ, ESFJ</td><td>ISTJ, ISFJ, ESTP, ESFP</td><td>INTP, INFP</td></tr>
+<tr><td><b>ISFP</b></td><td>ESTJ, ESFJ</td><td>ISTJ, ISFJ, ESTP, ESFP</td><td>INTP, INFP</td></tr>
+<tr><td><b>ESTP</b></td><td>ISTJ, ISFJ</td><td>ESTJ, ESFJ, ISTP, ISFP</td><td>ENTP, ENFP</td></tr>
+<tr><td><b>ESFP</b></td><td>ISTJ, ISFJ</td><td>ESTJ, ESFJ, ISTP, ISFP</td><td>ENTP, ENFP</td></tr>
+    </tbody>
+  </table></div>
+  <h2>MBTI 궁합, 얼마나 믿어도 될까?</h2>
+  <p>MBTI 궁합은 서로의 성향 차이를 이해하는 재미있는 출발점이에요. 하지만 같은 유형이라도 사람마다 성격이 다르고, 궁합이 낮게 나온 커플도 행복하게 잘 지내는 경우가 많아요. 결과는 "우리가 어떤 부분에서 다를 수 있는지" 알아보는 대화 주제로 활용해 보세요.</p>
+  <h2>자주 묻는 질문</h2>
+  <div class="q-faq"><h3>Q. 같은 MBTI끼리는 궁합이 어떤가요?</h3><p>같은 유형끼리는 생각이 비슷해 편안하지만, 같은 약점을 공유해서 서로를 보완하기는 어려울 수 있어요. 이 테스트에서는 무난한 궁합으로 나와요.</p></div>
+  <div class="q-faq"><h3>Q. 상대의 MBTI를 모르면 어떻게 하나요?</h3><p>상대에게 MBTI 연애 테스트나 MBTI 레벨 테스트 링크를 먼저 보내 보세요. 결과를 확인한 뒤 궁합을 보면 더 재미있어요.</p></div>
+  <div class="q-faq"><h3>Q. 친구나 직장 동료와도 볼 수 있나요?</h3><p>이 테스트는 연애 궁합 기준이지만, 글자별 분석은 친구나 동료와의 관계에도 참고할 수 있어요.</p></div>
+
+</div>
+
+<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.4/kakao.min.js" crossorigin="anonymous"></script>
+<script>
+//<![CDATA[
+
+(function(){
+  var S = {"mode":"select","q":[],"keys":["g1","g2","g3","g4","g5"],"r":{"g1":{"name":"극과 극 궁합","nick":"\u2605\u2606\u2606\u2606\u2606","color":"#7A62D6","bg":"#ECE6FF","one":"달라도 너무 다른, 그래서 배울 게 많은 사이","sec":[["\ud83d\udc9e 궁합 해석","txt","생각하는 방식부터 생활 리듬까지 차이가 큰 조합이에요. 처음에는 서로가 신기하고 끌릴 수 있지만, 시간이 지날수록 \"왜 저렇게 생각하지?\" 싶은 순간이 많아질 수 있어요. 하지만 차이를 인정하는 순간 가장 많이 성장하는 커플이 되기도 해요."],["\u2728 잘 맞는 점","list",["서로에게 없는 시각을 배울 수 있어요","함께하면 새로운 경험이 많아져요"]],["\u26a0\ufe0f 조심할 점","list",["대화 방식의 차이로 오해가 생기기 쉬워요","내 기준을 상대에게 강요하지 않기"]],["\ud83d\udc8c 연애 꿀팁","note","다툼이 생기면 \"누가 맞나\"보다 \"서로 어떻게 다른가\"를 이야기해 보세요. 차이를 알면 싸울 일이 확 줄어요."]]},"g2":{"name":"노력형 궁합","nick":"\u2605\u2605\u2606\u2606\u2606","color":"#3F8FD8","bg":"#E0EEFF","one":"맞춰 갈수록 단단해지는 사이","sec":[["\ud83d\udc9e 궁합 해석","txt","잘 맞는 부분보다 다른 부분이 조금 더 많은 조합이에요. 노력 없이 저절로 편해지는 관계는 아니지만, 서로를 이해하려는 마음이 있다면 오래 갈수록 깊어지는 궁합이에요."],["\u2728 잘 맞는 점","list",["서로 다른 장점이 균형을 만들어요","함께 정한 규칙이 관계를 지켜 줘요"]],["\u26a0\ufe0f 조심할 점","list",["연락과 약속 스타일 차이를 미리 맞추기","감정 표현 방식이 달라 서운함이 생길 수 있어요"]],["\ud83d\udc8c 연애 꿀팁","note","서로가 사랑을 느끼는 방식(말, 행동, 시간, 선물)을 물어보세요. 같은 마음도 표현 방식이 달라서 전달이 안 될 때가 많아요."]]},"g3":{"name":"무난한 궁합","nick":"\u2605\u2605\u2605\u2606\u2606","color":"#2FA57A","bg":"#DDF5EA","one":"편안하고 안정적인 사이","sec":[["\ud83d\udc9e 궁합 해석","txt","크게 부딪히지도, 아주 찰떡같지도 않은 무난한 조합이에요. 비슷한 점 덕분에 편안하고, 다른 점은 적당한 자극이 돼요. 함께 시간을 보낼수록 장점이 드러나는 궁합이에요."],["\u2728 잘 맞는 점","list",["큰 갈등 없이 편안하게 지내요","서로의 생활을 존중할 수 있어요"]],["\u26a0\ufe0f 조심할 점","list",["익숙해지면 설렘이 줄어들 수 있어요","중요한 결정은 충분히 대화하기"]],["\ud83d\udc8c 연애 꿀팁","note","가끔은 평소와 다른 데이트로 관계에 새 바람을 넣어 주세요. 무난한 궁합은 작은 이벤트에 크게 반응해요."]]},"g4":{"name":"찰떡 궁합","nick":"\u2605\u2605\u2605\u2605\u2606","color":"#E89B2E","bg":"#FFF1D6","one":"말이 잘 통하고 함께 있으면 즐거운 사이","sec":[["\ud83d\udc9e 궁합 해석","txt","세상을 보는 방식이 비슷하면서도 서로를 보완해 주는 좋은 조합이에요. 대화가 잘 통하고, 다툼이 생겨도 금방 이해하고 풀 수 있어요. 친구처럼 편하면서도 연인으로서의 설렘도 놓치지 않는 궁합이에요."],["\u2728 잘 맞는 점","list",["대화가 잘 통하고 웃음 코드가 비슷해요","서로의 부족한 부분을 채워 줘요"]],["\u26a0\ufe0f 조심할 점","list",["편해서 소홀해지지 않도록 표현 챙기기","닮은 부분에서 고집이 부딪칠 수 있어요"]],["\ud83d\udc8c 연애 꿀팁","note","지금처럼 대화를 많이 나누는 게 최고의 비결이에요. 고마운 점은 바로바로 말로 표현해 주세요."]]},"g5":{"name":"천생연분","nick":"\u2605\u2605\u2605\u2605\u2605","color":"#E0457A","bg":"#FFE3EA","one":"MBTI가 인정한 운명의 짝꿍","sec":[["\ud83d\udc9e 궁합 해석","txt","같은 방식으로 세상을 보면서, 에너지와 생활 리듬은 서로 반대라 완벽하게 균형을 이루는 조합이에요. 말하지 않아도 마음이 통하고, 서로의 빈자리를 자연스럽게 채워 줘요. MBTI 궁합표에서 천생연분으로 꼽히는 조합이에요."],["\u2728 잘 맞는 점","list",["깊은 대화가 끝없이 이어져요","서로의 단점까지 매력으로 보여요","함께 있으면 나다워져요"]],["\u26a0\ufe0f 조심할 점","list",["완벽한 궁합이라 믿고 노력을 멈추지 않기"]],["\ud83d\udc8c 연애 꿀팁","note","좋은 궁합은 출발선일 뿐이에요. 서로를 향한 작은 관심을 꾸준히 이어 가면 진짜 운명이 될 거예요."]]}},"share":{"t":"우리 MBTI 궁합은 {name}! ({pct}점)","d":"{one} | MBTI 궁합 테스트"},"name":"MBTI 궁합 테스트","bands":[[20,"g1"],[40,"g2"],[60,"g3"],[80,"g4"],[100,"g5"]],"gauge":"MBTI 궁합 점수","friend":"친구의 MBTI 궁합은","lt":{"EI_s":"에너지 방향이 같아 데이트 취향이 잘 맞아요. 다만 둘 다 같은 쪽으로 치우치면 새로운 자극이 부족할 수 있어요.","EI_d":"외향과 내향이 만나 서로의 부족한 에너지를 채워 줘요. 약속 빈도는 미리 맞춰 두면 좋아요.","SN_s":"세상을 보는 방식이 같아서 대화가 잘 통해요. 궁합에서 가장 중요한 글자예요.","SN_d":"현실형과 상상형이 만나 대화의 결이 다를 수 있어요. 서로의 관점이 새롭게 느껴지는 매력이 있어요.","TF_s":"판단하는 방식이 비슷해서 갈등이 생겨도 이해하기 쉬워요.","TF_d":"논리와 감정이 만나 균형을 이뤄요. 위로가 필요할 땐 해결책보다 공감을 먼저 건네 보세요.","JP_s":"생활 리듬이 비슷해서 계획을 세우거나 여행할 때 편해요.","JP_d":"계획형과 즉흥형이 만나 서로를 보완해요. 여행 계획은 큰 틀만 함께 정하는 걸 추천해요."},"ltTitle":"\ud83d\udd0d 글자별 궁합 분석","theme":{"main":"#E0457A"},"img":{"g1":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiMntBgNQ63YKJRJc6t3iQEIu2Yz9yTZb-FsdxQSFObvvHvoZ_YU5TtRKwouwE_bR_9DguqldcefrB6-trErC7Mf-U2tmlnBV4JH2DDW89VSYDOC0C5mnYKboKgW3AUOc8WAO1zhFHz9eUs2VyVh95HZ3bBbgTJShhhEBczfbo_wSd7ePgen_vlP0nxNpAf/s1600/mbti-compatibility-test-result-g1.png","g2":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhI_glAvEkdh1M29Nx6E64GRYX7QpEMgyS-ASjya3UFCJcxZys87OZh6UswkPQzXKEzJZxW9vzWVdb8YrHsGn_YYCeFZ_iZ77QmmUfAbLPJETpDjwl1DUO7lDx3WT2ydg7GqEo5OkN54X-jAdOUO5LFig5gSbkvVc2t2w0G_z4XryWxziZGNWLem9q8dNqd/s1600/mbti-compatibility-test-result-g2.png","g3":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhfov5tHgMclEs4vXr3YZ7A0gV0TRjiE0rlu2BxDqSkZE-t8gJ2ov3cPe2t39koCZjgpZWg6eBdlMcsT36Qs7bf_bkxlc7a2XawToCeXJEKIXBVea8FNCp2x7qLWBFPVypOdHNegkAQaeDnzma9gzSZWx8Pr5awuELxrXQAMJtwfr_IHXbdloItTik1sDQB/s1600/mbti-compatibility-test-result-g3.png","g4":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh0HCMvpRAnVqMBaxppxO0yYJ06gV-uaD1c0XfTkvcGBj16IuN8OFZQjLTc9wko57P_TfsNKqkG5HotGMaw5Mg1MZHViJI-yMk0llTpICSnXxXTJ03PQs7zemEpubsi8OjIqW8RkVrXbF8Ba9uEnEWZc_nO-pJwhPOmjATdTmY4GbUtLy2C3rg-mDeEWeoT/s1600/mbti-compatibility-test-result-g4.png","g5":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhrj0H43_xK_jcmSaDz-xc2pMkcOy_DoK5REF6-XqMUVk5Pp0DUCGtp9KIvuZq9svS5mKIH5X9C5cDhlImheWyH3Sz-jHgvNYiWj0OzlQGu6lQpBRhUazOA6HSJ-pD6gI5YB5kWMYiuuYffOs3zAgYhYJC-bX95UbN0Qni4uSaYcRZexvj3E1YhWR4THycI/s1600/mbti-compatibility-test-result-g5.png"},"grade":function(a,b){var s=0;if(a.charAt(1)===b.charAt(1))s+=2;if(a.charAt(0)!==b.charAt(0))s+=1;if(a.charAt(3)!==b.charAt(3))s+=1;if(a.charAt(2)===b.charAt(2))s+=0.5;var k=s>=4?'g5':s>=3?'g4':s>=2?'g3':s>=1?'g2':'g1';return {key:k,pct:Math.round(s/4.5*100)};}};
+  (function D(o){ for (var k in o){ if (typeof o[k] === 'string') o[k] = o[k].replace(/&#(\d+);/g, function(a, n){ return String.fromCodePoint(+n); }); else if (o[k] && typeof o[k] === 'object') D(o[k]); } })(S);
+  var KAKAO_KEY = '7ddee789fac314a1a3a712d361c76c21';
+  var P = 'tq07';
+  var DOT = ' ' + String.fromCharCode(183) + ' ';
+  var L5 = ['전혀 아니다','아닌 편이다','보통이다','그런 편이다','매우 그렇다'];
+  var $ = function(id){ return document.getElementById(P + '-' + id); };
+  var ans = [], cur = 0, R = null, T = null, left = 0, names = ['A','B'];
+  var PAIR = S.mode === 'pair';
+  var TOTAL = PAIR ? S.q.length * 2 : S.q.length;
+
+  function show(id){
+    var s = document.querySelectorAll('#' + P + '-app .q-screen');
+    for (var i = 0; i < s.length; i++) s[i].classList.remove('on');
+    $(id).classList.add('on');
+    var top = $('app').getBoundingClientRect().top + window.pageYOffset - 70;
+    if (window.pageYOffset > top) window.scrollTo(0, top);
+  }
+  function toast(m){ var t = $('toast'); t.textContent = m; t.classList.add('on'); setTimeout(function(){ t.classList.remove('on'); }, 1800); }
+  function dec(s){ return String(s).replace(/&#(\d+);/g, function(a, n){ return String.fromCodePoint(+n); }); }
+  function esc(s){ return dec(s).replace(/&/g,'&amp;').replace(/</g,'&lt;'); }
+  function fill(t, d){ return String(t).replace(/\{(\w+)\}/g, function(a, k){ return d[k] !== undefined ? d[k] : ''; }); }
+  function qi(){ return PAIR ? Math.floor(cur / 2) : cur; }
+
+  function opts(q){
+    if (q.lk !== undefined) return L5.map(function(t, i){ return {t:t, v:i + 1, likert:1}; });
+    return q.o.map(function(o, i){ return {t:o[0], v:i, svg:o[2]}; });
+  }
+
+  function renderQ(){
+    var q = S.q[qi()], o = opts(q), h = '';
+    $('cnt').textContent = cur + 1;
+    $('qno').innerHTML = 'Q' + (qi() + 1) + (PAIR ? '<span class="q-who">' + esc(names[cur % 2]) + '의 차례</span>' : '');
+    $('q').textContent = q.t;
+    $('fig').innerHTML = q.svg || '';
+    $('fig').style.display = q.svg ? 'block' : 'none';
+    $('bar').style.width = (cur / TOTAL * 100) + '%';
+    $('back').disabled = cur === 0;
+    var grid = o[0].svg;
+    for (var i = 0; i < o.length; i++) {
+      var sel = ans[cur] === o[i].v ? ' sel' : '';
+      if (grid) h += '<button type="button" class="q-opt' + sel + '" data-v="' + o[i].v + '">' + o[i].svg + '<span>' + esc(o[i].t) + '</span></button>';
+      else if (o[i].likert) { var sz = [22,18,14,18,22][i]; h += '<button type="button" class="q-opt' + sel + '" data-v="' + o[i].v + '"><i style="width:' + sz + 'px;height:' + sz + 'px"></i>' + esc(o[i].t) + '</button>'; }
+      else h += '<button type="button" class="q-opt' + sel + '" data-v="' + o[i].v + '"><b>' + 'ABCDEFGH'.charAt(i) + '</b><span>' + esc(o[i].t) + '</span></button>';
+    }
+    $('opts').className = grid ? 'q-grid' : '';
+    $('opts').innerHTML = h;
+  }
+
+  function maxW(q, k){
+    var m = 0; for (var i = 0; i < q.o.length; i++){ var w = q.o[i][1] || {}; if ((w[k] || 0) > m) m = w[k]; } return m;
+  }
+
+  function band(v){
+    for (var i = 0; i < S.bands.length; i++) if (v <= S.bands[i][0]) return S.bands[i][1];
+    return S.bands[S.bands.length - 1][1];
+  }
+
+  function compute(){
+    var t = {}, mx = {}, keys = S.keys, i, k, sum = 0, smax = 0, ok = 0;
+    for (i = 0; i < keys.length; i++){ t[keys[i]] = 0; mx[keys[i]] = 0; }
+    if (PAIR){
+      for (i = 0; i < S.q.length; i++) if (ans[i*2] === ans[i*2+1]) ok++;
+      var pp = Math.round(ok / S.q.length * 100);
+      return {key: band(pp), pct: pp, ok: ok};
+    }
+    for (i = 0; i < S.q.length; i++){
+      var q = S.q[i], v = ans[i];
+      if (S.mode === 'quiz'){ if (v === q.a) ok++; continue; }
+      if (q.lk !== undefined){
+        var val = (q.r ? 6 - v : v) - 1;
+        sum += val; smax += 4;
+        if (t[q.lk] !== undefined){ t[q.lk] += val; mx[q.lk] += 4; }
+      } else {
+        var w = (v === undefined ? {} : q.o[v][1]) || {};
+        for (k in w) if (t[k] !== undefined) t[k] += w[k];
+        for (k = 0; k < keys.length; k++) mx[keys[k]] += maxW(q, keys[k]);
+        if (q.o[0][1] && q.o[0][1].s !== undefined){ sum += (w.s || 0); smax += maxW(q, 's'); }
+      }
+    }
+    if (S.mode === 'quiz'){
+      var r = {key: band(ok), ok: ok, n: S.q.length, pct: Math.round(ok / S.q.length * 100)};
+      if (S.iq) r.iq = S.iq[ok];
+      return r;
+    }
+    if (S.mode === 'band'){ var p = smax ? Math.round(sum / smax * 100) : 0; return {key: band(p), pct: p}; }
+    if (S.mode === 'stats'){
+      var st = {}, tot = 0, tm = 0;
+      for (k = 0; k < keys.length; k++){ st[keys[k]] = mx[keys[k]] ? Math.round(t[keys[k]] / mx[keys[k]] * 100) : 0; tot += t[keys[k]]; tm += mx[keys[k]]; }
+      var tp = Math.round(tot / tm * 100);
+      return {key: band(tp), pct: tp, st: st};
+    }
+    // max
+    var best = keys[0], pos = 0;
+    for (k = 0; k < keys.length; k++){ var kk = keys[k]; if (t[kk] > t[best]) best = kk; pos += Math.max(t[kk], 0); }
+    var dist = {};
+    for (k = 0; k < keys.length; k++) dist[keys[k]] = pos ? Math.round(Math.max(t[keys[k]], 0) / pos * 100) : 0;
+    return {key: best, dist: dist};
+  }
+
+  function radar(st){
+    var keys = S.keys, n = keys.length, cx = 150, cy = 140, rr = 100, pts = [], grid = '', lab = '';
+    for (var g = 1; g <= 4; g++){
+      var gp = [];
+      for (var i = 0; i < n; i++){ var a = -Math.PI/2 + i * 2*Math.PI/n; gp.push((cx + Math.cos(a)*rr*g/4).toFixed(1) + ',' + (cy + Math.sin(a)*rr*g/4).toFixed(1)); }
+      grid += '<polygon points="' + gp.join(' ') + '" fill="none" stroke="#E2E0EE" stroke-width="1.5"/>';
+    }
+    for (var j = 0; j < n; j++){
+      var a2 = -Math.PI/2 + j * 2*Math.PI/n, v = Math.max(st[keys[j]], 6) / 100;
+      pts.push((cx + Math.cos(a2)*rr*v).toFixed(1) + ',' + (cy + Math.sin(a2)*rr*v).toFixed(1));
+      var lx = cx + Math.cos(a2)*(rr+24), ly = cy + Math.sin(a2)*(rr+18) + 5;
+      lab += '<text x="' + lx.toFixed(1) + '" y="' + ly.toFixed(1) + '" font-size="13" font-weight="700" text-anchor="middle" fill="currentColor">' + esc(S.statLabels[j]) + ' ' + st[keys[j]] + '</text>';
+    }
+    return '<svg class="q-radar" viewBox="-34 0 368 285">' + grid + '<polygon points="' + pts.join(' ') + '" fill="' + S.theme.main + '" fill-opacity=".35" stroke="' + S.theme.main + '" stroke-width="3" stroke-linejoin="round"/>' + lab + '</svg>';
+  }
+
+  function scoreBox(r, d){
+    var h = '';
+    if (S.mode === 'band' || PAIR || S.mode === 'select'){
+      var lvl = 0; for (var i = 0; i < S.bands.length; i++) if (S.bands[i][1] === r.key) lvl = i;
+      h += '<div class="q-big">' + r.pct + '%<small>' + esc(S.gauge || '점수') + '</small></div>';
+      h += '<div class="q-track" style="margin-top:10px"><i data-w="' + r.pct + '" style="background:' + d.color + '"></i></div>';
+      h += '<div class="q-steps">';
+      for (var j = 0; j < S.bands.length; j++) h += '<i' + (j <= lvl ? ' class="on" style="background:' + d.color + '"' : '') + '></i>';
+      h += '</div>';
+      if (PAIR){
+        h += '<table class="q-tbl" style="margin-top:16px"><tr><td><b>질문</b></td><td><b>' + esc(names[0]) + '</b></td><td><b>' + esc(names[1]) + '</b></td><td></td></tr>';
+        for (var q = 0; q < S.q.length; q++){
+          var a1 = S.q[q].o[ans[q*2]][0], a2 = S.q[q].o[ans[q*2+1]][0], same = ans[q*2] === ans[q*2+1];
+          h += '<tr><td>' + esc(S.q[q].sl || ('Q' + (q+1))) + '</td><td>' + esc(a1) + '</td><td>' + esc(a2) + '</td><td style="color:' + (same ? d.color : '#bbb') + ';font-weight:800">' + (same ? 'O' : 'X') + '</td></tr>';
+        }
+        h += '</table>';
+      }
+    } else if (S.mode === 'quiz'){
+      h += '<div class="q-big">' + (r.iq ? r.iq : r.ok + ' / ' + r.n) + '<small>' + esc(r.iq ? '추정 IQ (' + r.ok + ' / ' + r.n + ' 정답)' : (S.gauge || '정답 수')) + '</small></div>';
+      h += '<div class="q-track" style="margin-top:10px"><i data-w="' + r.pct + '" style="background:' + d.color + '"></i></div>';
+    } else if (S.mode === 'stats'){
+      h += radar(r.st);
+    } else if (S.dist){
+      var ks = S.keys.slice().sort(function(a, b){ return r.dist[b] - r.dist[a]; }).slice(0, S.dist);
+      for (var k = 0; k < ks.length; k++){
+        var dd = S.r[ks[k]];
+        h += '<div class="q-bar"><p><span>' + esc(dd.name) + '</span><span>' + r.dist[ks[k]] + '%</span></p><div class="q-track"><i data-w="' + r.dist[ks[k]] + '" style="background:' + dd.color + '"></i></div></div>';
+      }
+    }
+    return h;
+  }
+
+  function renderResult(r){
+    var d = S.r[r.key], h = '';
+    R = r;
+    $('rname').textContent = d.name;
+    $('rnick').textContent = d.nick;
+    $('rnick').style.background = d.color;
+    $('rnick').style.display = d.nick ? 'inline-block' : 'none';
+    $('rimg').src = S.img[r.key];
+    $('rimg').alt = S.name + ' 결과 ' + d.name + ' ' + (d.nick || '');
+    $('rone').textContent = String.fromCharCode(8220) + dec(d.one) + String.fromCharCode(8221);
+    $('rone').style.background = d.bg || '';
+    $('score').innerHTML = scoreBox(r, d);
+    if (r.pair && S.lt){
+      var A = r.pair.split(' + '), dims = ['EI','SN','TF','JP'];
+      h += '<h3 class="q-sec">' + esc(S.ltTitle || '글자별 궁합 분석') + '</h3><ul class="q-list">';
+      for (var z = 0; z < 4; z++){
+        var sm = A[0].charAt(z) === A[1].charAt(z);
+        h += '<li style="--c:' + d.color + '"><b>' + A[0].charAt(z) + ' + ' + A[1].charAt(z) + '</b> ' + esc(S.lt[dims[z] + (sm ? '_s' : '_d')]) + '</li>';
+      }
+      h += '</ul>';
+    }
+    for (var i = 0; i < d.sec.length; i++){
+      var s = d.sec[i];
+      h += '<h3 class="q-sec">' + esc(s[0]) + '</h3>';
+      if (s[1] === 'list'){ h += '<ul class="q-list">'; for (var j = 0; j < s[2].length; j++) h += '<li style="--c:' + d.color + '">' + esc(s[2][j]) + '</li>'; h += '</ul>'; }
+      else if (s[1] === 'note') h += '<p class="q-note">' + esc(s[2]) + '</p>';
+      else h += '<p class="q-txt">' + esc(s[2]) + '</p>';
+    }
+    if (d.match){
+      h += '<h3 class="q-sec">' + esc(S.matchTitle || '궁합') + '</h3><div class="q-match">';
+      for (var m = 0; m < d.match.length; m++){
+        var mk = d.match[m], md = S.r[mk[0]];
+        h += '<div class="q-mcard" style="background:' + (md.bg || '') + '"><em style="color:' + md.color + '">' + esc(mk[1]) + '</em><img src="' + S.img[mk[0]] + '" alt="' + esc(md.name) + '" loading="lazy"><b>' + esc(md.name) + '</b>' + esc(mk[2]) + '</div>';
+      }
+      h += '</div>';
+    }
+    $('rbody').innerHTML = h;
+    show('result');
+    setTimeout(function(){
+      var b = document.querySelectorAll('#' + P + '-score [data-w]');
+      for (var i = 0; i < b.length; i++) b[i].style.width = b[i].getAttribute('data-w') + '%';
+    }, 150);
+  }
+
+  function finish(){
+    if (T){ clearInterval(T); T = null; }
+    $('bar').style.width = '100%';
+    show('loading');
+    var r = compute();
+    setTimeout(function(){ renderResult(r); }, 1500);
+  }
+
+  function shareUrl(){ return location.protocol + '//' + location.host + location.pathname + (R ? '?r=' + R.key : ''); }
+  function shareData(){
+    var d = S.r[R.key], x = {name: d.name, nick: d.nick || '', one: d.one, pct: R.pct, iq: R.iq || '', ok: R.ok, a: names[0], b: names[1]};
+    return {t: fill(S.share.t, x), d: fill(S.share.d, x)};
+  }
+
+  function tick(){
+    left--; var m = Math.floor(left / 60), s = left % 60;
+    $('timer').textContent = m + ':' + (s < 10 ? '0' : '') + s;
+    if (left <= 0) finish();
+  }
+
+  function start(){
+    ans = []; cur = 0;
+    if (PAIR){
+      var a = $('n1').value.replace(/^\s+|\s+$/g, ''), b = $('n2').value.replace(/^\s+|\s+$/g, '');
+      names = [a || '첫 번째 사람', b || '두 번째 사람'];
+    }
+    renderQ(); show('quiz');
+    if (S.timer){ left = S.timer + 1; tick(); T = setInterval(tick, 1000); }
+  }
+
+  if (S.mode === 'select'){
+    $('go').onclick = function(){
+      var a = $('s1').value, b = $('s2').value;
+      if (!a || !b){ toast('두 사람의 유형을 골라 주세요'); return; }
+      show('loading');
+      var g = S.grade(a, b);
+      setTimeout(function(){ renderResult({key: g.key, pct: g.pct, pair: a + ' + ' + b}); $('rlabel').textContent = a + ' + ' + b + ' 궁합은'; }, 1200);
+    };
+  } else {
+    $('go').onclick = start;
+  }
+  $('back').onclick = function(){ if (cur > 0){ cur--; renderQ(); } };
+  $('opts').onclick = function(e){
+    var b = e.target.closest ? e.target.closest('.q-opt') : null;
+    if (!b) return;
+    ans[cur] = +b.getAttribute('data-v');
+    var all = $('opts').querySelectorAll('.q-opt');
+    for (var i = 0; i < all.length; i++) all[i].classList.remove('sel');
+    b.classList.add('sel');
+    setTimeout(function(){ if (cur < TOTAL - 1){ cur++; renderQ(); } else finish(); }, 220);
+  };
+  $('retry').onclick = function(){ R = null; show('start'); };
+  $('copy').onclick = function(){
+    var u = shareUrl();
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(u).then(function(){ toast('링크를 복사했어요'); }, function(){ prompt('링크를 복사하세요', u); });
+    else prompt('링크를 복사하세요', u);
+  };
+  $('share').onclick = function(){
+    var u = shareUrl(), sd = shareData();
+    if (window.Kakao && Kakao.Share){
+      try {
+        if (!Kakao.isInitialized()) Kakao.init(KAKAO_KEY);
+        Kakao.Share.sendDefault({objectType: 'feed',
+          content: {title: sd.t, description: sd.d, imageUrl: S.img[R.key], imageWidth: 800, imageHeight: 800, link: {mobileWebUrl: u, webUrl: u}},
+          buttons: [{title: '나도 해보기', link: {mobileWebUrl: u, webUrl: u}}]});
+        return;
+      } catch (err) {}
+    }
+    if (navigator.share) navigator.share({title: S.name, text: sd.t, url: u}).catch(function(){});
+    else $('copy').onclick();
+  };
+  try { if (window.Kakao && !Kakao.isInitialized()) Kakao.init(KAKAO_KEY); } catch (e) {}
+  var fm = location.search.match(/[?&]r=([a-z0-9_]+)/);
+  if (fm && S.r[fm[1]]){
+    var f = S.r[fm[1]];
+    $('friend').innerHTML = esc(S.friend || '친구의 결과는') + ' <b>' + esc(f.name) + (f.nick ? DOT + esc(f.nick) : '') + '</b>!<br>나는 어떤 결과가 나올까요?';
+    $('friend').classList.add('on');
+  }
+})();
+
+//]]>
+</script>

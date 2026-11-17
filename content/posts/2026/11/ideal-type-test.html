@@ -1,0 +1,469 @@
+<link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@700&family=Jua&display=swap" rel="stylesheet">
+<style>
+#tq05-app,#tq05-app *,.tq05-seo,.tq05-seo *{box-sizing:border-box}
+#tq05-app{--ink:#3D3557;--sub:#6A6280;--main:#9B5CF0;--soft:#F2EAFF;--line:#E2D4FA;--dark:#7638D6;--hf:'Jua',sans-serif;max-width:560px;margin:0 auto 28px;color:var(--ink);font-size:16px;line-height:1.65;word-break:keep-all}
+#tq05-app .q-screen{display:none}
+#tq05-app .q-screen.on{display:block;animation:tq05In .35s ease}
+@keyframes tq05In{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+#tq05-app .q-panel{background:#fff;border:2px solid var(--line);border-radius:26px;padding:24px 20px;box-shadow:0 8px 24px rgba(0,0,0,.06)}
+#tq05-app .q-hf{font-family:var(--hf);font-weight:400}
+#tq05-app .q-badge{display:inline-block;margin:0 0 10px;padding:4px 14px;border-radius:99px;background:var(--soft);color:var(--main);font-size:14px;font-weight:700}
+#tq05-app .q-title{margin:0 0 14px;font-family:var(--hf);font-weight:400;font-size:31px;line-height:1.3;color:var(--ink)}
+#tq05-app .q-title b{color:var(--main);font-weight:400}
+#tq05-app img{display:block;max-width:100%;height:auto;margin:0 auto;border-radius:20px}
+#tq05-app .q-meta{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:16px 0 4px}
+#tq05-app .q-meta span{padding:5px 12px;border-radius:99px;background:#fff;border:1px solid var(--line);font-size:14px;color:var(--sub)}
+#tq05-app .q-lead{margin:14px 0 18px;color:var(--sub);font-size:15px}
+#tq05-app .q-btn{display:block;width:100%;border:0;border-radius:18px;padding:16px;background:var(--main);color:#fff;font-family:var(--hf);font-size:21px;cursor:pointer;box-shadow:0 5px 0 var(--dark);transition:transform .1s}
+#tq05-app .q-btn:active{transform:translateY(3px);box-shadow:0 2px 0 var(--dark)}
+#tq05-app .q-start{text-align:center}
+#tq05-app .q-friend{display:none;margin:0 0 14px;padding:14px 16px;border-radius:18px;background:#FFF4D9;border:2px dashed #F2C46B;text-align:center;font-size:15px}
+#tq05-app .q-friend.on{display:block}
+#tq05-app .q-friend b{color:#D9822B}
+#tq05-app .q-inp{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 16px}
+#tq05-app .q-inp input,#tq05-app .q-inp select{width:100%;padding:12px;border:2px solid var(--line);border-radius:14px;font-size:16px;text-align:center;color:var(--ink);background:#fff;font-family:inherit}
+#tq05-app .q-inp label{display:block;font-size:13px;color:var(--sub);margin:0 0 4px}
+#tq05-app .q-top{display:flex;align-items:center;justify-content:space-between;margin:0 4px 10px;font-size:15px;color:var(--sub)}
+#tq05-app .q-back{border:0;background:none;color:var(--sub);font-size:15px;cursor:pointer;padding:6px 4px;font-family:inherit}
+#tq05-app .q-back[disabled]{visibility:hidden}
+#tq05-app .q-timer{font-weight:800;color:var(--main)}
+#tq05-app .q-prog{height:12px;border-radius:99px;background:var(--soft);overflow:hidden;margin-bottom:14px}
+#tq05-app .q-prog i{display:block;height:100%;width:0;border-radius:99px;background:var(--main);transition:width .3s}
+#tq05-app .q-qno{margin:0 0 6px;font-family:var(--hf);font-size:18px;color:var(--main)}
+#tq05-app .q-who{display:inline-block;margin-left:8px;padding:2px 10px;border-radius:99px;background:var(--soft);font-size:14px}
+#tq05-app .q-q{margin:0 0 20px;font-size:20px;font-weight:700;line-height:1.5;min-height:60px;color:var(--ink)}
+#tq05-app .q-fig{margin:0 0 16px;text-align:center}
+#tq05-app .q-fig svg{max-width:100%;height:auto}
+#tq05-app .q-opt{display:flex;align-items:center;gap:12px;width:100%;margin:0 0 10px;padding:13px 16px;border:2px solid var(--line);border-radius:16px;background:#fff;color:var(--ink);font-size:16px;text-align:left;cursor:pointer;transition:all .15s;font-family:inherit;line-height:1.45}
+@media (hover:hover){#tq05-app .q-opt:hover{border-color:var(--main);background:var(--soft)}}
+#tq05-app .q-opt.sel{border-color:var(--main);background:var(--soft)}
+#tq05-app .q-opt i{flex:0 0 auto;border-radius:50%;border:2px solid var(--line);background:#fff}
+#tq05-app .q-opt.sel i{background:var(--main);border-color:var(--main)}
+#tq05-app .q-opt b{flex:0 0 auto;width:26px;height:26px;border-radius:50%;background:var(--soft);color:var(--main);font-size:14px;display:flex;align-items:center;justify-content:center}
+#tq05-app .q-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+#tq05-app .q-grid .q-opt{display:block;padding:8px;text-align:center}
+#tq05-app .q-grid .q-opt svg{width:100%;height:auto}
+#tq05-app .q-load{text-align:center;padding:40px 10px}
+#tq05-app .q-load img{width:62%;animation:tq05Bob 1s ease-in-out infinite alternate}
+@keyframes tq05Bob{to{transform:translateY(-10px)}}
+#tq05-app .q-load p{margin:18px 0 0;font-family:var(--hf);font-size:21px}
+#tq05-app .q-rhead{text-align:center}
+#tq05-app .q-rlabel{margin:0;color:var(--sub);font-size:15px}
+#tq05-app .q-rname{margin:2px 0 0;font-family:var(--hf);font-weight:400;font-size:38px;line-height:1.25}
+#tq05-app .q-rnick{display:inline-block;margin:6px 0 16px;padding:4px 16px;border-radius:99px;color:#fff;font-family:var(--hf);font-size:18px}
+#tq05-app .q-one{margin:16px 0 0;padding:14px 16px;border-radius:18px;background:var(--soft);text-align:center;font-family:var(--hf);font-size:20px;line-height:1.45}
+#tq05-app .q-score{margin:18px 0 0}
+#tq05-app .q-big{text-align:center;font-family:var(--hf);font-size:44px;line-height:1.1;color:var(--main)}
+#tq05-app .q-big small{display:block;font-size:15px;color:var(--sub);font-family:inherit}
+#tq05-app .q-bar{margin:0 0 10px}
+#tq05-app .q-bar p{margin:0 0 4px;display:flex;justify-content:space-between;font-size:14px;font-weight:700}
+#tq05-app .q-track{height:12px;border-radius:99px;background:var(--soft);overflow:hidden}
+#tq05-app .q-track i{display:block;height:100%;border-radius:99px;width:0;transition:width .8s ease;background:var(--main)}
+#tq05-app .q-steps{display:flex;gap:6px;justify-content:center;margin:10px 0 0}
+#tq05-app .q-steps i{width:34px;height:12px;border-radius:99px;background:var(--soft)}
+#tq05-app .q-steps i.on{background:var(--main)}
+#tq05-app .q-radar{display:block;margin:0 auto;max-width:300px}
+#tq05-app .q-sec{margin:26px 0 8px;font-size:18px;font-weight:800;color:var(--ink)}
+#tq05-app .q-txt{margin:0;color:var(--sub)}
+#tq05-app .q-list{margin:0;padding:0;list-style:none}
+#tq05-app .q-list li{position:relative;margin:0 0 8px;padding:10px 12px 10px 38px;border-radius:14px;background:#FAFAFD;border:1px solid var(--line);color:var(--sub);font-size:15px}
+#tq05-app .q-list li:before{content:'';position:absolute;left:14px;top:18px;width:10px;height:10px;border-radius:50%;background:var(--c,var(--main))}
+#tq05-app .q-note{margin:0;padding:14px 16px;border-radius:16px;border:2px dashed var(--line);color:var(--sub);font-size:15px}
+#tq05-app .q-match{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+#tq05-app .q-mcard{padding:12px;border-radius:18px;text-align:center;font-size:13px;color:var(--sub);background:var(--soft)}
+#tq05-app .q-mcard img{width:78%;border-radius:14px;margin-bottom:6px}
+#tq05-app .q-mcard b{display:block;font-family:var(--hf);font-weight:400;font-size:17px;color:var(--ink)}
+#tq05-app .q-mcard em{display:inline-block;margin-bottom:6px;padding:2px 10px;border-radius:99px;background:#fff;font-style:normal;font-size:12px;font-weight:700}
+#tq05-app .q-tbl{width:100%;border-collapse:collapse;font-size:14px}
+#tq05-app .q-tbl td{padding:8px;border-bottom:1px solid var(--line)}
+#tq05-app .q-warn{margin:22px 0 0;font-size:12px;color:var(--sub);opacity:.75;text-align:center}
+#tq05-app .q-acts{display:grid;gap:10px;margin-top:20px}
+#tq05-app .q-kakao{background:#FEE500;color:#3A1D1D;box-shadow:0 5px 0 #D9C200}
+#tq05-app .q-kakao:active{box-shadow:0 2px 0 #D9C200}
+#tq05-app .q-sub2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+#tq05-app .q-ghost{border:2px solid var(--line);border-radius:16px;padding:12px;background:#fff;color:var(--ink);font-family:var(--hf);font-size:17px;cursor:pointer}
+#tq05-app .q-more{margin-top:22px;padding-top:18px;border-top:2px dashed var(--line)}
+#tq05-app .q-more p{margin:0 0 10px;font-weight:800}
+#tq05-app .q-more a{display:block;margin:0 0 8px;padding:12px 14px;border-radius:14px;background:var(--soft);color:var(--ink);text-decoration:none;font-size:15px}
+#tq05-app .q-toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%);padding:10px 18px;border-radius:99px;background:rgba(40,36,60,.92);color:#fff;font-size:14px;opacity:0;pointer-events:none;transition:opacity .25s;z-index:9999}
+#tq05-app .q-toast.on{opacity:1}
+.tq05-seo{max-width:680px;margin:36px auto 0;color:#3F3A4F;font-size:16px;line-height:1.8;word-break:keep-all}
+.tq05-seo h2{margin:38px 0 12px;padding-left:12px;border-left:6px solid #9B5CF0;font-size:22px;line-height:1.4;color:#3D3557}
+.tq05-seo h3{margin:24px 0 8px;font-size:18px;color:#3D3557}
+.tq05-seo p{margin:0 0 14px}
+.tq05-seo img{display:block;max-width:100%;height:auto;margin:10px auto 18px;border-radius:20px}
+.tq05-seo ul,.tq05-seo ol{margin:0 0 14px;padding-left:20px}
+.tq05-seo li{margin:0 0 6px}
+.tq05-seo .q-tw{overflow-x:auto;margin:0 0 16px}
+.tq05-seo table{width:100%;min-width:460px;border-collapse:collapse;font-size:14px}
+.tq05-seo th,.tq05-seo td{padding:10px 8px;border:1px solid #E2D4FA;text-align:center;vertical-align:middle}
+.tq05-seo th{background:#F2EAFF;color:#3D3557}
+.tq05-seo .q-faq{margin:0 0 12px;padding:14px 16px;border-radius:16px;background:#F2EAFF}
+.tq05-seo .q-faq h3{margin:0 0 6px;font-size:16px}
+.tq05-seo .q-faq p{margin:0}
+.tq05-seo .q-box{padding:14px 16px;border-radius:16px;background:#FFF8E6;font-size:14px;color:#6B5A2E}
+
+#tq05-app .q-panel{border:3px solid #fff;background:linear-gradient(#fff,#fff) padding-box,linear-gradient(135deg,#9B5CF0,#FFC6E0,#BFD9FF) border-box;border:3px solid transparent;box-shadow:0 10px 30px rgba(255,120,180,.15)}
+#tq05-app .q-title,#tq05-app .q-rname{font-family:'Gaegu','Jua',sans-serif;font-weight:700}
+#tq05-app .q-title{font-size:36px}
+#tq05-app .q-rname{font-size:42px}
+#tq05-app .q-badge:before,#tq05-app .q-badge:after{content:'\2726';margin:0 6px;font-size:11px}
+</style>
+
+<div id="tq05-app" class="st-anime">
+  <section id="tq05-start" class="q-screen on">
+    <div id="tq05-friend" class="q-friend"></div>
+    <div class="q-panel q-start">
+      <p class="q-badge">IDEAL TYPE</p>
+      <h2 class="q-title">내가 끌리는 <b>진짜 이상형</b>은?</h2>
+      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiiRXloKZCIt-I5yTzfZMW_Vc_2l81mAyG1j6s17fInoxdrywcZgis7i1XuULQO2zLGgQZKYCTM9JrsBo46cZGeAEy4AsDF31R_-YovIPoNzsw855T4NzWk_4Ir-AohOPs-P2sjWwOtZUbjD0nj5fMXntzvU0iHprJZAVRlW62OHtgBGDecnudhA5pY-LYF/s1600/ideal-type-test-thumbnail.png" alt="이상형 테스트 - 8가지 이상형 유형 애니 캐릭터 일러스트" width="1200" height="630">
+      <div class="q-meta"><span>15문항</span><span>약 2분</span><span>결과 8유형</span><span>밸런스 게임</span></div>
+      <p class="q-lead">말로 하는 이상형과 실제로 끌리는 사람은 다를 때가 많아요. 둘 중 더 끌리는 쪽을 직감으로 골라 보세요. 숨어 있던 나의 진짜 이상형을 찾아 드려요.</p>
+      
+      <button type="button" id="tq05-go" class="q-btn">테스트 시작하기</button>
+    </div>
+  </section>
+
+  <section id="tq05-quiz" class="q-screen">
+    <div class="q-top">
+      <button type="button" id="tq05-back" class="q-back">‹ 이전</button>
+      
+      <span><b id="tq05-cnt">1</b> / 15</span>
+    </div>
+    <div class="q-prog"><i id="tq05-bar"></i></div>
+    <div class="q-panel">
+      <p id="tq05-qno" class="q-qno">Q1</p>
+      <h3 id="tq05-q" class="q-q"></h3>
+      <div id="tq05-fig" class="q-fig"></div>
+      <div id="tq05-opts"></div>
+    </div>
+  </section>
+
+  <section id="tq05-loading" class="q-screen">
+    <div class="q-panel q-load">
+      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiiRXloKZCIt-I5yTzfZMW_Vc_2l81mAyG1j6s17fInoxdrywcZgis7i1XuULQO2zLGgQZKYCTM9JrsBo46cZGeAEy4AsDF31R_-YovIPoNzsw855T4NzWk_4Ir-AohOPs-P2sjWwOtZUbjD0nj5fMXntzvU0iHprJZAVRlW62OHtgBGDecnudhA5pY-LYF/s1600/ideal-type-test-thumbnail.png" alt="이상형 테스트 결과 분석 중">
+      <p>당신의 이상형을 그리는 중...</p>
+    </div>
+  </section>
+
+  <section id="tq05-result" class="q-screen">
+    <div class="q-panel">
+      <div class="q-rhead">
+        <p id="tq05-rlabel" class="q-rlabel">나의 진짜 이상형은</p>
+        <h2 id="tq05-rname" class="q-rname"></h2>
+        <span id="tq05-rnick" class="q-rnick"></span>
+        <img id="tq05-rimg" src="" alt="" width="800" height="800">
+      </div>
+      <p id="tq05-rone" class="q-one"></p>
+      <div id="tq05-score" class="q-score"></div>
+      <div id="tq05-rbody"></div>
+      <p class="q-warn">이 테스트는 재미로 보는 심리테스트예요. 결과는 참고용으로만 즐겨 주세요.</p>
+      <div class="q-acts">
+        <button type="button" id="tq05-share" class="q-btn q-kakao">결과 공유하기</button>
+        <div class="q-sub2">
+          <button type="button" id="tq05-copy" class="q-ghost">링크 복사</button>
+          <button type="button" id="tq05-retry" class="q-ghost">다시 하기</button>
+        </div>
+      </div>
+      <div class="q-more"><p>이 테스트도 해 보세요</p><a href="/search/label/%EC%97%B0%EC%95%A0">연애 테스트 전체 보기</a><a href="/2026/08/sound-on-love-instinct-test-mbti.html">MBTI 연애 테스트, 16가지 유형별 연애 성향</a><a href="/2026/07/blog-post_11.html">에겐 테토 테스트, 나의 연애 성향은?</a></div>
+    </div>
+  </section>
+  <div id="tq05-toast" class="q-toast"></div>
+</div>
+
+<div class="tq05-seo">
+
+  <h2>이상형 테스트란? 내가 끌리는 진짜 이상형 찾기</h2>
+  <p><strong>이상형 테스트</strong>는 둘 중 하나를 고르는 밸런스 게임으로 내가 실제로 끌리는 사람의 유형을 알아보는 연애 심리테스트예요. "이상형이 뭐야?"라는 질문에는 키, 얼굴, 성격처럼 조건을 말하기 쉽지만, 실제로 마음이 움직이는 순간은 조금 다를 때가 많아요.</p>
+  <p>이 테스트는 데이트, 연락, 다툼, 여행 같은 15가지 상황에서 더 끌리는 쪽을 고르게 해서 <strong>8가지 이상형 유형</strong> 중 가장 가까운 결과와 상위 3개 유형의 비율을 보여 줘요.</p>
+  <h2>8가지 이상형 유형 한눈에 보기</h2>
+  <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhmJxRFZizJZCLUb0gtIcX6JW0Abz4yrmY7fDwgAyDEhyphenhyphen4lAvtJQZM961CzFlZYx5v839jtI6mTKaDJRilPYUrM0q6a5nu3CM9EDMnjddshcTe1xIToAsIvLmxW2ynRTnbVDlHnHNPSqVh4z3_EebZxr2n3G2mY-zYolwfg0zwCLRsY-7aJTzUmpICERcV0/s1600/ideal-type-test-types.png" alt="이상형 테스트 8가지 이상형 유형 한눈에 보기" loading="lazy">
+  <div class="q-tw"><table>
+    <thead><tr><th>이상형 유형</th><th>한 줄 특징</th><th>만날 수 있는 곳</th></tr></thead>
+    <tbody>
+      <tr><td>다정다감 스윗형</td><td>작은 배려가 몸에 밴 사람</td><td>소모임, 소개팅</td></tr>
+      <tr><td>든든한 리더형</td><td>믿고 따라가고 싶은 사람</td><td>직장, 운영진 활동</td></tr>
+      <tr><td>유쾌한 개그형</td><td>같이 있으면 웃음이 끊이지 않는 사람</td><td>파티, 단체 활동</td></tr>
+      <tr><td>지적인 뇌섹형</td><td>대화가 잘 통하는 사람</td><td>독서 모임, 강연</td></tr>
+      <tr><td>시크한 츤츤형</td><td>나한테만 따뜻한 반전 매력</td><td>카페, 서점</td></tr>
+      <tr><td>순수한 청정형</td><td>맑고 꾸밈없는 사람</td><td>원데이 클래스, 공원</td></tr>
+      <tr><td>감성 예술가형</td><td>취향이 확고한 감성파</td><td>전시회, 공연장</td></tr>
+      <tr><td>에너자이저 활동형</td><td>함께 움직이며 즐기는 사람</td><td>러닝 크루, 여행 모임</td></tr>
+    </tbody>
+  </table></div>
+  <h2>말하는 이상형과 끌리는 이상형이 다른 이유</h2>
+  <p>사람들은 이상형을 이야기할 때 머릿속으로 정리한 조건을 말하지만, 실제로는 함께 있을 때의 기분이나 나를 대하는 태도에 더 크게 반응해요. 그래서 조건만으로 고른 사람보다 의외의 사람에게 마음이 가는 경우가 많아요. 이 테스트는 구체적인 상황에서 직감적으로 고른 답을 바탕으로 하기 때문에, 평소 생각하지 못했던 나의 취향을 발견할 수 있어요.</p>
+  <h2>이상형 테스트 결과 활용법</h2>
+  <ul>
+    <li><strong>상위 3개 유형을 함께 보기</strong>: 한 가지 유형보다 여러 성향의 조합이 진짜 이상형에 가까워요.</li>
+    <li><strong>만날 수 있는 곳 참고하기</strong>: 이상형이 자주 있는 장소와 모임을 찾아가 보세요.</li>
+    <li><strong>나와의 궁합 생각하기</strong>: 끌리는 사람과 편한 사람이 다를 수 있어요. 연애 유형 테스트와 함께 해 보면 더 좋아요.</li>
+  </ul>
+  <h2>자주 묻는 질문</h2>
+  <div class="q-faq"><h3>Q. 남녀 모두 할 수 있나요?</h3><p>네. 성별과 관계없이 내가 끌리는 사람의 성격과 분위기를 기준으로 결과가 나와요.</p></div>
+  <div class="q-faq"><h3>Q. 결과가 지금 좋아하는 사람과 달라요.</h3><p>이상형과 실제로 좋아하는 사람이 다른 건 자연스러운 일이에요. 오히려 그 사람의 어떤 점에 끌렸는지 돌아보는 계기가 될 수 있어요.</p></div>
+  <div class="q-faq"><h3>Q. 다시 하면 결과가 바뀌나요?</h3><p>밸런스 게임은 그날의 기분에 따라 답이 달라질 수 있어요. 상위 3개 유형은 비교적 비슷하게 나오는 편이에요.</p></div>
+
+</div>
+
+<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.4/kakao.min.js" crossorigin="anonymous"></script>
+<script>
+//<![CDATA[
+
+(function(){
+  var S = {"mode":"max","q":[{"t":"데이트가 끝난 뒤, 더 끌리는 사람은?","o":[["\"집에 잘 들어갔어?\" 먼저 연락하는 사람",{"warm":2,"pure":1}],["다음 데이트 계획을 먼저 짜 오는 사람",{"leader":2,"active":1}]]},{"t":"함께 있을 때 더 좋은 건?","o":[["매일 배꼽 잡게 웃겨 주는 사람",{"funny":2,"active":1}],["밤새 깊은 이야기를 나눌 수 있는 사람",{"smart":2,"artsy":1}]]},{"t":"더 끌리는 첫인상은?","o":[["차가워 보이지만 알고 보면 다정한 사람",{"cool":2,"smart":1}],["처음부터 해맑게 웃어 주는 사람",{"pure":2,"funny":1}]]},{"t":"함께 보내고 싶은 주말은?","o":[["전시회 보고 카페 투어",{"artsy":2,"smart":1}],["등산이나 캠핑으로 활동적인 하루",{"active":2,"leader":1}]]},{"t":"내가 힘들 때 곁에 있었으면 하는 사람은?","o":[["말없이 꼭 안아 주는 사람",{"warm":2,"cool":1}],["해결책을 같이 찾아 주는 사람",{"leader":2,"smart":1}]]},{"t":"받으면 더 감동인 선물은?","o":[["정성 가득한 손편지와 작은 선물",{"pure":2,"artsy":1}],["내가 지나가듯 말한 걸 기억해 둔 선물",{"warm":2,"smart":1}]]},{"t":"데이트할 때 더 좋은 사람은?","o":[["메뉴부터 코스까지 알아서 정하는 사람",{"leader":2,"cool":1}],["내가 원하는 대로 다 맞춰 주는 사람",{"warm":2,"pure":1}]]},{"t":"더 끌리는 스타일은?","o":[["깔끔한 셔츠, 단정한 스타일",{"cool":2,"smart":1}],["개성 넘치는 빈티지 스타일",{"artsy":2,"funny":1}]]},{"t":"더 좋은 연락 스타일은?","o":[["하루 종일 수다스러운 연락",{"funny":2,"warm":1}],["짧아도 진심이 담긴 연락",{"cool":2,"pure":1}]]},{"t":"다퉜을 때 더 좋은 사람은?","o":[["먼저 장난치며 풀어 주는 사람",{"funny":2,"pure":1}],["차분하게 대화로 푸는 사람",{"smart":2,"warm":1}]]},{"t":"같이 하고 싶은 취미는?","o":[["함께 땀 흘리며 운동하기",{"active":2,"leader":1}],["같이 음악 듣고 영화 보기",{"artsy":2,"warm":1}]]},{"t":"심쿵하는 순간은?","o":[["일할 때 진지하게 집중하는 모습",{"leader":2,"smart":1}],["아이처럼 해맑게 웃는 모습",{"pure":2,"funny":1}]]},{"t":"함께 가고 싶은 여행은?","o":[["계획 없이 떠나는 배낭여행",{"active":2,"funny":1}],["감성 숙소에서 쉬는 힐링 여행",{"artsy":2,"warm":1}]]},{"t":"질투할 때 더 좋은 사람은?","o":[["질투를 귀엽게 표현하는 사람",{"pure":2,"funny":1}],["질투나도 쿨하게 믿어 주는 사람",{"cool":2,"leader":1}]]},{"t":"꿈꾸는 미래의 연인은?","o":[["서로 자극을 주며 함께 성장하는 사람",{"smart":2,"active":1}],["매일이 즐거운 친구 같은 사람",{"funny":2,"active":1}]]}],"keys":["warm","leader","funny","smart","cool","pure","artsy","active"],"r":{"warm":{"name":"다정다감 스윗형","nick":"말 한마디도 따뜻한 사람","color":"#F2A33A","bg":"#FFF1D6","bg2":"#FFFFFF","one":"세심한 다정함에 마음이 녹는 당신","sec":[["\ud83d\udc98 이런 사람에게 끌려요","txt","화려한 매력보다 작은 배려에서 설렘을 느끼는 타입이에요. 내 기분을 먼저 알아채 주고, 사소한 이야기도 기억해 주는 사람에게 끌려요. 함께 있으면 마음이 편안해지는 사람이 당신의 진짜 이상형이에요."],["\u2728 내 이상형의 특징","list",["안부 연락을 먼저 챙겨요","말투와 행동이 부드러워요","내 이야기를 끝까지 들어 줘요"]],["\ud83d\udccd 이런 곳에서 만날 수 있어요","list",["소규모 동호회나 스터디","친구의 소개팅","봉사 활동 모임"]],["\ud83d\udca1 이상형을 만나는 팁","note","나도 상대의 작은 배려를 알아봐 주고 고마움을 표현해 보세요. 다정한 사람은 다정함을 알아주는 사람에게 끌려요."]]},"leader":{"name":"든든한 리더형","nick":"믿고 따라가고 싶은 사람","color":"#4F6BE0","bg":"#E3E8FF","bg2":"#FFFFFF","one":"기댈 수 있는 듬직함에 끌리는 당신","sec":[["\ud83d\udc98 이런 사람에게 끌려요","txt","결정을 척척 내리고 계획을 세우는 사람에게 매력을 느끼는 타입이에요. 힘들 때 해결책을 함께 찾아 주고, 앞장서서 길을 만들어 주는 든든함이 당신의 심장을 뛰게 해요."],["\u2728 내 이상형의 특징","list",["데이트 코스를 알아서 준비해요","책임감이 강하고 약속을 지켜요","위기 상황에서 침착해요"]],["\ud83d\udccd 이런 곳에서 만날 수 있어요","list",["직장이나 프로젝트 모임","운동 크루나 동아리 운영진","자기계발 모임"]],["\ud83d\udca1 이상형을 만나는 팁","note","리더형은 자신을 믿어 주는 사람에게 약해요. 상대의 결정을 응원하고 칭찬해 주세요."]]},"funny":{"name":"유쾌한 개그형","nick":"같이 있으면 웃음 폭발","color":"#F0643C","bg":"#FFE6DC","bg2":"#FFFFFF","one":"웃음 코드가 맞는 사람에게 빠지는 당신","sec":[["\ud83d\udc98 이런 사람에게 끌려요","txt","함께 있으면 웃음이 끊이지 않는 사람에게 끌리는 타입이에요. 힘든 날에도 장난 한마디로 기분을 풀어 주는 사람, 사소한 일상도 재미있게 만드는 사람이 당신의 이상형이에요."],["\u2728 내 이상형의 특징","list",["분위기 메이커 역할을 해요","다툼도 장난으로 부드럽게 풀어요","리액션이 크고 표정이 풍부해요"]],["\ud83d\udccd 이런 곳에서 만날 수 있어요","list",["친구들과의 술자리나 파티","예능 같은 단체 활동","게임이나 취미 커뮤니티"]],["\ud83d\udca1 이상형을 만나는 팁","note","내가 먼저 크게 웃어 주는 것만으로도 개그형의 마음을 사로잡을 수 있어요."]]},"smart":{"name":"지적인 뇌섹형","nick":"대화가 통하는 사람","color":"#2FA58C","bg":"#DDF4EE","bg2":"#FFFFFF","one":"깊은 대화에서 설렘을 느끼는 당신","sec":[["\ud83d\udc98 이런 사람에게 끌려요","txt","외모보다 대화가 통하는 사람에게 끌리는 타입이에요. 자기 분야에 대해 이야기할 때 눈이 반짝이는 사람, 내 생각을 존중하면서 새로운 관점을 알려 주는 사람에게 마음이 가요."],["\u2728 내 이상형의 특징","list",["아는 것이 많고 설명을 잘해요","감정보다 이성적으로 대화해요","함께 성장하는 관계를 원해요"]],["\ud83d\udccd 이런 곳에서 만날 수 있어요","list",["독서 모임이나 강연","스터디 카페, 도서관","전문 분야 세미나"]],["\ud83d\udca1 이상형을 만나는 팁","note","관심 있는 주제에 대해 질문해 보세요. 뇌섹형은 자신의 이야기에 귀 기울이는 사람에게 열려요."]]},"cool":{"name":"시크한 츤츤형","nick":"나한테만 따뜻한 사람","color":"#5C5A7A","bg":"#E8E7F2","bg2":"#FFFFFF","one":"반전 다정함에 무너지는 당신","sec":[["\ud83d\udc98 이런 사람에게 끌려요","txt","처음엔 차가워 보이지만 알고 보면 나에게만 다정한 사람에게 끌리는 타입이에요. 말수는 적어도 진심이 담긴 한마디, 무심한 듯 챙겨 주는 행동에서 큰 설렘을 느껴요."],["\u2728 내 이상형의 특징","list",["감정 표현은 적지만 행동으로 보여 줘요","깔끔하고 단정한 스타일","쉽게 흔들리지 않는 차분함"]],["\ud83d\udccd 이런 곳에서 만날 수 있어요","list",["조용한 카페나 서점","업무 미팅이나 수업","공통 지인의 모임"]],["\ud83d\udca1 이상형을 만나는 팁","note","시크한 사람에게는 부담스럽지 않은 꾸준함이 통해요. 천천히, 한결같이 다가가 보세요."]]},"pure":{"name":"순수한 청정형","nick":"맑고 해맑은 사람","color":"#FF6FA8","bg":"#FFE3EF","bg2":"#FFFFFF","one":"꾸밈없는 순수함에 끌리는 당신","sec":[["\ud83d\udc98 이런 사람에게 끌려요","txt","계산 없이 마음을 표현하는 맑은 사람에게 끌리는 타입이에요. 작은 일에도 크게 기뻐하고, 질투도 귀엽게 표현하는 사람을 보면 지켜 주고 싶은 마음이 생겨요."],["\u2728 내 이상형의 특징","list",["감정을 솔직하게 표현해요","작은 것에도 감동받아요","거짓말을 못 하는 투명함"]],["\ud83d\udccd 이런 곳에서 만날 수 있어요","list",["동네 산책길이나 공원","취미 클래스(베이킹, 공방)","봉사 활동"]],["\ud83d\udca1 이상형을 만나는 팁","note","진심은 진심을 알아봐요. 꾸미지 않은 나의 모습을 편하게 보여 주세요."]]},"artsy":{"name":"감성 예술가형","nick":"취향이 확고한 감성파","color":"#9B5CF0","bg":"#F2EAFF","bg2":"#FFFFFF","one":"독특한 취향과 감성에 반하는 당신","sec":[["\ud83d\udc98 이런 사람에게 끌려요","txt","자신만의 취향과 세계가 뚜렷한 사람에게 끌리는 타입이에요. 좋아하는 음악, 영화, 공간에 대한 이야기만으로도 대화가 깊어지고, 함께 감성을 나눌 수 있는 사람이 당신의 이상형이에요."],["\u2728 내 이상형의 특징","list",["음악, 영화, 그림 취향이 확고해요","분위기 있는 장소를 잘 알아요","감정을 섬세하게 표현해요"]],["\ud83d\udccd 이런 곳에서 만날 수 있어요","list",["전시회, 공연장","독립 서점이나 감성 카페","사진\u00b7그림 동호회"]],["\ud83d\udca1 이상형을 만나는 팁","note","상대가 좋아하는 작품을 함께 감상하고 느낌을 나눠 보세요. 감성의 교집합이 생기면 금방 가까워져요."]]},"active":{"name":"에너자이저 활동형","nick":"같이 뛰어놀 사람","color":"#16A3B8","bg":"#DDF6F9","bg2":"#FFFFFF","one":"활기찬 에너지에 끌리는 당신","sec":[["\ud83d\udc98 이런 사람에게 끌려요","txt","함께 움직이고 새로운 경험을 즐기는 사람에게 끌리는 타입이에요. 주말마다 어디론가 떠나고, 운동도 같이 하는 생동감 넘치는 연애를 꿈꿔요."],["\u2728 내 이상형의 특징","list",["운동이나 야외 활동을 좋아해요","즉흥 여행도 두렵지 않아요","긍정적이고 에너지가 넘쳐요"]],["\ud83d\udccd 이런 곳에서 만날 수 있어요","list",["러닝 크루, 클라이밍장","여행 동호회","페스티벌, 야외 행사"]],["\ud83d\udca1 이상형을 만나는 팁","note","같이 할 수 있는 활동을 먼저 제안해 보세요. 땀 흘리며 함께한 시간은 빠르게 가까워지는 지름길이에요."]]}},"share":{"t":"내 이상형은 {name}! {nick}","d":"{one} | 이상형 테스트"},"name":"이상형 테스트","dist":3,"friend":"친구의 이상형은","theme":{"main":"#9B5CF0"},"img":{"warm":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj3Zn7WBSkdoeUbtlTm27BdmQLhuVYAz5gyboFldZSPvvyBoagpcr1Myry9xYEtvpg65ErBBxDW08ZizK0RxCimXE18FTKmT5LHb4lRaMNk4WedzhVTlUdPVOSn8h1M9WyXofBr4cSrg-ihkI4VHe9ZXNTqVHRe4T9YZ41gUswUHj0EGYHRYiYG5W3SQUNg/s1600/ideal-type-test-result-warm.png","leader":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg-areVlXC9DFVSi1IcpKWCpN36TXkGrL5kJzurTmFNDIR0br0Ma4nm8xXMOyOpKVwixsa1R_mcxnh5Tj_gUtSDffZH9F7I5PofGv-111sJGFn11yRTu02iWFp4s_4BBlw7gtKW01FkscDJSdH81fZ_o_qjv_MwWgRomExqW_iwpgZPbsbhouFF2LlkPmrX/s1600/ideal-type-test-result-leader.png","funny":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjRpJByl0oB3PbfRGFPP_SfZ4Y4GmIFZnmj-A-k1xRCyL9nGm2_mjnCZr_Ssrq2gRJ3HadvngJ737fOoqRVFzmvqCAiKlhdTlJBGM2oxy0wtODxiswSWGxVcpfd_hSg3xJqhRfGAldlE4DrdBAJ7-p1hUc-EaBkfmYyFxqpcUHdOSrZPeT5B2HLAMSUrLwL/s1600/ideal-type-test-result-funny.png","smart":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEieYxkLfPR5u2QgzeA3reS4Ve3KAiN3kW3c3jvHLHpVpOUCO6cOGlw934mEKuhl_K_VIqSLsHv4U8WXNTpCokJfX7Sj_op5r7ya3S52JEbHcNa9RqOHFxq4-lEwAgaT2hugfkR8BeAhYX73Swt4fnaQetWAufpH80bGbwmkKRUAKURFND9-i6-OC5JdnXoF/s1600/ideal-type-test-result-smart.png","cool":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg0rvaIg1vbnBbQnW4TsAVAJsY3PQoOKzgKWoEKXR6tiRwZhaK-RoFLnzm3cqZ1wPY7G_pOHJgNbedpPcrxk7XdlZY7jQ209TqdlrbrkzXK0HO5kguRFz5SvJxY4Mes2NHuJW_BfK97K01QaMb2OqvE5PkvD_ruPX7oy3QUg6c_-Z6vg4r5bIbQWaZZqDgs/s1600/ideal-type-test-result-cool.png","pure":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh-6o0__ufL5vrZ3Nuftk-WXO8Z-NnKQgCcIGEh8klrm-ESXvIVJDo-psN9h62ChicDPNdNS3XLuV6VMuqkL3VImsDkAyw3yM-BRFq6mRe8xAXXxlmBeMPa8rKSs3PJt-CBJOZsGs0FLInevIje9VMIX6TI_urkmRsuzVQdK3BQk-Ls8nANoxhUfiBfHdmQ/s1600/ideal-type-test-result-pure.png","artsy":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhgWfP44LJm01lXjgAXojJOt_qJ5zVUniGN0LmFdP5E5_8EY9hpSs-bRlF4GK03F7uK7hjUu4a2InUB0n75eFhdhfJd6RMl0QwBl7ux8FnD4i2RgO2cB5F-IKcKcodOyN7dR43NcW1w3EXjnt1jq-cX93cAma3Gx2XhhIxzvlGmu3-9EUjNQQ46HmZuRcbT/s1600/ideal-type-test-result-artsy.png","active":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgf7Sl3RCESGkTecEreVAabstEGPgBD1iPY2NiJHf5lffeWHD0vNlisQ9bUkj8XU66zKMVED4yuEY1fVuTkNAA2SibwrEyanwd-JKEezLZgUYU4V3N2gh866iJMd1pJv3_oedo3uHJv1i_GecTuSvfrr2ys5F52jAzNmBmo10BcCnXNaVIqD_vsrJiGqkwI/s1600/ideal-type-test-result-active.png"}};
+  var KAKAO_KEY = '7ddee789fac314a1a3a712d361c76c21';
+  var P = 'tq05';
+  var DOT = ' ' + String.fromCharCode(183) + ' ';
+  var L5 = ['전혀 아니다','아닌 편이다','보통이다','그런 편이다','매우 그렇다'];
+  var $ = function(id){ return document.getElementById(P + '-' + id); };
+  var ans = [], cur = 0, R = null, T = null, left = 0, names = ['A','B'];
+  var PAIR = S.mode === 'pair';
+  var TOTAL = PAIR ? S.q.length * 2 : S.q.length;
+
+  function show(id){
+    var s = document.querySelectorAll('#' + P + '-app .q-screen');
+    for (var i = 0; i < s.length; i++) s[i].classList.remove('on');
+    $(id).classList.add('on');
+    var top = $('app').getBoundingClientRect().top + window.pageYOffset - 70;
+    if (window.pageYOffset > top) window.scrollTo(0, top);
+  }
+  function toast(m){ var t = $('toast'); t.textContent = m; t.classList.add('on'); setTimeout(function(){ t.classList.remove('on'); }, 1800); }
+  function dec(s){ return String(s).replace(/&#(\d+);/g, function(a, n){ return String.fromCodePoint(+n); }); }
+  function esc(s){ return dec(s).replace(/&/g,'&amp;').replace(/</g,'&lt;'); }
+  function fill(t, d){ return String(t).replace(/\{(\w+)\}/g, function(a, k){ return d[k] !== undefined ? d[k] : ''; }); }
+  function qi(){ return PAIR ? Math.floor(cur / 2) : cur; }
+
+  function opts(q){
+    if (q.lk !== undefined) return L5.map(function(t, i){ return {t:t, v:i + 1, likert:1}; });
+    return q.o.map(function(o, i){ return {t:o[0], v:i, svg:o[2]}; });
+  }
+
+  function renderQ(){
+    var q = S.q[qi()], o = opts(q), h = '';
+    $('cnt').textContent = cur + 1;
+    $('qno').innerHTML = 'Q' + (qi() + 1) + (PAIR ? '<span class="q-who">' + esc(names[cur % 2]) + '의 차례</span>' : '');
+    $('q').textContent = q.t;
+    $('fig').innerHTML = q.svg || '';
+    $('fig').style.display = q.svg ? 'block' : 'none';
+    $('bar').style.width = (cur / TOTAL * 100) + '%';
+    $('back').disabled = cur === 0;
+    var grid = o[0].svg;
+    for (var i = 0; i < o.length; i++) {
+      var sel = ans[cur] === o[i].v ? ' sel' : '';
+      if (grid) h += '<button type="button" class="q-opt' + sel + '" data-v="' + o[i].v + '">' + o[i].svg + '<span>' + esc(o[i].t) + '</span></button>';
+      else if (o[i].likert) { var sz = [22,18,14,18,22][i]; h += '<button type="button" class="q-opt' + sel + '" data-v="' + o[i].v + '"><i style="width:' + sz + 'px;height:' + sz + 'px"></i>' + esc(o[i].t) + '</button>'; }
+      else h += '<button type="button" class="q-opt' + sel + '" data-v="' + o[i].v + '"><b>' + 'ABCDEFGH'.charAt(i) + '</b><span>' + esc(o[i].t) + '</span></button>';
+    }
+    $('opts').className = grid ? 'q-grid' : '';
+    $('opts').innerHTML = h;
+  }
+
+  function maxW(q, k){
+    var m = 0; for (var i = 0; i < q.o.length; i++){ var w = q.o[i][1] || {}; if ((w[k] || 0) > m) m = w[k]; } return m;
+  }
+
+  function band(v){
+    for (var i = 0; i < S.bands.length; i++) if (v <= S.bands[i][0]) return S.bands[i][1];
+    return S.bands[S.bands.length - 1][1];
+  }
+
+  function compute(){
+    var t = {}, mx = {}, keys = S.keys, i, k, sum = 0, smax = 0, ok = 0;
+    for (i = 0; i < keys.length; i++){ t[keys[i]] = 0; mx[keys[i]] = 0; }
+    if (PAIR){
+      for (i = 0; i < S.q.length; i++) if (ans[i*2] === ans[i*2+1]) ok++;
+      var pp = Math.round(ok / S.q.length * 100);
+      return {key: band(pp), pct: pp, ok: ok};
+    }
+    for (i = 0; i < S.q.length; i++){
+      var q = S.q[i], v = ans[i];
+      if (S.mode === 'quiz'){ if (v === q.a) ok++; continue; }
+      if (q.lk !== undefined){
+        var val = (q.r ? 6 - v : v) - 1;
+        sum += val; smax += 4;
+        if (t[q.lk] !== undefined){ t[q.lk] += val; mx[q.lk] += 4; }
+      } else {
+        var w = (v === undefined ? {} : q.o[v][1]) || {};
+        for (k in w) if (t[k] !== undefined) t[k] += w[k];
+        for (k = 0; k < keys.length; k++) mx[keys[k]] += maxW(q, keys[k]);
+        if (q.o[0][1] && q.o[0][1].s !== undefined){ sum += (w.s || 0); smax += maxW(q, 's'); }
+      }
+    }
+    if (S.mode === 'quiz'){
+      var r = {key: band(ok), ok: ok, n: S.q.length, pct: Math.round(ok / S.q.length * 100)};
+      if (S.iq) r.iq = S.iq[ok];
+      return r;
+    }
+    if (S.mode === 'band'){ var p = smax ? Math.round(sum / smax * 100) : 0; return {key: band(p), pct: p}; }
+    if (S.mode === 'stats'){
+      var st = {}, tot = 0, tm = 0;
+      for (k = 0; k < keys.length; k++){ st[keys[k]] = mx[keys[k]] ? Math.round(t[keys[k]] / mx[keys[k]] * 100) : 0; tot += t[keys[k]]; tm += mx[keys[k]]; }
+      var tp = Math.round(tot / tm * 100);
+      return {key: band(tp), pct: tp, st: st};
+    }
+    // max
+    var best = keys[0], pos = 0;
+    for (k = 0; k < keys.length; k++){ var kk = keys[k]; if (t[kk] > t[best]) best = kk; pos += Math.max(t[kk], 0); }
+    var dist = {};
+    for (k = 0; k < keys.length; k++) dist[keys[k]] = pos ? Math.round(Math.max(t[keys[k]], 0) / pos * 100) : 0;
+    return {key: best, dist: dist};
+  }
+
+  function radar(st){
+    var keys = S.keys, n = keys.length, cx = 150, cy = 140, rr = 100, pts = [], grid = '', lab = '';
+    for (var g = 1; g <= 4; g++){
+      var gp = [];
+      for (var i = 0; i < n; i++){ var a = -Math.PI/2 + i * 2*Math.PI/n; gp.push((cx + Math.cos(a)*rr*g/4).toFixed(1) + ',' + (cy + Math.sin(a)*rr*g/4).toFixed(1)); }
+      grid += '<polygon points="' + gp.join(' ') + '" fill="none" stroke="#E2E0EE" stroke-width="1.5"/>';
+    }
+    for (var j = 0; j < n; j++){
+      var a2 = -Math.PI/2 + j * 2*Math.PI/n, v = Math.max(st[keys[j]], 6) / 100;
+      pts.push((cx + Math.cos(a2)*rr*v).toFixed(1) + ',' + (cy + Math.sin(a2)*rr*v).toFixed(1));
+      var lx = cx + Math.cos(a2)*(rr+24), ly = cy + Math.sin(a2)*(rr+18) + 5;
+      lab += '<text x="' + lx.toFixed(1) + '" y="' + ly.toFixed(1) + '" font-size="13" font-weight="700" text-anchor="middle" fill="currentColor">' + esc(S.statLabels[j]) + ' ' + st[keys[j]] + '</text>';
+    }
+    return '<svg class="q-radar" viewBox="0 0 300 280">' + grid + '<polygon points="' + pts.join(' ') + '" fill="' + S.theme.main + '" fill-opacity=".35" stroke="' + S.theme.main + '" stroke-width="3" stroke-linejoin="round"/>' + lab + '</svg>';
+  }
+
+  function scoreBox(r, d){
+    var h = '';
+    if (S.mode === 'band' || PAIR){
+      var lvl = 0; for (var i = 0; i < S.bands.length; i++) if (S.bands[i][1] === r.key) lvl = i;
+      h += '<div class="q-big">' + r.pct + '%<small>' + esc(S.gauge || '점수') + '</small></div>';
+      h += '<div class="q-track" style="margin-top:10px"><i data-w="' + r.pct + '" style="background:' + d.color + '"></i></div>';
+      h += '<div class="q-steps">';
+      for (var j = 0; j < S.bands.length; j++) h += '<i' + (j <= lvl ? ' class="on" style="background:' + d.color + '"' : '') + '></i>';
+      h += '</div>';
+    } else if (S.mode === 'quiz'){
+      h += '<div class="q-big">' + (r.iq ? r.iq : r.ok + ' / ' + r.n) + '<small>' + esc(r.iq ? '추정 IQ (' + r.ok + ' / ' + r.n + ' 정답)' : (S.gauge || '정답 수')) + '</small></div>';
+      h += '<div class="q-track" style="margin-top:10px"><i data-w="' + r.pct + '" style="background:' + d.color + '"></i></div>';
+    } else if (S.mode === 'stats'){
+      h += radar(r.st);
+    } else if (S.dist){
+      var ks = S.keys.slice().sort(function(a, b){ return r.dist[b] - r.dist[a]; }).slice(0, S.dist);
+      for (var k = 0; k < ks.length; k++){
+        var dd = S.r[ks[k]];
+        h += '<div class="q-bar"><p><span>' + esc(dd.name) + '</span><span>' + r.dist[ks[k]] + '%</span></p><div class="q-track"><i data-w="' + r.dist[ks[k]] + '" style="background:' + dd.color + '"></i></div></div>';
+      }
+    }
+    return h;
+  }
+
+  function renderResult(r){
+    var d = S.r[r.key], h = '';
+    R = r;
+    $('rname').textContent = d.name;
+    $('rnick').textContent = d.nick;
+    $('rnick').style.background = d.color;
+    $('rnick').style.display = d.nick ? 'inline-block' : 'none';
+    $('rimg').src = S.img[r.key];
+    $('rimg').alt = S.name + ' 결과 ' + d.name + ' ' + (d.nick || '');
+    $('rone').textContent = String.fromCharCode(8220) + dec(d.one) + String.fromCharCode(8221);
+    $('rone').style.background = d.bg || '';
+    $('score').innerHTML = scoreBox(r, d);
+    for (var i = 0; i < d.sec.length; i++){
+      var s = d.sec[i];
+      h += '<h3 class="q-sec">' + esc(s[0]) + '</h3>';
+      if (s[1] === 'list'){ h += '<ul class="q-list">'; for (var j = 0; j < s[2].length; j++) h += '<li style="--c:' + d.color + '">' + esc(s[2][j]) + '</li>'; h += '</ul>'; }
+      else if (s[1] === 'note') h += '<p class="q-note">' + esc(s[2]) + '</p>';
+      else h += '<p class="q-txt">' + esc(s[2]) + '</p>';
+    }
+    if (d.match){
+      h += '<h3 class="q-sec">' + esc(S.matchTitle || '궁합') + '</h3><div class="q-match">';
+      for (var m = 0; m < d.match.length; m++){
+        var mk = d.match[m], md = S.r[mk[0]];
+        h += '<div class="q-mcard" style="background:' + (md.bg || '') + '"><em style="color:' + md.color + '">' + esc(mk[1]) + '</em><img src="' + S.img[mk[0]] + '" alt="' + esc(md.name) + '" loading="lazy"><b>' + esc(md.name) + '</b>' + esc(mk[2]) + '</div>';
+      }
+      h += '</div>';
+    }
+    $('rbody').innerHTML = h;
+    show('result');
+    setTimeout(function(){
+      var b = document.querySelectorAll('#' + P + '-score [data-w]');
+      for (var i = 0; i < b.length; i++) b[i].style.width = b[i].getAttribute('data-w') + '%';
+    }, 150);
+  }
+
+  function finish(){
+    if (T){ clearInterval(T); T = null; }
+    $('bar').style.width = '100%';
+    show('loading');
+    var r = compute();
+    setTimeout(function(){ renderResult(r); }, 1500);
+  }
+
+  function shareUrl(){ return location.protocol + '//' + location.host + location.pathname + (R ? '?r=' + R.key : ''); }
+  function shareData(){
+    var d = S.r[R.key], x = {name: d.name, nick: d.nick || '', one: d.one, pct: R.pct, iq: R.iq || '', ok: R.ok};
+    return {t: fill(S.share.t, x), d: fill(S.share.d, x)};
+  }
+
+  function tick(){
+    left--; var m = Math.floor(left / 60), s = left % 60;
+    $('timer').textContent = m + ':' + (s < 10 ? '0' : '') + s;
+    if (left <= 0) finish();
+  }
+
+  function start(){
+    ans = []; cur = 0;
+    if (PAIR){
+      var a = $('n1').value.replace(/^\s+|\s+$/g, ''), b = $('n2').value.replace(/^\s+|\s+$/g, '');
+      names = [a || '첫 번째 사람', b || '두 번째 사람'];
+    }
+    renderQ(); show('quiz');
+    if (S.timer){ left = S.timer + 1; tick(); T = setInterval(tick, 1000); }
+  }
+
+  if (S.mode === 'select'){
+    $('go').onclick = function(){
+      var a = $('s1').value, b = $('s2').value;
+      if (!a || !b){ toast('두 사람의 유형을 골라 주세요'); return; }
+      show('loading');
+      var g = S.grade(a, b);
+      setTimeout(function(){ renderResult({key: g.key, pct: g.pct, pair: a + ' + ' + b}); $('rlabel').textContent = a + ' + ' + b + ' 궁합은'; }, 1200);
+    };
+  } else {
+    $('go').onclick = start;
+  }
+  $('back').onclick = function(){ if (cur > 0){ cur--; renderQ(); } };
+  $('opts').onclick = function(e){
+    var b = e.target.closest ? e.target.closest('.q-opt') : null;
+    if (!b) return;
+    ans[cur] = +b.getAttribute('data-v');
+    var all = $('opts').querySelectorAll('.q-opt');
+    for (var i = 0; i < all.length; i++) all[i].classList.remove('sel');
+    b.classList.add('sel');
+    setTimeout(function(){ if (cur < TOTAL - 1){ cur++; renderQ(); } else finish(); }, 220);
+  };
+  $('retry').onclick = function(){ R = null; show('start'); };
+  $('copy').onclick = function(){
+    var u = shareUrl();
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(u).then(function(){ toast('링크를 복사했어요'); }, function(){ prompt('링크를 복사하세요', u); });
+    else prompt('링크를 복사하세요', u);
+  };
+  $('share').onclick = function(){
+    var u = shareUrl(), sd = shareData();
+    if (window.Kakao && Kakao.Share){
+      try {
+        if (!Kakao.isInitialized()) Kakao.init(KAKAO_KEY);
+        Kakao.Share.sendDefault({objectType: 'feed',
+          content: {title: sd.t, description: sd.d, imageUrl: S.img[R.key], imageWidth: 800, imageHeight: 800, link: {mobileWebUrl: u, webUrl: u}},
+          buttons: [{title: '나도 해보기', link: {mobileWebUrl: u, webUrl: u}}]});
+        return;
+      } catch (err) {}
+    }
+    if (navigator.share) navigator.share({title: S.name, text: sd.t, url: u}).catch(function(){});
+    else $('copy').onclick();
+  };
+  try { if (window.Kakao && !Kakao.isInitialized()) Kakao.init(KAKAO_KEY); } catch (e) {}
+  var fm = location.search.match(/[?&]r=([a-z0-9_]+)/);
+  if (fm && S.r[fm[1]]){
+    var f = S.r[fm[1]];
+    $('friend').innerHTML = esc(S.friend || '친구의 결과는') + ' <b>' + esc(f.name) + (f.nick ? DOT + esc(f.nick) : '') + '</b>!<br>나는 어떤 결과가 나올까요?';
+    $('friend').classList.add('on');
+  }
+})();
+
+//]]>
+</script>
